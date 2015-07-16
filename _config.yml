@@ -7,7 +7,7 @@ title: zaozaool's BLOG
 subtitle: Why do java developers wear glasses? Because they don't C#.
 description: 
 author: zaozaool
-language: Node.js
+language: zh-CN
 timezone:
 
 # URL
@@ -48,6 +48,14 @@ default_category: uncategorized
 category_map:
 tag_map:
 
+# Archives
+#2: 开启分页
+#1: 禁用分页
+#0: 全部禁用
+archive: 2
+category: 2
+tag: 2
+
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
@@ -64,6 +72,7 @@ pagination_dir: page
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
 theme: landscape
+# theme: freemind
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
