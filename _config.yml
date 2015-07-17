@@ -71,8 +71,16 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: landscape
+theme: hexo-theme-light
+# theme: landscape
 # theme: freemind
+
+plugins:
+- hexo-generator-feed
+- hexo-generator-sitemap
+
+widgets:
+- weibo
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
