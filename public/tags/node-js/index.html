@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>node.js | 碼農、經緯</title>
+  <meta name="author" content="zaozaool">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="碼農、經緯"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="碼農、經緯" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">碼農、經緯</a></h1>
+  <h2><a href="/">Why do java developers wear glasses? Because they don&#39;t C#.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">node.js</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-17T06:35:12.000Z"><a href="/2015/07/17/Node.js学习笔记之 常用模块/">2015-07-17</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/17/Node.js学习笔记之 常用模块/">Node.js学习笔记之 常用模块</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.superagent：客户端请求代理模块，抓取页面用的（lession3）<br>2.cheerio：Node.js版的JQuery（lession3）<br>3.eventproxy：可以控制异步并发（lession4）<br>4.async：可以控制异步并发，并且可以自定义并发数（lession5）<br>5.should：断言库，用于后端测试，和mocha组合使用（lession6）<br>6.mocha：测试框架（lession6）<br>7.istanbul：测试率覆盖工具（lession6）<br>8.express：http server？过于低级，还是用一下express，能让你的生命美好一些，中等复杂度<br>9.chai：断言库，用于前端测试，和mocha组合使用（lession7）<br>10.phantomjs：一个拥有JavaScript API的无界面WebKit（Chrome、Safari都是有界面的WebKit），mocha-phantomjs<br>11.supertest：专门用来配合express进行集成测试的，和superagent具有相同的API（lession8）<br>12.mkdirp：一次性建立目标文件夹，而不是mkdir…cd…mkdir…cd…mkdir这样的模式<br>13.nodemon：自动检测 node.js 代码的改动，然后自动重启应用，完全用 nodemon 命令代替 node 命令（lession8）<br>14.bower：解决js的依赖管理<br>15.supervisor：supervisor自动重启应用，supervisor app<br>16.forever：forever可以看做是一个nodejs的守护进程，能够启动，停止，重启我们的app应用,<a href="http://tcrct.iteye.com/blog/2043644" target="_blank" rel="external">使用forever运行nodejs应用</a><br>17.pm2：PM2是Node.js应用程序的进程管理，目前已在生产环境被普遍使用,<a href="http://www.oschina.net/translate/goodbye-node-forever-hello-pm2?cmp" target="_blank" rel="external">告别node-forever,拥抱PM2</a></p>
+<p>更多请点击<a href="http://www.douban.com/note/303902955/" target="_blank" rel="external">node.js常用模块巡礼</a></p>
+<p><a href="http://zihua.li/2012/03/use-module-exports-or-exports-in-node" target="_blank" rel="external">module.exports和exports的区别</a></p>
+<p>npm i —save 与 npm i —save-dev 的区别，devDependencies与dependencies的区别</p>
+<p>req.query： 处理 get 请求，获取 get 请求参数<br>req.params： 处理 /:xxx 形式的 get 或 post 请求，获取请求参数<br>req.body： 处理 post 请求，获取 post 请求体<br>req.param()： 处理 get 和 post 请求，但查找优先级由高到低为 req.params→req.body→req.query</p>
+<p>ejs 的标签系统非常简单，它只有以下三种标签：<br>&lt;% code %&gt;：JavaScript 代码。<br>&lt;%= code %&gt;：显示替换过 HTML 特殊字符的内容。<br>&lt;%- code %&gt;：显示原始 HTML 内容。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-17T06:32:40.000Z"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">2015-07-17</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">supervisor vs pm2 vs forever</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>使用场合不一样:<br>supervisor 是开发环境用。<br>forever 管理多个站点，每个站访问量不大，不需要监控。<br>pm2 网站访问量比较大，需要完整的监控界面。<br><a href="http://www.oschina.net/translate/goodbye-node-forever-hello-pm2?cmp" target="_blank" rel="external">告别node-forever,拥抱PM2</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/javascript/">javascript</a><small>1</small></li>
+  
+    <li><a href="/tags/node-js/">node.js</a><small>2</small></li>
+  
+    <li><a href="/tags/备忘/">备忘</a><small>2</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/备忘/" style="font-size: 20px;">备忘</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a>
+  </div>
+</div>
+
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2015/07/20/JavaScript学习笔记之 编程习惯和注意点/">JavaScript学习笔记之 编程习惯和注意点</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/17/常用工具/">常用工具</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/17/我的vagrant相关命令/">我的vagrant相关命令</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/17/Node.js学习笔记之 常用模块/">Node.js学习笔记之 常用模块</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">supervisor vs pm2 vs forever</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  <div class="widget tag">
+    <h3 class="title">友情链接</h3>
+    <ul class="entry">
+        <li><a target="_blank" href="http://hgseoul.taobao.com/" title="鄙人媳妇的淘宝">鄙人媳妇的淘宝(^_^勿喷)</a></li>
+        <li><a target="_blank" href="https://www.cnodejs.org/" title="CNode：Node.js专业中文社区">CNode</a></li>
+        <li><a target="_blank" href="https://github.com/zaozaool" title="My GitHub">GitHub</a></li>
+    </ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 zaozaool
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
