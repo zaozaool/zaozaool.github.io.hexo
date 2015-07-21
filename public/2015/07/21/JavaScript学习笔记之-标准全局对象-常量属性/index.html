@@ -3,13 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>javascript | 碼農、經緯</title>
+  <title>JavaScript学习笔记之 标准全局对象[常量属性] | 碼農、經緯</title>
   <meta name="author" content="zaozaool">
+  
+  <meta name="description" content="1.判断一个值是否是NaN等号运算符（== 和 ===） 不能被用来判断一个值是否是 NaN。必须使用 Number.isNaN() 或 isNaN() 函数。
+2.Infinity、Number.NEGATIVE_INFINITY、Number.POSITIVE_INFINITY
+3.undifi">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="JavaScript学习笔记之 标准全局对象[常量属性]"/>
   <meta property="og:site_name" content="碼農、經緯"/>
 
   
@@ -44,61 +48,7 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">javascript</h2>
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-21T01:41:20.000Z"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">2015-07-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">JavaScript学习笔记之 标准全局对象[方法属性]</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval" target="_blank" rel="external">eval(string, [object])</a>的第一个参数是个字符串。如果字符串表示了一个表达式，eval()会对表达式求值。如果参数表示了一个或多个JavaScript声明， 那么eval()会执行声明。不要调用eval()来为算数表达式求值； JavaScript 会自动为算数表达式求值。解析JSON。</p>
-<h3 id="避免在不必要的情况下使用eval">避免在不必要的情况下使用eval</h3><p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isFinite" target="_blank" rel="external">isFinite(testValue)</a> 是全局的方法，不与任何对象有关系。isFinite 方法检测它参数的数值。如果参数是 NaN，正无穷大或者负无穷大，会返回false，其他返回 true。</p>
-<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseFloat" target="_blank" rel="external">parseFloat(string)</a><br>如果参数字符串的第一个字符不能被解析成为数字,则parseFloat返回NaN.<br>parseFloat 也可转换和返回Infinity值. 可以使用isFinite 函数来判断结果是否是一个优先的数值 (非Infinity, -Infinity, 或 NaN).</p>
-<p>4.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt" target="_blank" rel="external">parseInt(string, radix)</a>在没有指定基数，或者基数为 0 的情况下，JavaScript 作如下处理：</p>
-<ul>
-<li>如果字符串 string 以”0x”或者”0X”开头, 则基数是16 (16进制).</li>
-<li>如果字符串 string 以”0”开头, 基数是8（八进制）或者10（十进制），那么具体是哪个基数由实现环境决定。ECMAScript 5 规定使用10，但是并不是所有的浏览器都遵循这个规定。因此，<strong>永远都要明确给出radix参数的值</strong>。</li>
-<li>如果字符串 string 以其它任何值开头，则基数是10 (十进制)。</li>
-<li>如果第一个字符不能被转换成数字，parseInt返回NaN。</li>
-</ul>
-<p>将整型数值以特定基数转换成它的字符串值可以使用 <strong>intValue.toString(radix)</strong>.</p>
-<p>5.<a href="http://www.cnblogs.com/jhxk/articles/1634359.html" target="_blank" rel="external">escape()、unescape()、encodeURI()、encodeURIComponent()、decodeURI()、decodeURIComponent()比较</a></p>
-<ul>
-<li>传递参数时需要使用encodeURIComponent，这样组合的url才不会被#等特殊字符截断。 </li>
-<li>进行url跳转时可以整体使用encodeURI</li>
-<li>尽量避免使用escape()和unescape()方法</li>
-</ul>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
@@ -108,7 +58,7 @@
       
       
   
-    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-常量属性/">JavaScript学习笔记之 标准全局对象[常量属性]</a></h1>
+    <h1 class="title">JavaScript学习笔记之 标准全局对象[常量属性]</h1>
   
 
     </header>
@@ -127,6 +77,23 @@
       
         
         
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
       
       <div class="clearfix"></div>
     </footer>
@@ -134,48 +101,33 @@
 </article>
 
 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'zaozaool';
 
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-20T05:03:26.000Z"><a href="/2015/07/20/JavaScript学习笔记之-编程习惯和注意点/">2015-07-20</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/20/JavaScript学习笔记之-编程习惯和注意点/">JavaScript学习笔记之 编程习惯和注意点</a></h1>
-  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
-    </header>
-    <div class="entry">
-      
-        <p>1.我们将 <code>&lt;script&gt;</code> 元素放在 HTML 文件底部的原因是，浏览器解析 HTML 似乎按照代码出现的顺序来的。如果 JavaScript被首先读取，它也应该影响下面的 HTML，但有时会出现问题，因为 JavaScript 会在 HTML 之前被加载，如果 JavaScript 代码出现问题则 HTML 不会被加载。所以将 JavaScript 代码放在底部是最好的选择。</p>
-<p>2.JS中的每一行都应该以一个分号结尾，以表明这一行的结束。如果你不这样做，可能会遇到意想不到的结果。</p>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'zaozaool';
 
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
 
-
-
-  
-
-  <nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav>
 </div></div>
     <aside id="sidebar" class="alignright">
   

@@ -51,11 +51,98 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-20T05:03:26.000Z"><a href="/2015/07/20/JavaScript学习笔记之 编程习惯和注意点/">2015-07-20</a></time>
+        <time datetime="2015-07-21T01:41:20.000Z"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">2015-07-21</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/07/20/JavaScript学习笔记之 编程习惯和注意点/">JavaScript学习笔记之 编程习惯和注意点</a></h1>
+    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">JavaScript学习笔记之 标准全局对象[方法属性]</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval" target="_blank" rel="external">eval(string, [object])</a>的第一个参数是个字符串。如果字符串表示了一个表达式，eval()会对表达式求值。如果参数表示了一个或多个JavaScript声明， 那么eval()会执行声明。不要调用eval()来为算数表达式求值； JavaScript 会自动为算数表达式求值。解析JSON。</p>
+<h3 id="避免在不必要的情况下使用eval">避免在不必要的情况下使用eval</h3><p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isFinite" target="_blank" rel="external">isFinite(testValue)</a> 是全局的方法，不与任何对象有关系。isFinite 方法检测它参数的数值。如果参数是 NaN，正无穷大或者负无穷大，会返回false，其他返回 true。</p>
+<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseFloat" target="_blank" rel="external">parseFloat(string)</a><br>如果参数字符串的第一个字符不能被解析成为数字,则parseFloat返回NaN.<br>parseFloat 也可转换和返回Infinity值. 可以使用isFinite 函数来判断结果是否是一个优先的数值 (非Infinity, -Infinity, 或 NaN).</p>
+<p>4.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt" target="_blank" rel="external">parseInt(string, radix)</a>在没有指定基数，或者基数为 0 的情况下，JavaScript 作如下处理：</p>
+<ul>
+<li>如果字符串 string 以”0x”或者”0X”开头, 则基数是16 (16进制).</li>
+<li>如果字符串 string 以”0”开头, 基数是8（八进制）或者10（十进制），那么具体是哪个基数由实现环境决定。ECMAScript 5 规定使用10，但是并不是所有的浏览器都遵循这个规定。因此，<strong>永远都要明确给出radix参数的值</strong>。</li>
+<li>如果字符串 string 以其它任何值开头，则基数是10 (十进制)。</li>
+<li>如果第一个字符不能被转换成数字，parseInt返回NaN。</li>
+</ul>
+<p>将整型数值以特定基数转换成它的字符串值可以使用 <strong>intValue.toString(radix)</strong>.</p>
+<p>5.<a href="http://www.cnblogs.com/jhxk/articles/1634359.html" target="_blank" rel="external">escape()、unescape()、encodeURI()、encodeURIComponent()、decodeURI()、decodeURIComponent()比较</a></p>
+<ul>
+<li>传递参数时需要使用encodeURIComponent，这样组合的url才不会被#等特殊字符截断。 </li>
+<li>进行url跳转时可以整体使用encodeURI</li>
+<li>尽量避免使用escape()和unescape()方法</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-21T01:41:20.000Z"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-常量属性/">2015-07-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-常量属性/">JavaScript学习笔记之 标准全局对象[常量属性]</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/NaN" target="_blank" rel="external">判断一个值是否是NaN</a><br>等号运算符（== 和 ===） 不能被用来判断一个值是否是 NaN。必须使用 Number.isNaN() 或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isNaN" target="_blank" rel="external">isNaN()</a> 函数。</p>
+<p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Infinity" target="_blank" rel="external">Infinity</a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/NEGATIVE_INFINITY" target="_blank" rel="external">Number.NEGATIVE_INFINITY</a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/POSITIVE_INFINITY" target="_blank" rel="external">Number.POSITIVE_INFINITY</a></p>
+<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined" target="_blank" rel="external">undifined</a>:必须使用严格相等运算符===,而不能使用普通的相等运算符==,因为x == undefined成立还可能是因为x为null,在JavaScript中null== undefined是返回true的.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"><span class="keyword">if</span> (x === <span class="literal">undefined</span>) &#123;</span><br><span class="line">   <span class="comment">// 执行到这里</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="comment">// 不会执行到这里</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果一个变量根本没有被声明,只有使用typeof判断才不会报错,用相等运算符判断会抛出异常<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// x没有被声明过</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> x === <span class="string">'undefined'</span>) &#123; <span class="comment">// 不会报错</span></span><br><span class="line">   <span class="comment">// these statements execute</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(x === <span class="literal">undefined</span>)&#123; <span class="comment">// 抛出ReferenceError异常</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不过如果要检测的变量是个全局变量,可以不使用typeof.可以通过检测全局对象的同名属性来代替<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// x可能没有被声明过,但如果已经声明了的话,x是个全局变量</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.x === <span class="literal">undefined</span>) &#123; <span class="comment">// 即使window.x不存在,也不会报错</span></span><br><span class="line">   <span class="comment">// 可能会执行到这里</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(x === <span class="literal">undefined</span>)&#123; <span class="comment">// 如果window.x不存在,则会抛出ReferenceError异常</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>4.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/null" target="_blank" rel="external">null 是一个字面量（而不是全局对象的一个属性，undefined 是）</a><br>null 与 undefined 的不同点：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>        <span class="comment">// object (bug in ECMAScript, should be null)</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>   <span class="comment">// undefined</span></span><br><span class="line"><span class="literal">null</span> === <span class="literal">undefined</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span>  == <span class="literal">undefined</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-20T05:03:26.000Z"><a href="/2015/07/20/JavaScript学习笔记之-编程习惯和注意点/">2015-07-20</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/20/JavaScript学习笔记之-编程习惯和注意点/">JavaScript学习笔记之 编程习惯和注意点</a></h1>
   
 
     </header>
@@ -159,11 +246,11 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-17T06:35:12.000Z"><a href="/2015/07/17/Node.js学习笔记之 常用模块/">2015-07-17</a></time>
+        <time datetime="2015-07-17T06:35:12.000Z"><a href="/2015/07/17/Node.js学习笔记之-常用模块/">2015-07-17</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/07/17/Node.js学习笔记之 常用模块/">Node.js学习笔记之 常用模块</a></h1>
+    <h1 class="title"><a href="/2015/07/17/Node.js学习笔记之-常用模块/">Node.js学习笔记之 常用模块</a></h1>
   
 
     </header>
@@ -279,7 +366,7 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/javascript/">javascript</a><small>1</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>3</small></li>
   
     <li><a href="/tags/node-js/">node.js</a><small>2</small></li>
   
@@ -295,7 +382,7 @@
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/备忘/" style="font-size: 20px;">备忘</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a>
+    <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node-js/" style="font-size: 15px;">node.js</a> <a href="/tags/备忘/" style="font-size: 15px;">备忘</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a>
   </div>
 </div>
 
@@ -308,7 +395,15 @@
   <ul class="entry">
     
       <li>
-        <a href="/2015/07/20/JavaScript学习笔记之 编程习惯和注意点/">JavaScript学习笔记之 编程习惯和注意点</a>
+        <a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">JavaScript学习笔记之 标准全局对象[方法属性]</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-常量属性/">JavaScript学习笔记之 标准全局对象[常量属性]</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/20/JavaScript学习笔记之-编程习惯和注意点/">JavaScript学习笔记之 编程习惯和注意点</a>
       </li>
     
       <li>
@@ -317,14 +412,6 @@
     
       <li>
         <a href="/2015/07/17/我的vagrant相关命令/">我的vagrant相关命令</a>
-      </li>
-    
-      <li>
-        <a href="/2015/07/17/Node.js学习笔记之 常用模块/">Node.js学习笔记之 常用模块</a>
-      </li>
-    
-      <li>
-        <a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">supervisor vs pm2 vs forever</a>
       </li>
     
   </ul>

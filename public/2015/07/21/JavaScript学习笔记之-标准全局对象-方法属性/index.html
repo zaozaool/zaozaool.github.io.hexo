@@ -3,16 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>常用工具 | 碼農、經緯</title>
+  <title>JavaScript学习笔记之 标准全局对象[方法属性] | 碼農、經緯</title>
   <meta name="author" content="zaozaool">
   
-  <meta name="description" content="日常相关：FSCaptureZoomIteverythingteracopyPowerCmdSublime TextUltra EditBeyond ComparePDFEditCloverCCleanerVirtualBoxVMware PlayermRemote/mRemoteNG
-Notepa">
+  <meta name="description" content="1.eval(string, [object])的第一个参数是个字符串。如果字符串表示了一个表达式，eval()会对表达式求值。如果参数表示了一个或多个JavaScript声明， 那么eval()会执行声明。不要调用eval()来为算数表达式求值； JavaScript 会自动为算数表达式求值。解析">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="常用工具"/>
+  <meta property="og:title" content="JavaScript学习笔记之 标准全局对象[方法属性]"/>
   <meta property="og:site_name" content="碼農、經緯"/>
 
   
@@ -53,21 +52,33 @@ Notepa">
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-17T07:02:55.000Z"><a href="/2015/07/17/常用工具/">2015-07-17</a></time>
+        <time datetime="2015-07-21T01:41:20.000Z"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">2015-07-21</a></time>
       
       
   
-    <h1 class="title">常用工具</h1>
+    <h1 class="title">JavaScript学习笔记之 标准全局对象[方法属性]</h1>
   
 
     </header>
     <div class="entry">
       
-        <h1 id="日常相关：">日常相关：</h1><p>FSCapture<br>ZoomIt<br>everything<br>teracopy<br>PowerCmd<br>Sublime Text<br>Ultra Edit<br>Beyond Compare<br>PDFEdit<br>Clover<br>CCleaner<br>VirtualBox<br>VMware Player<br>mRemote/mRemoteNG</p>
-<p>Notepad++及常用插件<br>{<br>    Explorer<br>    JSTool<br>    JSLint:JavaScript Code Quality Tool<br>    JSON Viewer<br>    Light Explorer<br>    NppExec<br>    NppExport<br>    NppFTP<br>    Poor Man’s T-Sql Formatter<br>    SQL:使用SQL筛选csv文件<br>    TagView<br>    Emmet/Zen Coding<br>    Falling Bricks:NPP中的俄罗斯方块<br>    File Switcher<br>    GOnpp:golang插件<br>    MultiClipboard<br>    Python Script:npp中的python脚本<br>    XML Tools<br>}</p>
-<h1 id="Linux相关：">Linux相关：</h1><p>SecureCRT&amp;SecureFX<br>putty<br>FileZilla<br>XSheel<br>XFTP</p>
-<h1 id="JAVA相关：">JAVA相关：</h1><p>jad<br>easyexplorer<br>SoapUI</p>
-<h1 id="数据库相关：">数据库相关：</h1><p>SQLyog<br>navicat<br>MongoVUE<br>Robomongo</p>
+        <p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval" target="_blank" rel="external">eval(string, [object])</a>的第一个参数是个字符串。如果字符串表示了一个表达式，eval()会对表达式求值。如果参数表示了一个或多个JavaScript声明， 那么eval()会执行声明。不要调用eval()来为算数表达式求值； JavaScript 会自动为算数表达式求值。解析JSON。</p>
+<h3 id="避免在不必要的情况下使用eval">避免在不必要的情况下使用eval</h3><p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isFinite" target="_blank" rel="external">isFinite(testValue)</a> 是全局的方法，不与任何对象有关系。isFinite 方法检测它参数的数值。如果参数是 NaN，正无穷大或者负无穷大，会返回false，其他返回 true。</p>
+<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseFloat" target="_blank" rel="external">parseFloat(string)</a><br>如果参数字符串的第一个字符不能被解析成为数字,则parseFloat返回NaN.<br>parseFloat 也可转换和返回Infinity值. 可以使用isFinite 函数来判断结果是否是一个优先的数值 (非Infinity, -Infinity, 或 NaN).</p>
+<p>4.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt" target="_blank" rel="external">parseInt(string, radix)</a>在没有指定基数，或者基数为 0 的情况下，JavaScript 作如下处理：</p>
+<ul>
+<li>如果字符串 string 以”0x”或者”0X”开头, 则基数是16 (16进制).</li>
+<li>如果字符串 string 以”0”开头, 基数是8（八进制）或者10（十进制），那么具体是哪个基数由实现环境决定。ECMAScript 5 规定使用10，但是并不是所有的浏览器都遵循这个规定。因此，<strong>永远都要明确给出radix参数的值</strong>。</li>
+<li>如果字符串 string 以其它任何值开头，则基数是10 (十进制)。</li>
+<li>如果第一个字符不能被转换成数字，parseInt返回NaN。</li>
+</ul>
+<p>将整型数值以特定基数转换成它的字符串值可以使用 <strong>intValue.toString(radix)</strong>.</p>
+<p>5.<a href="http://www.cnblogs.com/jhxk/articles/1634359.html" target="_blank" rel="external">escape()、unescape()、encodeURI()、encodeURIComponent()、decodeURI()、decodeURIComponent()比较</a></p>
+<ul>
+<li>传递参数时需要使用encodeURIComponent，这样组合的url才不会被#等特殊字符截断。 </li>
+<li>进行url跳转时可以整体使用encodeURI</li>
+<li>尽量避免使用escape()和unescape()方法</li>
+</ul>
 
       
     </div>
@@ -77,7 +88,7 @@ Notepa">
         
   
   <div class="tags">
-    <a href="/tags/备忘/">备忘</a>, <a href="/tags/工具/">工具</a>
+    <a href="/tags/javascript/">javascript</a>
   </div>
 
         
