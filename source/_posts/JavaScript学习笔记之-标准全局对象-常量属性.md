@@ -1,4 +1,4 @@
-title: JavaScript学习笔记之 标准全局对象[常量属性]
+title: JavaScript学习笔记之 全局对象[常量属性]
 date: 2015-07-21 01:41:20
 categories:
 tags: javascript
