@@ -3,15 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>supervisor vs pm2 vs forever | 碼農、經緯</title>
+  <title>深入浅出Node.js - 特点与应用场景(1.4、1.5) | 碼農、經緯</title>
   <meta name="author" content="zaozaool">
   
-  <meta name="description" content="使用场合不一样:supervisor 是开发环境用。forever 管理多个站点，每个站访问量不大，不需要监控。pm2 网站访问量比较大，需要完整的监控界面。告别node-forever,拥抱PM2">
+  <meta name="description" content="1.Node的特点
+
+异步I/O
+基于事件和回调函数
+单线程与子进程child_process
+跨平台
+
+2.Node的应用场景
+
+I/O密集型
+CPU密集型 可以通过编写C/C++扩展及子进程的方式实现
+分布式">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="supervisor vs pm2 vs forever"/>
+  <meta property="og:title" content="深入浅出Node.js - 特点与应用场景(1.4、1.5)"/>
   <meta property="og:site_name" content="碼農、經緯"/>
 
   
@@ -52,17 +63,29 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-17T06:32:40.000Z"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">2015-07-17</a></time>
+        <time datetime="2015-07-30T04:26:17.000Z"><a href="/2015/07/30/深入浅出Node-js-特点与应用场景/">2015-07-30</a></time>
       
       
   
-    <h1 class="title">supervisor vs pm2 vs forever</h1>
+    <h1 class="title">深入浅出Node.js - 特点与应用场景(1.4、1.5)</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>使用场合不一样:<br>supervisor 是开发环境用。<br>forever 管理多个站点，每个站访问量不大，不需要监控。<br>pm2 网站访问量比较大，需要完整的监控界面。<br><a href="http://www.oschina.net/translate/goodbye-node-forever-hello-pm2?cmp" target="_blank" rel="external">告别node-forever,拥抱PM2</a></p>
+        <p>1.Node的特点</p>
+<ul>
+<li>异步I/O</li>
+<li>基于事件和回调函数</li>
+<li>单线程与子进程<code>child_process</code></li>
+<li>跨平台</li>
+</ul>
+<p>2.Node的应用场景</p>
+<ul>
+<li>I/O密集型</li>
+<li>CPU密集型 可以通过编写C/C++扩展及子进程的方式实现</li>
+<li>分布式</li>
+</ul>
 
       
     </div>
@@ -72,7 +95,7 @@
         
   
   <div class="tags">
-    <a href="/tags/node-js/">node.js</a>
+    <a href="/tags/node-js/">node.js</a>, <a href="/tags/深入浅出Node-js/">深入浅出Node.js</a>
   </div>
 
         

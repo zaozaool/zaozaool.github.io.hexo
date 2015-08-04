@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>supervisor vs pm2 vs forever | 碼農、經緯</title>
+  <title>JavaScript学习笔记之 全局对象[Object] | 碼農、經緯</title>
   <meta name="author" content="zaozaool">
   
-  <meta name="description" content="使用场合不一样:supervisor 是开发环境用。forever 管理多个站点，每个站访问量不大，不需要监控。pm2 网站访问量比较大，需要完整的监控界面。告别node-forever,拥抱PM2">
+  <meta name="description" content="1.使用Object.create(proto, [ propertiesObject ])实现类式继承new Constructor()与Object.create(Constructor.prototype)的区别是new Constructor()会执行Constructor的初始代码，而Ob">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="supervisor vs pm2 vs forever"/>
+  <meta property="og:title" content="JavaScript学习笔记之 全局对象[Object]"/>
   <meta property="og:site_name" content="碼農、經緯"/>
 
   
@@ -52,17 +52,17 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-17T06:32:40.000Z"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">2015-07-17</a></time>
+        <time datetime="2015-07-21T06:56:05.000Z"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-基本对象Object/">2015-07-21</a></time>
       
       
   
-    <h1 class="title">supervisor vs pm2 vs forever</h1>
+    <h1 class="title">JavaScript学习笔记之 全局对象[Object]</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>使用场合不一样:<br>supervisor 是开发环境用。<br>forever 管理多个站点，每个站访问量不大，不需要监控。<br>pm2 网站访问量比较大，需要完整的监控界面。<br><a href="http://www.oschina.net/translate/goodbye-node-forever-hello-pm2?cmp" target="_blank" rel="external">告别node-forever,拥抱PM2</a></p>
+        <p>1.使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank" rel="external">Object.create(proto, [ propertiesObject ])</a>实现类式继承<br><code>new Constructor()</code>与<code>Object.create(Constructor.prototype)</code>的区别是<code>new Constructor()</code>会执行<code>Constructor</code>的初始代码，而<code>Object.create</code>不会执行</p>
 
       
     </div>
@@ -72,7 +72,7 @@
         
   
   <div class="tags">
-    <a href="/tags/node-js/">node.js</a>
+    <a href="/tags/javascript/">javascript</a>
   </div>
 
         

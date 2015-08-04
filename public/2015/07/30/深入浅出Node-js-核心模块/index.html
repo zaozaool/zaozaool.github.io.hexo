@@ -3,15 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>supervisor vs pm2 vs forever | 碼農、經緯</title>
+  <title>深入浅出Node.js - 核心模块(2.3) | 碼農、經緯</title>
   <meta name="author" content="zaozaool">
   
-  <meta name="description" content="使用场合不一样:supervisor 是开发环境用。forever 管理多个站点，每个站访问量不大，不需要监控。pm2 网站访问量比较大，需要完整的监控界面。告别node-forever,拥抱PM2">
+  <meta name="description" content="1.核心模块分为C/C++编写的和JavaScript编写的两部分，C/C++文件存放在src目录下，js文件存放在lib目录下，C\C++编写的部分称为内建模块，JavaScript编写的称为核心模块
+2.核心模块的编译过程
+
+编译C\C++前，编译程序需要将所有的JavaScript模块文件编译">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="supervisor vs pm2 vs forever"/>
+  <meta property="og:title" content="深入浅出Node.js - 核心模块(2.3)"/>
   <meta property="og:site_name" content="碼農、經緯"/>
 
   
@@ -52,17 +55,27 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-17T06:32:40.000Z"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">2015-07-17</a></time>
+        <time datetime="2015-07-30T09:17:10.000Z"><a href="/2015/07/30/深入浅出Node-js-核心模块/">2015-07-30</a></time>
       
       
   
-    <h1 class="title">supervisor vs pm2 vs forever</h1>
+    <h1 class="title">深入浅出Node.js - 核心模块(2.3)</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>使用场合不一样:<br>supervisor 是开发环境用。<br>forever 管理多个站点，每个站访问量不大，不需要监控。<br>pm2 网站访问量比较大，需要完整的监控界面。<br><a href="http://www.oschina.net/translate/goodbye-node-forever-hello-pm2?cmp" target="_blank" rel="external">告别node-forever,拥抱PM2</a></p>
+        <p>1.核心模块分为C/C++编写的和JavaScript编写的两部分，C/C++文件存放在src目录下，js文件存放在lib目录下，C\C++编写的部分称为内建模块，JavaScript编写的称为核心模块</p>
+<p>2.核心模块的编译过程</p>
+<ul>
+<li>编译C\C++前，编译程序需要将所有的JavaScript模块文件编译为C/C++代码<ul>
+<li>转存为C/C++代码:先采用V8附带的<code>js2c.py</code>工具编译js模块文件为C/C++代码，并以字符串的形式存储到node命名空间，不可直接执行</li>
+<li>编译JavaScript核心模块到缓存</li>
+</ul>
+</li>
+<li>编译译C\C++</li>
+</ul>
+<p>3.核心模块的引入流程，已os模块为例：<br><code>require(&#39;os&#39;)--&gt;NativeModule.require(&quot;os&quot;)--&gt;process.binding(&quot;os&quot;)--&gt;get_builtin_module(&quot;node_os&quot;)--&gt;NODE_MODULE(node_os, reg_gunc)</code></p>
 
       
     </div>
@@ -72,7 +85,7 @@
         
   
   <div class="tags">
-    <a href="/tags/node-js/">node.js</a>
+    <a href="/tags/node-js/">node.js</a>, <a href="/tags/深入浅出Node-js/">深入浅出Node.js</a>
   </div>
 
         

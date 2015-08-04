@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>归档：2015/8 | 碼農、經緯</title>
+  <meta name="author" content="zaozaool">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="碼農、經緯"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="碼農、經緯" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">碼農、經緯</a></h1>
+  <h2><a href="/">Why do java developers wear glasses? Because they don&#39;t C#.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">2015/8</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-04T05:14:25.000Z"><a href="/2015/08/04/深入浅出Node-js-前后端共用模块/">2015-08-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/04/深入浅出Node-js-前后端共用模块/">深入浅出Node.js - 前后端共用模块(2.7)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.AMD规范：<code>define(id?, dependencies?, factory);</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">'dep1'</span>, <span class="string">'dep2'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">dep1, dep2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>2.CMD规范：<code>define(factory)</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//模块代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>3.AMD与CMD区别</p>
+<ul>
+<li><p>AMD需要在声明模块时指定所有的依赖，通过形参传递依赖到模块内，而CMD支持动态引入，即CMD 推崇依赖就近，AMD 推崇依赖前置（AMD 也支持 CMD 的写法）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CMD</span></span><br><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'./a'</span>)</span><br><span class="line">    a.doSomething()</span><br><span class="line">    <span class="comment">// 此处略去 100 行</span></span><br><span class="line">    <span class="keyword">var</span> b = <span class="built_in">require</span>(<span class="string">'./b'</span>) <span class="comment">// 依赖可以就近书写</span></span><br><span class="line">    b.doSomething()</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// AMD 默认推荐的是</span></span><br><span class="line">define([<span class="string">'./a'</span>, <span class="string">'./b'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123; <span class="comment">// 依赖必须一开始就写好</span></span><br><span class="line">    a.doSomething()</span><br><span class="line">    <span class="comment">// 此处略去 100 行</span></span><br><span class="line">    b.doSomething()</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。<br>更详尽可以查看<a href="http://blog.chinaunix.net/uid-26672038-id-4112229.html" target="_blank" rel="external">AMD规范与CMD规范介绍</a></p>
+</li>
+</ul>
+<p>3.兼容多种模块规范（Node、AMD、CMD、常见浏览器）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">name, definition</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//检查上下文环境是否为AMD或CMD</span></span><br><span class="line">    <span class="keyword">var</span> hasDefine = <span class="keyword">typeof</span> define === <span class="string">'function'</span>;</span><br><span class="line">    <span class="comment">//检查上下文环境是否是node</span></span><br><span class="line">    <span class="keyword">var</span> hasExports = <span class="keyword">typeof</span> <span class="built_in">module</span> !== <span class="string">'undefined'</span> &amp;&amp; <span class="built_in">module</span>.exports;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (hasDefine) &#123;</span><br><span class="line">        <span class="comment">//AMD、CMD</span></span><br><span class="line">        define(definition);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (hasExports) &#123;</span><br><span class="line">        <span class="comment">//Node</span></span><br><span class="line">        <span class="built_in">module</span>.exports = definition();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//将模块的执行结果挂在window变量中，在浏览器中this指向window对象</span></span><br><span class="line">        <span class="keyword">this</span>[name] = definition();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)(<span class="string">'hello'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> hello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'hello world'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> hello;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/javascript/">javascript</a><small>4</small></li>
+  
+    <li><a href="/tags/node-js/">node.js</a><small>7</small></li>
+  
+    <li><a href="/tags/备忘/">备忘</a><small>2</small></li>
+  
+    <li><a href="/tags/工具/">工具</a><small>1</small></li>
+  
+    <li><a href="/tags/深入浅出Node-js/">深入浅出Node.js</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/备忘/" style="font-size: 13.33px;">备忘</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/深入浅出Node-js/" style="font-size: 16.67px;">深入浅出Node.js</a>
+  </div>
+</div>
+
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2015/08/04/深入浅出Node-js-前后端共用模块/">深入浅出Node.js - 前后端共用模块(2.7)</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/31/module-exports和exports的区别/">module.exports和exports的区别</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/30/深入浅出Node-js-核心模块/">深入浅出Node.js - 核心模块(2.3)</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/30/深入浅出Node-js-模块加载/">深入浅出Node.js - 模块加载(2.2)</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/30/深入浅出Node-js-特点与应用场景/">深入浅出Node.js - 特点与应用场景(1.4、1.5)</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  <div class="widget tag">
+    <h3 class="title">友情链接</h3>
+    <ul class="entry">
+        <li><a target="_blank" href="http://hgseoul.taobao.com/" title="鄙人媳妇的淘宝">鄙人媳妇的淘宝(^_^勿喷)</a></li>
+        <li><a target="_blank" href="https://www.cnodejs.org/" title="CNode：Node.js专业中文社区">CNode</a></li>
+        <li><a target="_blank" href="https://github.com/zaozaool" title="My GitHub">GitHub</a></li>
+    </ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 zaozaool
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

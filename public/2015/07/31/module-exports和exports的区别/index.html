@@ -3,15 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>supervisor vs pm2 vs forever | 碼農、經緯</title>
+  <title>module.exports和exports的区别 | 碼農、經緯</title>
   <meta name="author" content="zaozaool">
   
-  <meta name="description" content="使用场合不一样:supervisor 是开发环境用。forever 管理多个站点，每个站访问量不大，不需要监控。pm2 网站访问量比较大，需要完整的监控界面。告别node-forever,拥抱PM2">
+  <meta name="description" content="这是别人解释的module.exports和exports的区别
+我的理解比较简单，2点：1.exports是对module.exports的引用2.而require引入的是module.exports
+所以如果只是这样写肯定是有问题的,这样改变了exports的引用地址1exports = som">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="supervisor vs pm2 vs forever"/>
+  <meta property="og:title" content="module.exports和exports的区别"/>
   <meta property="og:site_name" content="碼農、經緯"/>
 
   
@@ -52,17 +54,23 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-17T06:32:40.000Z"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">2015-07-17</a></time>
+        <time datetime="2015-07-31T05:39:40.000Z"><a href="/2015/07/31/module-exports和exports的区别/">2015-07-31</a></time>
       
       
   
-    <h1 class="title">supervisor vs pm2 vs forever</h1>
+    <h1 class="title">module.exports和exports的区别</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>使用场合不一样:<br>supervisor 是开发环境用。<br>forever 管理多个站点，每个站访问量不大，不需要监控。<br>pm2 网站访问量比较大，需要完整的监控界面。<br><a href="http://www.oschina.net/translate/goodbye-node-forever-hello-pm2?cmp" target="_blank" rel="external">告别node-forever,拥抱PM2</a></p>
+        <p>这是别人解释的<a href="http://zihua.li/2012/03/use-module-exports-or-exports-in-node" target="_blank" rel="external">module.exports和exports的区别</a></p>
+<p>我的理解比较简单，2点：<br>1.<code>exports</code>是对<code>module.exports</code>的引用<br>2.而<code>require</code>引入的是<code>module.exports</code></p>
+<p>所以如果只是这样写肯定是有问题的,这样改变了exports的引用地址<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports = something...</span><br></pre></td></tr></table></figure></p>
+<p>最保险的写法是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports = <span class="built_in">module</span>.exports = something...</span><br></pre></td></tr></table></figure></p>
+<p>加属性或方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exports.attr = something...</span><br><span class="line">exports.method = something...</span><br></pre></td></tr></table></figure></p>
+<p>或<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports.attr = something...</span><br><span class="line"><span class="built_in">module</span>.exports.method = something...</span><br></pre></td></tr></table></figure></p>
+<p>轻拍…</p>
 
       
     </div>

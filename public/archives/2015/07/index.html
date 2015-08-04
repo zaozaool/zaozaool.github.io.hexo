@@ -55,11 +55,262 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-07-31T05:39:40.000Z"><a href="/2015/07/31/module-exports和exports的区别/">2015-07-31</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/31/module-exports和exports的区别/">module.exports和exports的区别</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>这是别人解释的<a href="http://zihua.li/2012/03/use-module-exports-or-exports-in-node" target="_blank" rel="external">module.exports和exports的区别</a></p>
+<p>我的理解比较简单，2点：<br>1.<code>exports</code>是对<code>module.exports</code>的引用<br>2.而<code>require</code>引入的是<code>module.exports</code></p>
+<p>所以如果只是这样写肯定是有问题的,这样改变了exports的引用地址<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports = something...</span><br></pre></td></tr></table></figure></p>
+<p>最保险的写法是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports = <span class="built_in">module</span>.exports = something...</span><br></pre></td></tr></table></figure></p>
+<p>加属性或方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exports.attr = something...</span><br><span class="line">exports.method = something...</span><br></pre></td></tr></table></figure></p>
+<p>或<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports.attr = something...</span><br><span class="line"><span class="built_in">module</span>.exports.method = something...</span><br></pre></td></tr></table></figure></p>
+<p>轻拍…</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-30T09:17:10.000Z"><a href="/2015/07/30/深入浅出Node-js-核心模块/">2015-07-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/30/深入浅出Node-js-核心模块/">深入浅出Node.js - 核心模块(2.3)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.核心模块分为C/C++编写的和JavaScript编写的两部分，C/C++文件存放在src目录下，js文件存放在lib目录下，C\C++编写的部分称为内建模块，JavaScript编写的称为核心模块</p>
+<p>2.核心模块的编译过程</p>
+<ul>
+<li>编译C\C++前，编译程序需要将所有的JavaScript模块文件编译为C/C++代码<ul>
+<li>转存为C/C++代码:先采用V8附带的<code>js2c.py</code>工具编译js模块文件为C/C++代码，并以字符串的形式存储到node命名空间，不可直接执行</li>
+<li>编译JavaScript核心模块到缓存</li>
+</ul>
+</li>
+<li>编译译C\C++</li>
+</ul>
+<p>3.核心模块的引入流程，已os模块为例：<br><code>require(&#39;os&#39;)--&gt;NativeModule.require(&quot;os&quot;)--&gt;process.binding(&quot;os&quot;)--&gt;get_builtin_module(&quot;node_os&quot;)--&gt;NODE_MODULE(node_os, reg_gunc)</code></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-30T04:33:30.000Z"><a href="/2015/07/30/深入浅出Node-js-模块加载/">2015-07-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/30/深入浅出Node-js-模块加载/">深入浅出Node.js - 模块加载(2.2)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.加载模块的3个步骤</p>
+<ul>
+<li>路径分析</li>
+<li>文件定位</li>
+<li>编译执行</li>
+</ul>
+<p>2.加载顺序</p>
+<ul>
+<li>优先从缓存加载（无论是核心模块还是文件模块，都优先从缓存加载）</li>
+<li>核心模块的缓存检查先于文件模块的缓存检查</li>
+<li>缓存中没有的再通过路径分析、文件定位、编译执行加载</li>
+</ul>
+<p>3.路径分析、文件定位、模块编译</p>
+<ul>
+<li><p>模块标识符分析</p>
+<ul>
+<li>核心模块，如<code>http</code>、<code>fs</code>、<code>path</code>等</li>
+<li>以.或..开始的相对路径文件模块</li>
+<li>以/开始的绝对路径文件模块<ul>
+<li>以.或..或/开始的标识符，<code>require</code>方法会将路径转化为真实路径，并以真实路径为索引，将编译结果存放当缓存中，使二次加载更快</li>
+</ul>
+</li>
+<li>非路径开始的文件模块，一般为第三方包，即自定义模块，自定义模块路径的生成规则为：<ul>
+<li>当前文件目录下的<code>node_modules</code>目录</li>
+<li>父目录下的<code>node_modules</code></li>
+<li>沿路径向上逐级递归，直到根目录下的<code>node_modules</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>文件定位</p>
+<ul>
+<li>Node按照<code>.js、.json、.node</code>的次序补足扩展名（<strong>如果是<code>.node</code>和<code>.json</code>的文件在<code>require</code>时带上扩展名</strong>）</li>
+<li>如果<code>require</code>的是一个目录，则Node会当做包（自定义模块）来处理，<ul>
+<li>解析<code>package.json</code>，找到main属性指定的文件进行定位，如无扩展名则进入扩展名分析的步骤</li>
+<li>如main属性指定的文件名错误或没有<code>package.json</code>，则默认将index当做默认文件名，依次查找<code>index.js、index.json、index.node</code></li>
+<li>如以上2步定位失败，则进入下一个模块路径进行查找，如遍历完毕依然没有定位成功，则抛出查找失败异常</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>模块编译</p>
+<ul>
+<li>Node中，每个文件模块都是一个对象</li>
+<li>不同的扩展名载入方法<ul>
+<li><code>.js</code>通过<code>fs</code>模块同步读取编译</li>
+<li><code>.node</code>是C\C++编写的扩展文件，通过<code>process.dlopen()</code>加载最后编译生成的文件，所以<code>.node</code>模块文件不需要编译，只有加载和执行。实际上在Windows下是<code>.dll</code>文件，在*nix下是<code>.so</code>文件</li>
+<li><code>.json</code>通过<code>fs</code>模块同步读取，用<code>JSON.parse()</code>解析返回</li>
+<li>其他扩展名都被当做<code>.js</code>文件载入</li>
+</ul>
+</li>
+<li>编译成功的文件模块会将文件路径作为索引缓存在<code>Modele._cache</code>对象上（核心模块缓存到<code>NatvieModule._cache</code>对象上）</li>
+<li><p>模块的<code>exports</code>、<code>require</code>、<code>module</code>、<code>__filename</code>、<code>__dirname</code>在哪儿定义的？Node在编译模块时进行头尾包装，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">exports, require, module, __filename, __dirname</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> math = <span class="built_in">require</span>(<span class="string">'math'</span>);</span><br><span class="line">    exports.area = <span class="function"><span class="keyword">function</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.PI * radius * radius;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>达到模块间作用域隔离，包装后通过VM原生模块的<code>runInThisContext()</code>执行（类似<code>eval</code>，只有明确上下文，不污染全局）返回一个具体的function，最后将当前模块对象的<code>exports</code>、<code>require()</code>、<code>module</code>(模块对象本身)以及文件路径、文件目录作为参数传递给这个function执行</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-30T04:26:17.000Z"><a href="/2015/07/30/深入浅出Node-js-特点与应用场景/">2015-07-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/30/深入浅出Node-js-特点与应用场景/">深入浅出Node.js - 特点与应用场景(1.4、1.5)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.Node的特点</p>
+<ul>
+<li>异步I/O</li>
+<li>基于事件和回调函数</li>
+<li>单线程与子进程<code>child_process</code></li>
+<li>跨平台</li>
+</ul>
+<p>2.Node的应用场景</p>
+<ul>
+<li>I/O密集型</li>
+<li>CPU密集型 可以通过编写C/C++扩展及子进程的方式实现</li>
+<li>分布式</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-21T06:56:05.000Z"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-基本对象Object/">2015-07-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-基本对象Object/">JavaScript学习笔记之 全局对象[Object]</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank" rel="external">Object.create(proto, [ propertiesObject ])</a>实现类式继承<br><code>new Constructor()</code>与<code>Object.create(Constructor.prototype)</code>的区别是<code>new Constructor()</code>会执行<code>Constructor</code>的初始代码，而<code>Object.create</code>不会执行</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-07-21T01:41:20.000Z"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">2015-07-21</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">JavaScript学习笔记之 标准全局对象[方法属性]</a></h1>
+    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">JavaScript学习笔记之 全局对象[方法属性]</a></h1>
   
 
     </header>
@@ -108,7 +359,7 @@
       
       
   
-    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-常量属性/">JavaScript学习笔记之 标准全局对象[常量属性]</a></h1>
+    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-常量属性/">JavaScript学习笔记之 全局对象[常量属性]</a></h1>
   
 
     </header>
@@ -191,6 +442,7 @@
 <h1 id="Linux相关：">Linux相关：</h1><p>SecureCRT&amp;SecureFX<br>putty<br>FileZilla<br>XSheel<br>XFTP</p>
 <h1 id="JAVA相关：">JAVA相关：</h1><p>jad<br>easyexplorer<br>SoapUI</p>
 <h1 id="数据库相关：">数据库相关：</h1><p>SQLyog<br>navicat<br>MongoVUE<br>Robomongo</p>
+<h1 id="IDE">IDE</h1><p>Cloud 9</p>
 
       
     </div>
@@ -244,121 +496,11 @@
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-17T06:35:12.000Z"><a href="/2015/07/17/Node.js学习笔记之-常用模块/">2015-07-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/17/Node.js学习笔记之-常用模块/">Node.js学习笔记之 常用模块</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>1.superagent：客户端请求代理模块，抓取页面用的（lession3）<br>2.cheerio：Node.js版的JQuery（lession3）<br>3.eventproxy：可以控制异步并发（lession4）<br>4.async：可以控制异步并发，并且可以自定义并发数（lession5）<br>5.should：断言库，用于后端测试，和mocha组合使用（lession6）<br>6.mocha：测试框架（lession6）<br>7.istanbul：测试率覆盖工具（lession6）<br>8.express：http server？过于低级，还是用一下express，能让你的生命美好一些，中等复杂度<br>9.chai：断言库，用于前端测试，和mocha组合使用（lession7）<br>10.phantomjs：一个拥有JavaScript API的无界面WebKit（Chrome、Safari都是有界面的WebKit），mocha-phantomjs<br>11.supertest：专门用来配合express进行集成测试的，和superagent具有相同的API（lession8）<br>12.mkdirp：一次性建立目标文件夹，而不是mkdir…cd…mkdir…cd…mkdir这样的模式<br>13.nodemon：自动检测 node.js 代码的改动，然后自动重启应用，完全用 nodemon 命令代替 node 命令（lession8）<br>14.bower：解决js的依赖管理<br>15.supervisor：supervisor自动重启应用，supervisor app<br>16.forever：forever可以看做是一个nodejs的守护进程，能够启动，停止，重启我们的app应用,<a href="http://tcrct.iteye.com/blog/2043644" target="_blank" rel="external">使用forever运行nodejs应用</a><br>17.pm2：PM2是Node.js应用程序的进程管理，目前已在生产环境被普遍使用,<a href="http://www.oschina.net/translate/goodbye-node-forever-hello-pm2?cmp" target="_blank" rel="external">告别node-forever,拥抱PM2</a></p>
-<p>更多请点击<a href="http://www.douban.com/note/303902955/" target="_blank" rel="external">node.js常用模块巡礼</a></p>
-<p><a href="http://zihua.li/2012/03/use-module-exports-or-exports-in-node" target="_blank" rel="external">module.exports和exports的区别</a></p>
-<p>npm i —save 与 npm i —save-dev 的区别，devDependencies与dependencies的区别</p>
-<p>req.query： 处理 get 请求，获取 get 请求参数<br>req.params： 处理 /:xxx 形式的 get 或 post 请求，获取请求参数<br>req.body： 处理 post 请求，获取 post 请求体<br>req.param()： 处理 get 和 post 请求，但查找优先级由高到低为 req.params→req.body→req.query</p>
-<p>ejs 的标签系统非常简单，它只有以下三种标签：<br>&lt;% code %&gt;：JavaScript 代码。<br>&lt;%= code %&gt;：显示替换过 HTML 特殊字符的内容。<br>&lt;%- code %&gt;：显示原始 HTML 内容。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-17T06:32:40.000Z"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">2015-07-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">supervisor vs pm2 vs forever</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>使用场合不一样:<br>supervisor 是开发环境用。<br>forever 管理多个站点，每个站访问量不大，不需要监控。<br>pm2 网站访问量比较大，需要完整的监控界面。<br><a href="http://www.oschina.net/translate/goodbye-node-forever-hello-pm2?cmp" target="_blank" rel="external">告别node-forever,拥抱PM2</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-15T13:49:04.107Z"><a href="/2015/07/15/hello-world/">2015-07-15</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/15/hello-world/">Hello World</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
+  
+    <a href="/archives/2015/07/page/2/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav>
@@ -371,13 +513,15 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/javascript/">javascript</a><small>3</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>4</small></li>
   
-    <li><a href="/tags/node-js/">node.js</a><small>2</small></li>
+    <li><a href="/tags/node-js/">node.js</a><small>7</small></li>
   
     <li><a href="/tags/备忘/">备忘</a><small>2</small></li>
   
     <li><a href="/tags/工具/">工具</a><small>1</small></li>
+  
+    <li><a href="/tags/深入浅出Node-js/">深入浅出Node.js</a><small>4</small></li>
   
   </ul>
 </div>
@@ -387,7 +531,7 @@
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node-js/" style="font-size: 15px;">node.js</a> <a href="/tags/备忘/" style="font-size: 15px;">备忘</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a>
+    <a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/备忘/" style="font-size: 13.33px;">备忘</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/深入浅出Node-js/" style="font-size: 16.67px;">深入浅出Node.js</a>
   </div>
 </div>
 
@@ -400,23 +544,23 @@
   <ul class="entry">
     
       <li>
-        <a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">JavaScript学习笔记之 标准全局对象[方法属性]</a>
+        <a href="/2015/08/04/深入浅出Node-js-前后端共用模块/">深入浅出Node.js - 前后端共用模块(2.7)</a>
       </li>
     
       <li>
-        <a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-常量属性/">JavaScript学习笔记之 标准全局对象[常量属性]</a>
+        <a href="/2015/07/31/module-exports和exports的区别/">module.exports和exports的区别</a>
       </li>
     
       <li>
-        <a href="/2015/07/20/JavaScript学习笔记之-编程习惯和注意点/">JavaScript学习笔记之 编程习惯和注意点</a>
+        <a href="/2015/07/30/深入浅出Node-js-核心模块/">深入浅出Node.js - 核心模块(2.3)</a>
       </li>
     
       <li>
-        <a href="/2015/07/17/常用工具/">常用工具</a>
+        <a href="/2015/07/30/深入浅出Node-js-模块加载/">深入浅出Node.js - 模块加载(2.2)</a>
       </li>
     
       <li>
-        <a href="/2015/07/17/我的vagrant相关命令/">我的vagrant相关命令</a>
+        <a href="/2015/07/30/深入浅出Node-js-特点与应用场景/">深入浅出Node.js - 特点与应用场景(1.4、1.5)</a>
       </li>
     
   </ul>

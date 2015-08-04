@@ -3,15 +3,31 @@
 <head>
   <meta charset="utf-8">
   
-  <title>supervisor vs pm2 vs forever | 碼農、經緯</title>
+  <title>深入浅出Node.js - 模块加载(2.2) | 碼農、經緯</title>
   <meta name="author" content="zaozaool">
   
-  <meta name="description" content="使用场合不一样:supervisor 是开发环境用。forever 管理多个站点，每个站访问量不大，不需要监控。pm2 网站访问量比较大，需要完整的监控界面。告别node-forever,拥抱PM2">
+  <meta name="description" content="1.加载模块的3个步骤
+
+路径分析
+文件定位
+编译执行
+
+2.加载顺序
+
+优先从缓存加载（无论是核心模块还是文件模块，都优先从缓存加载）
+核心模块的缓存检查先于文件模块的缓存检查
+缓存中没有的再通过路径分析、文件定位、编译执行加载
+
+3.路径分析、文件定位、模块编译
+
+模块标识符分析
+
+核心模块，如">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="supervisor vs pm2 vs forever"/>
+  <meta property="og:title" content="深入浅出Node.js - 模块加载(2.2)"/>
   <meta property="og:site_name" content="碼農、經緯"/>
 
   
@@ -52,17 +68,75 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-17T06:32:40.000Z"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">2015-07-17</a></time>
+        <time datetime="2015-07-30T04:33:30.000Z"><a href="/2015/07/30/深入浅出Node-js-模块加载/">2015-07-30</a></time>
       
       
   
-    <h1 class="title">supervisor vs pm2 vs forever</h1>
+    <h1 class="title">深入浅出Node.js - 模块加载(2.2)</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>使用场合不一样:<br>supervisor 是开发环境用。<br>forever 管理多个站点，每个站访问量不大，不需要监控。<br>pm2 网站访问量比较大，需要完整的监控界面。<br><a href="http://www.oschina.net/translate/goodbye-node-forever-hello-pm2?cmp" target="_blank" rel="external">告别node-forever,拥抱PM2</a></p>
+        <p>1.加载模块的3个步骤</p>
+<ul>
+<li>路径分析</li>
+<li>文件定位</li>
+<li>编译执行</li>
+</ul>
+<p>2.加载顺序</p>
+<ul>
+<li>优先从缓存加载（无论是核心模块还是文件模块，都优先从缓存加载）</li>
+<li>核心模块的缓存检查先于文件模块的缓存检查</li>
+<li>缓存中没有的再通过路径分析、文件定位、编译执行加载</li>
+</ul>
+<p>3.路径分析、文件定位、模块编译</p>
+<ul>
+<li><p>模块标识符分析</p>
+<ul>
+<li>核心模块，如<code>http</code>、<code>fs</code>、<code>path</code>等</li>
+<li>以.或..开始的相对路径文件模块</li>
+<li>以/开始的绝对路径文件模块<ul>
+<li>以.或..或/开始的标识符，<code>require</code>方法会将路径转化为真实路径，并以真实路径为索引，将编译结果存放当缓存中，使二次加载更快</li>
+</ul>
+</li>
+<li>非路径开始的文件模块，一般为第三方包，即自定义模块，自定义模块路径的生成规则为：<ul>
+<li>当前文件目录下的<code>node_modules</code>目录</li>
+<li>父目录下的<code>node_modules</code></li>
+<li>沿路径向上逐级递归，直到根目录下的<code>node_modules</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>文件定位</p>
+<ul>
+<li>Node按照<code>.js、.json、.node</code>的次序补足扩展名（<strong>如果是<code>.node</code>和<code>.json</code>的文件在<code>require</code>时带上扩展名</strong>）</li>
+<li>如果<code>require</code>的是一个目录，则Node会当做包（自定义模块）来处理，<ul>
+<li>解析<code>package.json</code>，找到main属性指定的文件进行定位，如无扩展名则进入扩展名分析的步骤</li>
+<li>如main属性指定的文件名错误或没有<code>package.json</code>，则默认将index当做默认文件名，依次查找<code>index.js、index.json、index.node</code></li>
+<li>如以上2步定位失败，则进入下一个模块路径进行查找，如遍历完毕依然没有定位成功，则抛出查找失败异常</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>模块编译</p>
+<ul>
+<li>Node中，每个文件模块都是一个对象</li>
+<li>不同的扩展名载入方法<ul>
+<li><code>.js</code>通过<code>fs</code>模块同步读取编译</li>
+<li><code>.node</code>是C\C++编写的扩展文件，通过<code>process.dlopen()</code>加载最后编译生成的文件，所以<code>.node</code>模块文件不需要编译，只有加载和执行。实际上在Windows下是<code>.dll</code>文件，在*nix下是<code>.so</code>文件</li>
+<li><code>.json</code>通过<code>fs</code>模块同步读取，用<code>JSON.parse()</code>解析返回</li>
+<li>其他扩展名都被当做<code>.js</code>文件载入</li>
+</ul>
+</li>
+<li>编译成功的文件模块会将文件路径作为索引缓存在<code>Modele._cache</code>对象上（核心模块缓存到<code>NatvieModule._cache</code>对象上）</li>
+<li><p>模块的<code>exports</code>、<code>require</code>、<code>module</code>、<code>__filename</code>、<code>__dirname</code>在哪儿定义的？Node在编译模块时进行头尾包装，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">exports, require, module, __filename, __dirname</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> math = <span class="built_in">require</span>(<span class="string">'math'</span>);</span><br><span class="line">    exports.area = <span class="function"><span class="keyword">function</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.PI * radius * radius;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>达到模块间作用域隔离，包装后通过VM原生模块的<code>runInThisContext()</code>执行（类似<code>eval</code>，只有明确上下文，不污染全局）返回一个具体的function，最后将当前模块对象的<code>exports</code>、<code>require()</code>、<code>module</code>(模块对象本身)以及文件路径、文件目录作为参数传递给这个function执行</p>
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -72,7 +146,7 @@
         
   
   <div class="tags">
-    <a href="/tags/node-js/">node.js</a>
+    <a href="/tags/node-js/">node.js</a>, <a href="/tags/深入浅出Node-js/">深入浅出Node.js</a>
   </div>
 
         
