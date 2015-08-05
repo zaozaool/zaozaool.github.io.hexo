@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>碼農、經緯</title>
+  <title>Node.js | 碼農、經緯</title>
   <meta name="author" content="zaozaool">
   
   
@@ -45,39 +45,11 @@
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-  <article class="post">
+<h2 class="archive-title tag">Node.js</h2>
+
+
   
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-08-05T07:34:30.000Z"><a href="/2015/08/05/SAP-ABAP技术总结/">2015-08-05</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/08/05/SAP-ABAP技术总结/">SAP ABAP技术总结</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
+    <article class="post">
   
   <div class="post-content">
     <header>
@@ -119,8 +91,8 @@
 
 
 
-
-  <article class="post">
+  
+    <article class="post">
   
   <div class="post-content">
     <header>
@@ -158,8 +130,8 @@
 
 
 
-
-  <article class="post">
+  
+    <article class="post">
   
   <div class="post-content">
     <header>
@@ -201,8 +173,8 @@
 
 
 
-
-  <article class="post">
+  
+    <article class="post">
   
   <div class="post-content">
     <header>
@@ -292,8 +264,8 @@
 
 
 
-
-  <article class="post">
+  
+    <article class="post">
   
   <div class="post-content">
     <header>
@@ -337,24 +309,29 @@
 
 
 
-
-  <article class="post">
+  
+    <article class="post">
   
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-21T06:56:05.000Z"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-基本对象Object/">2015-07-21</a></time>
+        <time datetime="2015-07-17T06:35:12.000Z"><a href="/2015/07/17/Node.js学习笔记之-常用模块/">2015-07-17</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-基本对象Object/">JavaScript学习笔记之 全局对象[Object]</a></h1>
+    <h1 class="title"><a href="/2015/07/17/Node.js学习笔记之-常用模块/">Node.js学习笔记之 常用模块</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>1.使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank" rel="external">Object.create(proto, [ propertiesObject ])</a>实现类式继承<br><code>new Constructor()</code>与<code>Object.create(Constructor.prototype)</code>的区别是<code>new Constructor()</code>会执行<code>Constructor</code>的初始代码，而<code>Object.create</code>不会执行</p>
+        <p>1.superagent：客户端请求代理模块，抓取页面用的（lession3）<br>2.cheerio：Node.js版的JQuery（lession3）<br>3.eventproxy：可以控制异步并发（lession4）<br>4.async：可以控制异步并发，并且可以自定义并发数（lession5）<br>5.should：断言库，用于后端测试，和mocha组合使用（lession6）<br>6.mocha：测试框架（lession6）<br>7.istanbul：测试率覆盖工具（lession6）<br>8.express：http server？过于低级，还是用一下express，能让你的生命美好一些，中等复杂度<br>9.chai：断言库，用于前端测试，和mocha组合使用（lession7）<br>10.phantomjs：一个拥有JavaScript API的无界面WebKit（Chrome、Safari都是有界面的WebKit），mocha-phantomjs<br>11.supertest：专门用来配合express进行集成测试的，和superagent具有相同的API（lession8）<br>12.mkdirp：一次性建立目标文件夹，而不是mkdir…cd…mkdir…cd…mkdir这样的模式<br>13.nodemon：自动检测 node.js 代码的改动，然后自动重启应用，完全用 nodemon 命令代替 node 命令（lession8）<br>14.bower：解决js的依赖管理<br>15.supervisor：supervisor自动重启应用，supervisor app<br>16.forever：forever可以看做是一个nodejs的守护进程，能够启动，停止，重启我们的app应用,<a href="http://tcrct.iteye.com/blog/2043644" target="_blank" rel="external">使用forever运行nodejs应用</a><br>17.pm2：PM2是Node.js应用程序的进程管理，目前已在生产环境被普遍使用,<a href="http://www.oschina.net/translate/goodbye-node-forever-hello-pm2?cmp" target="_blank" rel="external">告别node-forever,拥抱PM2</a></p>
+<p>更多请点击<a href="http://www.douban.com/note/303902955/" target="_blank" rel="external">node.js常用模块巡礼</a></p>
+<p><a href="http://zihua.li/2012/03/use-module-exports-or-exports-in-node" target="_blank" rel="external">module.exports和exports的区别</a></p>
+<p>npm i —save 与 npm i —save-dev 的区别，devDependencies与dependencies的区别</p>
+<p>req.query： 处理 get 请求，获取 get 请求参数<br>req.params： 处理 /:xxx 形式的 get 或 post 请求，获取请求参数<br>req.body： 处理 post 请求，获取 post 请求体<br>req.param()： 处理 get 和 post 请求，但查找优先级由高到低为 req.params→req.body→req.query</p>
+<p>ejs 的标签系统非常简单，它只有以下三种标签：<br>&lt;% code %&gt;：JavaScript 代码。<br>&lt;%= code %&gt;：显示替换过 HTML 特殊字符的内容。<br>&lt;%- code %&gt;：显示原始 HTML 内容。</p>
 
       
     </div>
@@ -370,40 +347,24 @@
 
 
 
-
-  <article class="post">
+  
+    <article class="post">
   
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-21T01:41:20.000Z"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">2015-07-21</a></time>
+        <time datetime="2015-07-17T06:32:40.000Z"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">2015-07-17</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">JavaScript学习笔记之 全局对象[方法属性]</a></h1>
+    <h1 class="title"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">supervisor vs pm2 vs forever</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval" target="_blank" rel="external">eval(string, [object])</a>的第一个参数是个字符串。如果字符串表示了一个表达式，eval()会对表达式求值。如果参数表示了一个或多个JavaScript声明， 那么eval()会执行声明。不要调用eval()来为算数表达式求值； JavaScript 会自动为算数表达式求值。解析JSON。</p>
-<h3 id="避免在不必要的情况下使用eval">避免在不必要的情况下使用eval</h3><p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isFinite" target="_blank" rel="external">isFinite(testValue)</a> 是全局的方法，不与任何对象有关系。isFinite 方法检测它参数的数值。如果参数是 NaN，正无穷大或者负无穷大，会返回false，其他返回 true。</p>
-<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseFloat" target="_blank" rel="external">parseFloat(string)</a><br>如果参数字符串的第一个字符不能被解析成为数字,则parseFloat返回NaN.<br>parseFloat 也可转换和返回Infinity值. 可以使用isFinite 函数来判断结果是否是一个优先的数值 (非Infinity, -Infinity, 或 NaN).</p>
-<p>4.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt" target="_blank" rel="external">parseInt(string, radix)</a>在没有指定基数，或者基数为 0 的情况下，JavaScript 作如下处理：</p>
-<ul>
-<li>如果字符串 string 以”0x”或者”0X”开头, 则基数是16 (16进制).</li>
-<li>如果字符串 string 以”0”开头, 基数是8（八进制）或者10（十进制），那么具体是哪个基数由实现环境决定。ECMAScript 5 规定使用10，但是并不是所有的浏览器都遵循这个规定。因此，<strong>永远都要明确给出radix参数的值</strong>。</li>
-<li>如果字符串 string 以其它任何值开头，则基数是10 (十进制)。</li>
-<li>如果第一个字符不能被转换成数字，parseInt返回NaN。</li>
-</ul>
-<p>将整型数值以特定基数转换成它的字符串值可以使用 <strong>intValue.toString(radix)</strong>.</p>
-<p>5.<a href="http://www.cnblogs.com/jhxk/articles/1634359.html" target="_blank" rel="external">escape()、unescape()、encodeURI()、encodeURIComponent()、decodeURI()、decodeURIComponent()比较</a></p>
-<ul>
-<li>传递参数时需要使用encodeURIComponent，这样组合的url才不会被#等特殊字符截断。 </li>
-<li>进行url跳转时可以整体使用encodeURI</li>
-<li>尽量避免使用escape()和unescape()方法</li>
-</ul>
+        <p>使用场合不一样:<br>supervisor 是开发环境用。<br>forever 管理多个站点，每个站访问量不大，不需要监控。<br>pm2 网站访问量比较大，需要完整的监控界面。<br><a href="http://www.oschina.net/translate/goodbye-node-forever-hello-pm2?cmp" target="_blank" rel="external">告别node-forever,拥抱PM2</a></p>
 
       
     </div>
@@ -419,87 +380,14 @@
 
 
 
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-21T01:41:20.000Z"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-常量属性/">2015-07-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-常量属性/">JavaScript学习笔记之 全局对象[常量属性]</a></h1>
   
 
-    </header>
-    <div class="entry">
-      
-        <p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/NaN" target="_blank" rel="external">判断一个值是否是NaN</a><br>等号运算符（== 和 ===） 不能被用来判断一个值是否是 NaN。必须使用 Number.isNaN() 或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isNaN" target="_blank" rel="external">isNaN()</a> 函数。</p>
-<p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Infinity" target="_blank" rel="external">Infinity</a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/NEGATIVE_INFINITY" target="_blank" rel="external">Number.NEGATIVE_INFINITY</a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/POSITIVE_INFINITY" target="_blank" rel="external">Number.POSITIVE_INFINITY</a></p>
-<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined" target="_blank" rel="external">undifined</a>:必须使用严格相等运算符===,而不能使用普通的相等运算符==,因为x == undefined成立还可能是因为x为null,在JavaScript中null== undefined是返回true的.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"><span class="keyword">if</span> (x === <span class="literal">undefined</span>) &#123;</span><br><span class="line">   <span class="comment">// 执行到这里</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="comment">// 不会执行到这里</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果一个变量根本没有被声明,只有使用typeof判断才不会报错,用相等运算符判断会抛出异常<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// x没有被声明过</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> x === <span class="string">'undefined'</span>) &#123; <span class="comment">// 不会报错</span></span><br><span class="line">   <span class="comment">// these statements execute</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(x === <span class="literal">undefined</span>)&#123; <span class="comment">// 抛出ReferenceError异常</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>不过如果要检测的变量是个全局变量,可以不使用typeof.可以通过检测全局对象的同名属性来代替<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// x可能没有被声明过,但如果已经声明了的话,x是个全局变量</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.x === <span class="literal">undefined</span>) &#123; <span class="comment">// 即使window.x不存在,也不会报错</span></span><br><span class="line">   <span class="comment">// 可能会执行到这里</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(x === <span class="literal">undefined</span>)&#123; <span class="comment">// 如果window.x不存在,则会抛出ReferenceError异常</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>4.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/null" target="_blank" rel="external">null 是一个字面量（而不是全局对象的一个属性，undefined 是）</a><br>null 与 undefined 的不同点：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>        <span class="comment">// object (bug in ECMAScript, should be null)</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>   <span class="comment">// undefined</span></span><br><span class="line"><span class="literal">null</span> === <span class="literal">undefined</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span>  == <span class="literal">undefined</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
+  <nav id="pagination">
   
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-20T05:03:26.000Z"><a href="/2015/07/20/JavaScript学习笔记之-编程习惯和注意点/">2015-07-20</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/20/JavaScript学习笔记之-编程习惯和注意点/">JavaScript学习笔记之 编程习惯和注意点</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>1.我们将 <code>&lt;script&gt;</code> 元素放在 HTML 文件底部的原因是，浏览器解析 HTML 似乎按照代码出现的顺序来的。如果 JavaScript被首先读取，它也应该影响下面的 HTML，但有时会出现问题，因为 JavaScript 会在 HTML 之前被加载，如果 JavaScript 代码出现问题则 HTML 不会被加载。所以将 JavaScript 代码放在底部是最好的选择。</p>
-<p>2.JS中的每一行都应该以一个分号结尾，以表明这一行的结束。如果你不这样做，可能会遇到意想不到的结果。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-<nav id="pagination">
-  
-  
-    <a href="/page/2/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
-</nav></div></div>
+</nav>
+</div></div>
     <aside id="sidebar" class="alignright">
   
 

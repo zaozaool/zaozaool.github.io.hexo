@@ -1,7 +1,7 @@
 title: 'JavaScript学习笔记之 全局对象[Object]'
 date: 2015-07-21 06:56:05
 categories:
-tags: javascript
+tags: JavaScript
 ---
 
 1.使用[Object.create(proto, [ propertiesObject ])](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create)实现类式继承

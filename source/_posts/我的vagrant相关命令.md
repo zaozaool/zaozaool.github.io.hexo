@@ -28,3 +28,25 @@ hexo clean
 hexo generate
 hexo deploy
 hexo --help
+
+#vagrant 映射配置
+```
+#apache tomcat
+config.vm.network "forwarded_port", guest: 8081, host: 80
+
+#remote java application
+config.vm.network "forwarded_port", guest: 8787, host: 8787
+
+#cloud 9 IDE
+config.vm.network "forwarded_port", guest: 8181, host: 8181
+
+#mongodb
+config.vm.network "forwarded_port", guest: 27017, host: 27117
+config.vm.network "forwarded_port", guest: 28017, host: 28117
+
+#node.js app
+config.vm.network "forwarded_port", guest: 3000, host: 3100
+
+#hexo
+config.vm.network "forwarded_port", guest: 4000, host: 4000
+```

@@ -1,7 +1,7 @@
 title: JavaScript学习笔记之 全局对象[方法属性]
 date: 2015-07-21 01:41:20
 categories:
-tags: javascript
+tags: JavaScript
 ---
 
 1.[eval(string, [object])](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval)的第一个参数是个字符串。如果字符串表示了一个表达式，eval()会对表达式求值。如果参数表示了一个或多个JavaScript声明， 那么eval()会执行声明。不要调用eval()来为算数表达式求值； JavaScript 会自动为算数表达式求值。解析JSON。

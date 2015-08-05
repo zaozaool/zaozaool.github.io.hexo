@@ -1,7 +1,7 @@
 title: 深入浅出Node.js - 核心模块(2.3)
 date: 2015-07-30 09:17:10
 categories:
-tags: [node.js, 深入浅出Node.js]
+tags: [Node.js, 深入浅出Node.js]
 ---
 
 1.核心模块分为C/C++编写的和JavaScript编写的两部分，C/C++文件存放在src目录下，js文件存放在lib目录下，C\C++编写的部分称为内建模块，JavaScript编写的称为核心模块

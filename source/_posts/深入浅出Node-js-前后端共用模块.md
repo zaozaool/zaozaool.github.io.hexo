@@ -1,7 +1,7 @@
 title: 深入浅出Node.js - 前后端共用模块(2.7)
 date: 2015-08-04 05:14:25
 categories:
-tags: [node.js, 深入浅出Node.js]
+tags: [Node.js, 深入浅出Node.js]
 ---
 
 1.AMD规范：`define(id?, dependencies?, factory);`

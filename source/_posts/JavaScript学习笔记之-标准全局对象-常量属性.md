@@ -1,7 +1,7 @@
 title: JavaScript学习笔记之 全局对象[常量属性]
 date: 2015-07-21 01:41:20
 categories:
-tags: javascript
+tags: JavaScript
 ---
 
 1.[判断一个值是否是NaN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/NaN)

@@ -1,7 +1,7 @@
 title: 深入浅出Node.js - 模块加载(2.2)
 date: 2015-07-30 04:33:30
 categories:
-tags: [node.js, 深入浅出Node.js]
+tags: [Node.js, 深入浅出Node.js]
 ---
 
 1.加载模块的3个步骤

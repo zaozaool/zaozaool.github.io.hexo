@@ -3,17 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>module.exports和exports的区别 | 碼農、經緯</title>
+  <title>ABAP | 碼農、經緯</title>
   <meta name="author" content="zaozaool">
-  
-  <meta name="description" content="这是别人解释的module.exports和exports的区别
-我的理解比较简单，2点：1.exports是对module.exports的引用2.而require引入的是module.exports
-所以如果只是这样写肯定是有问题的,这样改变了exports的引用地址1exports = som">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="module.exports和exports的区别"/>
+  
   <meta property="og:site_name" content="碼農、經緯"/>
 
   
@@ -48,53 +44,34 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">ABAP</h2>
+
+
+  
+    <article class="post">
   
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-31T05:39:40.000Z"><a href="/2015/07/31/module-exports和exports的区别/">2015-07-31</a></time>
+        <time datetime="2015-08-05T07:34:30.000Z"><a href="/2015/08/05/SAP-ABAP技术总结/">2015-08-05</a></time>
       
       
   
-    <h1 class="title">module.exports和exports的区别</h1>
+    <h1 class="title"><a href="/2015/08/05/SAP-ABAP技术总结/">SAP ABAP技术总结</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>这是别人解释的<a href="http://zihua.li/2012/03/use-module-exports-or-exports-in-node" target="_blank" rel="external">module.exports和exports的区别</a></p>
-<p>我的理解比较简单，2点：<br>1.<code>exports</code>是对<code>module.exports</code>的引用<br>2.而<code>require</code>引入的是<code>module.exports</code></p>
-<p>所以如果只是这样写肯定是有问题的,这样改变了exports的引用地址<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports = something...</span><br></pre></td></tr></table></figure></p>
-<p>最保险的写法是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports = <span class="built_in">module</span>.exports = something...</span><br></pre></td></tr></table></figure></p>
-<p>加属性或方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exports.attr = something...</span><br><span class="line">exports.method = something...</span><br></pre></td></tr></table></figure></p>
-<p>或<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports.attr = something...</span><br><span class="line"><span class="built_in">module</span>.exports.method = something...</span><br></pre></td></tr></table></figure></p>
-<p>轻拍…</p>
-
+        
       
     </div>
     <footer>
       
         
         
-  
-  <div class="tags">
-    <a href="/tags/Node-js/">Node.js</a>
-  </div>
-
-        
-  <div class="addthis addthis_toolbox addthis_default_style">
-    
-    
-    
-      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-    
-    
-    <a class="addthis_counter addthis_pill_style"></a>
-  </div>
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
-
       
       <div class="clearfix"></div>
     </footer>
@@ -102,33 +79,14 @@
 </article>
 
 
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = 'zaozaool';
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  
 
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = 'zaozaool';
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
 </div></div>
     <aside id="sidebar" class="alignright">
   
