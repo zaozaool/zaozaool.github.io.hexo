@@ -55,6 +55,43 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-08-07T04:51:44.000Z"><a href="/2015/08/07/Linux系统查看版本信息/">2015-08-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/07/Linux系统查看版本信息/">Linux系统查看版本信息</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.<code>uname -a</code>,可显示电脑以及操作系统的相关信息。</p>
+<p>2.<code>cat /proc/version</code>,说明正在运行的内核版本。</p>
+<p>3.<code>cat /etc/issue</code>, 显示的是发行版本信息</p>
+<p>4.<code>lsb_release -a</code>, (适用于所有的linux，包括Redhat、SuSE、Debian等发行版，但是在debian下要安装lsb)</p>
+<p>5.<code>uname -r</code>,输出版本号</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-07-17T07:02:55.000Z"><a href="/2015/07/17/常用工具/">2015-07-17</a></time>
       
       
@@ -65,7 +102,7 @@
     </header>
     <div class="entry">
       
-        <h1 id="日常相关：">日常相关：</h1><p>FSCapture<br>ZoomIt<br>everything<br>teracopy<br>PowerCmd<br>Sublime Text<br>Ultra Edit<br>Beyond Compare<br>PDFEdit<br>Clover<br>CCleaner<br>VirtualBox<br>VMware Player<br>mRemote/mRemoteNG</p>
+        <h1 id="日常相关：">日常相关：</h1><p>FSCapture<br>ZoomIt<br>everything<br>teracopy<br>PowerCmd<br>Sublime Text<br>Ultra Edit<br>Beyond Compare<br>PDFEdit<br>Clover<br>CCleaner<br>VirtualBox<br>VMware Player<br>mRemote/mRemoteNG<br>InletexEMC</p>
 <p>Notepad++及常用插件<br>{<br>    Explorer<br>    JSTool<br>    JSLint:JavaScript Code Quality Tool<br>    JSON Viewer<br>    Light Explorer<br>    NppExec<br>    NppExport<br>    NppFTP<br>    Poor Man’s T-Sql Formatter<br>    SQL:使用SQL筛选csv文件<br>    TagView<br>    Emmet/Zen Coding<br>    Falling Bricks:NPP中的俄罗斯方块<br>    File Switcher<br>    GOnpp:golang插件<br>    MultiClipboard<br>    Python Script:npp中的python脚本<br>    XML Tools<br>}</p>
 <h1 id="Linux相关：">Linux相关：</h1><p>SecureCRT&amp;SecureFX<br>putty<br>FileZilla<br>XSheel<br>XFTP</p>
 <h1 id="JAVA相关：">JAVA相关：</h1><p>jad<br>easyexplorer<br>SoapUI</p>
@@ -103,11 +140,11 @@
     </header>
     <div class="entry">
       
-        <h1 id="vagrant启动/停止">vagrant启动/停止</h1><p>vagrant up<br>vagrant halt</p>
-<h1 id="启动cloud_9">启动cloud 9</h1><p>sudo node /home/vagrant/cloud9/c9sdk/server.js -p 8181 -l 0.0.0.0 -a : -w /home/vagrant/cloud9/test-express/</p>
-<h1 id="启动/停止mongodb">启动/停止mongodb</h1><p>sudo mongod —journal —fork —dbpath /home/vagrant/mongodb-linux-i686-3.0.4/data/ —logpath /home/vagrant/mongodb-linux-i686-3.0.4/logs<br>kill -2 PID</p>
-<h1 id="git">git</h1><p>git init<br>git add */filename<br>git commit -m “message”<br>git push -u origin master<br>git pull origin master<br>git —help</p>
-<h1 id="hexo">hexo</h1><p>hexo new [post|page|draft] “name”<br>hexo server<br>hexo clean<br>hexo generate<br>hexo deploy<br>hexo —help</p>
+        <h1 id="vagrant启动/停止">vagrant启动/停止</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant init  # &#21021;&#22987;&#21270;&#10;vagrant up  # &#21551;&#21160;&#34394;&#25311;&#26426;&#10;vagrant halt  # &#20851;&#38381;&#34394;&#25311;&#26426;&#10;vagrant reload  # &#37325;&#21551;&#34394;&#25311;&#26426;&#10;vagrant ssh  # SSH &#33267;&#34394;&#25311;&#26426;&#10;vagrant status  # &#26597;&#30475;&#34394;&#25311;&#26426;&#36816;&#34892;&#29366;&#24577;&#10;vagrant destroy  # &#38144;&#27585;&#24403;&#21069;&#34394;&#25311;&#26426;</span><br></pre></td></tr></table></figure>
+<h1 id="启动cloud_9">启动cloud 9</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo node /home/vagrant/cloud9/c9sdk/server.js -p 8181 -l 0.0.0.0 -a : -w /home/vagrant/cloud9/test-express/</span><br></pre></td></tr></table></figure>
+<h1 id="启动/停止mongodb">启动/停止mongodb</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mongod --journal --fork --dbpath /home/vagrant/mongodb-linux-i686-3.0.4/data/ --logpath /home/vagrant/mongodb-linux-i686-3.0.4/logs&#10;kill -2 PID</span><br></pre></td></tr></table></figure>
+<h1 id="git">git</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init&#10;git add */filename&#10;git commit -m &#34;message&#34;&#10;git push -u origin master &#10;git pull origin master&#10;git --help</span><br></pre></td></tr></table></figure>
+<h1 id="hexo">hexo</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [post|page|draft] &#34;name&#34;&#10;hexo server&#10;hexo clean&#10;hexo generate&#10;hexo deploy&#10;hexo --help</span><br></pre></td></tr></table></figure>
 <h1 id="vagrant_映射配置">vagrant 映射配置</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#apache</span> tomcat</span><br><span class="line">config<span class="class">.vm</span><span class="class">.network</span> <span class="string">"forwarded_port"</span>, guest: <span class="number">8081</span>, host: <span class="number">80</span></span><br><span class="line"></span><br><span class="line"><span class="id">#remote</span> java application</span><br><span class="line">config<span class="class">.vm</span><span class="class">.network</span> <span class="string">"forwarded_port"</span>, guest: <span class="number">8787</span>, host: <span class="number">8787</span></span><br><span class="line"></span><br><span class="line"><span class="id">#cloud</span> <span class="number">9</span> IDE</span><br><span class="line">config<span class="class">.vm</span><span class="class">.network</span> <span class="string">"forwarded_port"</span>, guest: <span class="number">8181</span>, host: <span class="number">8181</span></span><br><span class="line"></span><br><span class="line"><span class="id">#mongodb</span></span><br><span class="line">config<span class="class">.vm</span><span class="class">.network</span> <span class="string">"forwarded_port"</span>, guest: <span class="number">27017</span>, host: <span class="number">27117</span></span><br><span class="line">config<span class="class">.vm</span><span class="class">.network</span> <span class="string">"forwarded_port"</span>, guest: <span class="number">28017</span>, host: <span class="number">28117</span></span><br><span class="line"></span><br><span class="line"><span class="id">#node</span><span class="class">.js</span> app</span><br><span class="line">config<span class="class">.vm</span><span class="class">.network</span> <span class="string">"forwarded_port"</span>, guest: <span class="number">3000</span>, host: <span class="number">3100</span></span><br><span class="line"></span><br><span class="line"><span class="id">#hexo</span></span><br><span class="line">config<span class="class">.vm</span><span class="class">.network</span> <span class="string">"forwarded_port"</span>, guest: <span class="number">4000</span>, host: <span class="number">4000</span></span><br></pre></td></tr></table></figure>
       
     </div>
@@ -145,11 +182,13 @@
   
     <li><a href="/tags/JavaScript/">JavaScript</a><small>4</small></li>
   
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
     <li><a href="/tags/Node-js/">Node.js</a><small>7</small></li>
   
     <li><a href="/tags/SAP/">SAP</a><small>1</small></li>
   
-    <li><a href="/tags/备忘/">备忘</a><small>2</small></li>
+    <li><a href="/tags/备忘/">备忘</a><small>3</small></li>
   
     <li><a href="/tags/工具/">工具</a><small>1</small></li>
   
@@ -163,7 +202,7 @@
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/ABAP/" style="font-size: 10px;">ABAP</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 20px;">Node.js</a> <a href="/tags/SAP/" style="font-size: 10px;">SAP</a> <a href="/tags/备忘/" style="font-size: 13.33px;">备忘</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/深入浅出Node-js/" style="font-size: 16.67px;">深入浅出Node.js</a>
+    <a href="/tags/ABAP/" style="font-size: 10px;">ABAP</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Node-js/" style="font-size: 20px;">Node.js</a> <a href="/tags/SAP/" style="font-size: 10px;">SAP</a> <a href="/tags/备忘/" style="font-size: 13.33px;">备忘</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/深入浅出Node-js/" style="font-size: 16.67px;">深入浅出Node.js</a>
   </div>
 </div>
 
@@ -174,6 +213,10 @@
 <div class="widget tag">
   <h3 class="title">最新文章</h3>
   <ul class="entry">
+    
+      <li>
+        <a href="/2015/08/07/Linux系统查看版本信息/">Linux系统查看版本信息</a>
+      </li>
     
       <li>
         <a href="/2015/08/06/Git代码托管平台汇总/">Git代码托管平台汇总</a>
@@ -189,10 +232,6 @@
     
       <li>
         <a href="/2015/07/31/module-exports和exports的区别/">module.exports和exports的区别</a>
-      </li>
-    
-      <li>
-        <a href="/2015/07/30/深入浅出Node-js-核心模块/">深入浅出Node.js - 核心模块(2.3)</a>
       </li>
     
   </ul>

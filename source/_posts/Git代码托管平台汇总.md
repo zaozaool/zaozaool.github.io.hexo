@@ -17,3 +17,7 @@ tags: Git
 ***6.(国内)[CSDN代码托管](https://code.csdn.net/)***
 
 ***7.(国内)[京东代码托管平台](https://code.jd.com/)***
+
+***8.(国内)[GitCafe](https://gitcafe.com/)***
+
+个人推荐：GitHub、Git@OSC(开源中国，必须支持)、Coding(快)
