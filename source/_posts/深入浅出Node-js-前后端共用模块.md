@@ -5,6 +5,7 @@ tags: [Node.js, 深入浅出Node.js]
 ---
 
 1.AMD规范：`define(id?, dependencies?, factory);`
+
 ```javascript
 define(['dep1', 'dep2'], function(dep1, dep2){
     return function(){};
