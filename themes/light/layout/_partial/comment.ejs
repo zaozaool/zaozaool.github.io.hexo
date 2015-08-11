@@ -1,0 +1,15 @@
+<% if (page.comments){ %>
+<section id="comment">
+  <h1 class="title"><%= __('comment') %></h1>
+
+  <% if (theme.comment_provider == "facebook") {
+      if (theme.facebook) { %>
+      <%- partial('_partial/facebook_comment', {fbConfig: theme.facebook}) %>
+      <% } %>
+  <% } else if(theme.comment_provider == "disqus") {
+      if (theme.disqus) { %>
+      <%- partial('_partial/disqus_comment', {disqusConfig: theme.disqus}) %>
+      <% } %>
+  <% } %>
+</section>
+<% } %>
