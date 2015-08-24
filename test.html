@@ -1,7 +1,19 @@
 <script type="text/javascript">
-(function(){
-    var o = Object.create({}, { p: { value: 42 } })
-    o.p = 4;
-    alert(o.p);
-})();
+    var after = function(times, func) {
+        if (times <= 0) {
+            return func();
+        }
+        return function() {
+            if (--times < 1) {
+                return func.apply(this.args);
+            };
+        };
+    };
+
+
+    (function() {
+        after(1, function() {
+            alert('success');
+        })
+    })();
 </script>

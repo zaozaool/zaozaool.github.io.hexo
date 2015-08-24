@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>深入浅出Node.js - 异步I/O(3.2) | 碼農、經緯</title>
+  <title>深入浅出Node.js - 异步I/O(3.2-3.4) | 碼農、經緯</title>
   <meta name="author" content="zaozaool">
   
   <meta name="description" content="1.异步I/O与非阻塞I/O
@@ -16,7 +16,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="深入浅出Node.js - 异步I/O(3.2)"/>
+  <meta property="og:title" content="深入浅出Node.js - 异步I/O(3.2-3.4)"/>
   <meta property="og:site_name" content="碼農、經緯"/>
 
   
@@ -59,7 +59,7 @@
       
       
   
-    <h1 class="title">深入浅出Node.js - 异步I/O(3.2)</h1>
+    <h1 class="title">深入浅出Node.js - 异步I/O(3.2-3.4)</h1>
   
 
     </header>
@@ -77,11 +77,26 @@
 </ul>
 <p>2.轮询的技术演进</p>
 <ul>
-<li>read：最原始、性能最低的一种，通过重复调用来检查I/O的状态来完成数据的读取，在最终得到数据前，CPU一直好用在等待上</li>
-<li>select：在read基础上改进，通过对文件描述符上的事件状态来进行判断，最多同时检查1024个文件描述符</li>
-<li>poll：该方案将select中的1024长度的数组换成了链表的方式，避免数组长度的限制。其次避免了不必要的检查</li>
-<li>epoll：Linux下效率最高的I/O事件通知机制，在进入轮询时如果没有检查到I/O事件，将会进行休眠，直到事件发生将他唤醒</li>
-<li>kqueue：实现方式和epoll类型，不过仅在FreeBSD系统下存在</li>
+<li><code>read</code>：最原始、性能最低的一种，通过重复调用来检查I/O的状态来完成数据的读取，在最终得到数据前，CPU一直好用在等待上</li>
+<li><code>select</code>：在<code>read</code>基础上改进，通过对文件描述符上的事件状态来进行判断，最多同时检查1024个文件描述符</li>
+<li><code>poll</code>：该方案将<code>select</code>中的1024长度的数组换成了链表的方式，避免数组长度的限制。其次避免了不必要的检查</li>
+<li><code>epoll</code>：Linux下效率最高的I/O事件通知机制，在进入轮询时如果没有检查到I/O事件，将会进行休眠，直到事件发生将他唤醒</li>
+<li><code>kqueue</code>：实现方式和<code>epoll</code>类型，不过仅在<code>FreeBSD</code>系统下存在</li>
+</ul>
+<p>3.Node的异步I/O</p>
+<ul>
+<li>事件循环：进程启动时，Node创建一个类型与<code>while(true)</code>的循环，每执行一次循环体的过程称为<code>Tick</code>，每个<code>Tick</code>的过程就是查看是否有事件待处理，如有则取出事件及其相关回调函数并执行。然后执行下个循环，如不再有事件处理则退出进程。在Windows下该循环基于IOCP创建，二在*nix下则基于多线程创建</li>
+<li>观察者：每个<code>Tick</code>的过程中，有一个或者多个观察者，并通过向他们询问来判断是否有事件需要处理</li>
+<li>请求对象：是异步I/O的中间产物，所有的状态都保存在这个对象中，包括送入线程池等待执行以及I/O操作完毕后的回调函数，其是异步I/O的第一部分</li>
+<li>执行回调：其是第二部分</li>
+<li>流程图：</li>
+</ul>
+<p>4.非I/O的异步API</p>
+<ul>
+<li><code>setTimeout()</code></li>
+<li><code>setInterval()</code></li>
+<li><code>setImmediate()</code></li>
+<li><code>process.nextTick()</code></li>
 </ul>
 
       
@@ -182,7 +197,7 @@
   
     <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
   
-    <li><a href="/tags/Node-js/">Node.js</a><small>8</small></li>
+    <li><a href="/tags/Node-js/">Node.js</a><small>9</small></li>
   
     <li><a href="/tags/SAP/">SAP</a><small>0</small></li>
   
@@ -190,7 +205,7 @@
   
     <li><a href="/tags/工具/">工具</a><small>1</small></li>
   
-    <li><a href="/tags/深入浅出Node-js/">深入浅出Node.js</a><small>5</small></li>
+    <li><a href="/tags/深入浅出Node-js/">深入浅出Node.js</a><small>6</small></li>
   
   </ul>
 </div>
