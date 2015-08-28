@@ -25,6 +25,18 @@ sudo mongod --journal --fork --dbpath /home/vagrant/mongodb-linux-i686-3.0.4/dat
 kill -2 PID
 ```
 
+#启动/停止redis
+```shell
+sudo /usr/bin/redis-server /etc/redis/redis.conf
+redis-cli shutdown
+kill -9 PID
+```
+#启动/停止postgresql
+```shell
+sudo /usr/lib/postgresql/9.1/bin/postgres -D /var/lib/postgresql/9.1/main -c config_file=/etc/postgresql/9.1/main/postgresql.conf
+kill -2 PID
+```
+
 #git
 ```shell
 git init
@@ -46,7 +58,7 @@ hexo --help
 ```
 
 #vagrant 映射配置
-```
+```shell
 #apache tomcat
 config.vm.network "forwarded_port", guest: 8081, host: 80
 
@@ -65,4 +77,12 @@ config.vm.network "forwarded_port", guest: 3000, host: 3100
 
 #hexo
 config.vm.network "forwarded_port", guest: 4000, host: 4000
+```
+
+#apt-get安装与卸载
+```shell
+sudo apt-get install xxxx
+
+sudo apt-get remove xxxx
+sudo apt-get autoremove
 ```
