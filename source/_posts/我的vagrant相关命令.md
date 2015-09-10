@@ -35,6 +35,20 @@ kill -9 PID
 ```shell
 sudo /usr/lib/postgresql/9.1/bin/postgres -D /var/lib/postgresql/9.1/main -c config_file=/etc/postgresql/9.1/main/postgresql.conf
 kill -2 PID
+
+sudo su - postgres
+psql
+\q: 退出psql
+\password dbuser
+\h：查看SQL命令的解释，比如\h select。
+\?：查看psql命令列表。
+\l：列出所有数据库。
+\c [database_name]：连接其他数据库。
+\d：列出当前数据库的所有表格。
+\d [table_name]：列出某一张表格的结构。
+\du：列出所有用户。
+\e：打开文本编辑器。
+\conninfo：列出当前数据库和连接的信息。
 ```
 
 #git
@@ -77,6 +91,15 @@ config.vm.network "forwarded_port", guest: 3000, host: 3100
 
 #hexo
 config.vm.network "forwarded_port", guest: 4000, host: 4000
+
+#redis
+config.vm.network "forwarded_port", guest: 6379, host: 6379
+
+#ftp
+config.vm.network "forwarded_port", guest: 21, host: 21
+
+#postgresql
+config.vm.network "forwarded_port", guest: 5432, host: 5432
 ```
 
 #apt-get安装与卸载
