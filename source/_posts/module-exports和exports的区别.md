@@ -9,6 +9,7 @@ tags: Node.js
 我的理解比较简单，2点：
 1.`exports`是对`module.exports`的引用
 2.而`require`引入的是`module.exports`
+<!--more-->
 
 所以如果只是这样写肯定是有问题的,这样改变了exports的引用地址
 ```javascript

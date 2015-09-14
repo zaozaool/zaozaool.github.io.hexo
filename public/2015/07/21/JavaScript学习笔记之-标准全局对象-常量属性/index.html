@@ -8,7 +8,7 @@
   
   <meta name="description" content="1.判断一个值是否是NaN等号运算符（== 和 ===） 不能被用来判断一个值是否是 NaN。必须使用 Number.isNaN() 或 isNaN() 函数。
 2.Infinity、Number.NEGATIVE_INFINITY、Number.POSITIVE_INFINITY
-3.undifi">
+3.undifined:必须使用严格相等运算符===,而不能使用普通的相等运算符==,因为x == undefined成立还可能是因为x为null,在JavaScript中null== undefined是返回true的.">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -66,7 +66,7 @@
       
         <p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/NaN" target="_blank" rel="external">判断一个值是否是NaN</a><br>等号运算符（== 和 ===） 不能被用来判断一个值是否是 NaN。必须使用 Number.isNaN() 或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isNaN" target="_blank" rel="external">isNaN()</a> 函数。</p>
 <p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Infinity" target="_blank" rel="external">Infinity</a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/NEGATIVE_INFINITY" target="_blank" rel="external">Number.NEGATIVE_INFINITY</a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/POSITIVE_INFINITY" target="_blank" rel="external">Number.POSITIVE_INFINITY</a></p>
-<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined" target="_blank" rel="external">undifined</a>:必须使用严格相等运算符===,而不能使用普通的相等运算符==,因为x == undefined成立还可能是因为x为null,在JavaScript中null== undefined是返回true的.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"><span class="keyword">if</span> (x === <span class="literal">undefined</span>) &#123;</span><br><span class="line">   <span class="comment">// 执行到这里</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="comment">// 不会执行到这里</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined" target="_blank" rel="external">undifined</a>:必须使用严格相等运算符===,而不能使用普通的相等运算符==,因为x == undefined成立还可能是因为x为null,在JavaScript中null== undefined是返回true的.<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"><span class="keyword">if</span> (x === <span class="literal">undefined</span>) &#123;</span><br><span class="line">   <span class="comment">// 执行到这里</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="comment">// 不会执行到这里</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>如果一个变量根本没有被声明,只有使用typeof判断才不会报错,用相等运算符判断会抛出异常<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// x没有被声明过</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> x === <span class="string">'undefined'</span>) &#123; <span class="comment">// 不会报错</span></span><br><span class="line">   <span class="comment">// these statements execute</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(x === <span class="literal">undefined</span>)&#123; <span class="comment">// 抛出ReferenceError异常</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>不过如果要检测的变量是个全局变量,可以不使用typeof.可以通过检测全局对象的同名属性来代替<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// x可能没有被声明过,但如果已经声明了的话,x是个全局变量</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.x === <span class="literal">undefined</span>) &#123; <span class="comment">// 即使window.x不存在,也不会报错</span></span><br><span class="line">   <span class="comment">// 可能会执行到这里</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(x === <span class="literal">undefined</span>)&#123; <span class="comment">// 如果window.x不存在,则会抛出ReferenceError异常</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>4.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/null" target="_blank" rel="external">null 是一个字面量（而不是全局对象的一个属性，undefined 是）</a><br>null 与 undefined 的不同点：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>        <span class="comment">// object (bug in ECMAScript, should be null)</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>   <span class="comment">// undefined</span></span><br><span class="line"><span class="literal">null</span> === <span class="literal">undefined</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span>  == <span class="literal">undefined</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
@@ -157,9 +157,13 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/ABAP/">ABAP</a><small>0</small></li>
+    <li><a href="/tags/ABAP/">ABAP</a><small>3</small></li>
+  
+    <li><a href="/tags/Docker/">Docker</a><small>0</small></li>
   
     <li><a href="/tags/Drools/">Drools</a><small>0</small></li>
+  
+    <li><a href="/tags/ETL/">ETL</a><small>0</small></li>
   
     <li><a href="/tags/Git/">Git</a><small>1</small></li>
   
@@ -167,11 +171,13 @@
   
     <li><a href="/tags/JavaScript/">JavaScript</a><small>4</small></li>
   
+    <li><a href="/tags/Kettle/">Kettle</a><small>0</small></li>
+  
     <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
   
     <li><a href="/tags/Node-js/">Node.js</a><small>9</small></li>
   
-    <li><a href="/tags/SAP/">SAP</a><small>0</small></li>
+    <li><a href="/tags/SAP/">SAP</a><small>3</small></li>
   
     <li><a href="/tags/备忘/">备忘</a><small>3</small></li>
   

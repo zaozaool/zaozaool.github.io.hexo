@@ -12,7 +12,7 @@ tags: JavaScript
 3.[parseFloat(string)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseFloat)
 如果参数字符串的第一个字符不能被解析成为数字,则parseFloat返回NaN.
 parseFloat 也可转换和返回Infinity值. 可以使用isFinite 函数来判断结果是否是一个优先的数值 (非Infinity, -Infinity, 或 NaN).
-
+<!--more-->
 4.[parseInt(string, radix)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt)在没有指定基数，或者基数为 0 的情况下，JavaScript 作如下处理：
 - 如果字符串 string 以"0x"或者"0X"开头, 则基数是16 (16进制).
 - 如果字符串 string 以"0"开头, 基数是8（八进制）或者10（十进制），那么具体是哪个基数由实现环境决定。ECMAScript 5 规定使用10，但是并不是所有的浏览器都遵循这个规定。因此，**永远都要明确给出radix参数的值**。

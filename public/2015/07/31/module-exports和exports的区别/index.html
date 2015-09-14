@@ -7,8 +7,7 @@
   <meta name="author" content="zaozaool">
   
   <meta name="description" content="这是别人解释的module.exports和exports的区别
-我的理解比较简单，2点：1.exports是对module.exports的引用2.而require引入的是module.exports
-所以如果只是这样写肯定是有问题的,这样改变了exports的引用地址1exports = som">
+我的理解比较简单，2点：1.exports是对module.exports的引用2.而require引入的是module.exports">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -65,7 +64,7 @@
     <div class="entry">
       
         <p>这是别人解释的<a href="http://zihua.li/2012/03/use-module-exports-or-exports-in-node" target="_blank" rel="external">module.exports和exports的区别</a></p>
-<p>我的理解比较简单，2点：<br>1.<code>exports</code>是对<code>module.exports</code>的引用<br>2.而<code>require</code>引入的是<code>module.exports</code></p>
+<p>我的理解比较简单，2点：<br>1.<code>exports</code>是对<code>module.exports</code>的引用<br>2.而<code>require</code>引入的是<code>module.exports</code><br><a id="more"></a></p>
 <p>所以如果只是这样写肯定是有问题的,这样改变了exports的引用地址<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports = something...</span><br></pre></td></tr></table></figure></p>
 <p>最保险的写法是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports = <span class="built_in">module</span>.exports = something...</span><br></pre></td></tr></table></figure></p>
 <p>加属性或方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exports.attr = something...</span><br><span class="line">exports.method = something...</span><br></pre></td></tr></table></figure></p>
@@ -158,9 +157,13 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/ABAP/">ABAP</a><small>0</small></li>
+    <li><a href="/tags/ABAP/">ABAP</a><small>3</small></li>
+  
+    <li><a href="/tags/Docker/">Docker</a><small>0</small></li>
   
     <li><a href="/tags/Drools/">Drools</a><small>0</small></li>
+  
+    <li><a href="/tags/ETL/">ETL</a><small>0</small></li>
   
     <li><a href="/tags/Git/">Git</a><small>1</small></li>
   
@@ -168,11 +171,13 @@
   
     <li><a href="/tags/JavaScript/">JavaScript</a><small>4</small></li>
   
+    <li><a href="/tags/Kettle/">Kettle</a><small>0</small></li>
+  
     <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
   
     <li><a href="/tags/Node-js/">Node.js</a><small>9</small></li>
   
-    <li><a href="/tags/SAP/">SAP</a><small>0</small></li>
+    <li><a href="/tags/SAP/">SAP</a><small>3</small></li>
   
     <li><a href="/tags/备忘/">备忘</a><small>3</small></li>
   

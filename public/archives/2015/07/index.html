@@ -65,18 +65,16 @@
     </header>
     <div class="entry">
       
-        <p>这是别人解释的<a href="http://zihua.li/2012/03/use-module-exports-or-exports-in-node" target="_blank" rel="external">module.exports和exports的区别</a></p>
-<p>我的理解比较简单，2点：<br>1.<code>exports</code>是对<code>module.exports</code>的引用<br>2.而<code>require</code>引入的是<code>module.exports</code></p>
-<p>所以如果只是这样写肯定是有问题的,这样改变了exports的引用地址<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports = something...</span><br></pre></td></tr></table></figure></p>
-<p>最保险的写法是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports = <span class="built_in">module</span>.exports = something...</span><br></pre></td></tr></table></figure></p>
-<p>加属性或方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exports.attr = something...</span><br><span class="line">exports.method = something...</span><br></pre></td></tr></table></figure></p>
-<p>或<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports.attr = something...</span><br><span class="line"><span class="built_in">module</span>.exports.method = something...</span><br></pre></td></tr></table></figure></p>
-<p>轻拍…</p>
-
+        <p>这是别人解释的<a href="http://zihua.li/2012/03/use-module-exports-or-exports-in-node">module.exports和exports的区别</a></p>
+<p>我的理解比较简单，2点：<br>1.<code>exports</code>是对<code>module.exports</code>的引用<br>2.而<code>require</code>引入的是<code>module.exports</code><br>
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2015/07/31/module-exports和exports的区别/#more" class="more-link">Read More</a>
+          </div>
         
         
       
@@ -159,58 +157,15 @@
 <li>核心模块的缓存检查先于文件模块的缓存检查</li>
 <li>缓存中没有的再通过路径分析、文件定位、编译执行加载</li>
 </ul>
-<p>3.路径分析、文件定位、模块编译</p>
-<ul>
-<li><p>模块标识符分析</p>
-<ul>
-<li>核心模块，如<code>http</code>、<code>fs</code>、<code>path</code>等</li>
-<li>以.或..开始的相对路径文件模块</li>
-<li>以/开始的绝对路径文件模块<ul>
-<li>以.或..或/开始的标识符，<code>require</code>方法会将路径转化为真实路径，并以真实路径为索引，将编译结果存放当缓存中，使二次加载更快</li>
-</ul>
-</li>
-<li>非路径开始的文件模块，一般为第三方包，即自定义模块，自定义模块路径的生成规则为：<ul>
-<li>当前文件目录下的<code>node_modules</code>目录</li>
-<li>父目录下的<code>node_modules</code></li>
-<li>沿路径向上逐级递归，直到根目录下的<code>node_modules</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>文件定位</p>
-<ul>
-<li>Node按照<code>.js、.json、.node</code>的次序补足扩展名（<strong>如果是<code>.node</code>和<code>.json</code>的文件在<code>require</code>时带上扩展名</strong>）</li>
-<li>如果<code>require</code>的是一个目录，则Node会当做包（自定义模块）来处理，<ul>
-<li>解析<code>package.json</code>，找到main属性指定的文件进行定位，如无扩展名则进入扩展名分析的步骤</li>
-<li>如main属性指定的文件名错误或没有<code>package.json</code>，则默认将index当做默认文件名，依次查找<code>index.js、index.json、index.node</code></li>
-<li>如以上2步定位失败，则进入下一个模块路径进行查找，如遍历完毕依然没有定位成功，则抛出查找失败异常</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>模块编译</p>
-<ul>
-<li>Node中，每个文件模块都是一个对象</li>
-<li>不同的扩展名载入方法<ul>
-<li><code>.js</code>通过<code>fs</code>模块同步读取编译</li>
-<li><code>.node</code>是C\C++编写的扩展文件，通过<code>process.dlopen()</code>加载最后编译生成的文件，所以<code>.node</code>模块文件不需要编译，只有加载和执行。实际上在Windows下是<code>.dll</code>文件，在*nix下是<code>.so</code>文件</li>
-<li><code>.json</code>通过<code>fs</code>模块同步读取，用<code>JSON.parse()</code>解析返回</li>
-<li>其他扩展名都被当做<code>.js</code>文件载入</li>
-</ul>
-</li>
-<li>编译成功的文件模块会将文件路径作为索引缓存在<code>Modele._cache</code>对象上（核心模块缓存到<code>NatvieModule._cache</code>对象上）</li>
-<li><p>模块的<code>exports</code>、<code>require</code>、<code>module</code>、<code>__filename</code>、<code>__dirname</code>在哪儿定义的？Node在编译模块时进行头尾包装，如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">exports, require, module, __filename, __dirname</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> math = <span class="built_in">require</span>(<span class="string">'math'</span>);</span><br><span class="line">    exports.area = <span class="function"><span class="keyword">function</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.PI * radius * radius;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>达到模块间作用域隔离，包装后通过VM原生模块的<code>runInThisContext()</code>执行（类似<code>eval</code>，只有明确上下文，不污染全局）返回一个具体的function，最后将当前模块对象的<code>exports</code>、<code>require()</code>、<code>module</code>(模块对象本身)以及文件路径、文件目录作为参数传递给这个function执行</p>
-</li>
-</ul>
-</li>
-</ul>
-
+<p>3.路径分析、文件定位、模块编译<br>
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2015/07/30/深入浅出Node-js-模块加载/#more" class="more-link">Read More</a>
+          </div>
         
         
       
@@ -322,28 +277,17 @@
     </header>
     <div class="entry">
       
-        <p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval" target="_blank" rel="external">eval(string, [object])</a>的第一个参数是个字符串。如果字符串表示了一个表达式，eval()会对表达式求值。如果参数表示了一个或多个JavaScript声明， 那么eval()会执行声明。不要调用eval()来为算数表达式求值； JavaScript 会自动为算数表达式求值。解析JSON。</p>
-<h3 id="避免在不必要的情况下使用eval">避免在不必要的情况下使用eval</h3><p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isFinite" target="_blank" rel="external">isFinite(testValue)</a> 是全局的方法，不与任何对象有关系。isFinite 方法检测它参数的数值。如果参数是 NaN，正无穷大或者负无穷大，会返回false，其他返回 true。</p>
-<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseFloat" target="_blank" rel="external">parseFloat(string)</a><br>如果参数字符串的第一个字符不能被解析成为数字,则parseFloat返回NaN.<br>parseFloat 也可转换和返回Infinity值. 可以使用isFinite 函数来判断结果是否是一个优先的数值 (非Infinity, -Infinity, 或 NaN).</p>
-<p>4.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt" target="_blank" rel="external">parseInt(string, radix)</a>在没有指定基数，或者基数为 0 的情况下，JavaScript 作如下处理：</p>
-<ul>
-<li>如果字符串 string 以”0x”或者”0X”开头, 则基数是16 (16进制).</li>
-<li>如果字符串 string 以”0”开头, 基数是8（八进制）或者10（十进制），那么具体是哪个基数由实现环境决定。ECMAScript 5 规定使用10，但是并不是所有的浏览器都遵循这个规定。因此，<strong>永远都要明确给出radix参数的值</strong>。</li>
-<li>如果字符串 string 以其它任何值开头，则基数是10 (十进制)。</li>
-<li>如果第一个字符不能被转换成数字，parseInt返回NaN。</li>
-</ul>
-<p>将整型数值以特定基数转换成它的字符串值可以使用 <strong>intValue.toString(radix)</strong>.</p>
-<p>5.<a href="http://www.cnblogs.com/jhxk/articles/1634359.html" target="_blank" rel="external">escape()、unescape()、encodeURI()、encodeURIComponent()、decodeURI()、decodeURIComponent()比较</a></p>
-<ul>
-<li>传递参数时需要使用encodeURIComponent，这样组合的url才不会被#等特殊字符截断。 </li>
-<li>进行url跳转时可以整体使用encodeURI</li>
-<li>尽量避免使用escape()和unescape()方法</li>
-</ul>
-
+        <p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval">eval(string, [object])</a>的第一个参数是个字符串。如果字符串表示了一个表达式，eval()会对表达式求值。如果参数表示了一个或多个JavaScript声明， 那么eval()会执行声明。不要调用eval()来为算数表达式求值； JavaScript 会自动为算数表达式求值。解析JSON。</p>
+<h3 id="避免在不必要的情况下使用eval">避免在不必要的情况下使用eval</h3><p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isFinite">isFinite(testValue)</a> 是全局的方法，不与任何对象有关系。isFinite 方法检测它参数的数值。如果参数是 NaN，正无穷大或者负无穷大，会返回false，其他返回 true。</p>
+<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseFloat">parseFloat(string)</a><br>如果参数字符串的第一个字符不能被解析成为数字,则parseFloat返回NaN.<br>parseFloat 也可转换和返回Infinity值. 可以使用isFinite 函数来判断结果是否是一个优先的数值 (非Infinity, -Infinity, 或 NaN).<br>
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/#more" class="more-link">Read More</a>
+          </div>
         
         
       
@@ -371,17 +315,17 @@
     </header>
     <div class="entry">
       
-        <p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/NaN" target="_blank" rel="external">判断一个值是否是NaN</a><br>等号运算符（== 和 ===） 不能被用来判断一个值是否是 NaN。必须使用 Number.isNaN() 或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isNaN" target="_blank" rel="external">isNaN()</a> 函数。</p>
-<p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Infinity" target="_blank" rel="external">Infinity</a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/NEGATIVE_INFINITY" target="_blank" rel="external">Number.NEGATIVE_INFINITY</a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/POSITIVE_INFINITY" target="_blank" rel="external">Number.POSITIVE_INFINITY</a></p>
-<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined" target="_blank" rel="external">undifined</a>:必须使用严格相等运算符===,而不能使用普通的相等运算符==,因为x == undefined成立还可能是因为x为null,在JavaScript中null== undefined是返回true的.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"><span class="keyword">if</span> (x === <span class="literal">undefined</span>) &#123;</span><br><span class="line">   <span class="comment">// 执行到这里</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="comment">// 不会执行到这里</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果一个变量根本没有被声明,只有使用typeof判断才不会报错,用相等运算符判断会抛出异常<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// x没有被声明过</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> x === <span class="string">'undefined'</span>) &#123; <span class="comment">// 不会报错</span></span><br><span class="line">   <span class="comment">// these statements execute</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(x === <span class="literal">undefined</span>)&#123; <span class="comment">// 抛出ReferenceError异常</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>不过如果要检测的变量是个全局变量,可以不使用typeof.可以通过检测全局对象的同名属性来代替<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// x可能没有被声明过,但如果已经声明了的话,x是个全局变量</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.x === <span class="literal">undefined</span>) &#123; <span class="comment">// 即使window.x不存在,也不会报错</span></span><br><span class="line">   <span class="comment">// 可能会执行到这里</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(x === <span class="literal">undefined</span>)&#123; <span class="comment">// 如果window.x不存在,则会抛出ReferenceError异常</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>4.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/null" target="_blank" rel="external">null 是一个字面量（而不是全局对象的一个属性，undefined 是）</a><br>null 与 undefined 的不同点：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>        <span class="comment">// object (bug in ECMAScript, should be null)</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>   <span class="comment">// undefined</span></span><br><span class="line"><span class="literal">null</span> === <span class="literal">undefined</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span>  == <span class="literal">undefined</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
-
+        <p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/NaN">判断一个值是否是NaN</a><br>等号运算符（== 和 ===） 不能被用来判断一个值是否是 NaN。必须使用 Number.isNaN() 或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isNaN">isNaN()</a> 函数。</p>
+<p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Infinity">Infinity</a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/NEGATIVE_INFINITY">Number.NEGATIVE_INFINITY</a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/POSITIVE_INFINITY">Number.POSITIVE_INFINITY</a></p>
+<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined">undifined</a>:必须使用严格相等运算符===,而不能使用普通的相等运算符==,因为x == undefined成立还可能是因为x为null,在JavaScript中null== undefined是返回true的.<br>
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-常量属性/#more" class="more-link">Read More</a>
+          </div>
         
         
       
@@ -443,17 +387,15 @@
     </header>
     <div class="entry">
       
-        <h1 id="日常相关：">日常相关：</h1><p>FSCapture<br>ZoomIt<br>everything<br>teracopy<br>PowerCmd<br>Sublime Text<br>Ultra Edit<br>Beyond Compare<br>PDFEdit<br>Clover<br>CCleaner<br>VirtualBox<br>VMware Player<br>mRemote/mRemoteNG<br>InletexEMC<br>TeamViewer</p>
-<p>Notepad++及常用插件<br>{<br>    Explorer<br>    JSTool<br>    JSLint:JavaScript Code Quality Tool<br>    JSON Viewer<br>    Light Explorer<br>    NppExec<br>    NppExport<br>    NppFTP<br>    Poor Man’s T-Sql Formatter<br>    SQL:使用SQL筛选csv文件<br>    TagView<br>    Emmet/Zen Coding<br>    Falling Bricks:NPP中的俄罗斯方块<br>    File Switcher<br>    GOnpp:golang插件<br>    MultiClipboard<br>    Python Script:npp中的python脚本<br>    XML Tools<br>}</p>
-<h1 id="Linux相关：">Linux相关：</h1><p>SecureCRT&amp;SecureFX<br>putty<br>FileZilla<br>XSheel<br>XFTP</p>
-<h1 id="JAVA相关：">JAVA相关：</h1><p>jad<br>easyexplorer<br>SoapUI</p>
-<h1 id="数据库相关：">数据库相关：</h1><p>SQLyog<br>navicat<br>MongoVUE<br>Robomongo<br>Redis Desktop Manager<br>Redis Client<br>pgAdmin</p>
-<h1 id="IDE">IDE</h1><p>Cloud 9</p>
-
+        <h1 id="日常相关：">日常相关：</h1><p>FSCapture<br>ZoomIt<br>everything<br>teracopy<br>PowerCmd<br>Sublime Text<br>Ultra Edit<br>Beyond Compare<br>PDFEdit<br>Clover<br>CCleaner<br>VirtualBox<br>VMware Player<br>mRemote/mRemoteNG<br>InletexEMC<br>TeamViewer<br>
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2015/07/17/常用工具/#more" class="more-link">Read More</a>
+          </div>
         
         
       
@@ -482,18 +424,14 @@
     <div class="entry">
       
         <h1 id="vagrant启动/停止">vagrant启动/停止</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant init  # &#21021;&#22987;&#21270;&#10;vagrant up  # &#21551;&#21160;&#34394;&#25311;&#26426;&#10;vagrant halt  # &#20851;&#38381;&#34394;&#25311;&#26426;&#10;vagrant reload  # &#37325;&#21551;&#34394;&#25311;&#26426;&#10;vagrant ssh  # SSH &#33267;&#34394;&#25311;&#26426;&#10;vagrant status  # &#26597;&#30475;&#34394;&#25311;&#26426;&#36816;&#34892;&#29366;&#24577;&#10;vagrant destroy  # &#38144;&#27585;&#24403;&#21069;&#34394;&#25311;&#26426;</span><br></pre></td></tr></table></figure>
-<h1 id="启动cloud_9">启动cloud 9</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo node /home/vagrant/cloud9/c9sdk/server.js -p 8181 -l 0.0.0.0 -a : -w /home/vagrant/cloud9/test-express/</span><br></pre></td></tr></table></figure>
-<h1 id="启动/停止mongodb">启动/停止mongodb</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mongod --journal --fork --dbpath /home/vagrant/mongodb-linux-i686-3.0.4/data/ --logpath /home/vagrant/mongodb-linux-i686-3.0.4/logs&#10;kill -2 PID</span><br></pre></td></tr></table></figure>
-<h1 id="启动/停止redis">启动/停止redis</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/bin/redis-server /etc/redis/redis.conf&#10;redis-cli shutdown&#10;kill -9 PID</span><br></pre></td></tr></table></figure>
-<h1 id="启动/停止postgresql">启动/停止postgresql</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/lib/postgresql/9.1/bin/postgres -D /var/lib/postgresql/9.1/main -c config_file=/etc/postgresql/9.1/main/postgresql.conf&#10;kill -2 PID&#10;&#10;sudo su - postgres&#10;psql&#10;\q: &#36864;&#20986;psql&#10;\password dbuser&#10;\h&#65306;&#26597;&#30475;SQL&#21629;&#20196;&#30340;&#35299;&#37322;&#65292;&#27604;&#22914;\h select&#12290;&#10;\?&#65306;&#26597;&#30475;psql&#21629;&#20196;&#21015;&#34920;&#12290;&#10;\l&#65306;&#21015;&#20986;&#25152;&#26377;&#25968;&#25454;&#24211;&#12290;&#10;\c [database_name]&#65306;&#36830;&#25509;&#20854;&#20182;&#25968;&#25454;&#24211;&#12290;&#10;\d&#65306;&#21015;&#20986;&#24403;&#21069;&#25968;&#25454;&#24211;&#30340;&#25152;&#26377;&#34920;&#26684;&#12290;&#10;\d [table_name]&#65306;&#21015;&#20986;&#26576;&#19968;&#24352;&#34920;&#26684;&#30340;&#32467;&#26500;&#12290;&#10;\du&#65306;&#21015;&#20986;&#25152;&#26377;&#29992;&#25143;&#12290;&#10;\e&#65306;&#25171;&#24320;&#25991;&#26412;&#32534;&#36753;&#22120;&#12290;&#10;\conninfo&#65306;&#21015;&#20986;&#24403;&#21069;&#25968;&#25454;&#24211;&#21644;&#36830;&#25509;&#30340;&#20449;&#24687;&#12290;</span><br></pre></td></tr></table></figure>
-<h1 id="git">git</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init&#10;git add */filename&#10;git commit -m &#34;message&#34;&#10;git push -u origin master &#10;git pull origin master&#10;git --help</span><br></pre></td></tr></table></figure>
-<h1 id="hexo">hexo</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [post|page|draft] &#34;name&#34;&#10;hexo server&#10;hexo clean&#10;hexo generate&#10;hexo deploy&#10;hexo --help</span><br></pre></td></tr></table></figure>
-<h1 id="vagrant_映射配置">vagrant 映射配置</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#apache tomcat&#10;config.vm.network &#34;forwarded_port&#34;, guest: 8081, host: 80&#10;&#10;#remote java application&#10;config.vm.network &#34;forwarded_port&#34;, guest: 8787, host: 8787&#10;&#10;#cloud 9 IDE&#10;config.vm.network &#34;forwarded_port&#34;, guest: 8181, host: 8181&#10;&#10;#mongodb&#10;config.vm.network &#34;forwarded_port&#34;, guest: 27017, host: 27117&#10;config.vm.network &#34;forwarded_port&#34;, guest: 28017, host: 28117&#10;&#10;#node.js app&#10;config.vm.network &#34;forwarded_port&#34;, guest: 3000, host: 3100&#10;&#10;#hexo&#10;config.vm.network &#34;forwarded_port&#34;, guest: 4000, host: 4000&#10;&#10;#redis&#10;config.vm.network &#34;forwarded_port&#34;, guest: 6379, host: 6379&#10;&#10;#ftp&#10;config.vm.network &#34;forwarded_port&#34;, guest: 21, host: 21&#10;&#10;#postgresql&#10;config.vm.network &#34;forwarded_port&#34;, guest: 5432, host: 5432</span><br></pre></td></tr></table></figure>
-<h1 id="apt-get安装与卸载">apt-get安装与卸载</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install xxxx&#10;&#10;sudo apt-get remove xxxx&#10;sudo apt-get autoremove</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2015/07/17/我的vagrant相关命令/#more" class="more-link">Read More</a>
+          </div>
         
         
       
@@ -529,9 +467,13 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/ABAP/">ABAP</a><small>0</small></li>
+    <li><a href="/tags/ABAP/">ABAP</a><small>3</small></li>
+  
+    <li><a href="/tags/Docker/">Docker</a><small>0</small></li>
   
     <li><a href="/tags/Drools/">Drools</a><small>0</small></li>
+  
+    <li><a href="/tags/ETL/">ETL</a><small>0</small></li>
   
     <li><a href="/tags/Git/">Git</a><small>1</small></li>
   
@@ -539,11 +481,13 @@
   
     <li><a href="/tags/JavaScript/">JavaScript</a><small>4</small></li>
   
+    <li><a href="/tags/Kettle/">Kettle</a><small>0</small></li>
+  
     <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
   
     <li><a href="/tags/Node-js/">Node.js</a><small>9</small></li>
   
-    <li><a href="/tags/SAP/">SAP</a><small>0</small></li>
+    <li><a href="/tags/SAP/">SAP</a><small>3</small></li>
   
     <li><a href="/tags/备忘/">备忘</a><small>3</small></li>
   

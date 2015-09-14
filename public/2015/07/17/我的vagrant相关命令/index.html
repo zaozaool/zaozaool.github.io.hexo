@@ -6,7 +6,7 @@
   <title>我的vagrant相关命令 | 碼農、經緯</title>
   <meta name="author" content="zaozaool">
   
-  <meta name="description" content="vagrant启动/停止1vagrant init  # &amp;#21021;&amp;#22987;&amp;#21270;&amp;#10;vagrant up  # &amp;#21551;&amp;#21160;&amp;#34394;&amp;#25311;&amp;#26426;&amp;#10;vagrant halt  # &amp;#20851;&amp;#38381;&amp;">
+  <meta name="description" content="vagrant启动/停止1vagrant init  # &amp;#21021;&amp;#22987;&amp;#21270;&amp;#10;vagrant up  # &amp;#21551;&amp;#21160;&amp;#34394;&amp;#25311;&amp;#26426;&amp;#10;vagrant halt  # &amp;#20851;&amp;#38381;&amp;#34394;&amp;#25311;&amp;#26426;&amp;#10;vagrant reload  # &amp;#37325;&amp;#21551;&amp;#34394;&amp;#25311;&amp;#26426;&amp;#10;vagrant ssh  # SSH &amp;#33267;&amp;#34394;&amp;#25311;&amp;#26426;&amp;#10;vagrant status  # &amp;#26597;&amp;#30475;&amp;#34394;&amp;#25311;&amp;#26426;&amp;#36816;&amp;#34892;&amp;#29366;&amp;#24577;&amp;#10;vagrant destroy  # &amp;#38144;&amp;#27585;&amp;#24403;&amp;#21069;&amp;#34394;&amp;#25311;&amp;#26426;">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -63,6 +63,7 @@
     <div class="entry">
       
         <h1 id="vagrant启动/停止">vagrant启动/停止</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant init  # &#21021;&#22987;&#21270;&#10;vagrant up  # &#21551;&#21160;&#34394;&#25311;&#26426;&#10;vagrant halt  # &#20851;&#38381;&#34394;&#25311;&#26426;&#10;vagrant reload  # &#37325;&#21551;&#34394;&#25311;&#26426;&#10;vagrant ssh  # SSH &#33267;&#34394;&#25311;&#26426;&#10;vagrant status  # &#26597;&#30475;&#34394;&#25311;&#26426;&#36816;&#34892;&#29366;&#24577;&#10;vagrant destroy  # &#38144;&#27585;&#24403;&#21069;&#34394;&#25311;&#26426;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h1 id="启动cloud_9">启动cloud 9</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo node /home/vagrant/cloud9/c9sdk/server.js -p 8181 -l 0.0.0.0 -a : -w /home/vagrant/cloud9/test-express/</span><br></pre></td></tr></table></figure>
 <h1 id="启动/停止mongodb">启动/停止mongodb</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mongod --journal --fork --dbpath /home/vagrant/mongodb-linux-i686-3.0.4/data/ --logpath /home/vagrant/mongodb-linux-i686-3.0.4/logs&#10;kill -2 PID</span><br></pre></td></tr></table></figure>
 <h1 id="启动/停止redis">启动/停止redis</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/bin/redis-server /etc/redis/redis.conf&#10;redis-cli shutdown&#10;kill -9 PID</span><br></pre></td></tr></table></figure>
@@ -157,9 +158,13 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/ABAP/">ABAP</a><small>0</small></li>
+    <li><a href="/tags/ABAP/">ABAP</a><small>3</small></li>
+  
+    <li><a href="/tags/Docker/">Docker</a><small>0</small></li>
   
     <li><a href="/tags/Drools/">Drools</a><small>0</small></li>
+  
+    <li><a href="/tags/ETL/">ETL</a><small>0</small></li>
   
     <li><a href="/tags/Git/">Git</a><small>1</small></li>
   
@@ -167,11 +172,13 @@
   
     <li><a href="/tags/JavaScript/">JavaScript</a><small>4</small></li>
   
+    <li><a href="/tags/Kettle/">Kettle</a><small>0</small></li>
+  
     <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
   
     <li><a href="/tags/Node-js/">Node.js</a><small>9</small></li>
   
-    <li><a href="/tags/SAP/">SAP</a><small>0</small></li>
+    <li><a href="/tags/SAP/">SAP</a><small>3</small></li>
   
     <li><a href="/tags/备忘/">备忘</a><small>3</small></li>
   

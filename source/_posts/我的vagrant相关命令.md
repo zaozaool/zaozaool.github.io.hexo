@@ -13,6 +13,7 @@ vagrant ssh  # SSH 至虚拟机
 vagrant status  # 查看虚拟机运行状态
 vagrant destroy  # 销毁当前虚拟机
 ```
+<!--more-->
 
 #启动cloud 9
 ```shell

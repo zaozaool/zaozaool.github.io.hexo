@@ -8,7 +8,7 @@
   
   <meta name="description" content="1.AMD规范：define(id?, dependencies?, factory);
 123define([&#39;dep1&#39;, &#39;dep2&#39;], function(dep1, dep2)&amp;#123;    return function()&amp;#123;&amp;#125;;&amp;#125;);
-2.CMD规范：">
+2.CMD规范：define(factory)123define(function(require, exports, module)&amp;#123;    //模块代码&amp;#125;);">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -67,6 +67,7 @@
         <p>1.AMD规范：<code>define(id?, dependencies?, factory);</code></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">'dep1'</span>, <span class="string">'dep2'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">dep1, dep2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>2.CMD规范：<code>define(factory)</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//模块代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>3.AMD与CMD区别</p>
 <ul>
 <li><p>AMD需要在声明模块时指定所有的依赖，通过形参传递依赖到模块内，而CMD支持动态引入，即CMD 推崇依赖就近，AMD 推崇依赖前置（AMD 也支持 CMD 的写法）</p>
@@ -163,9 +164,13 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/ABAP/">ABAP</a><small>0</small></li>
+    <li><a href="/tags/ABAP/">ABAP</a><small>3</small></li>
+  
+    <li><a href="/tags/Docker/">Docker</a><small>0</small></li>
   
     <li><a href="/tags/Drools/">Drools</a><small>0</small></li>
+  
+    <li><a href="/tags/ETL/">ETL</a><small>0</small></li>
   
     <li><a href="/tags/Git/">Git</a><small>1</small></li>
   
@@ -173,11 +178,13 @@
   
     <li><a href="/tags/JavaScript/">JavaScript</a><small>4</small></li>
   
+    <li><a href="/tags/Kettle/">Kettle</a><small>0</small></li>
+  
     <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
   
     <li><a href="/tags/Node-js/">Node.js</a><small>9</small></li>
   
-    <li><a href="/tags/SAP/">SAP</a><small>0</small></li>
+    <li><a href="/tags/SAP/">SAP</a><small>3</small></li>
   
     <li><a href="/tags/备忘/">备忘</a><small>3</small></li>
   

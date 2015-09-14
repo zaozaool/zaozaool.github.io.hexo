@@ -55,21 +55,97 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-08-05T07:34:30.000Z"><a href="/2015/08/05/SAP-ABAP技术总结/">2015-08-05</a></time>
+        <time datetime="2015-09-11T03:12:50.000Z"><a href="/2015/09/11/ABAP基础之选择屏幕/">2015-09-11</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/08/05/SAP-ABAP技术总结/">SAP ABAP技术总结</a></h1>
+    <h1 class="title"><a href="/2015/09/11/ABAP基础之选择屏幕/">ABAP基础之选择屏幕</a></h1>
   
 
     </header>
     <div class="entry">
       
-        
+        <h1 id="PARAMETERS">PARAMETERS</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#35821;&#27861;&#65306;&#10;PARAMETERS &#123;para[(len)]&#125;|&#123;para [LENGTH len]&#125;&#10;    [type_options]&#10;    [screen_options]&#10;    [value_options].</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2015/09/11/ABAP基础之选择屏幕/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-11T02:06:53.000Z"><a href="/2015/09/11/ABAP基础之SQL语句/">2015-09-11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/11/ABAP基础之SQL语句/">ABAP基础之SQL语句</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="SELECT语句读取单一记录">SELECT语句读取单一记录</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT SINGLE * FROM TABLE INTO WA WHERE ID=?.&#10;IF SY-SUBRC = 0.&#10;    ...do something&#10;&#10;SELECT SINGLE MATNR ERSDA INTO (GV_MATNR, GV_ERSDA) FROM MARA WHERE ERSDA = &#39;20150701&#39;.</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/09/11/ABAP基础之SQL语句/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-11T01:55:34.000Z"><a href="/2015/09/11/ABAP基础之结构与内表/">2015-09-11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/11/ABAP基础之结构与内表/">ABAP基础之结构与内表</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="定义结构">定义结构</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DATA: GS_1 TYPE ZTPX001.&#10;&#10;TABLES: ZTPX001.&#10;&#10;DATA: BEGIN OF GS_2,&#10;    ZNUMBER LIKE ZTPX001-ZNUMBER,&#10;    ZNAME LIKE ZTPX001-ZNAME,&#10;    END OF  GS_2.&#10;&#10;DATA: BEGIN OF GS_3.&#10;DATA:   ZX TYPE C.&#10;        INCLUDE STRUCTURE ZVPX001.&#10;DATA: END OF GS_3.</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/09/11/ABAP基础之结构与内表/#more" class="more-link">Read More</a>
+          </div>
         
         
       
@@ -89,6 +165,13 @@
 </nav>
 </div></div>
     <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:zaozaool.github.io">
+  </form>
+</div>
+
   
 
   
@@ -96,76 +179,37 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/ABAP/">ABAP</a><small>1</small></li>
+    <li><a href="/tags/ABAP/">ABAP</a><small>3</small></li>
+  
+    <li><a href="/tags/Docker/">Docker</a><small>0</small></li>
+  
+    <li><a href="/tags/Drools/">Drools</a><small>0</small></li>
+  
+    <li><a href="/tags/ETL/">ETL</a><small>0</small></li>
   
     <li><a href="/tags/Git/">Git</a><small>1</small></li>
   
+    <li><a href="/tags/Java/">Java</a><small>0</small></li>
+  
     <li><a href="/tags/JavaScript/">JavaScript</a><small>4</small></li>
+  
+    <li><a href="/tags/Kettle/">Kettle</a><small>0</small></li>
   
     <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
   
-    <li><a href="/tags/Node-js/">Node.js</a><small>7</small></li>
+    <li><a href="/tags/Node-js/">Node.js</a><small>9</small></li>
   
-    <li><a href="/tags/SAP/">SAP</a><small>1</small></li>
+    <li><a href="/tags/SAP/">SAP</a><small>3</small></li>
   
     <li><a href="/tags/备忘/">备忘</a><small>3</small></li>
   
     <li><a href="/tags/工具/">工具</a><small>1</small></li>
   
-    <li><a href="/tags/深入浅出Node-js/">深入浅出Node.js</a><small>4</small></li>
+    <li><a href="/tags/深入浅出Node-js/">深入浅出Node.js</a><small>6</small></li>
   
   </ul>
 </div>
 
-
-  
-<div class="widget tagcloud">
-  <h3 class="title">标签云</h3>
-  <div class="entry">
-    <a href="/tags/ABAP/" style="font-size: 10px;">ABAP</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Node-js/" style="font-size: 20px;">Node.js</a> <a href="/tags/SAP/" style="font-size: 10px;">SAP</a> <a href="/tags/备忘/" style="font-size: 13.33px;">备忘</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/深入浅出Node-js/" style="font-size: 16.67px;">深入浅出Node.js</a>
-  </div>
-</div>
-
-
-  
-
-  
-<div class="widget tag">
-  <h3 class="title">最新文章</h3>
-  <ul class="entry">
-    
-      <li>
-        <a href="/2015/08/07/Linux系统查看版本信息/">Linux系统查看版本信息</a>
-      </li>
-    
-      <li>
-        <a href="/2015/08/06/Git代码托管平台汇总/">Git代码托管平台汇总</a>
-      </li>
-    
-      <li>
-        <a href="/2015/08/05/SAP-ABAP技术总结/">SAP ABAP技术总结</a>
-      </li>
-    
-      <li>
-        <a href="/2015/08/04/深入浅出Node-js-前后端共用模块/">深入浅出Node.js - 前后端共用模块(2.7)</a>
-      </li>
-    
-      <li>
-        <a href="/2015/07/31/module-exports和exports的区别/">module.exports和exports的区别</a>
-      </li>
-    
-  </ul>
-</div>
-
-
-  <div class="widget tag">
-    <h3 class="title">友情链接</h3>
-    <ul class="entry">
-        <li><a target="_blank" href="http://hgseoul.taobao.com/" title="鄙人媳妇的淘宝">鄙人媳妇的淘宝(^_^勿喷)</a></li>
-        <li><a target="_blank" href="https://www.cnodejs.org/" title="CNode：Node.js专业中文社区">CNode</a></li>
-        <li><a target="_blank" href="https://github.com/zaozaool" title="My GitHub">GitHub</a></li>
-    </ul>
-</div>
 </aside>
     <div class="clearfix"></div>
   </div>

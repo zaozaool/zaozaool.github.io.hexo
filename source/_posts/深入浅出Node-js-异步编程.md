@@ -19,6 +19,7 @@ var isType = function(type) {
 var isString = isType('String');
 var isFunction = isType('Function');
 ```
+<!--more-->
 
 `Underscore`的`after()`是偏函数的应用：
 ```javascript

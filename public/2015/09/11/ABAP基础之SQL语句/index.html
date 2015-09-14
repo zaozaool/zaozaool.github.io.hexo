@@ -3,13 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tags | 碼農、經緯</title>
+  <title>ABAP基础之SQL语句 | 碼農、經緯</title>
   <meta name="author" content="zaozaool">
+  
+  <meta name="description" content="SELECT语句读取单一记录1SELECT SINGLE * FROM TABLE INTO WA WHERE ID=?.&amp;#10;IF SY-SUBRC = 0.&amp;#10;    ...do something&amp;#10;&amp;#10;SELECT SINGLE MATNR ERSDA INTO (GV_MATNR, GV_ERSDA) FROM MARA WHERE ERSDA = &amp;#39;20150701&amp;#39;.">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Tags"/>
+  <meta property="og:title" content="ABAP基础之SQL语句"/>
   <meta property="og:site_name" content="碼農、經緯"/>
 
   
@@ -44,29 +46,36 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="tags">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-08-27T01:21:38.975Z"><a href="/tags/index.html">2015-08-27</a></time>
+        <time datetime="2015-09-11T02:06:53.000Z"><a href="/2015/09/11/ABAP基础之SQL语句/">2015-09-11</a></time>
       
       
   
-    <h1 class="title">Tags</h1>
+    <h1 class="title">ABAP基础之SQL语句</h1>
   
 
     </header>
     <div class="entry">
       
-        
+        <h1 id="SELECT语句读取单一记录">SELECT语句读取单一记录</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT SINGLE * FROM TABLE INTO WA WHERE ID=?.&#10;IF SY-SUBRC = 0.&#10;    ...do something&#10;&#10;SELECT SINGLE MATNR ERSDA INTO (GV_MATNR, GV_ERSDA) FROM MARA WHERE ERSDA = &#39;20150701&#39;.</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="SELECT语句读取多条记录">SELECT语句读取多条记录</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * INTO GS_MARA FROM MARA WHERE ERSDA = &#39;20150701&#39;.&#10;    APPEND GS_MARA TO GT_MARA.&#10;ENDSELECT.&#10;&#10;SELECT * INTO CORRESPONDING FIELDS OF TABLE GT_MARA&#10;  FROM MARA WHERE ERSDA = &#39;20150701&#39;.&#10;  &#10;SELECT MARA~MATNR MAKT~MAKTX INTO CORRESPONDING FIELDS OF TABLE GT_MARA&#10;  FROM MARA [INNER JOIN MAKT|LEFT OUTER JOIN|RIGTH OUTER JOIN] ON MARA~MATNR = MAKT~MATNR &#10;  WHERE MARA~ERSDA = &#39;20150701&#39;.&#10;&#10;IF GT_MARA[] IS NOT INITIAL.//&#22914;&#26524;&#19981;&#21028;&#26029;&#24182;&#19988;&#20869;&#34920;&#20026;&#31354;&#65292;&#21017;&#19979;&#38754;&#30340;SQL&#20250;&#23558;&#25152;&#26377;&#30340;&#25968;&#25454;&#26597;&#35810;&#20986;&#26469;&#10;  SELECT MAKTX INTO CORRESPONDING FIELDS OF TABLE GT_MAKT&#10;    FROM MAKT FOR ALL ENTRIES IN GT_MARA&#10;    WHERE MATNR = GT_MARA-MATNR.&#10;ENDIF.</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer>
       
         
         
+  
+  <div class="tags">
+    <a href="/tags/ABAP/">ABAP</a>, <a href="/tags/SAP/">SAP</a>
+  </div>
+
         
   <div class="addthis addthis_toolbox addthis_default_style">
     

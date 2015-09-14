@@ -20,6 +20,7 @@ define(function(require, exports, module){
 });
 
 ```
+<!--more-->
 
 3.AMD与CMD区别
 - AMD需要在声明模块时指定所有的依赖，通过形参传递依赖到模块内，而CMD支持动态引入，即CMD 推崇依赖就近，AMD 推崇依赖前置（AMD 也支持 CMD 的写法）

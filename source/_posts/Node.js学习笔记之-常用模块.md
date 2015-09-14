@@ -9,7 +9,7 @@ tags: Node.js
 3.eventproxy：可以控制异步并发（lession4）
 4.async：可以控制异步并发，并且可以自定义并发数（lession5）
 5.should：断言库，用于后端测试，和mocha组合使用（lession6）
-6.mocha：测试框架（lession6）
+6.mocha：测试框架（lession6）<!--more-->
 7.istanbul：测试率覆盖工具（lession6）
 8.express：http server？过于低级，还是用一下express，能让你的生命美好一些，中等复杂度
 9.chai：断言库，用于前端测试，和mocha组合使用（lession7）
