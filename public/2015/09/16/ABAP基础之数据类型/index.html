@@ -3,16 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>module.exports和exports的区别 | ZZ</title>
+  <title>ABAP基础之数据类型 | ZZ</title>
   <meta name="author" content="zaozaool">
   
-  <meta name="description" content="这是别人解释的module.exports和exports的区别
-我的理解比较简单，2点：1.exports是对module.exports的引用2.而require引入的是module.exports">
+  <meta name="description" content="变量定义1DATA &amp;#60;f&amp;#62; [&amp;#60;length&amp;#62;] &amp;#60;type&amp;#62; [&amp;#60;value&amp;#62;] [&amp;#60;decimals&amp;#62;]&amp;#10;&amp;#60;f&amp;#62;: &amp;#21464;&amp;#37327;&amp;#21517;&amp;#31216;, &amp;#26368;&amp;#38271;30&amp;#20010;&amp;#23383;&amp;#31526;, &amp;#19981;&amp;#21487;&amp;#21547;&amp;#26377; + . , : ( ) &amp;#31561;&amp;#23383;&amp;#31526;&amp;#10;&amp;#60;length&amp;#62;&amp;#60;type&amp;#62;: &amp;#25968;&amp;#25454;&amp;#22411;&amp;#24577;&amp;#21450;&amp;#38271;&amp;#24230;, &amp;#22914; LINE(20) TYPE C. MYNAME LIKE SY-UNAME.&amp;#10;&amp;#60;value&amp;#62;: &amp;#21021;&amp;#20540;&amp;#10;&amp;#60;decimals&amp;#62;: &amp;#23567;&amp;#25968;&amp;#20301;&amp;#25968;">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="module.exports和exports的区别"/>
+  <meta property="og:title" content="ABAP基础之数据类型"/>
   <meta property="og:site_name" content="ZZ"/>
 
   
@@ -53,24 +52,19 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-31T05:39:40.000Z"><a href="/2015/07/31/module-exports和exports的区别/">2015-07-31</a></time>
+        <time datetime="2015-09-16T09:01:22.000Z"><a href="/2015/09/16/ABAP基础之数据类型/">2015-09-16</a></time>
       
       
   
-    <h1 class="title">module.exports和exports的区别</h1>
+    <h1 class="title">ABAP基础之数据类型</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>这是别人解释的<a href="http://zihua.li/2012/03/use-module-exports-or-exports-in-node" target="_blank" rel="external">module.exports和exports的区别</a></p>
-<p>我的理解比较简单，2点：<br>1.<code>exports</code>是对<code>module.exports</code>的引用<br>2.而<code>require</code>引入的是<code>module.exports</code><br><a id="more"></a></p>
-<p>所以如果只是这样写肯定是有问题的,这样改变了exports的引用地址<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports = something...</span><br></pre></td></tr></table></figure></p>
-<p>最保险的写法是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports = <span class="built_in">module</span>.exports = something...</span><br></pre></td></tr></table></figure></p>
-<p>加属性或方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exports.attr = something...</span><br><span class="line">exports.method = something...</span><br></pre></td></tr></table></figure></p>
-<p>或<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports.attr = something...</span><br><span class="line"><span class="built_in">module</span>.exports.method = something...</span><br></pre></td></tr></table></figure></p>
-<p>轻拍…</p>
-
+        <h1 id="变量定义">变量定义</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DATA &#60;f&#62; [&#60;length&#62;] &#60;type&#62; [&#60;value&#62;] [&#60;decimals&#62;]&#10;&#60;f&#62;: &#21464;&#37327;&#21517;&#31216;, &#26368;&#38271;30&#20010;&#23383;&#31526;, &#19981;&#21487;&#21547;&#26377; + . , : ( ) &#31561;&#23383;&#31526;&#10;&#60;length&#62;&#60;type&#62;: &#25968;&#25454;&#22411;&#24577;&#21450;&#38271;&#24230;, &#22914; LINE(20) TYPE C. MYNAME LIKE SY-UNAME.&#10;&#60;value&#62;: &#21021;&#20540;&#10;&#60;decimals&#62;: &#23567;&#25968;&#20301;&#25968;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="数据类型">数据类型</h1><table><tbody><tr><td>数据类型</td><td>描述</td><td>初始值</td><td>标准长度</td><td>允许长度</td></tr><tr><td>I</td><td>Integer</td><td>0</td><td>4</td><td>4</td></tr><tr><td>P</td><td>Packed number</td><td>0</td><td>8</td><td>1-16</td></tr><tr><td>F</td><td>Floating Point#</td><td>0.000…</td><td>8</td><td>8</td></tr><tr><td>N</td><td>Numeric Text</td><td>0…0</td><td>1</td><td>1-max.</td></tr><tr><td>C</td><td>Character Text</td><td>(blank)</td><td>1</td><td>1-max.</td></tr><tr><td>D</td><td>Date</td><td>20110706</td><td>8</td><td>8</td></tr><tr><td>T</td><td>Time</td><td>000000</td><td>6</td><td>6</td></tr><tr><td>X</td><td>Hexadecimal #</td><td>00</td><td>1</td><td>1-max.</td></tr></tbody></table>
       
     </div>
     <footer>
@@ -79,7 +73,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Node-js/">Node.js</a>
+    <a href="/tags/ABAP/">ABAP</a>, <a href="/tags/SAP/">SAP</a>
   </div>
 
         

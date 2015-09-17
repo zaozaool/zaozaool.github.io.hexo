@@ -1,7 +1,5 @@
 title: Docker入门
 date: 2015-09-11 06:44:43
 categories:
-tags: [Docker]
+tags: [Docker, Linux]
 ---
-
-待记录...

@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>module.exports和exports的区别 | ZZ</title>
+  <title>ABAP基础之PERFORM子程序 | ZZ</title>
   <meta name="author" content="zaozaool">
   
-  <meta name="description" content="这是别人解释的module.exports和exports的区别
-我的理解比较简单，2点：1.exports是对module.exports的引用2.而require引入的是module.exports">
+  <meta name="description" content="INCLUDE子程序1&amp;#35821;&amp;#27861;&amp;#65306;&amp;#10;INCLUDE &amp;#60;&amp;#31243;&amp;#24207;&amp;#21517;&amp;#62;.
+PERFORM子程序1&amp;#35821;&amp;#27861;&amp;#65306;&amp;#10;PERFORM &amp;#60;&amp;#31243;&amp;#24207;&amp;#21517;&amp;#62; [USING &amp;#60;&amp;#20256;&amp;#20837;&amp;#21442;&amp;#25968;&amp;#21517;&amp;#62;] [CHANGING &amp;#60;&amp;#20256;&amp;#20986;&amp;#21442;&amp;#25968;&amp;#21517;&amp;#62;] [TABLES &amp;#60;&amp;#20869;&amp;#34920;&amp;#21517;&amp;#62;].">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="module.exports和exports的区别"/>
+  <meta property="og:title" content="ABAP基础之PERFORM子程序"/>
   <meta property="og:site_name" content="ZZ"/>
 
   
@@ -53,23 +53,20 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-31T05:39:40.000Z"><a href="/2015/07/31/module-exports和exports的区别/">2015-07-31</a></time>
+        <time datetime="2015-09-16T08:28:40.000Z"><a href="/2015/09/16/ABAP基础之PERFORM子程序/">2015-09-16</a></time>
       
       
   
-    <h1 class="title">module.exports和exports的区别</h1>
+    <h1 class="title">ABAP基础之PERFORM子程序</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>这是别人解释的<a href="http://zihua.li/2012/03/use-module-exports-or-exports-in-node" target="_blank" rel="external">module.exports和exports的区别</a></p>
-<p>我的理解比较简单，2点：<br>1.<code>exports</code>是对<code>module.exports</code>的引用<br>2.而<code>require</code>引入的是<code>module.exports</code><br><a id="more"></a></p>
-<p>所以如果只是这样写肯定是有问题的,这样改变了exports的引用地址<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports = something...</span><br></pre></td></tr></table></figure></p>
-<p>最保险的写法是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports = <span class="built_in">module</span>.exports = something...</span><br></pre></td></tr></table></figure></p>
-<p>加属性或方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exports.attr = something...</span><br><span class="line">exports.method = something...</span><br></pre></td></tr></table></figure></p>
-<p>或<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports.attr = something...</span><br><span class="line"><span class="built_in">module</span>.exports.method = something...</span><br></pre></td></tr></table></figure></p>
-<p>轻拍…</p>
+        <h1 id="INCLUDE子程序">INCLUDE子程序</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#35821;&#27861;&#65306;&#10;INCLUDE &#60;&#31243;&#24207;&#21517;&#62;.</span><br></pre></td></tr></table></figure>
+<h1 id="PERFORM子程序">PERFORM子程序</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#35821;&#27861;&#65306;&#10;PERFORM &#60;&#31243;&#24207;&#21517;&#62; [USING &#60;&#20256;&#20837;&#21442;&#25968;&#21517;&#62;] [CHANGING &#60;&#20256;&#20986;&#21442;&#25968;&#21517;&#62;] [TABLES &#60;&#20869;&#34920;&#21517;&#62;].</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>例如：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REPORT ZTEST08.&#10;&#10;INCLUDE ZTEST08_I1.&#10;&#10;PERFORM ZTEST08_P1 USING Z_NUM Z_NAME CHANGING Z_RESULT.&#10;&#10;&#10;FORM ZTEST08_P1  USING    P_Z_NUM&#10;                          P_Z_NAME&#10;                 CHANGING P_Z_RESULT.&#10;    ...do something&#10;ENDFORM.&#10;&#10;&#10;//ZTEST08_I1&#10;DATA:Z_NUM TYPE I.&#10;DATA:Z_NAME(10) TYPE C.&#10;DATA:Z_RESULT(10) TYPE C.</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -79,7 +76,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Node-js/">Node.js</a>
+    <a href="/tags/ABAP/">ABAP</a>, <a href="/tags/SAP/">SAP</a>
   </div>
 
         

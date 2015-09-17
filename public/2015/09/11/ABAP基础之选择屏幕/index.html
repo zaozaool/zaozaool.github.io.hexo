@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ABAP基础之选择屏幕 | 碼農、經緯</title>
+  <title>ABAP基础之选择屏幕 | ZZ</title>
   <meta name="author" content="zaozaool">
   
   <meta name="description" content="PARAMETERS1&amp;#35821;&amp;#27861;&amp;#65306;&amp;#10;PARAMETERS &amp;#123;para[(len)]&amp;#125;|&amp;#123;para [LENGTH len]&amp;#125;&amp;#10;    [type_options]&amp;#10;    [screen_options]&amp;#10;    [value_options].">
@@ -12,14 +12,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="ABAP基础之选择屏幕"/>
-  <meta property="og:site_name" content="碼農、經緯"/>
+  <meta property="og:site_name" content="ZZ"/>
 
   
     <meta property="og:image" content="undefined"/>
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="碼農、經緯" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="ZZ" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
@@ -29,7 +29,7 @@
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">碼農、經緯</a></h1>
+  <h1><a href="/">ZZ</a></h1>
   <h2><a href="/">Why do java developers wear glasses? Because they don&#39;t C#.</a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -71,7 +71,8 @@
 <h1 id="SELECTION-SCREEN">SELECTION-SCREEN</h1><p>同一列中输入数个数据项<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#35821;&#27861;:&#10;SELECTION-SCREEN BEGIN OF LINE.&#10;......&#10;SELECTION-SCREEN END OF LINE.&#10;Example:&#10;    SELECTION-SCREEN BEGIN OF LINE.&#10;        SELECTION-SCREEN POSITION 20.&#10;            PARAMETERS NAME(10).&#10;        SELECTION-SCREEN POSITION 40.&#10;        PARAMETERS BIRTH TYPE D.&#10;    SELECTION-SCREEN END OF LINE.//&#22312;20&#26684;&#36755;&#20837;NAME&#20869;&#23481;, 40&#26684;&#36755;&#20837; BIRTH&#30340;&#20869;&#23481;</span><br></pre></td></tr></table></figure></p>
 <p>绘出BLOCK PANEL</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#35821;&#27861;:&#10;SELECTION-SCREEN BEGIN OF BLOCK &#60;block&#62; [WITH FRAME [TITLE &#60;title&#62;].&#10;......&#10;SELECTION-SCREEN END OF BLOCK &#60;block&#62;.&#10;Example:&#10;    SELECTION-SCREEN BEGIN OF BLOCK RADIO WITH FRAME TITLE title.&#10;        PARAMETER R1 RADIOBUTTON GROUP GR1.&#10;        PARAMETER R2 RADIOBUTTON GROUP GR1.&#10;        PARAMETER R3 RADIOBUTTON GROUP GR1.&#10;    SELECTION-SCREEN END OF BLOCK RADIO.&#10;    INITIALIZATION.&#10;    TITLE = &#39;Selection&#39;.&#10;&#10;1. &#20135;&#29983;&#31354;&#30333;&#21015;&#10;    &#35821;&#27861;: SELECTION-SCREEN SKIP [&#60;n&#62;]&#10;    Example: &#10;        SELECTION-SCREEN SKIP 2.//&#20135;&#29983;&#20004;&#21015;&#31354;&#30333;&#21015;&#10;2. &#30011;&#24213;&#32447;&#10;    &#35821;&#27861;: SELECTION-SCREEN ULINE / &#60;pos&#62;(length)&#10;    Example: &#10;        SELECTION-SCREEN ULINE /10(30).//&#33258;&#31532;10&#26684;&#24320;&#22987;&#20135;&#29983;&#38271;&#24230;30&#30340;&#24213;&#32447;&#10;3. &#21360;&#20986;&#22791;&#27880;&#35828;&#26126;&#10;    &#35821;&#27861;: SELECTION-SCREEN COMMENT / &#60;pos&#62;(length) &#60;name&#62;&#10;    Example: &#10;        SELECTION-SCREEN COMMENT /10(30) REMARK.&#10;        INITIALIZATION.&#10;        REMARK = &#39;Pls enter your name&#39;.</span><br></pre></td></tr></table></figure>
-
+<h1 id="初始化选择屏幕">初始化选择屏幕</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INITIALIZATION.&#10;......</span><br></pre></td></tr></table></figure>
+<h1 id="输入检查">输入检查</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AT SELECTION-SCREEN.&#10;......</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer>
@@ -158,7 +159,7 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/ABAP/">ABAP</a><small>3</small></li>
+    <li><a href="/tags/ABAP/">ABAP</a><small>5</small></li>
   
     <li><a href="/tags/Docker/">Docker</a><small>0</small></li>
   
@@ -178,7 +179,13 @@
   
     <li><a href="/tags/Node-js/">Node.js</a><small>9</small></li>
   
-    <li><a href="/tags/SAP/">SAP</a><small>3</small></li>
+    <li><a href="/tags/SAP/">SAP</a><small>5</small></li>
+  
+    <li><a href="/tags/Sandowsocks/">Sandowsocks</a><small>0</small></li>
+  
+    <li><a href="/tags/Spoon/">Spoon</a><small>0</small></li>
+  
+    <li><a href="/tags/VPN/">VPN</a><small>0</small></li>
   
     <li><a href="/tags/备忘/">备忘</a><small>3</small></li>
   

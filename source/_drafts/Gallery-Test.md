@@ -6,5 +6,3 @@ photos:
 - http://i.minus.com/ibobbTlfxZgITW.jpg
 - http://i.minus.com/iedpg90Y0exFS.jpg
 ---
-
-待记录...

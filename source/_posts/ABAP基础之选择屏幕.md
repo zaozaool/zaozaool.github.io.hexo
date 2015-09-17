@@ -128,3 +128,15 @@ Example:
         INITIALIZATION.
         REMARK = 'Pls enter your name'.
 ```
+
+#初始化选择屏幕
+```ABAP
+INITIALIZATION.
+......
+```
+
+#输入检查
+```ABAP
+AT SELECTION-SCREEN.
+......
+```

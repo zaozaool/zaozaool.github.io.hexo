@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>第 2 页 | 碼農、經緯</title>
+  <title>第 2 页 | ZZ</title>
   <meta name="author" content="zaozaool">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-  <meta property="og:site_name" content="碼農、經緯"/>
+  <meta property="og:site_name" content="ZZ"/>
 
   
     <meta property="og:image" content="undefined"/>
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="碼農、經緯" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="ZZ" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
@@ -27,7 +27,7 @@
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">碼農、經緯</a></h1>
+  <h1><a href="/">ZZ</a></h1>
   <h2><a href="/">Why do java developers wear glasses? Because they don&#39;t C#.</a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -45,6 +45,86 @@
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-31T05:39:40.000Z"><a href="/2015/07/31/module-exports和exports的区别/">2015-07-31</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/31/module-exports和exports的区别/">module.exports和exports的区别</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>这是别人解释的<a href="http://zihua.li/2012/03/use-module-exports-or-exports-in-node">module.exports和exports的区别</a></p>
+<p>我的理解比较简单，2点：<br>1.<code>exports</code>是对<code>module.exports</code>的引用<br>2.而<code>require</code>引入的是<code>module.exports</code><br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/07/31/module-exports和exports的区别/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-30T09:17:10.000Z"><a href="/2015/07/30/深入浅出Node-js-核心模块/">2015-07-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/30/深入浅出Node-js-核心模块/">深入浅出Node.js - 核心模块(2.3)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.核心模块分为C/C++编写的和JavaScript编写的两部分，C/C++文件存放在src目录下，js文件存放在lib目录下，C\C++编写的部分称为内建模块，JavaScript编写的称为核心模块</p>
+<p>2.核心模块的编译过程</p>
+<ul>
+<li>编译C\C++前，编译程序需要将所有的JavaScript模块文件编译为C/C++代码<ul>
+<li>转存为C/C++代码:先采用V8附带的<code>js2c.py</code>工具编译js模块文件为C/C++代码，并以字符串的形式存储到node命名空间，不可直接执行</li>
+<li>编译JavaScript核心模块到缓存</li>
+</ul>
+</li>
+<li>编译译C\C++</li>
+</ul>
+<p>3.核心模块的引入流程，已os模块为例：<br><code>require(&#39;os&#39;)--&gt;NativeModule.require(&quot;os&quot;)--&gt;process.binding(&quot;os&quot;)--&gt;get_builtin_module(&quot;node_os&quot;)--&gt;NODE_MODULE(node_os, reg_gunc)</code></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -183,44 +263,6 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-21T01:41:20.000Z"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">2015-07-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">JavaScript学习笔记之 全局对象[方法属性]</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval">eval(string, [object])</a>的第一个参数是个字符串。如果字符串表示了一个表达式，eval()会对表达式求值。如果参数表示了一个或多个JavaScript声明， 那么eval()会执行声明。不要调用eval()来为算数表达式求值； JavaScript 会自动为算数表达式求值。解析JSON。</p>
-<h3 id="避免在不必要的情况下使用eval">避免在不必要的情况下使用eval</h3><p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isFinite">isFinite(testValue)</a> 是全局的方法，不与任何对象有关系。isFinite 方法检测它参数的数值。如果参数是 NaN，正无穷大或者负无穷大，会返回false，其他返回 true。</p>
-<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseFloat">parseFloat(string)</a><br>如果参数字符串的第一个字符不能被解析成为数字,则parseFloat返回NaN.<br>parseFloat 也可转换和返回Infinity值. 可以使用isFinite 函数来判断结果是否是一个优先的数值 (非Infinity, -Infinity, 或 NaN).<br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
         <time datetime="2015-07-21T01:41:20.000Z"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-常量属性/">2015-07-21</a></time>
       
       
@@ -241,6 +283,44 @@
         
           <div class="alignleft">
             <a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-常量属性/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-21T01:41:20.000Z"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">2015-07-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">JavaScript学习笔记之 全局对象[方法属性]</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval">eval(string, [object])</a>的第一个参数是个字符串。如果字符串表示了一个表达式，eval()会对表达式求值。如果参数表示了一个或多个JavaScript声明， 那么eval()会执行声明。不要调用eval()来为算数表达式求值； JavaScript 会自动为算数表达式求值。解析JSON。</p>
+<h3 id="避免在不必要的情况下使用eval">避免在不必要的情况下使用eval</h3><p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isFinite">isFinite(testValue)</a> 是全局的方法，不与任何对象有关系。isFinite 方法检测它参数的数值。如果参数是 NaN，正无穷大或者负无穷大，会返回false，其他返回 true。</p>
+<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseFloat">parseFloat(string)</a><br>如果参数字符串的第一个字符不能被解析成为数字,则parseFloat返回NaN.<br>parseFloat 也可转换和返回Infinity值. 可以使用isFinite 函数来判断结果是否是一个优先的数值 (非Infinity, -Infinity, 或 NaN).<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/#more" class="more-link">Read More</a>
           </div>
         
         
@@ -359,80 +439,13 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-17T06:35:12.000Z"><a href="/2015/07/17/Node.js学习笔记之-常用模块/">2015-07-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/17/Node.js学习笔记之-常用模块/">Node.js学习笔记之 常用模块</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>1.superagent：客户端请求代理模块，抓取页面用的（lession3）<br>2.cheerio：Node.js版的JQuery（lession3）<br>3.eventproxy：可以控制异步并发（lession4）<br>4.async：可以控制异步并发，并且可以自定义并发数（lession5）<br>5.should：断言库，用于后端测试，和mocha组合使用（lession6）<br>6.mocha：测试框架（lession6）
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/07/17/Node.js学习笔记之-常用模块/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-17T06:32:40.000Z"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">2015-07-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/17/supervisor-vs-pm2-vs-forever/">supervisor vs pm2 vs forever</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>使用场合不一样:<br>supervisor 是开发环境用。<br>forever 管理多个站点，每个站访问量不大，不需要监控。<br>pm2 网站访问量比较大，需要完整的监控界面。<br><a href="http://www.oschina.net/translate/goodbye-node-forever-hello-pm2?cmp" target="_blank" rel="external">告别node-forever,拥抱PM2</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
     <a href="/" class="alignleft prev">上一页</a>
   
+  
+    <a href="/page/3/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
@@ -451,7 +464,7 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/ABAP/">ABAP</a><small>3</small></li>
+    <li><a href="/tags/ABAP/">ABAP</a><small>5</small></li>
   
     <li><a href="/tags/Docker/">Docker</a><small>0</small></li>
   
@@ -471,7 +484,13 @@
   
     <li><a href="/tags/Node-js/">Node.js</a><small>9</small></li>
   
-    <li><a href="/tags/SAP/">SAP</a><small>3</small></li>
+    <li><a href="/tags/SAP/">SAP</a><small>5</small></li>
+  
+    <li><a href="/tags/Sandowsocks/">Sandowsocks</a><small>0</small></li>
+  
+    <li><a href="/tags/Spoon/">Spoon</a><small>0</small></li>
+  
+    <li><a href="/tags/VPN/">VPN</a><small>0</small></li>
   
     <li><a href="/tags/备忘/">备忘</a><small>3</small></li>
   
