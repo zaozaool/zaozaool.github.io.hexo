@@ -45,6 +45,78 @@
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-21T09:02:06.000Z"><a href="/2015/09/21/JavaScript学习笔记之-面向对象编程-继承/">2015-09-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/21/JavaScript学习笔记之-面向对象编程-继承/">JavaScript学习笔记之 面向对象编程-继承</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="I、构造函数的继承">I、构造函数的继承</h1><p>动物与猫的继承如何实现呢？<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.species = <span class="string">"动物"</span>;</span><br><span class="line">&#125;</span><br><span class="line">Animal.prototype.eat = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"Eat anything."</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name, color</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.color = color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/09/21/JavaScript学习笔记之-面向对象编程-继承/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-21T08:17:49.000Z"><a href="/2015/09/21/JavaScript学习笔记之-面向对象编程-封装/">2015-09-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/21/JavaScript学习笔记之-面向对象编程-封装/">JavaScript学习笔记之 面向对象编程-封装</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="一、_原始模式">一、 原始模式</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Cat = &#123;</span><br><span class="line">    name: <span class="string">''</span>,</span><br><span class="line">    color: <span class="string">''</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/09/21/JavaScript学习笔记之-面向对象编程-封装/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article class="photo">
   
     <div class="gallery">
@@ -381,83 +453,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-08-07T04:51:44.000Z"><a href="/2015/08/07/Linux系统查看版本信息/">2015-08-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/08/07/Linux系统查看版本信息/">Linux系统查看版本信息</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>1.<code>uname -a</code>,可显示电脑以及操作系统的相关信息。</p>
-<p>2.<code>cat /proc/version</code>,说明正在运行的内核版本。</p>
-<p>3.<code>cat /etc/issue</code>, 显示的是发行版本信息</p>
-<p>4.<code>lsb_release -a</code>, (适用于所有的linux，包括Redhat、SuSE、Debian等发行版，但是在debian下要安装lsb)</p>
-<p>5.<code>uname -r</code>,输出版本号</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-08-06T00:55:07.000Z"><a href="/2015/08/06/Git代码托管平台汇总/">2015-08-06</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/08/06/Git代码托管平台汇总/">Git代码托管平台汇总</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><strong><em>1.<a href="https://github.com/">GitHub</a>：不介绍了</em></strong></p>
-<p><strong><em>2.<a href="https://about.gitlab.com/">GitLab</a>：支持无限的公有项目和私有项目</em></strong></p>
-<p><strong><em>3.<a href="https://bitbucket.org/">Bitbucket</a>：免费支持5个开发成员的团队创建无限私有代码托管库</em></strong></p>
-<p><strong><em>4.(国内)<a href="http://git.oschina.net/">开源中国代码托管</a>：一个账号最多可以创建1000个项目，包含公有和私有，同时具备团队协作开发平台，支持任务的创建、讨论、便签等</em></strong></p>
-<p><strong><em>5.(国内)<a href="https://coding.net/home.html">coding.net</a>：速度快，功能与开源中国相似，同样一个账号最多可以创建1000个项目，也支持任务的创建等，同时还有WebIDE</em></strong><br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/08/06/Git代码托管平台汇总/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -493,7 +488,7 @@
   
     <li><a href="/tags/Java/">Java</a><small>0</small></li>
   
-    <li><a href="/tags/JavaScript/">JavaScript</a><small>4</small></li>
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>6</small></li>
   
     <li><a href="/tags/Kettle/">Kettle</a><small>0</small></li>
   
