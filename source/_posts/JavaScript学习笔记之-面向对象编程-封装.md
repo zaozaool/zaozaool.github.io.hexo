@@ -117,4 +117,5 @@ for (var prop in cat1) {
 }
 ```
 
-此文章原文来自[Javascript 面向对象编程（一）：封装](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html)
+此文章原文来自
+阮一峰 [Javascript 面向对象编程（一）：封装](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html)

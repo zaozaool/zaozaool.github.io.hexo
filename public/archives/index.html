@@ -55,6 +55,116 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-10-01T07:45:51.000Z"><a href="/2015/10/01/JavaScript学习笔记之-尾调用测试/">2015-10-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/01/JavaScript学习笔记之-尾调用测试/">JavaScript学习笔记之 斐波那契数列尾调用测试</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>为了验证JavaScript中尾调用的优点，所以做了计算斐波那契数列的尾调用写法和非尾调用写法的性能对比，结果是惊人的，真是不试不知道，一试吓一跳。</p>
+<p>这里我都是循环计算斐波那契数列第1-40位的数值，下面是各个环境的验证结果：<br><strong>Firefox: 普通写法:1000-1300 ms，尾调用写法:0-2 ms</strong><br><strong>Chrome: 普通写法:1550-1700 ms，尾调用写法:0-2 ms</strong><br><strong>IE9: 普通写法:46000+ ms，尾调用写法:0-2 ms</strong></p>
+<p>以上只是在我自己电脑上的3种浏览器测试的结果，但是可以看出其巨大的差异，所以多函数嵌套调用以及递归时，尽可能的使用尾调用。<a href="http://zaozaool.github.io/test-fibonacci.html">测试地址</a><br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/10/01/JavaScript学习笔记之-尾调用测试/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-10-01T02:34:35.000Z"><a href="/2015/10/01/JavaScript学习笔记之-encodeURI-encodeURIComponent-escape-decodeURI-decodeURIComponent-unescape区别/">2015-10-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/01/JavaScript学习笔记之-encodeURI-encodeURIComponent-escape-decodeURI-decodeURIComponent-unescape区别/">JavaScript学习笔记之 encodeURI、encodeURIComponent、escape、decodeURI、decodeURIComponent、unescape区别</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.URI方法encodeURI、encodeURIComponent()、decodeURI()、decodeURIComponent()代替了BOM的escape()和unescape()方法。URI方法更可取，因为它们对所有Unicode符号编码,而BOM方法只能对ASCII符号正确编码。尽量避免使用escape()和unescape()方法。<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/10/01/JavaScript学习笔记之-encodeURI-encodeURIComponent-escape-decodeURI-decodeURIComponent-unescape区别/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-24T09:02:35.000Z"><a href="/2015/09/24/JavaScript学习笔记之-强大的表达力/">2015-09-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/24/JavaScript学习笔记之-强大的表达力/">JavaScript学习笔记之 强大的表达力</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="自定义方法">自定义方法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.prototype.add = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span> + x;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">8</span>[<span class="string">'add'</span>](<span class="number">2</span>));<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="number">8</span>).add(<span class="number">2</span>));<span class="comment">//10</span></span><br><span class="line"><span class="comment">//第一个点解释为小数点，第二个点解释为点运算符。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">8.</span>.add(<span class="number">2</span>));<span class="comment">//10</span></span><br><span class="line"><span class="comment">//报错，因为数值后面的点，会被解释为小数点，而不是点运算符。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">8.</span>add(<span class="number">2</span>));<span class="comment">//SyntaxError: Unexpected token ILLEGAL</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/09/24/JavaScript学习笔记之-强大的表达力/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-09-21T09:02:06.000Z"><a href="/2015/09/21/JavaScript学习笔记之-面向对象编程-继承/">2015-09-21</a></time>
       
       
@@ -326,125 +436,6 @@
         
           <div class="alignleft">
             <a href="/2015/09/11/ABAP基础之SQL语句/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-09-11T01:55:34.000Z"><a href="/2015/09/11/ABAP基础之结构与内表/">2015-09-11</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/09/11/ABAP基础之结构与内表/">ABAP基础之结构与内表</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="定义结构">定义结构</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DATA: GS_1 TYPE ZTPX001.&#10;&#10;TABLES: ZTPX001.&#10;&#10;DATA: BEGIN OF GS_2,&#10;    ZNUMBER LIKE ZTPX001-ZNUMBER,&#10;    ZNAME LIKE ZTPX001-ZNAME,&#10;    END OF  GS_2.&#10;&#10;DATA: BEGIN OF GS_3.&#10;DATA:   ZX TYPE C.&#10;        INCLUDE STRUCTURE ZVPX001.&#10;DATA: END OF GS_3.</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/09/11/ABAP基础之结构与内表/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-08-18T14:13:38.000Z"><a href="/2015/08/18/深入浅出Node-js-异步编程/">2015-08-18</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/08/18/深入浅出Node-js-异步编程/">深入浅出Node.js - 异步编程(4.1-)</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>1.函数式编程</p>
-<ul>
-<li>高阶函数：将函数作为参数或返回值的函数</li>
-<li>偏函数：参数和变量已经预置的函数的函数，如：</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isType = <span class="function"><span class="keyword">function</span>(<span class="params">type</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> toString = <span class="built_in">Object</span>.prototype.toString;</span><br><span class="line">        <span class="keyword">return</span> toString.call(obj) == <span class="string">'[object'</span> + type + <span class="string">']'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建isString()、isFunction()</span></span><br><span class="line"><span class="keyword">var</span> isString = isType(<span class="string">'String'</span>);</span><br><span class="line"><span class="keyword">var</span> isFunction = isType(<span class="string">'Function'</span>);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/08/18/深入浅出Node-js-异步编程/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-08-11T13:21:28.000Z"><a href="/2015/08/11/深入浅出Node-js-异步I-O/">2015-08-11</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/08/11/深入浅出Node-js-异步I-O/">深入浅出Node.js - 异步I/O(3.2-3.4)</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>1.异步I/O与非阻塞I/O</p>
-<ul>
-<li>异步与非阻塞都能达到并行I/O的目的</li>
-<li>从计算机内核I/O而言，异步/同步于阻塞/非阻塞不是一码事</li>
-<li>系统内核I/O只有两种方式：阻塞于非阻塞（阻塞I/O造成CPU等待浪费，非阻塞I/O让CPU处理状态判断，所以是对CPU的浪费）<ul>
-<li>在调用阻塞I/O时，应用程序需要等待I/O完成才返回结果，造成CPU等待I/O，不能充分利用CPU，所有内核提供非阻塞I/O</li>
-<li>在调用非阻塞I/O时会立即返回，CPU的时间片可以用来处理其他事务，但是由于返回的不是业务层期望的数据，而只是当前调用的状态，那么应用程序需要通过<code>轮询</code>获取数据
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/08/11/深入浅出Node-js-异步I-O/#more" class="more-link">Read More</a>
           </div>
         
         

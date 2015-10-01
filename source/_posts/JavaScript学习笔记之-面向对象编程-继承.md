@@ -147,7 +147,8 @@ Cat.prototype = Object.create(Animal.prototype);//浅拷贝，这里也可以直
 Cat.prototype.constructor = Cat; // 编程时务必要遵守
 ```
 
+
 此文章原文来自：
-[Javascript面向对象编程（二）：构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html)
-[Javascript面向对象编程（三）：非构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html)
+阮一峰 [Javascript面向对象编程（二）：构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html)
+阮一峰 [Javascript面向对象编程（三）：非构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html)
 [Javascript中的几种继承方式比较](http://blog.csdn.net/kkkkkxiaofei/article/details/46474069)

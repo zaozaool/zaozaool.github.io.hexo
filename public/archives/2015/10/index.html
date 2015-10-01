@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>工具 | ZZ</title>
+  <title>归档：2015/10 | ZZ</title>
   <meta name="author" content="zaozaool">
   
   
@@ -45,7 +45,7 @@
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">工具</h2>
+<h2 class="archive-title">2015/10</h2>
 
 
   
@@ -55,25 +55,62 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-17T07:02:55.000Z"><a href="/2015/07/17/常用工具/">2015-07-17</a></time>
+        <time datetime="2015-10-01T07:45:51.000Z"><a href="/2015/10/01/JavaScript学习笔记之-尾调用测试/">2015-10-01</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/07/17/常用工具/">常用工具</a></h1>
+    <h1 class="title"><a href="/2015/10/01/JavaScript学习笔记之-尾调用测试/">JavaScript学习笔记之 斐波那契数列尾调用测试</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p><a href="http://zaozaool.github.io/js-hex-conversion.html">JavaScript各进制转换</a><br><a href="http://zaozaool.github.io/bookmarks.html">Google书签</a></p>
-<h1 id="日常相关：">日常相关：</h1><p>FSCapture<br>ZoomIt<br>everything<br>teracopy<br>PowerCmd<br>Sublime Text<br>Ultra Edit<br>Beyond Compare<br>PDFEdit<br>Clover<br>CCleaner<br>VirtualBox<br>VMware Player<br>mRemote/mRemoteNG<br>InletexEMC<br>TeamViewer<br>
+        <p>为了验证JavaScript中尾调用的优点，所以做了计算斐波那契数列的尾调用写法和非尾调用写法的性能对比，结果是惊人的，真是不试不知道，一试吓一跳。</p>
+<p>这里我都是循环计算斐波那契数列第1-40位的数值，下面是各个环境的验证结果：<br><strong>Firefox: 普通写法:1000-1300 ms，尾调用写法:0-2 ms</strong><br><strong>Chrome: 普通写法:1550-1700 ms，尾调用写法:0-2 ms</strong><br><strong>IE9: 普通写法:46000+ ms，尾调用写法:0-2 ms</strong></p>
+<p>以上只是在我自己电脑上的3种浏览器测试的结果，但是可以看出其巨大的差异，所以多函数嵌套调用以及递归时，尽可能的使用尾调用。<a href="http://zaozaool.github.io/test-fibonacci.html">测试地址</a><br>
       
     </div>
     <footer>
       
         
           <div class="alignleft">
-            <a href="/2015/07/17/常用工具/#more" class="more-link">Read More</a>
+            <a href="/2015/10/01/JavaScript学习笔记之-尾调用测试/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-10-01T02:34:35.000Z"><a href="/2015/10/01/JavaScript学习笔记之-encodeURI-encodeURIComponent-escape-decodeURI-decodeURIComponent-unescape区别/">2015-10-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/01/JavaScript学习笔记之-encodeURI-encodeURIComponent-escape-decodeURI-decodeURIComponent-unescape区别/">JavaScript学习笔记之 encodeURI、encodeURIComponent、escape、decodeURI、decodeURIComponent、unescape区别</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.URI方法encodeURI、encodeURIComponent()、decodeURI()、decodeURIComponent()代替了BOM的escape()和unescape()方法。URI方法更可取，因为它们对所有Unicode符号编码,而BOM方法只能对ASCII符号正确编码。尽量避免使用escape()和unescape()方法。<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/10/01/JavaScript学习笔记之-encodeURI-encodeURIComponent-escape-decodeURI-decodeURIComponent-unescape区别/#more" class="more-link">Read More</a>
           </div>
         
         

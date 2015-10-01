@@ -3,16 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>常用工具 | ZZ</title>
+  <title>ZZ</title>
   <meta name="author" content="zaozaool">
   
-  <meta name="description" content="JavaScript各进制转换Google书签
-日常相关：FSCaptureZoomIteverythingteracopyPowerCmdSublime TextUltra EditBeyond ComparePDFEditCloverCCleanerVirtualBoxVMware PlayermRemote/mRemoteNGInletexEMCTeamViewer">
+  <meta name="description" content="&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+
+
+    
+    JavaScript各进制转换
+">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="常用工具"/>
+  
   <meta property="og:site_name" content="ZZ"/>
 
   
@@ -47,41 +52,112 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="page">
   
   <div class="post-content">
     <header>
       
-        <div class="icon"></div>
-        <time datetime="2015-07-17T07:02:55.000Z"><a href="/2015/07/17/常用工具/">2015-07-17</a></time>
-      
       
   
-    <h1 class="title">常用工具</h1>
+    <h1 class="title"></h1>
   
 
     </header>
     <div class="entry">
       
-        <p><a href="http://zaozaool.github.io/js-hex-conversion.html">JavaScript各进制转换</a><br><a href="http://zaozaool.github.io/bookmarks.html">Google书签</a></p>
-<h1 id="日常相关：">日常相关：</h1><p>FSCapture<br>ZoomIt<br>everything<br>teracopy<br>PowerCmd<br>Sublime Text<br>Ultra Edit<br>Beyond Compare<br>PDFEdit<br>Clover<br>CCleaner<br>VirtualBox<br>VMware Player<br>mRemote/mRemoteNG<br>InletexEMC<br>TeamViewer<br><a id="more"></a></p>
-<p>Notepad++及常用插件<br>{<br>    Explorer<br>    JSTool<br>    JSLint:JavaScript Code Quality Tool<br>    JSON Viewer<br>    Light Explorer<br>    NppExec<br>    NppExport<br>    NppFTP<br>    Poor Man’s T-Sql Formatter<br>    SQL:使用SQL筛选csv文件<br>    TagView<br>    Emmet/Zen Coding<br>    Falling Bricks:NPP中的俄罗斯方块<br>    File Switcher<br>    GOnpp:golang插件<br>    MultiClipboard<br>    Python Script:npp中的python脚本<br>    XML Tools<br>}</p>
-<h1 id="Linux相关：">Linux相关：</h1><p>SecureCRT&amp;SecureFX<br>putty<br>FileZilla<br>XSheel<br>XFTP</p>
-<h1 id="JAVA相关：">JAVA相关：</h1><p>jad<br>easyexplorer<br>SoapUI</p>
-<h1 id="数据库相关：">数据库相关：</h1><p>SQLyog<br>navicat<br>MongoVUE<br>Robomongo<br>Redis Desktop Manager<br>Redis Client<br>pgAdmin<br>Kettle</p>
-<h1 id="IDE">IDE</h1><p>Cloud 9</p>
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>JavaScript各进制转换</title>
+</head>
+
+<body>
+    <script language="javascript">
+        function change() {
+            var num = document.getElementById("in").value;
+            var type = document.getElementById("title");
+            var tynum, to;
+            for (var i = 0; i < type.length; i++) {
+                if (type[i].selected)
+                    tynum = parseInt(type[i].value);
+            }
+            switch (tynum) {
+                case (1):
+                    to = parseInt(num).toString(2);
+                    break;
+                case (2):
+                    to = parseInt(num).toString(8);
+                    break;
+                case (3):
+                    to = parseInt(num).toString(16);
+                    break;
+                case (4):
+                    to = parseInt(num, 2);
+                    break;
+                case (5):
+                    to = parseInt(num, 8);
+                    break;
+                case (6):
+                    to = parseInt(num, 16);
+                    break;
+                case (7):
+                    to = parseInt(num, 2).toString(8);
+                    break;
+                case (8):
+                    to = parseInt(num, 8).toString(2);
+                    break;
+                case (9):
+                    to = parseInt(num, 2).toString(16);
+                    break;
+                case (10):
+                    to = parseInt(num, 16).toString(2);
+                    break;
+                case (11):
+                    to = parseInt(num, 8).toString(16);
+                    break;
+                case (12):
+                    to = parseInt(num, 16).toString(8);
+                    break;
+            }
+            if (isNaN(to))
+                to = "只支持整数"
+            document.getElementById("out").value = to;
+
+        }
+    </script>
+    <select name="title" id="title" style="width:152px;">
+        <option value="1">十进制 TO 二进制</option>
+        <option value="2">十进制 TO 八进制</option>
+        <option value="3">十进制 TO 十六进制</option>
+        <option value="4">二进制 TO 十进制</option>
+        <option value="5">八进制 TO 十进制</option>
+        <option value="6">十六进制 TO 十进制</option>
+        <option value="7">二进制 TO 八进制</option>
+        <option value="8">八进制 TO 二进制</option>
+        <option value="9">二进制 TO 十六进制</option>
+        <option value="10">十六进制 TO 二进制</option>
+        <option value="11">八进制 TO 十六进制</option>
+        <option value="12">十六进制 TO 八进制</option>
+    </select>
+    <br>
+
+    <input type="text" id="in">
+    <br>
+    <input type="text" id="out">
+    <br>
+    <input type="button" value="Change" onclick="change()">
+    <font color="#FF0000" style="font-size:12px;">*注：存在非法字符时，我们只截断有效字符进行转换</font>
+</body>
+
+</html>
       
     </div>
     <footer>
       
         
         
-  
-  <div class="tags">
-    <a href="/tags/备忘/">备忘</a>, <a href="/tags/工具/">工具</a>
-  </div>
-
         
   <div class="addthis addthis_toolbox addthis_default_style">
     

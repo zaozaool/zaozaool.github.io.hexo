@@ -3,16 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>常用工具 | ZZ</title>
+  <title>ZZ</title>
   <meta name="author" content="zaozaool">
   
-  <meta name="description" content="JavaScript各进制转换Google书签
-日常相关：FSCaptureZoomIteverythingteracopyPowerCmdSublime TextUltra EditBeyond ComparePDFEditCloverCCleanerVirtualBoxVMware PlayermRemote/mRemoteNGInletexEMCTeamViewer">
+  <meta name="description" content="&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+
+
+    
+    斐波那契数列尾调用测试
+
+
+  ">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="常用工具"/>
+  
   <meta property="og:site_name" content="ZZ"/>
 
   
@@ -47,41 +54,82 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="page">
   
   <div class="post-content">
     <header>
       
-        <div class="icon"></div>
-        <time datetime="2015-07-17T07:02:55.000Z"><a href="/2015/07/17/常用工具/">2015-07-17</a></time>
-      
       
   
-    <h1 class="title">常用工具</h1>
+    <h1 class="title"></h1>
   
 
     </header>
     <div class="entry">
       
-        <p><a href="http://zaozaool.github.io/js-hex-conversion.html">JavaScript各进制转换</a><br><a href="http://zaozaool.github.io/bookmarks.html">Google书签</a></p>
-<h1 id="日常相关：">日常相关：</h1><p>FSCapture<br>ZoomIt<br>everything<br>teracopy<br>PowerCmd<br>Sublime Text<br>Ultra Edit<br>Beyond Compare<br>PDFEdit<br>Clover<br>CCleaner<br>VirtualBox<br>VMware Player<br>mRemote/mRemoteNG<br>InletexEMC<br>TeamViewer<br><a id="more"></a></p>
-<p>Notepad++及常用插件<br>{<br>    Explorer<br>    JSTool<br>    JSLint:JavaScript Code Quality Tool<br>    JSON Viewer<br>    Light Explorer<br>    NppExec<br>    NppExport<br>    NppFTP<br>    Poor Man’s T-Sql Formatter<br>    SQL:使用SQL筛选csv文件<br>    TagView<br>    Emmet/Zen Coding<br>    Falling Bricks:NPP中的俄罗斯方块<br>    File Switcher<br>    GOnpp:golang插件<br>    MultiClipboard<br>    Python Script:npp中的python脚本<br>    XML Tools<br>}</p>
-<h1 id="Linux相关：">Linux相关：</h1><p>SecureCRT&amp;SecureFX<br>putty<br>FileZilla<br>XSheel<br>XFTP</p>
-<h1 id="JAVA相关：">JAVA相关：</h1><p>jad<br>easyexplorer<br>SoapUI</p>
-<h1 id="数据库相关：">数据库相关：</h1><p>SQLyog<br>navicat<br>MongoVUE<br>Robomongo<br>Redis Desktop Manager<br>Redis Client<br>pgAdmin<br>Kettle</p>
-<h1 id="IDE">IDE</h1><p>Cloud 9</p>
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>斐波那契数列尾调用测试</title>
+</head>
+<script type="text/javascript">
+    //尾调用写法
+    function fibonacci2(n) {
+        n = n || 1; //undefined、null、false、0、NaN、””（空字符串）
+        n = isNaN(n) ? 1 : n; //非数值类型
+        n = n < 0 ? 1 : n; //负数
+        n = parseInt(n); //取整
+        var a = 1,
+            b = 1;
+        if (arguments.length == 3) {
+            a = arguments[1];
+            b = arguments[2];
+        }
+        if (n <= 2) {
+            return b;
+        } else {
+            return fibonacci2(n - 1, b, a + b);
+        }
+    }
+
+    //尾调用写法测试
+    var start2 = new Date();
+    for (var i = 1; i < 40; i++) {
+        fibonacci2(i)
+    }
+    var end2 = new Date();
+    var t2 = (end2.getTime() - start2.getTime());
+
+    //普通写法
+    function fibonacci1(n) {
+        if (n <= 2) {
+            return 1;
+        } else {
+            return fibonacci1(n - 1) + fibonacci1(n - 2);
+        }
+    }
+
+    //普通写法测试
+    var start1 = new Date();
+    for (var i = 1; i < 40; i++) {
+        fibonacci1(i)
+    }
+    var end1 = new Date();
+    var t1 = (end1.getTime() - start1.getTime());
+
+    console.log("普通写法:" + t1 + " ms, " + "尾调用写法:" + t2 + " ms");
+    alert("普通写法:" + t1 + " ms, " + "尾调用写法:" + t2 + " ms");
+</script>
+
+</html>
       
     </div>
     <footer>
       
         
         
-  
-  <div class="tags">
-    <a href="/tags/备忘/">备忘</a>, <a href="/tags/工具/">工具</a>
-  </div>
-
         
   <div class="addthis addthis_toolbox addthis_default_style">
     

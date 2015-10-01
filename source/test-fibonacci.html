@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>斐波那契数列尾调用测试</title>
+</head>
+<script type="text/javascript">
+    //尾调用写法
+    function fibonacci2(n) {
+        n = n || 1; //undefined、null、false、0、NaN、””（空字符串）
+        n = isNaN(n) ? 1 : n; //非数值类型
+        n = n < 0 ? 1 : n; //负数
+        n = parseInt(n); //取整
+        var a = 1,
+            b = 1;
+        if (arguments.length == 3) {
+            a = arguments[1];
+            b = arguments[2];
+        }
+        if (n <= 2) {
+            return b;
+        } else {
+            return fibonacci2(n - 1, b, a + b);
+        }
+    }
+
+    //尾调用写法测试
+    var start2 = new Date();
+    for (var i = 1; i < 40; i++) {
+        fibonacci2(i)
+    }
+    var end2 = new Date();
+    var t2 = (end2.getTime() - start2.getTime());
+
+    //普通写法
+    function fibonacci1(n) {
+        if (n <= 2) {
+            return 1;
+        } else {
+            return fibonacci1(n - 1) + fibonacci1(n - 2);
+        }
+    }
+
+    //普通写法测试
+    var start1 = new Date();
+    for (var i = 1; i < 40; i++) {
+        fibonacci1(i)
+    }
+    var end1 = new Date();
+    var t1 = (end1.getTime() - start1.getTime());
+
+    console.log("普通写法:" + t1 + " ms, " + "尾调用写法:" + t2 + " ms");
+    alert("普通写法:" + t1 + " ms, " + "尾调用写法:" + t2 + " ms");
+</script>
+
+</html>

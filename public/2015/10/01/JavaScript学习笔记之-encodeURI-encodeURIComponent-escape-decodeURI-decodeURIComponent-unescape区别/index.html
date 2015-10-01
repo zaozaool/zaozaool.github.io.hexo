@@ -3,16 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>常用工具 | ZZ</title>
+  <title>JavaScript学习笔记之 encodeURI、encodeURIComponent、escape、decodeURI、decodeURIComponent、unescape区别 | ZZ</title>
   <meta name="author" content="zaozaool">
   
-  <meta name="description" content="JavaScript各进制转换Google书签
-日常相关：FSCaptureZoomIteverythingteracopyPowerCmdSublime TextUltra EditBeyond ComparePDFEditCloverCCleanerVirtualBoxVMware PlayermRemote/mRemoteNGInletexEMCTeamViewer">
+  <meta name="description" content="1.URI方法encodeURI、encodeURIComponent()、decodeURI()、decodeURIComponent()代替了BOM的escape()和unescape()方法。URI方法更可取，因为它们对所有Unicode符号编码,而BOM方法只能对ASCII符号正确编码。尽量避免使用escape()和unescape()方法。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="常用工具"/>
+  <meta property="og:title" content="JavaScript学习笔记之 encodeURI、encodeURIComponent、escape、decodeURI、decodeURIComponent、unescape区别"/>
   <meta property="og:site_name" content="ZZ"/>
 
   
@@ -53,23 +52,36 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-17T07:02:55.000Z"><a href="/2015/07/17/常用工具/">2015-07-17</a></time>
+        <time datetime="2015-10-01T02:34:35.000Z"><a href="/2015/10/01/JavaScript学习笔记之-encodeURI-encodeURIComponent-escape-decodeURI-decodeURIComponent-unescape区别/">2015-10-01</a></time>
       
       
   
-    <h1 class="title">常用工具</h1>
+    <h1 class="title">JavaScript学习笔记之 encodeURI、encodeURIComponent、escape、decodeURI、decodeURIComponent、unescape区别</h1>
   
 
     </header>
     <div class="entry">
       
-        <p><a href="http://zaozaool.github.io/js-hex-conversion.html">JavaScript各进制转换</a><br><a href="http://zaozaool.github.io/bookmarks.html">Google书签</a></p>
-<h1 id="日常相关：">日常相关：</h1><p>FSCapture<br>ZoomIt<br>everything<br>teracopy<br>PowerCmd<br>Sublime Text<br>Ultra Edit<br>Beyond Compare<br>PDFEdit<br>Clover<br>CCleaner<br>VirtualBox<br>VMware Player<br>mRemote/mRemoteNG<br>InletexEMC<br>TeamViewer<br><a id="more"></a></p>
-<p>Notepad++及常用插件<br>{<br>    Explorer<br>    JSTool<br>    JSLint:JavaScript Code Quality Tool<br>    JSON Viewer<br>    Light Explorer<br>    NppExec<br>    NppExport<br>    NppFTP<br>    Poor Man’s T-Sql Formatter<br>    SQL:使用SQL筛选csv文件<br>    TagView<br>    Emmet/Zen Coding<br>    Falling Bricks:NPP中的俄罗斯方块<br>    File Switcher<br>    GOnpp:golang插件<br>    MultiClipboard<br>    Python Script:npp中的python脚本<br>    XML Tools<br>}</p>
-<h1 id="Linux相关：">Linux相关：</h1><p>SecureCRT&amp;SecureFX<br>putty<br>FileZilla<br>XSheel<br>XFTP</p>
-<h1 id="JAVA相关：">JAVA相关：</h1><p>jad<br>easyexplorer<br>SoapUI</p>
-<h1 id="数据库相关：">数据库相关：</h1><p>SQLyog<br>navicat<br>MongoVUE<br>Robomongo<br>Redis Desktop Manager<br>Redis Client<br>pgAdmin<br>Kettle</p>
-<h1 id="IDE">IDE</h1><p>Cloud 9</p>
+        <p>1.URI方法encodeURI、encodeURIComponent()、decodeURI()、decodeURIComponent()代替了BOM的escape()和unescape()方法。URI方法更可取，因为它们对所有Unicode符号编码,而BOM方法只能对ASCII符号正确编码。尽量避免使用escape()和unescape()方法。<br><a id="more"></a><br>2.编码</p>
+<ul>
+<li>传递参数时需要使用encodeURIComponent，这样组合的url才不会被#等特殊字符截断。</li>
+<li>进行url跳转时可以整体使用encodeURI。</li>
+<li>js使用数据时可以使用escape。</li>
+<li>escape对0-255以外的unicode值进行编码时输出%u<em>**</em>格式，其它情况下escape，encodeURI，encodeURIComponent编码结果相同。<ul>
+<li>escape不编码字符有69个：*，+，-，.，/，@，_，0-9，a-z，A-Z</li>
+<li>encodeURI不编码字符有82个：!，#，$，&amp;，’，(，)，*，+，,，-，.，/，:，;，=，?，@，_，~，0-9，a-z，A-Z</li>
+<li>encodeURIComponent不编码字符有71个：!， ‘，(，)，*，-，.，_，~，0-9，a-z，A-Z</li>
+</ul>
+</li>
+</ul>
+<p>3.解码，分别使用decodeURI/decodeURIComponent/unescape对经过encodeURI/encodeURIComponent/escape编码的字符串进行</p>
+<p>4.Base64：JavaScript原生提供两个Base64相关方法。</p>
+<ul>
+<li>btoa()：字符串或二进制值转为Base64编码</li>
+<li>atob()：Base64编码转为原来的编码</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> string = <span class="string">'Hello World!'</span>;</span><br><span class="line">btoa(string) <span class="comment">// "SGVsbG8gV29ybGQh"</span></span><br><span class="line">atob(<span class="string">'SGVsbG8gV29ybGQh'</span>) <span class="comment">// "Hello World!"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//两个方法不适合非ASCII码的字符</span></span><br><span class="line">btoa(<span class="string">'你好'</span>)</span><br><span class="line"><span class="comment">// Uncaught DOMException: The string to be encoded contains characters outside of the Latin1 range.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将非ASCII码字符转为Base64编码，必须中间插入一个转码环节</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b64Encode</span>(<span class="params"> str </span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> btoa(<span class="built_in">unescape</span>(<span class="built_in">encodeURIComponent</span>( str )));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b64Decode</span>(<span class="params"> str </span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">decodeURIComponent</span>(<span class="built_in">escape</span>(atob( str )));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">b64Encode(<span class="string">'你好'</span>) <span class="comment">// "5L2g5aW9"</span></span><br><span class="line">b64Decode(<span class="string">'5L2g5aW9'</span>) <span class="comment">// "你好"</span></span><br></pre></td></tr></table></figure>
+<p>此文章原文来自：<br><a href="http://www.cnblogs.com/jhxk/articles/1634359.html" target="_blank" rel="external">javascript中escape()、unescape()、encodeURI()、encodeURIComponent()、decodeURI()、decodeURIComponent()比较</a><br>阮一峰 <a href="http://javascript.ruanyifeng.com/grammar/string.html#toc5" target="_blank" rel="external">Base64转码</a></p>
 
       
     </div>
@@ -79,7 +91,7 @@
         
   
   <div class="tags">
-    <a href="/tags/备忘/">备忘</a>, <a href="/tags/工具/">工具</a>
+    <a href="/tags/JavaScript/">JavaScript</a>
   </div>
 
         

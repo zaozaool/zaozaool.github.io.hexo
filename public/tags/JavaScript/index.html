@@ -55,6 +55,116 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-10-01T07:45:51.000Z"><a href="/2015/10/01/JavaScript学习笔记之-尾调用测试/">2015-10-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/01/JavaScript学习笔记之-尾调用测试/">JavaScript学习笔记之 斐波那契数列尾调用测试</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>为了验证JavaScript中尾调用的优点，所以做了计算斐波那契数列的尾调用写法和非尾调用写法的性能对比，结果是惊人的，真是不试不知道，一试吓一跳。</p>
+<p>这里我都是循环计算斐波那契数列第1-40位的数值，下面是各个环境的验证结果：<br><strong>Firefox: 普通写法:1000-1300 ms，尾调用写法:0-2 ms</strong><br><strong>Chrome: 普通写法:1550-1700 ms，尾调用写法:0-2 ms</strong><br><strong>IE9: 普通写法:46000+ ms，尾调用写法:0-2 ms</strong></p>
+<p>以上只是在我自己电脑上的3种浏览器测试的结果，但是可以看出其巨大的差异，所以多函数嵌套调用以及递归时，尽可能的使用尾调用。<a href="http://zaozaool.github.io/test-fibonacci.html">测试地址</a><br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/10/01/JavaScript学习笔记之-尾调用测试/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-10-01T02:34:35.000Z"><a href="/2015/10/01/JavaScript学习笔记之-encodeURI-encodeURIComponent-escape-decodeURI-decodeURIComponent-unescape区别/">2015-10-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/01/JavaScript学习笔记之-encodeURI-encodeURIComponent-escape-decodeURI-decodeURIComponent-unescape区别/">JavaScript学习笔记之 encodeURI、encodeURIComponent、escape、decodeURI、decodeURIComponent、unescape区别</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.URI方法encodeURI、encodeURIComponent()、decodeURI()、decodeURIComponent()代替了BOM的escape()和unescape()方法。URI方法更可取，因为它们对所有Unicode符号编码,而BOM方法只能对ASCII符号正确编码。尽量避免使用escape()和unescape()方法。<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/10/01/JavaScript学习笔记之-encodeURI-encodeURIComponent-escape-decodeURI-decodeURIComponent-unescape区别/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-24T09:02:35.000Z"><a href="/2015/09/24/JavaScript学习笔记之-强大的表达力/">2015-09-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/24/JavaScript学习笔记之-强大的表达力/">JavaScript学习笔记之 强大的表达力</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="自定义方法">自定义方法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.prototype.add = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span> + x;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">8</span>[<span class="string">'add'</span>](<span class="number">2</span>));<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="number">8</span>).add(<span class="number">2</span>));<span class="comment">//10</span></span><br><span class="line"><span class="comment">//第一个点解释为小数点，第二个点解释为点运算符。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">8.</span>.add(<span class="number">2</span>));<span class="comment">//10</span></span><br><span class="line"><span class="comment">//报错，因为数值后面的点，会被解释为小数点，而不是点运算符。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">8.</span>add(<span class="number">2</span>));<span class="comment">//SyntaxError: Unexpected token ILLEGAL</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/09/24/JavaScript学习笔记之-强大的表达力/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-09-21T09:02:06.000Z"><a href="/2015/09/21/JavaScript学习笔记之-面向对象编程-继承/">2015-09-21</a></time>
       
       
@@ -127,115 +237,6 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-21T06:56:05.000Z"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-基本对象Object/">2015-07-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-基本对象Object/">JavaScript学习笔记之 全局对象[Object]</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>1.使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank" rel="external">Object.create(proto, [ propertiesObject ])</a>实现类式继承<br><code>new Constructor()</code>与<code>Object.create(Constructor.prototype)</code>的区别是<code>new Constructor()</code>会执行<code>Constructor</code>的初始代码，而<code>Object.create</code>不会执行</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-21T01:41:20.000Z"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">2015-07-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/">JavaScript学习笔记之 全局对象[方法属性]</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval">eval(string, [object])</a>的第一个参数是个字符串。如果字符串表示了一个表达式，eval()会对表达式求值。如果参数表示了一个或多个JavaScript声明， 那么eval()会执行声明。不要调用eval()来为算数表达式求值； JavaScript 会自动为算数表达式求值。解析JSON。</p>
-<h3 id="避免在不必要的情况下使用eval">避免在不必要的情况下使用eval</h3><p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isFinite">isFinite(testValue)</a> 是全局的方法，不与任何对象有关系。isFinite 方法检测它参数的数值。如果参数是 NaN，正无穷大或者负无穷大，会返回false，其他返回 true。</p>
-<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseFloat">parseFloat(string)</a><br>如果参数字符串的第一个字符不能被解析成为数字,则parseFloat返回NaN.<br>parseFloat 也可转换和返回Infinity值. 可以使用isFinite 函数来判断结果是否是一个优先的数值 (非Infinity, -Infinity, 或 NaN).<br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-方法属性/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-21T01:41:20.000Z"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-常量属性/">2015-07-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-常量属性/">JavaScript学习笔记之 全局对象[常量属性]</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/NaN">判断一个值是否是NaN</a><br>等号运算符（== 和 ===） 不能被用来判断一个值是否是 NaN。必须使用 Number.isNaN() 或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isNaN">isNaN()</a> 函数。</p>
-<p>2.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Infinity">Infinity</a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/NEGATIVE_INFINITY">Number.NEGATIVE_INFINITY</a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/POSITIVE_INFINITY">Number.POSITIVE_INFINITY</a></p>
-<p>3.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined">undifined</a>:必须使用严格相等运算符===,而不能使用普通的相等运算符==,因为x == undefined成立还可能是因为x为null,在JavaScript中null== undefined是返回true的.<br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/07/21/JavaScript学习笔记之-标准全局对象-常量属性/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
         <time datetime="2015-07-20T05:03:26.000Z"><a href="/2015/07/20/JavaScript学习笔记之-编程习惯和注意点/">2015-07-20</a></time>
       
       
@@ -248,11 +249,15 @@
       
         <p>1.我们将 <code>&lt;script&gt;</code> 元素放在 HTML 文件底部的原因是，浏览器解析 HTML 似乎按照代码出现的顺序来的。如果 JavaScript被首先读取，它也应该影响下面的 HTML，但有时会出现问题，因为 JavaScript 会在 HTML 之前被加载，如果 JavaScript 代码出现问题则 HTML 不会被加载。所以将 JavaScript 代码放在底部是最好的选择。</p>
 <p>2.JS中的每一行都应该以一个分号结尾，以表明这一行的结束。如果你不这样做，可能会遇到意想不到的结果。</p>
-
+<p>3.变量提升只对var命令声明的变量有效，如果一个变量不是用var命令声明的，就不会发生变量提升。<br>
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2015/07/20/JavaScript学习笔记之-编程习惯和注意点/#more" class="more-link">Read More</a>
+          </div>
         
         
       

@@ -55,6 +55,42 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-09-24T09:02:35.000Z"><a href="/2015/09/24/JavaScript学习笔记之-强大的表达力/">2015-09-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/24/JavaScript学习笔记之-强大的表达力/">JavaScript学习笔记之 强大的表达力</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="自定义方法">自定义方法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.prototype.add = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span> + x;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">8</span>[<span class="string">'add'</span>](<span class="number">2</span>));<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="number">8</span>).add(<span class="number">2</span>));<span class="comment">//10</span></span><br><span class="line"><span class="comment">//第一个点解释为小数点，第二个点解释为点运算符。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">8.</span>.add(<span class="number">2</span>));<span class="comment">//10</span></span><br><span class="line"><span class="comment">//报错，因为数值后面的点，会被解释为小数点，而不是点运算符。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">8.</span>add(<span class="number">2</span>));<span class="comment">//SyntaxError: Unexpected token ILLEGAL</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/09/24/JavaScript学习笔记之-强大的表达力/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-09-21T09:02:06.000Z"><a href="/2015/09/21/JavaScript学习笔记之-面向对象编程-继承/">2015-09-21</a></time>
       
       
