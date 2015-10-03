@@ -33,8 +33,8 @@ function fibonacci(n) {
     n = n < 0 ? 1 : n; //负数
     //n = parseInt(n); //取整
     n = ~~n; //使用否运算取整
-    var a = 1,
-        b = 1;
+    var a = 1;
+    var b = 1;
     if (arguments.length == 3) {
         a = arguments[1];
         b = arguments[2];

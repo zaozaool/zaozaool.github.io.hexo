@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JavaScript学习笔记之 编程习惯和注意点 | ZZ</title>
-  <meta name="author" content="zaozaool">
+  <title>JavaScript学习笔记之 编程习惯和注意点 | ζζ</title>
+  <meta name="author" content="Shengzao Jiang. All Rights Reserved. Built by hexo.js with light theme.">
   
   <meta name="description" content="1.我们将 &amp;lt;script&amp;gt; 元素放在 HTML 文件底部的原因是，浏览器解析 HTML 似乎按照代码出现的顺序来的。如果 JavaScript被首先读取，它也应该影响下面的 HTML，但有时会出现问题，因为 JavaScript 会在 HTML 之前被加载，如果 JavaScript 代码出现问题则 HTML 不会被加载。所以将 JavaScript 代码放在底部是最好的选择。
 2.JS中的每一行都应该以一个分号结尾，以表明这一行的结束。如果你不这样做，可能会遇到意想不到的结果。
@@ -14,14 +14,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="JavaScript学习笔记之 编程习惯和注意点"/>
-  <meta property="og:site_name" content="ZZ"/>
+  <meta property="og:site_name" content="ζζ"/>
 
   
     <meta property="og:image" content="undefined"/>
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="ZZ" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="ζζ" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
@@ -31,7 +31,7 @@
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">ZZ</a></h1>
+  <h1><a href="/">ζζ</a></h1>
   <h2><a href="/">Why do java developers wear glasses? Because they don&#39;t C#.</a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -100,6 +100,15 @@
 <p>26.使用<a href="http://javascript.ruanyifeng.com/grammar/operator.html#toc19" target="_blank" rel="external">左移运算符</a>，将颜色的RGB值转为HEX值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> color = &#123;r: <span class="number">186</span>, g: <span class="number">218</span>, b: <span class="number">85</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> rgb2hex = <span class="function"><span class="keyword">function</span>(<span class="params">r, g, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'#'</span> + ((<span class="number">1</span> &lt;&lt; <span class="number">24</span>) + (r &lt;&lt; <span class="number">16</span>) + (g &lt;&lt; <span class="number">8</span>) + b).toString(<span class="number">16</span>).substr(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">rgb2hex(color.r,color.g,color.b) <span class="comment">// "#bada55"</span></span><br></pre></td></tr></table></figure></p>
 <p>27.<a href="http://javascript.ruanyifeng.com/grammar/operator.html#toc20" target="_blank" rel="external">右移运算符</a>可以模拟2的整除运算。如：21 &gt;&gt; 3 //2</p>
 <p>28.位运算符可以用作设置对象属性的<a href="http://javascript.ruanyifeng.com/grammar/operator.html#toc22" target="_blank" rel="external">开关</a>。</p>
+<p>29.<a href="http://javascript.ruanyifeng.com/stdlib/object.html#toc3" target="_blank" rel="external">Object.keys和Object.getOwnPropertyNames</a>返回对象自身的（不包括继承）所有属性名。区别在于Object.keys只返回可枚举的属性。计算对象属性个数：Object.keys(o).length和Object.getOwnPropertyNames(o).length。</p>
+<p>30.<a href="http://javascript.ruanyifeng.com/stdlib/object.html#toc4" target="_blank" rel="external">Object.observe</a>方法用于观察对象属性的变化。</p>
+<p>31.<a href="http://javascript.ruanyifeng.com/stdlib/array.html#toc11" target="_blank" rel="external">给数组按照自定义的逻辑排序</a>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123; name: <span class="string">"张三"</span>, age: <span class="number">30</span> &#125;,</span><br><span class="line">  &#123; name: <span class="string">"李四"</span>, age: <span class="number">24</span> &#125;,</span><br><span class="line">  &#123; name: <span class="string">"王五"</span>, age: <span class="number">28</span> &#125;</span><br><span class="line">].sort(<span class="function"><span class="keyword">function</span>(<span class="params">o1, o2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> o1.age - o2.age;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>32.<a href="http://javascript.ruanyifeng.com/stdlib/string.html#toc6" target="_blank" rel="external">substring、substr、slice的区别</a>：</p>
+<ul>
+<li>substring方法的第一个参数表示子字符串的开始位置，第二个位置表示结束位置。如果出现第一个参数大于第二个参数的情况，substring方法会自动更换两个参数的位置。如果参数为负，对于substring方法，会自动将负数转为0。</li>
+<li>substr方法的第一个参数是子字符串的开始位置，第二个参数是子字符串的长度。对于substr方法，负数出现在第一个参数，表示从尾部开始计算的字符位置；负数出现在第二个参数，将被转为0。</li>
+<li>slice方法的第一个参数是子字符串的开始位置，第二个参数是子字符串的结束位置。如果第一个参数大于第二个参数，slice方法并不会自动调换参数位置，而是返回一个空字符串。如果参数为负，对于slice方法，表示字符位置从尾部开始计算。</li>
+</ul>
 
       
     </div>
@@ -229,7 +238,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2015 zaozaool
+  &copy; 2015 Shengzao Jiang. All Rights Reserved. Built by hexo.js with light theme.
   
 </div>
 <div class="clearfix"></div></footer>

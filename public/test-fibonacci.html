@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ZZ</title>
-  <meta name="author" content="zaozaool">
+  <title>ζζ</title>
+  <meta name="author" content="Shengzao Jiang. All Rights Reserved. Built by hexo.js with light theme.">
   
   <meta name="description" content="&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
 
@@ -14,20 +14,21 @@
     斐波那契数列尾调用测试
 
 
-  ">
+
+ ">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-  <meta property="og:site_name" content="ZZ"/>
+  <meta property="og:site_name" content="ζζ"/>
 
   
     <meta property="og:image" content="undefined"/>
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="ZZ" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="ζζ" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
@@ -37,7 +38,7 @@
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">ZZ</a></h1>
+  <h1><a href="/">ζζ</a></h1>
   <h2><a href="/">Why do java developers wear glasses? Because they don&#39;t C#.</a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -74,15 +75,25 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>斐波那契数列尾调用测试</title>
 </head>
+
 <script type="text/javascript">
+    //普通写法
+    function fibonacci1(n) {
+        if (n <= 2) {
+            return 1;
+        } else {
+            return fibonacci1(n - 1) + fibonacci1(n - 2);
+        }
+    }
+
     //尾调用写法
     function fibonacci2(n) {
         n = n || 1; //undefined、null、false、0、NaN、””（空字符串）
         n = isNaN(n) ? 1 : n; //非数值类型
         n = n < 0 ? 1 : n; //负数
         n = parseInt(n); //取整
-        var a = 1,
-            b = 1;
+        var a = 1;
+        var b = 1;
         if (arguments.length == 3) {
             a = arguments[1];
             b = arguments[2];
@@ -94,23 +105,6 @@
         }
     }
 
-    //尾调用写法测试
-    var start2 = new Date();
-    for (var i = 1; i < 40; i++) {
-        fibonacci2(i)
-    }
-    var end2 = new Date();
-    var t2 = (end2.getTime() - start2.getTime());
-
-    //普通写法
-    function fibonacci1(n) {
-        if (n <= 2) {
-            return 1;
-        } else {
-            return fibonacci1(n - 1) + fibonacci1(n - 2);
-        }
-    }
-
     //普通写法测试
     var start1 = new Date();
     for (var i = 1; i < 40; i++) {
@@ -119,9 +113,51 @@
     var end1 = new Date();
     var t1 = (end1.getTime() - start1.getTime());
 
-    console.log("普通写法:" + t1 + " ms, " + "尾调用写法:" + t2 + " ms");
-    alert("普通写法:" + t1 + " ms, " + "尾调用写法:" + t2 + " ms");
+    //尾调用写法测试
+    var start2 = new Date();
+    for (var i = 1; i < 40; i++) {
+        fibonacci2(i)
+    }
+    var end2 = new Date();
+    var t2 = (end2.getTime() - start2.getTime());
+
+    var result = "普通写法:" + t1 + " ms, " + "尾调用写法:" + t2 + " ms";
+    console.log(result);
+    alert(result);
 </script>
+
+<body>
+    <div class="entry">
+        <p id="xxxx"></p>
+        <p>普通写法（非尾调用）：
+            <br>
+        </p>
+        <figure class="highlight javascript">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td>
+                        <td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span>(<span class="params">n</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">return</span> fibonacci(n - <span class="number">1</span>) + fibonacci(n - <span class="number">2</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td>
+                    </tr>
+                </tbody>
+            </table>
+        </figure>
+        <p></p>
+        <p>尾调用写法：
+            <br>
+        </p>
+        <figure class="highlight javascript">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td>
+                        <td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span>(<span class="params">n</span>) </span>{</span><br><span class="line">    n = n || <span class="number">1</span>; <span class="comment">//undefined、null、false、0、NaN、””（空字符串）</span></span><br><span class="line">    n = <span class="built_in">isNaN</span>(n) ? <span class="number">1</span> : n; <span class="comment">//非数值类型</span></span><br><span class="line">    n = n &lt; <span class="number">0</span> ? <span class="number">1</span> : n; <span class="comment">//负数</span></span><br><span class="line">    <span class="comment">//n = parseInt(n); //取整</span></span><br><span class="line">    n = ~~n; <span class="comment">//使用否运算取整</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>,</span><br><span class="line">        b = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">arguments</span>.length == <span class="number">3</span>) {</span><br><span class="line">        a = <span class="built_in">arguments</span>[<span class="number">1</span>];</span><br><span class="line">        b = <span class="built_in">arguments</span>[<span class="number">2</span>];</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) {</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">return</span> fibonacci(n - <span class="number">1</span>, b, a + b);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td>
+                    </tr>
+                </tbody>
+            </table>
+        </figure>
+    </div>
+</body>
 
 </html>
       
@@ -247,7 +283,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2015 zaozaool
+  &copy; 2015 Shengzao Jiang. All Rights Reserved. Built by hexo.js with light theme.
   
 </div>
 <div class="clearfix"></div></footer>

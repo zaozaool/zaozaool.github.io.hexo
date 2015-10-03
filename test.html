@@ -1,40 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Test</title>
+</head>
 <script type="text/javascript">
-    function Animal() {
-        this.species = "动物";
-    }
-    Animal.prototype.eat = function() {
-        alert("Eat anything.");
-    };
-
-    function Cat(name, color) {
-        this.name = name;
-        this.color = color;
-    }
-
-    // function Cat(name, color) {
-    //     Animal.apply(this, arguments);
-    //     this.name = name;
-    //     this.color = color;
-    // }
-    // var cat1 = new Cat("大毛", "黄色");
-    // alert(cat1.species); // 动物
-
-    // cat1.eat();//cat1.eat is not a function
-
-    Cat.prototype = new Animal();
-    // alert(Cat.prototype.constructor == Animal); //true
-    Cat.prototype.constructor = Cat; // 编程时务必要遵守
-    // alert(Cat.prototype.constructor == Cat); //true
-    var cat1 = new Cat("大毛", "黄色");
-    var cat2 = new Cat("二毛", "黑色");
-    cat2.eat = function() {
-        alert("Only eat beef.");
-    };
-    cat1.eat();
-    cat2.eat();
-    //alert(cat1.species); // 动物
-    // cat1.eat();
-
-    // 实例也有一个constructor属性，默认调用prototype对象的constructor属性
-    // alert(cat1.constructor == Cat.prototype.constructor); // true
+    console.log(Array(2).map(function() {
+        console.log('enter...');
+        return 1;
+    }));
 </script>
+
+</html>

@@ -2,7 +2,16 @@ title: About zaozaool
 date: 2015-07-16 06:16:58
 ---
 
-关键词：JAVA、Node.js
+```javascript
+{
+  "Name": "Shengzao Jiang",
+  "Gender": "Male",
+  "Keywords": ["Java", "Node"],
+  "GitHub": {
+    "Username": "zaozaool",
+    "Home page": "http://www.github.com/zaozaool",
+    "Blog": "http://zaozaool.github.io/"
+  }
+}
+```
 
-[个人博客](http://zaozaool.github.io/)
-[My GitHub](http://www.github.com/zaozaool)

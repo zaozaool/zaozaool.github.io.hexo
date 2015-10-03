@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JavaScript学习笔记之 斐波那契数列尾调用测试 | ZZ</title>
-  <meta name="author" content="zaozaool">
+  <title>JavaScript学习笔记之 斐波那契数列尾调用测试 | ζζ</title>
+  <meta name="author" content="Shengzao Jiang. All Rights Reserved. Built by hexo.js with light theme.">
   
   <meta name="description" content="为了验证JavaScript中尾调用的优点，所以做了计算斐波那契数列的尾调用写法和非尾调用写法的性能对比，结果是惊人的，真是不试不知道，一试吓一跳。
 这里我都是循环计算斐波那契数列第1-40位的数值，下面是各个环境的验证结果：Firefox: 普通写法:1000-1300 ms，尾调用写法:0-2 msChrome: 普通写法:1550-1700 ms，尾调用写法:0-2 msIE9: 普通写法:46000+ ms，尾调用写法:0-2 ms
@@ -14,14 +14,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="JavaScript学习笔记之 斐波那契数列尾调用测试"/>
-  <meta property="og:site_name" content="ZZ"/>
+  <meta property="og:site_name" content="ζζ"/>
 
   
     <meta property="og:image" content="undefined"/>
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="ZZ" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="ζζ" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
@@ -31,7 +31,7 @@
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">ZZ</a></h1>
+  <h1><a href="/">ζζ</a></h1>
   <h2><a href="/">Why do java developers wear glasses? Because they don&#39;t C#.</a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -68,7 +68,7 @@
 <p>这里我都是循环计算斐波那契数列第1-40位的数值，下面是各个环境的验证结果：<br><strong>Firefox: 普通写法:1000-1300 ms，尾调用写法:0-2 ms</strong><br><strong>Chrome: 普通写法:1550-1700 ms，尾调用写法:0-2 ms</strong><br><strong>IE9: 普通写法:46000+ ms，尾调用写法:0-2 ms</strong></p>
 <p>以上只是在我自己电脑上的3种浏览器测试的结果，但是可以看出其巨大的差异，所以多函数嵌套调用以及递归时，尽可能的使用尾调用。<a href="http://zaozaool.github.io/test-fibonacci.html">测试地址</a><br><a id="more"></a></p>
 <p>普通写法（非尾调用）：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> fibonacci(n - <span class="number">1</span>) + fibonacci(n - <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>尾调用写法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    n = n || <span class="number">1</span>; <span class="comment">//undefined、null、false、0、NaN、””（空字符串）</span></span><br><span class="line">    n = <span class="built_in">isNaN</span>(n) ? <span class="number">1</span> : n; <span class="comment">//非数值类型</span></span><br><span class="line">    n = n &lt; <span class="number">0</span> ? <span class="number">1</span> : n; <span class="comment">//负数</span></span><br><span class="line">    <span class="comment">//n = parseInt(n); //取整</span></span><br><span class="line">    n = ~~n; <span class="comment">//使用否运算取整</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>,</span><br><span class="line">        b = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">arguments</span>.length == <span class="number">3</span>) &#123;</span><br><span class="line">        a = <span class="built_in">arguments</span>[<span class="number">1</span>];</span><br><span class="line">        b = <span class="built_in">arguments</span>[<span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> fibonacci(n - <span class="number">1</span>, b, a + b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>尾调用写法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    n = n || <span class="number">1</span>; <span class="comment">//undefined、null、false、0、NaN、””（空字符串）</span></span><br><span class="line">    n = <span class="built_in">isNaN</span>(n) ? <span class="number">1</span> : n; <span class="comment">//非数值类型</span></span><br><span class="line">    n = n &lt; <span class="number">0</span> ? <span class="number">1</span> : n; <span class="comment">//负数</span></span><br><span class="line">    <span class="comment">//n = parseInt(n); //取整</span></span><br><span class="line">    n = ~~n; <span class="comment">//使用否运算取整</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">arguments</span>.length == <span class="number">3</span>) &#123;</span><br><span class="line">        a = <span class="built_in">arguments</span>[<span class="number">1</span>];</span><br><span class="line">        b = <span class="built_in">arguments</span>[<span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> fibonacci(n - <span class="number">1</span>, b, a + b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>有关尾调用的介绍，请参看下面这篇文章：<br>阮一峰 <a href="http://www.ruanyifeng.com/blog/2015/04/tail-call.html" target="_blank" rel="external">尾调用优化</a></p>
 
       
@@ -199,7 +199,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2015 zaozaool
+  &copy; 2015 Shengzao Jiang. All Rights Reserved. Built by hexo.js with light theme.
   
 </div>
 <div class="clearfix"></div></footer>

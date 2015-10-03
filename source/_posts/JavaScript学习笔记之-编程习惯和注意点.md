@@ -213,3 +213,23 @@ rgb2hex(color.r,color.g,color.b) // "#bada55"
 27.[右移运算符](http://javascript.ruanyifeng.com/grammar/operator.html#toc20)可以模拟2的整除运算。如：21 >> 3 //2
 
 28.位运算符可以用作设置对象属性的[开关](http://javascript.ruanyifeng.com/grammar/operator.html#toc22)。
+
+29.[Object.keys和Object.getOwnPropertyNames](http://javascript.ruanyifeng.com/stdlib/object.html#toc3)返回对象自身的（不包括继承）所有属性名。区别在于Object.keys只返回可枚举的属性。计算对象属性个数：Object.keys(o).length和Object.getOwnPropertyNames(o).length。
+
+30.[Object.observe](http://javascript.ruanyifeng.com/stdlib/object.html#toc4)方法用于观察对象属性的变化。
+
+31.[给数组按照自定义的逻辑排序](http://javascript.ruanyifeng.com/stdlib/array.html#toc11)。
+```javascript
+[
+  { name: "张三", age: 30 },
+  { name: "李四", age: 24 },
+  { name: "王五", age: 28 }
+].sort(function(o1, o2) {
+  return o1.age - o2.age;
+});
+```
+32.[substring、substr、slice的区别](http://javascript.ruanyifeng.com/stdlib/string.html#toc6)：
+- substring方法的第一个参数表示子字符串的开始位置，第二个位置表示结束位置。如果出现第一个参数大于第二个参数的情况，substring方法会自动更换两个参数的位置。如果参数为负，对于substring方法，会自动将负数转为0。
+- substr方法的第一个参数是子字符串的开始位置，第二个参数是子字符串的长度。对于substr方法，负数出现在第一个参数，表示从尾部开始计算的字符位置；负数出现在第二个参数，将被转为0。
+- slice方法的第一个参数是子字符串的开始位置，第二个参数是子字符串的结束位置。如果第一个参数大于第二个参数，slice方法并不会自动调换参数位置，而是返回一个空字符串。如果参数为负，对于slice方法，表示字符位置从尾部开始计算。
+
