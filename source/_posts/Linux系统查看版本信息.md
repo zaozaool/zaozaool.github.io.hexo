@@ -13,3 +13,9 @@ tags: [备忘, Linux]
 4.`lsb_release -a`, (适用于所有的linux，包括Redhat、SuSE、Debian等发行版，但是在debian下要安装lsb)
 
 5.`uname -r`,输出版本号
+
+6.`ls -l |grep "^-"|wc -l`,统计某文件夹下文件的个数
+
+7.`ls -l |grep "^ｄ"|wc -l`,统计某文件夹下目录的个数
+
+8.`ls -lR|grep "^-"|wc -l`,统计文件夹下文件的个数，包括子文件夹里的
