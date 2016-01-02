@@ -51,6 +51,50 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-01-02T10:13:52.000Z"><a href="/2016/01/02/GenScript SAP项目/">2016-01-02</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/02/GenScript SAP项目/">GenScript SAP项目</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="项目背景">项目背景</h1><p>GenScript是一家做生物的跨国公司，我有幸任职在IT部门担任Java开发工程师（在职），主要负责公司内部的SCM系统的开发及维护，虽然叫SCM，但是个人感觉这个系统就是一个ERP，里面包括了客户管理、物料管理、订单管理、生产管理、库存管理、发货管理、报表和财务等众多模块，由于功能太多，所以使得整个系统非常臃肿，而且由于是跨国公司，系统又没有做分布式部署，使用人群又是在全球各个地方，使得整个系统使用起来很慢，并因为各个站点不同的需求都集中到一个系统中，导致很多逻辑和程序上的Bug，或者因为一个Bug影响到所有站点的用户，非常影响公司内客户的使用体验，有些Bug可能会导致公司同事的日常工作会进行不下去，所以最终领导层决定，将这些模块拆分开，形成了3个订单系统（包括客户管理、订单管理），1个生产系统，2个发货系统，1个物料系统，将库存管理、发货管理以及报表、财务部分都整合进SAP，各个系统之间通过数据库层面同步、WebService传输、RFC/JCO传输等方式进行数据同步，通过这样的拆分达到各个系统因为地理位置进行分布式部署的目的，从而解决前面提到的问题。</p>
+<h2 id="优点：">优点：</h2><ul>
+<li>各个模块独立部署解决了老SCM系统整体反应慢的问题</li>
+<li>不会因为一个站点需求导致的Bug而影响所有模块</li>
+<li>通过集成SAP使财务报表的数据更完成准确</li>
+<li>考验了IT的技术能力</li>
+</ul>
+<h2 id="缺点">缺点</h2><ul>
+<li>使IT的维护成本增加了数倍</li>
+<li>个人感觉SAP太贵了…</li>
+</ul>
+<h1 id="问题总结">问题总结</h1><h2 id="客户主数据同步">客户主数据同步</h2><p>- </p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-10-01T07:45:51.000Z"><a href="/2015/10/01/JavaScript学习笔记之-尾调用测试/">2015-10-01</a></time>
       
       
@@ -408,42 +452,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-09-11T02:06:53.000Z"><a href="/2015/09/11/ABAP基础之SQL语句/">2015-09-11</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/09/11/ABAP基础之SQL语句/">ABAP基础之SQL语句</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="SELECT语句读取单一记录">SELECT语句读取单一记录</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT SINGLE * FROM TABLE INTO WA WHERE ID=?.&#10;IF SY-SUBRC = 0.&#10;    ...do something&#10;&#10;SELECT SINGLE MATNR ERSDA INTO (GV_MATNR, GV_ERSDA) FROM MARA WHERE ERSDA = &#39;20150701&#39;.</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/09/11/ABAP基础之SQL语句/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -473,6 +481,8 @@
   
     <li><a href="/tags/Drools/">Drools</a><small>0</small></li>
   
+    <li><a href="/tags/ERP/">ERP</a><small>1</small></li>
+  
     <li><a href="/tags/ETL/">ETL</a><small>0</small></li>
   
     <li><a href="/tags/Git/">Git</a><small>1</small></li>
@@ -487,7 +497,9 @@
   
     <li><a href="/tags/Node-js/">Node.js</a><small>10</small></li>
   
-    <li><a href="/tags/SAP/">SAP</a><small>5</small></li>
+    <li><a href="/tags/SAP/">SAP</a><small>6</small></li>
+  
+    <li><a href="/tags/SCM/">SCM</a><small>1</small></li>
   
     <li><a href="/tags/Sandowsocks/">Sandowsocks</a><small>0</small></li>
   
@@ -501,6 +513,8 @@
   
     <li><a href="/tags/深入浅出Node-js/">深入浅出Node.js</a><small>7</small></li>
   
+    <li><a href="/tags/项目/">项目</a><small>1</small></li>
+  
   </ul>
 </div>
 
@@ -509,7 +523,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2015 Shengzao Jiang. All Rights Reserved. Built by hexo.js with light theme.
+  &copy; 2016 Shengzao Jiang. All Rights Reserved. Built by hexo.js with light theme.
   
 </div>
 <div class="clearfix"></div></footer>
