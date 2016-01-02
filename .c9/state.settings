@@ -442,7 +442,7 @@
                             "id": "devel_455",
                             "cwd": "",
                             "width": 929,
-                            "height": 188
+                            "height": 63
                         }
                     },
                     "editorType": "terminal",
@@ -506,19 +506,19 @@
             "@ace": 1,
             "@acestatus": 1,
             "@divider": 4,
-            "@document": 16,
+            "@document": 17,
             "@form": 4,
             "@htmldocument": 2,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 4,
-            "@postmessage": 2,
+            "@postmessage": 3,
             "@preferences": 1,
             "@preview": 1,
-            "@session": 14,
+            "@session": 15,
             "@tab": 10,
-            "@undoManager": 16
+            "@undoManager": 17
         }
     },
     "findinfiles": {
@@ -730,13 +730,12 @@
                     "path": "/source/scripts/githubcommit.sh",
                     "className": [
                         "tab8",
-                        "focus",
-                        "changed"
+                        "focus"
                     ],
                     "document": {
-                        "changed": true,
+                        "changed": false,
                         "meta": {
-                            "timestamp": 1451736439551
+                            "timestamp": 1451737560726
                         },
                         "filter": true,
                         "title": "githubcommit.sh",
