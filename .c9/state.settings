@@ -21,8 +21,8 @@
             "meta": {
                 "accessList": [
                     "tab13",
-                    "tab1",
-                    "searchResults"
+                    "searchResults",
+                    "tab1"
                 ]
             },
             "name": "pane1",
@@ -442,7 +442,7 @@
                             "id": "devel_455",
                             "cwd": "",
                             "width": 929,
-                            "height": 63
+                            "height": 311
                         }
                     },
                     "editorType": "terminal",
@@ -458,39 +458,16 @@
                     ],
                     "document": {
                         "changed": true,
-                        "filter": true,
-                        "title": "Search Results",
-                        "tooltip": "/.c9/searchresults",
-                        "ace": {
-                            "folds": [],
-                            "customSyntax": "c9search",
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 104,
-                                    "column": 0
-                                },
-                                "end": {
-                                    "row": 104,
-                                    "column": 0
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "tabSize": 4,
-                                "useSoftTabs": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": 0
-                        },
                         "meta": {
                             "searchResults": true,
                             "ignoreSave": true,
                             "newfile": true,
                             "timestamp": 1443769346715
-                        }
+                        },
+                        "filter": true,
+                        "title": "searchresults",
+                        "tooltip": "/.c9/searchresults",
+                        "ace": {}
                     },
                     "editorType": "ace",
                     "active": false
@@ -503,8 +480,8 @@
     },
     "ext": {
         "counters": {
-            "@ace": 1,
-            "@acestatus": 1,
+            "@ace": 2,
+            "@acestatus": 2,
             "@divider": 4,
             "@document": 17,
             "@form": 4,
@@ -516,7 +493,7 @@
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 1,
-            "@session": 15,
+            "@session": 16,
             "@tab": 10,
             "@undoManager": 17
         }
@@ -536,8 +513,7 @@
     "panecycle": {
         "json()": [
             "tab13",
-            "tab8",
-            "searchResults"
+            "tab8"
         ]
     },
     "panels": {
@@ -674,7 +650,7 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/source/scripts/githubcommit.sh",
+            "focus": "tab13",
             "meta": {
                 "accessList": [
                     "tab8",
@@ -729,13 +705,12 @@
                     "name": "tab8",
                     "path": "/source/scripts/githubcommit.sh",
                     "className": [
-                        "tab8",
-                        "focus"
+                        "tab8"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1451737560726
+                            "timestamp": 1451737580279
                         },
                         "filter": true,
                         "title": "githubcommit.sh",
