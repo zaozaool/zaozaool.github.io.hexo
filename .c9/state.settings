@@ -529,7 +529,7 @@
             "@ace": 1,
             "@acestatus": 1,
             "@divider": 4,
-            "@document": 13,
+            "@document": 14,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
@@ -537,9 +537,9 @@
             "@pane": 2,
             "@postmessage": 1,
             "@preview": 1,
-            "@session": 11,
-            "@tab": 13,
-            "@undoManager": 13
+            "@session": 12,
+            "@tab": 14,
+            "@undoManager": 14
         }
     },
     "findinfiles": {
@@ -556,7 +556,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab11"
+            "tab11",
+            "tab13"
         ]
     },
     "panels": {
@@ -597,7 +598,8 @@
                 "/source/ZZGoogle/stylesheets",
                 "/",
                 "/public",
-                "/public/scripts"
+                "/public/scripts",
+                "/source"
             ]
         }
     },
@@ -613,12 +615,36 @@
     },
     "tabs": {
         "json()": {
-            "focus": "tab11",
+            "focus": "/source/bookmarks.html",
             "meta": {
-                "accessList": []
+                "accessList": [
+                    "tab13"
+                ]
             },
             "name": "pane0",
-            "nodes": [],
+            "nodes": [
+                {
+                    "type": "tab",
+                    "name": "tab13",
+                    "path": "/source/bookmarks.html",
+                    "className": [
+                        "tab13",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1443083141540
+                        },
+                        "filter": true,
+                        "title": "bookmarks.html",
+                        "tooltip": "/source/bookmarks.html",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
+                }
+            ],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -626,7 +652,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/public/bookmarks.html"
+            "/source/bookmarks.html"
         ]
     },
     "watches": {
