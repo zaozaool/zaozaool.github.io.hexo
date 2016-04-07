@@ -482,8 +482,7 @@
                     "path": "",
                     "className": [
                         "tab11",
-                        "focus",
-                        "running"
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -491,8 +490,8 @@
                             "timestamp": 1460013651308
                         },
                         "filter": true,
-                        "title": "public/scripts/githubcommit.sh - Running",
-                        "tooltip": "public/scripts/githubcommit.sh - Running",
+                        "title": "public/scripts/githubcommit.sh - Stopped",
+                        "tooltip": "public/scripts/githubcommit.sh - Stopped",
                         "output": {
                             "id": "output404420",
                             "width": 1207,
@@ -500,26 +499,6 @@
                             "config": {
                                 "runner": "Shell script",
                                 "command": "public/scripts/githubcommit.sh",
-                                "debug": true
-                            },
-                            "running": {
-                                "pid": 5161,
-                                "name": "output404420",
-                                "running": 2,
-                                "runner": [
-                                    {
-                                        "cmd": [
-                                            "bash",
-                                            "-i",
-                                            "-l",
-                                            "$file",
-                                            "$args"
-                                        ],
-                                        "selector": "^.*\\.(sh)$",
-                                        "caption": "Shell script",
-                                        "$builtin": true
-                                    }
-                                ],
                                 "debug": true
                             }
                         }
@@ -550,7 +529,7 @@
             "@ace": 1,
             "@acestatus": 1,
             "@divider": 4,
-            "@document": 12,
+            "@document": 13,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
@@ -558,9 +537,9 @@
             "@pane": 2,
             "@postmessage": 1,
             "@preview": 1,
-            "@session": 10,
-            "@tab": 12,
-            "@undoManager": 12
+            "@session": 11,
+            "@tab": 13,
+            "@undoManager": 13
         }
     },
     "findinfiles": {
@@ -577,8 +556,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab11",
-            "tab10"
+            "tab11"
         ]
     },
     "panels": {
@@ -637,329 +615,10 @@
         "json()": {
             "focus": "tab11",
             "meta": {
-                "accessList": [
-                    "tab10",
-                    "tab9",
-                    "tab2",
-                    "tab3",
-                    "tab4",
-                    "tab6",
-                    "tab7",
-                    "tab8"
-                ]
+                "accessList": []
             },
             "name": "pane0",
-            "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab2",
-                    "path": "/source/_drafts/Todo-List.md",
-                    "className": [
-                        "tab2"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "Todo-List.md",
-                        "tooltip": "/source/_drafts/Todo-List.md",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 15,
-                                    "column": 11
-                                },
-                                "end": {
-                                    "row": 15,
-                                    "column": 11
-                                },
-                                "isBackwards": true
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 7,
-                                "state": "start",
-                                "mode": "ace/mode/markdown"
-                            }
-                        },
-                        "hash": "156ce2fb726ee3f3dd79a544e33c56e5e9d5b5c3",
-                        "meta": {
-                            "timestamp": 1458794579455
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab3",
-                    "path": "/source/ZZGoogle/index.html",
-                    "className": [
-                        "tab3"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "index.html",
-                        "tooltip": "/source/ZZGoogle/index.html",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 17,
-                                    "column": 26
-                                },
-                                "end": {
-                                    "row": 17,
-                                    "column": 30
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": 0
-                        },
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1458795264517
-                        }
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab4",
-                    "path": "/_config.yml",
-                    "className": [
-                        "tab4"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "_config.yml",
-                        "tooltip": "/_config.yml",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 97.22721719741821,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 23,
-                                    "column": 21
-                                },
-                                "end": {
-                                    "row": 23,
-                                    "column": 21
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 50,
-                                "state": "start",
-                                "mode": "ace/mode/yaml"
-                            }
-                        },
-                        "hash": "533cbbb64c21825c7cbf77c2114ee56033955fb8",
-                        "meta": {
-                            "timestamp": 1443775810508
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab6",
-                    "path": "/test.html",
-                    "className": [
-                        "tab6"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "test.html",
-                        "tooltip": "/test.html",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 14,
-                                    "column": 7
-                                },
-                                "end": {
-                                    "row": 14,
-                                    "column": 7
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 43,
-                                "mode": "ace/mode/html"
-                            }
-                        },
-                        "hash": "9a2320753dc07820001e3cf1c34a1a54e9314211",
-                        "meta": {
-                            "timestamp": 1443770222997
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab7",
-                    "path": "/source/_posts/Linux常用命令.md",
-                    "className": [
-                        "tab7"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "Linux常用命令.md",
-                        "tooltip": "/source/_posts/Linux常用命令.md",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 22,
-                                    "column": 45
-                                },
-                                "end": {
-                                    "row": 22,
-                                    "column": 45
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 50,
-                                "mode": "ace/mode/markdown"
-                            }
-                        },
-                        "hash": "633abe71dc537a8d047c719602a803c73f9c66e9",
-                        "meta": {
-                            "timestamp": 1459935960302
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab8",
-                    "path": "/source/_posts/常用工具.md",
-                    "className": [
-                        "tab8"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "常用工具.md",
-                        "tooltip": "/source/_posts/常用工具.md",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 47,
-                                    "column": 10
-                                },
-                                "end": {
-                                    "row": 47,
-                                    "column": 10
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 8,
-                                "state": "allowBlock",
-                                "mode": "ace/mode/markdown"
-                            }
-                        },
-                        "hash": "0e406410fc2e6a5fbd2f505bdf95e892b8f4e95b",
-                        "meta": {
-                            "timestamp": 1458796880374
-                        },
-                        "changed": false
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab9",
-                    "path": "/source/_posts/我的vagrant相关命令.md",
-                    "className": [
-                        "tab9"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1460013259205
-                        },
-                        "filter": true,
-                        "title": "我的vagrant相关命令.md",
-                        "tooltip": "/source/_posts/我的vagrant相关命令.md",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab10",
-                    "path": "/public/scripts/githubcommit.sh",
-                    "className": [
-                        "tab10"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1460013279237
-                        },
-                        "filter": true,
-                        "title": "githubcommit.sh",
-                        "tooltip": "/public/scripts/githubcommit.sh",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                }
-            ],
+            "nodes": [],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -967,7 +626,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/public/scripts/githubcommit.sh"
+            "/public/bookmarks.html"
         ]
     },
     "watches": {
