@@ -499,7 +499,8 @@
                             "config": {
                                 "runner": "Shell script",
                                 "command": "public/scripts/githubcommit.sh",
-                                "debug": true
+                                "debug": true,
+                                "name": ""
                             }
                         }
                     },
@@ -529,7 +530,7 @@
             "@ace": 1,
             "@acestatus": 1,
             "@divider": 4,
-            "@document": 14,
+            "@document": 22,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
@@ -537,9 +538,9 @@
             "@pane": 2,
             "@postmessage": 1,
             "@preview": 1,
-            "@session": 12,
-            "@tab": 14,
-            "@undoManager": 14
+            "@session": 20,
+            "@tab": 22,
+            "@undoManager": 22
         }
     },
     "findinfiles": {
@@ -556,8 +557,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab11",
-            "tab13"
+            "tab11"
         ]
     },
     "panels": {
@@ -598,8 +598,7 @@
                 "/source/ZZGoogle/stylesheets",
                 "/",
                 "/public",
-                "/public/scripts",
-                "/source"
+                "/public/scripts"
             ]
         }
     },
@@ -615,36 +614,12 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/source/bookmarks.html",
+            "focus": "tab11",
             "meta": {
-                "accessList": [
-                    "tab13"
-                ]
+                "accessList": []
             },
             "name": "pane0",
-            "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab13",
-                    "path": "/source/bookmarks.html",
-                    "className": [
-                        "tab13",
-                        "focus"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1443083141540
-                        },
-                        "filter": true,
-                        "title": "bookmarks.html",
-                        "tooltip": "/source/bookmarks.html",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                }
-            ],
+            "nodes": [],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -652,7 +627,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/bookmarks.html"
+            "/source"
         ]
     },
     "watches": {
