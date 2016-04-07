@@ -482,7 +482,7 @@
                     "path": "",
                     "className": [
                         "tab11",
-                        "running"
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -490,8 +490,8 @@
                             "timestamp": 1460013651308
                         },
                         "filter": true,
-                        "title": "public/scripts/githubcommit.sh - Running",
-                        "tooltip": "public/scripts/githubcommit.sh - Running",
+                        "title": "public/scripts/githubcommit.sh - Stopped",
+                        "tooltip": "public/scripts/githubcommit.sh - Stopped",
                         "output": {
                             "id": "output404420",
                             "width": 1207,
@@ -501,26 +501,6 @@
                                 "command": "public/scripts/githubcommit.sh",
                                 "debug": true,
                                 "name": ""
-                            },
-                            "running": {
-                                "pid": 6148,
-                                "name": "output404420",
-                                "running": 2,
-                                "runner": [
-                                    {
-                                        "cmd": [
-                                            "bash",
-                                            "-i",
-                                            "-l",
-                                            "$file",
-                                            "$args"
-                                        ],
-                                        "selector": "^.*\\.(sh)$",
-                                        "caption": "Shell script",
-                                        "$builtin": true
-                                    }
-                                ],
-                                "debug": false
                             }
                         }
                     },
@@ -577,8 +557,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab2",
-            "tab11"
+            "tab11",
+            "tab2"
         ]
     },
     "panels": {
@@ -640,8 +620,8 @@
             "focus": "tab11",
             "meta": {
                 "accessList": [
-                    "tab23",
-                    "tab2"
+                    "tab2",
+                    "tab23"
                 ]
             },
             "name": "pane0",
@@ -664,7 +644,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -676,7 +656,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1460016528308
+                            "timestamp": 1460018685957
                         },
                         "filter": true,
                         "title": "index.md",
@@ -684,7 +664,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": false
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
