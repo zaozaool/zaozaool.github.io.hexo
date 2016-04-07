@@ -101,6 +101,9 @@ config.vm.network "forwarded_port", guest: 21, host: 21
 
 #postgresql
 config.vm.network "forwarded_port", guest: 5432, host: 5432
+
+#edp
+config.vm.network "forwarded_port", guest: 8008, host: 8008
 ```
 
 #apt-get安装与卸载

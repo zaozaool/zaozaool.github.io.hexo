@@ -1,4 +1,4 @@
-title: Linux系统查看版本信息
+title: Linux常用命令
 date: 2015-08-07 04:51:44
 categories:
 tags: [备忘, Linux]
@@ -19,3 +19,5 @@ tags: [备忘, Linux]
 7.`ls -l |grep "^ｄ"|wc -l`,统计某文件夹下目录的个数
 
 8.`ls -lR|grep "^-"|wc -l`,统计文件夹下文件的个数，包括子文件夹里的
+
+9. `sudo chown -R vagrant:vagrant ~/repO/`,改变拥有者和群组
