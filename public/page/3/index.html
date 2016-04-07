@@ -51,6 +51,97 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-07-30T09:17:10.000Z"><a href="/2015/07/30/深入浅出Node-js-核心模块/">2015-07-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/30/深入浅出Node-js-核心模块/">深入浅出Node.js - 核心模块(2.3)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.核心模块分为C/C++编写的和JavaScript编写的两部分，C/C++文件存放在src目录下，js文件存放在lib目录下，C\C++编写的部分称为内建模块，JavaScript编写的称为核心模块</p>
+<p>2.核心模块的编译过程</p>
+<ul>
+<li>编译C\C++前，编译程序需要将所有的JavaScript模块文件编译为C/C++代码<ul>
+<li>转存为C/C++代码:先采用V8附带的<code>js2c.py</code>工具编译js模块文件为C/C++代码，并以字符串的形式存储到node命名空间，不可直接执行</li>
+<li>编译JavaScript核心模块到缓存</li>
+</ul>
+</li>
+<li>编译译C\C++</li>
+</ul>
+<p>3.核心模块的引入流程，已os模块为例：<br><code>require(&#39;os&#39;)--&gt;NativeModule.require(&quot;os&quot;)--&gt;process.binding(&quot;os&quot;)--&gt;get_builtin_module(&quot;node_os&quot;)--&gt;NODE_MODULE(node_os, reg_gunc)</code></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-30T04:33:30.000Z"><a href="/2015/07/30/深入浅出Node-js-模块加载/">2015-07-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/30/深入浅出Node-js-模块加载/">深入浅出Node.js - 模块加载(2.2)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>1.加载模块的3个步骤</p>
+<ul>
+<li>路径分析</li>
+<li>文件定位</li>
+<li>编译执行</li>
+</ul>
+<p>2.加载顺序</p>
+<ul>
+<li>优先从缓存加载（无论是核心模块还是文件模块，都优先从缓存加载）</li>
+<li>核心模块的缓存检查先于文件模块的缓存检查</li>
+<li>缓存中没有的再通过路径分析、文件定位、编译执行加载</li>
+</ul>
+<p>3.路径分析、文件定位、模块编译<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/07/30/深入浅出Node-js-模块加载/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-07-30T04:26:17.000Z"><a href="/2015/07/30/深入浅出Node-js-特点与应用场景/">2015-07-30</a></time>
       
       
@@ -303,7 +394,7 @@
   
     <li><a href="/tags/Docker/">Docker</a><small>0</small></li>
   
-    <li><a href="/tags/Drools/">Drools</a><small>0</small></li>
+    <li><a href="/tags/Drools/">Drools</a><small>1</small></li>
   
     <li><a href="/tags/ERP/">ERP</a><small>1</small></li>
   
@@ -331,13 +422,15 @@
   
     <li><a href="/tags/VPN/">VPN</a><small>0</small></li>
   
+    <li><a href="/tags/可视化/">可视化</a><small>1</small></li>
+  
     <li><a href="/tags/备忘/">备忘</a><small>3</small></li>
   
     <li><a href="/tags/工具/">工具</a><small>1</small></li>
   
     <li><a href="/tags/深入浅出Node-js/">深入浅出Node.js</a><small>7</small></li>
   
-    <li><a href="/tags/项目/">项目</a><small>1</small></li>
+    <li><a href="/tags/项目/">项目</a><small>3</small></li>
   
   </ul>
 </div>

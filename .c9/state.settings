@@ -482,7 +482,7 @@
                     "path": "",
                     "className": [
                         "tab11",
-                        "focus"
+                        "running"
                     ],
                     "document": {
                         "changed": false,
@@ -490,8 +490,8 @@
                             "timestamp": 1460013651308
                         },
                         "filter": true,
-                        "title": "public/scripts/githubcommit.sh - Stopped",
-                        "tooltip": "public/scripts/githubcommit.sh - Stopped",
+                        "title": "public/scripts/githubcommit.sh - Running",
+                        "tooltip": "public/scripts/githubcommit.sh - Running",
                         "output": {
                             "id": "output404420",
                             "width": 1207,
@@ -501,6 +501,26 @@
                                 "command": "public/scripts/githubcommit.sh",
                                 "debug": true,
                                 "name": ""
+                            },
+                            "running": {
+                                "pid": 6148,
+                                "name": "output404420",
+                                "running": 2,
+                                "runner": [
+                                    {
+                                        "cmd": [
+                                            "bash",
+                                            "-i",
+                                            "-l",
+                                            "$file",
+                                            "$args"
+                                        ],
+                                        "selector": "^.*\\.(sh)$",
+                                        "caption": "Shell script",
+                                        "$builtin": true
+                                    }
+                                ],
+                                "debug": false
                             }
                         }
                     },
@@ -530,7 +550,7 @@
             "@ace": 1,
             "@acestatus": 1,
             "@divider": 4,
-            "@document": 22,
+            "@document": 6,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
@@ -538,9 +558,9 @@
             "@pane": 2,
             "@postmessage": 1,
             "@preview": 1,
-            "@session": 20,
-            "@tab": 22,
-            "@undoManager": 22
+            "@session": 4,
+            "@tab": 3,
+            "@undoManager": 6
         }
     },
     "findinfiles": {
@@ -557,6 +577,7 @@
     },
     "panecycle": {
         "json()": [
+            "tab2",
             "tab11"
         ]
     },
@@ -598,7 +619,9 @@
                 "/source/ZZGoogle/stylesheets",
                 "/",
                 "/public",
-                "/public/scripts"
+                "/public/scripts",
+                "/source",
+                "/source/_posts"
             ]
         }
     },
@@ -616,10 +639,54 @@
         "json()": {
             "focus": "tab11",
             "meta": {
-                "accessList": []
+                "accessList": [
+                    "tab23",
+                    "tab2"
+                ]
             },
             "name": "pane0",
-            "nodes": [],
+            "nodes": [
+                {
+                    "type": "tab",
+                    "name": "tab23",
+                    "path": "/source/_posts/process-badge-svg使用指南.md",
+                    "className": [
+                        "tab23"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1460018530873
+                        },
+                        "filter": true,
+                        "title": "process-badge-svg使用指南.md",
+                        "tooltip": "/source/_posts/process-badge-svg使用指南.md",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab2",
+                    "path": "/source/about/index.md",
+                    "className": [
+                        "tab2"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1460016528308
+                        },
+                        "filter": true,
+                        "title": "index.md",
+                        "tooltip": "/source/about/index.md",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                }
+            ],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -627,7 +694,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source"
+            "/source/_posts/process-badge-svg使用指南.md"
         ]
     },
     "watches": {

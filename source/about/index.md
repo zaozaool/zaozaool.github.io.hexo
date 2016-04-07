@@ -1,4 +1,4 @@
-title: About zaozaool
+title: About me
 date: 2015-07-16 06:16:58
 ---
 
@@ -11,13 +11,15 @@ date: 2015-07-16 06:16:58
   "GitHub": {
     "Username": "zaozaool",
     "Home page": "http://www.github.com/zaozaool",
-    "Blog": "http://zaozaool.github.io/"
+    "Notebook": "http://zaozaool.github.io/"
   },
   "Experience": [
     "ZTE联通音乐平台",
     "ZTE IPTV",
     "GenScript SCM项目",
-    "GenScript SAP项目"
+    "GenScript SAP项目",
+    "GenScript 报表可视化项目",
+    "GenScript 规则引擎项目"
   ],
   "Toys" {
     "GitHub Pages": "使用Hexo写Markdown个人笔记并部署到GitHub Pages",
@@ -26,3 +28,4 @@ date: 2015-07-16 06:16:58
 }
 ```
 
+<iframe src="https://ghbtns.com/github-btn.html?user=zaozaool&type=follow&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
