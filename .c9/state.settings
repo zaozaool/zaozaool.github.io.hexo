@@ -482,8 +482,7 @@
                     "path": "",
                     "className": [
                         "tab11",
-                        "focus",
-                        "connecting"
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -491,8 +490,8 @@
                             "timestamp": 1460013651308
                         },
                         "filter": true,
-                        "title": "public/scripts/githubcommit.sh - Idle",
-                        "tooltip": "public/scripts/githubcommit.sh - Idle",
+                        "title": "public/scripts/githubcommit.sh - Stopped",
+                        "tooltip": "public/scripts/githubcommit.sh - Stopped",
                         "output": {
                             "id": "output404420",
                             "width": 1207,
@@ -502,24 +501,6 @@
                                 "command": "public/scripts/githubcommit.sh",
                                 "debug": true,
                                 "name": ""
-                            },
-                            "running": {
-                                "name": "output404420",
-                                "running": 1,
-                                "runner": [
-                                    {
-                                        "cmd": [
-                                            "bash",
-                                            "-i",
-                                            "-l",
-                                            "$file",
-                                            "$args"
-                                        ],
-                                        "selector": "^.*\\.(sh)$",
-                                        "caption": "Shell script",
-                                        "$builtin": true
-                                    }
-                                ]
                             }
                         }
                     },
@@ -577,7 +558,7 @@
     "panecycle": {
         "json()": [
             "tab11",
-            "tab3"
+            "tab2"
         ]
     },
     "panels": {
@@ -636,11 +617,11 @@
     },
     "tabs": {
         "json()": {
-            "focus": "tab11",
+            "focus": "/source/_posts/process-badge-svg使用指南.md",
             "meta": {
                 "accessList": [
-                    "tab3",
-                    "tab2"
+                    "tab2",
+                    "tab3"
                 ]
             },
             "name": "pane0",
@@ -663,14 +644,15 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
                     "name": "tab2",
                     "path": "/source/_posts/process-badge-svg使用指南.md",
                     "className": [
-                        "tab2"
+                        "tab2",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -683,7 +665,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": false
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
