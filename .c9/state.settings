@@ -15,16 +15,15 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 308,
+        "@height": 416,
         "@maximized": false,
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab134",
                     "tab12",
-                    "searchResults",
-                    "tab10",
                     "tab3",
+                    "tab134",
+                    "searchResults",
                     "tab1"
                 ]
             },
@@ -452,36 +451,6 @@
                 },
                 {
                     "type": "tab",
-                    "name": "tab10",
-                    "path": "",
-                    "className": [
-                        "tab10"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1460375348019
-                        },
-                        "filter": true,
-                        "title": "source/scripts/s - Stopped",
-                        "tooltip": "source/scripts/s - Stopped",
-                        "output": {
-                            "id": "output465010",
-                            "width": 1473,
-                            "height": 282,
-                            "config": {
-                                "runner": "Shell script",
-                                "command": "source/scripts/s",
-                                "debug": true,
-                                "name": ""
-                            }
-                        }
-                    },
-                    "editorType": "output",
-                    "active": false
-                },
-                {
-                    "type": "tab",
                     "name": "tab3",
                     "path": "",
                     "className": [
@@ -498,7 +467,7 @@
                         "output": {
                             "id": "output803380",
                             "width": 1473,
-                            "height": 282,
+                            "height": 390,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/statistic.sh",
@@ -509,6 +478,58 @@
                     },
                     "editorType": "output",
                     "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab12",
+                    "path": "",
+                    "className": [
+                        "tab12",
+                        "focus",
+                        "running"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1460686149931
+                        },
+                        "filter": true,
+                        "title": "source/scripts/githubcommit.sh - Running",
+                        "tooltip": "source/scripts/githubcommit.sh - Running",
+                        "output": {
+                            "id": "output242280",
+                            "width": 1473,
+                            "height": 390,
+                            "config": {
+                                "runner": "Shell script",
+                                "command": "source/scripts/githubcommit.sh",
+                                "debug": true,
+                                "name": ""
+                            },
+                            "running": {
+                                "pid": 16941,
+                                "name": "output242280",
+                                "running": 2,
+                                "runner": [
+                                    {
+                                        "cmd": [
+                                            "bash",
+                                            "-i",
+                                            "-l",
+                                            "$file",
+                                            "$args"
+                                        ],
+                                        "selector": "^.*\\.(sh)$",
+                                        "caption": "Shell script",
+                                        "$builtin": true
+                                    }
+                                ],
+                                "debug": false
+                            }
+                        }
+                    },
+                    "editorType": "output",
+                    "active": true
                 },
                 {
                     "type": "tab",
@@ -533,56 +554,6 @@
                     },
                     "editorType": "ace",
                     "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab12",
-                    "path": "",
-                    "className": [
-                        "tab12",
-                        "running"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1460686149931
-                        },
-                        "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Running",
-                        "tooltip": "source/scripts/githubcommit.sh - Running",
-                        "output": {
-                            "id": "output242280",
-                            "width": 1473,
-                            "height": 282,
-                            "config": {
-                                "runner": "Shell script",
-                                "command": "source/scripts/githubcommit.sh",
-                                "debug": true
-                            },
-                            "running": {
-                                "pid": 15033,
-                                "name": "output242280",
-                                "running": 2,
-                                "runner": [
-                                    {
-                                        "cmd": [
-                                            "bash",
-                                            "-i",
-                                            "-l",
-                                            "$file",
-                                            "$args"
-                                        ],
-                                        "selector": "^.*\\.(sh)$",
-                                        "caption": "Shell script",
-                                        "$builtin": true
-                                    }
-                                ],
-                                "debug": true
-                            }
-                        }
-                    },
-                    "editorType": "output",
-                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -606,17 +577,17 @@
         "counters": {
             "@ace": 3,
             "@acestatus": 3,
-            "@divider": 4,
-            "@document": 20,
+            "@divider": 7,
+            "@document": 21,
             "@form": 5,
             "@immediate": 1,
-            "@menu": 5,
-            "@menuitem": 13,
+            "@menu": 7,
+            "@menuitem": 27,
             "@pane": 3,
             "@preferences": 1,
-            "@session": 19,
-            "@tab": 13,
-            "@undoManager": 20
+            "@session": 20,
+            "@tab": 14,
+            "@undoManager": 21
         }
     },
     "findinfiles": {
@@ -633,8 +604,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab11",
-            "tab12"
+            "tab12",
+            "tab11"
         ]
     },
     "panels": {
@@ -666,13 +637,15 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
+        "@scrollpos": 110,
         "@showfs": true,
         "expanded": {
             "json()": [
                 "/",
                 "/source",
-                "/source/scripts"
+                "/source/scripts",
+                "/source/about",
+                "/source/_posts"
             ]
         }
     },
@@ -849,7 +822,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1460686135228
+                            "timestamp": 1460686477136
                         },
                         "filter": true,
                         "title": "githubcommit.sh",

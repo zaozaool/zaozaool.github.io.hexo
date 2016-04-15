@@ -14,7 +14,8 @@ hexo clean
 hexo generate
 
 #统计并生成图形报表
-sh statistic.sh
+cd $hexo_root/source/scripts/
+bash statistic.sh
 
 #发布
 hexo deploy
