@@ -1,7 +1,7 @@
 title: module.exports和exports的区别
 date: 2015-07-31 05:39:40
-categories:
-tags: Node.js
+categories: [后端]
+tags: [Node.js]
 ---
 
 这是别人解释的[module.exports和exports的区别](http://zihua.li/2012/03/use-module-exports-or-exports-in-node)

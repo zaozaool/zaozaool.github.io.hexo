@@ -1,7 +1,7 @@
 title: JavaScript学习笔记之 面向对象编程-封装
 date: 2015-09-21 08:17:49
-categories:
-tags: JavaScript
+categories: [后端]
+tags: [JavaScript]
 ---
 
 #一、 原始模式

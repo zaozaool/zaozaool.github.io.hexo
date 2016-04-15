@@ -1,7 +1,7 @@
 title: JavaScript学习笔记之 斐波那契数列尾调用测试
 date: 2015-10-01 07:45:51
-categories:
-tags: JavaScript
+categories: [后端]
+tags: [JavaScript, 算法]
 ---
 
 为了验证JavaScript中尾调用的优点，所以做了计算斐波那契数列的尾调用写法和非尾调用写法的性能对比，结果是惊人的，真是不试不知道，一试吓一跳。

@@ -1,7 +1,7 @@
 title: Git代码托管平台汇总
 date: 2015-08-06 00:55:07
-categories:
-tags: Git
+categories: [其他]
+tags: [Git]
 ---
 
 ***1.[GitHub](https://github.com/)：不介绍了***

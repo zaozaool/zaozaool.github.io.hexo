@@ -1,6 +1,6 @@
 title: 深入浅出Node.js - 核心模块(2.3)
 date: 2015-07-30 09:17:10
-categories:
+categories: [后端]
 tags: [Node.js, 深入浅出Node.js]
 ---
 

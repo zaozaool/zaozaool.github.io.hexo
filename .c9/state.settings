@@ -15,36 +15,38 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 183,
-        "@maximized": "false",
+        "@height": 308,
+        "@maximized": false,
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab11",
-                    "tab0",
-                    "tab1",
-                    "tab5"
+                    "tab134",
+                    "tab12",
+                    "searchResults",
+                    "tab10",
+                    "tab3",
+                    "tab1"
                 ]
             },
             "name": "pane1",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab0",
+                    "name": "tab134",
                     "path": "",
                     "className": [
-                        "tab0"
+                        "tab134"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1441863755458
+                            "timestamp": 1460468217004
                         },
                         "filter": true,
-                        "title": "bash - \"precise32\"",
-                        "tooltip": "bash - \"precise32\"",
+                        "title": "bash - \"vagrant@precise32: ~/repo/zaozaool.github.io.hexo\"",
+                        "tooltip": "bash - \"vagrant@precise32: ~/repo/zaozaool.github.io.hexo\"",
                         "terminal": {
-                            "id": "devel_377",
+                            "id": "devel_914",
                             "cwd": "",
                             "width": 0,
                             "height": 0
@@ -70,11 +72,11 @@
                             "scrollleft": 0,
                             "selection": {
                                 "start": {
-                                    "row": 0,
+                                    "row": 2,
                                     "column": 0
                                 },
                                 "end": {
-                                    "row": 0,
+                                    "row": 2,
                                     "column": 0
                                 },
                                 "isBackwards": false
@@ -450,57 +452,132 @@
                 },
                 {
                     "type": "tab",
-                    "name": "tab5",
+                    "name": "tab10",
                     "path": "",
                     "className": [
-                        "tab5"
+                        "tab10"
                     ],
                     "document": {
-                        "meta": {},
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1460375348019
+                        },
                         "filter": true,
-                        "title": "bin/www - Idle",
-                        "tooltip": "bin/www - Idle",
+                        "title": "source/scripts/s - Stopped",
+                        "tooltip": "source/scripts/s - Stopped",
                         "output": {
-                            "id": "output262130",
-                            "width": 0,
-                            "height": 0,
+                            "id": "output465010",
+                            "width": 1473,
+                            "height": 282,
                             "config": {
-                                "runner": "Node.js",
-                                "command": "bin/www",
+                                "runner": "Shell script",
+                                "command": "source/scripts/s",
                                 "debug": true,
                                 "name": ""
                             }
-                        },
-                        "changed": false
+                        }
                     },
                     "editorType": "output",
                     "active": false
                 },
                 {
                     "type": "tab",
-                    "name": "tab11",
+                    "name": "tab3",
                     "path": "",
                     "className": [
-                        "tab11",
-                        "focus"
+                        "tab3"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1460013651308
+                            "timestamp": 1460420825924
                         },
                         "filter": true,
-                        "title": "public/scripts/githubcommit.sh - Stopped",
-                        "tooltip": "public/scripts/githubcommit.sh - Stopped",
+                        "title": "source/scripts/statistic.sh - Stopped",
+                        "tooltip": "source/scripts/statistic.sh - Stopped",
                         "output": {
-                            "id": "output404420",
-                            "width": 1207,
-                            "height": 157,
+                            "id": "output803380",
+                            "width": 1473,
+                            "height": 282,
                             "config": {
                                 "runner": "Shell script",
-                                "command": "public/scripts/githubcommit.sh",
+                                "command": "source/scripts/statistic.sh",
                                 "debug": true,
                                 "name": ""
+                            }
+                        }
+                    },
+                    "editorType": "output",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "searchResults",
+                    "path": "/.c9/searchresults",
+                    "className": [
+                        "searchResults",
+                        "changed"
+                    ],
+                    "document": {
+                        "changed": true,
+                        "meta": {
+                            "searchResults": true,
+                            "ignoreSave": true,
+                            "newfile": true,
+                            "timestamp": 1460686040055
+                        },
+                        "filter": true,
+                        "title": "Search Results",
+                        "tooltip": "/.c9/searchresults",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab12",
+                    "path": "",
+                    "className": [
+                        "tab12",
+                        "running"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1460686149931
+                        },
+                        "filter": true,
+                        "title": "source/scripts/githubcommit.sh - Running",
+                        "tooltip": "source/scripts/githubcommit.sh - Running",
+                        "output": {
+                            "id": "output242280",
+                            "width": 1473,
+                            "height": 282,
+                            "config": {
+                                "runner": "Shell script",
+                                "command": "source/scripts/githubcommit.sh",
+                                "debug": true
+                            },
+                            "running": {
+                                "pid": 15033,
+                                "name": "output242280",
+                                "running": 2,
+                                "runner": [
+                                    {
+                                        "cmd": [
+                                            "bash",
+                                            "-i",
+                                            "-l",
+                                            "$file",
+                                            "$args"
+                                        ],
+                                        "selector": "^.*\\.(sh)$",
+                                        "caption": "Shell script",
+                                        "$builtin": true
+                                    }
+                                ],
+                                "debug": true
                             }
                         }
                     },
@@ -527,20 +604,19 @@
     },
     "ext": {
         "counters": {
-            "@ace": 1,
-            "@acestatus": 1,
+            "@ace": 3,
+            "@acestatus": 3,
             "@divider": 4,
-            "@document": 6,
+            "@document": 20,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
-            "@pane": 2,
-            "@postmessage": 1,
-            "@preview": 1,
-            "@session": 4,
-            "@tab": 3,
-            "@undoManager": 6
+            "@pane": 3,
+            "@preferences": 1,
+            "@session": 19,
+            "@tab": 13,
+            "@undoManager": 20
         }
     },
     "findinfiles": {
@@ -558,14 +634,12 @@
     "panecycle": {
         "json()": [
             "tab11",
-            "tab2"
+            "tab12"
         ]
     },
     "panels": {
         "@active-left": "tree",
-        "@active-right": "none",
-        "@width-left": 466,
-        "@width-right": 541,
+        "@width-left": 375,
         "commands.panel": {
             "@enabled": "true",
             "@name": "commands.panel"
@@ -596,11 +670,9 @@
         "@showfs": true,
         "expanded": {
             "json()": [
-                "/source/ZZGoogle/stylesheets",
                 "/",
-                "/public",
-                "/public/scripts",
-                "/source"
+                "/source",
+                "/source/scripts"
             ]
         }
     },
@@ -608,39 +680,159 @@
         "json()": []
     },
     "search-history": {
+        "replace": {
+            "json()": [
+                "_json._minMonth",
+                "_json._maxMonth",
+                "_json._monthArr",
+                "_json.monthArr",
+                ":{",
+                "$index:'_end'",
+                "$index:'end'",
+                "$json_data_path",
+                "../histogram.js",
+                "四维",
+                "th",
+                "2011sum",
+                "2010sum",
+                "2009sum",
+                "2008sum",
+                "2007sum",
+                "2006sum",
+                "2005sum",
+                "2004sum",
+                "2003sum",
+                "发表文章个数",
+                "技术达到一个高度",
+                "其他",
+                "dataOther",
+                "dataMiddleware",
+                "dataBackEnd",
+                "dataFrontEnd",
+                "发表文章个数",
+                "dataVisual",
+                "dataSCM",
+                "dataLinux",
+                "dataTool",
+                "dataJava",
+                "[4,2,3,4,6],",
+                "Java",
+                "dataJava",
+                "dataByDay",
+                "dataByMonth",
+                "dataByYear",
+                "$str",
+                "dataByDate",
+                "<"
+            ]
+        },
         "search": {
             "json()": [
-                "all ",
-                "console.log"
+                "selected",
+                "select",
+                "xAxis",
+                "cat",
+                "tot",
+                "20",
+                "selected",
+                "value",
+                "totalM",
+                "pList[month]",
+                "options: ",
+                "options: [",
+                "_json._monthArr",
+                "totalMax = Math.ceil(totalMax / 10) * 10;",
+                "math.ce",
+                "math.fl",
+                " totalMax = Math.ceil(totalMax / 10) * 10;",
+                "obj[month + 'max'] = Math.floor(",
+                "max = Math.max(max, temp[tag]);",
+                "_json.minMonth",
+                "_json.maxMonth",
+                "_json.monthArr",
+                "monthArr",
+                "_monthArr",
+                "={",
+                "$index:'end'",
+                "end:0",
+                "tagJson",
+                "$json_data",
+                "../",
+                "\"../histogram.js\"",
+                "http://echarts.baidu.com/examples.html#chart-type-pie",
+                "思维",
+                "td",
+                "前端,后端",
+                "其他",
+                "5",
+                "getFull",
+                "'JavaScript', ",
+                "-01-01",
+                "2002sum",
+                "{name: '其他', value: dataMap.dataOther",
+                "radius",
+                "45",
+                "'其他': false",
+                "文章数占比",
+                "50050",
+                "dataGDP",
+                "GDP达到一个高度",
+                "第一产业",
+                "dataGDP",
+                "全国宏观经济指标",
+                "dataEstate",
+                "dataTI",
+                "dataSI",
+                "dataPI",
+                "dataGDP",
+                "[],",
+                "GDP",
+                "dataGDP",
+                "canvas",
+                "random",
+                "dataByYear",
+                "dataByDate",
+                "\"$str\"",
+                "data",
+                "$str",
+                "< ",
+                "touch"
+            ]
+        },
+        "searchfiles": {
+            "json()": [
+                "localhost",
+                "categories",
+                "前端, 后端"
             ]
         }
     },
     "tabs": {
         "json()": {
-            "focus": "/source/_posts/process-badge-svg使用指南.md",
+            "focus": "/source/scripts/githubcommit.sh",
             "meta": {
                 "accessList": [
-                    "tab2",
-                    "tab3"
+                    "tab11",
+                    "tab9"
                 ]
             },
-            "name": "pane0",
+            "name": "pane2",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab3",
-                    "path": "/_config.yml",
+                    "name": "tab9",
+                    "path": "/source/scripts/statistic.sh",
                     "className": [
-                        "tab3"
+                        "tab9"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1460019046346
+                            "timestamp": 1460635386659
                         },
                         "filter": true,
-                        "title": "_config.yml",
-                        "tooltip": "/_config.yml",
+                        "title": "statistic.sh",
+                        "tooltip": "/source/scripts/statistic.sh",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -648,20 +840,20 @@
                 },
                 {
                     "type": "tab",
-                    "name": "tab2",
-                    "path": "/source/_posts/process-badge-svg使用指南.md",
+                    "name": "tab11",
+                    "path": "/source/scripts/githubcommit.sh",
                     "className": [
-                        "tab2",
+                        "tab11",
                         "focus"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1460018530902
+                            "timestamp": 1460686135228
                         },
                         "filter": true,
-                        "title": "process-badge-svg使用指南.md",
-                        "tooltip": "/source/_posts/process-badge-svg使用指南.md",
+                        "title": "githubcommit.sh",
+                        "tooltip": "/source/scripts/githubcommit.sh",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -675,10 +867,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/_config.yml"
+            "/source/scripts/githubcommit.sh"
         ]
-    },
-    "watches": {
-        "json()": []
     }
 }

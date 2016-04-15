@@ -1,7 +1,7 @@
 title: Node.js学习笔记之 常用模块
 date: 2015-07-17 06:35:12
-categories: 
-tags: Node.js
+categories: [后端]
+tags: [Node.js]
 ---
 
 1.superagent：客户端请求代理模块，抓取页面用的（lession3）

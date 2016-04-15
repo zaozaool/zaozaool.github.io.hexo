@@ -1,6 +1,6 @@
 title: ABAP基础之结构与内表
 date: 2015-09-11 01:55:34
-categories:
+categories: [后端]
 tags: [SAP, ABAP]
 ---
 

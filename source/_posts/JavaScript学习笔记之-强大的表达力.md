@@ -1,7 +1,7 @@
 title: JavaScript学习笔记之 强大的表达力
 date: 2015-09-24 09:02:35
-categories:
-tags: JavaScript
+categories: [后端]
+tags: [JavaScript]
 ---
 
 #自定义方法

@@ -1,7 +1,7 @@
 title: JavaScript学习笔记之 encodeURI、encodeURIComponent、escape、decodeURI、decodeURIComponent、unescape区别
 date: 2015-10-01 02:34:35
-categories:
-tags: JavaScript
+categories: [前端]
+tags: [JavaScript]
 ---
 
 1.URI方法encodeURI、encodeURIComponent()、decodeURI()、decodeURIComponent()代替了BOM的escape()和unescape()方法。URI方法更可取，因为它们对所有Unicode符号编码,而BOM方法只能对ASCII符号正确编码。尽量避免使用escape()和unescape()方法。

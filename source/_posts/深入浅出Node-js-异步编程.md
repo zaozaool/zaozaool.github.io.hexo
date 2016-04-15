@@ -1,6 +1,6 @@
 title: 深入浅出Node.js - 异步编程(4.1-)
 date: 2015-08-18 14:13:38
-categories:
+categories: [后端]
 tags: [Node.js, 深入浅出Node.js]
 ---
 

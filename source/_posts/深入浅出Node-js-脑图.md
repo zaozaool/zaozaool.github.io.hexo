@@ -1,7 +1,7 @@
 layout: photo
 title: 深入浅出Node.js - 脑图
 date: 2015-09-18 01:18:32
-categories:
+categories: [后端]
 tags: [Node.js, 深入浅出Node.js]
 photos:
 - http://zaozaool.github.io/pic/Node1.png

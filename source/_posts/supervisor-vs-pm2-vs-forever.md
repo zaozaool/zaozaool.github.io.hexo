@@ -1,6 +1,7 @@
 title: supervisor vs pm2 vs forever
 date: 2015-07-17 06:32:40
-tags: Node.js
+categories: [后端]
+tags: [Node.js]
 ---
 
 使用场合不一样:

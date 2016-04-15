@@ -1,6 +1,6 @@
 title: ABAP基础之数据类型
 date: 2015-09-16 09:01:22
-categories:
+categories: [后端]
 tags: [SAP, ABAP]
 ---
 #变量定义

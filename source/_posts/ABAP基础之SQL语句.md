@@ -1,6 +1,6 @@
 title: ABAP基础之SQL语句
 date: 2015-09-11 02:06:53
-categories:
+categories: [后端]
 tags: [SAP, ABAP]
 ---
 

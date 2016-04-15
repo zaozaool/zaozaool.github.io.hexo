@@ -1,6 +1,6 @@
 title: 深入浅出Node.js - 特点与应用场景(1.4、1.5)
 date: 2015-07-30 04:26:17
-categories: 
+categories: [后端]
 tags: [Node.js, 深入浅出Node.js]
 ---
 

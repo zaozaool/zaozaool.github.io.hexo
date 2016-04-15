@@ -1,6 +1,6 @@
 title: Linux常用命令
 date: 2015-08-07 04:51:44
-categories:
+categories: [其他]
 tags: [备忘, Linux]
 ---
 

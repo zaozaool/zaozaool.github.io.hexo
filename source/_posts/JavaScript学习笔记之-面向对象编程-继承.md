@@ -1,7 +1,7 @@
 title: JavaScript学习笔记之 面向对象编程-继承
 date: 2015-09-21 09:02:06
-categories:
-tags: JavaScript
+categories: [后端]
+tags: [JavaScript]
 ---
 
 #I、构造函数的继承

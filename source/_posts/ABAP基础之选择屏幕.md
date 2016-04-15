@@ -1,6 +1,6 @@
 title: ABAP基础之选择屏幕
 date: 2015-09-11 03:12:50
-categories:
+categories: [后端]
 tags: [SAP, ABAP]
 ---
 

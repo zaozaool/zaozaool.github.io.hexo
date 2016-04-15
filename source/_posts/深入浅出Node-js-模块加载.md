@@ -1,6 +1,6 @@
 title: 深入浅出Node.js - 模块加载(2.2)
 date: 2015-07-30 04:33:30
-categories:
+categories: [后端]
 tags: [Node.js, 深入浅出Node.js]
 ---
 

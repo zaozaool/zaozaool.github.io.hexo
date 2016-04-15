@@ -1,6 +1,7 @@
 title: 我的vagrant相关命令
 date: 2015-07-17 06:53:09
-tags: 备忘
+categories: [其他]
+tags: [备忘]
 ---
 
 #vagrant启动/停止
@@ -89,6 +90,7 @@ config.vm.network "forwarded_port", guest: 28017, host: 28117
 
 #node.js app
 config.vm.network "forwarded_port", guest: 3000, host: 3100
+config.vm.network "forwarded_port", guest: 3001, host: 3101
 
 #hexo
 config.vm.network "forwarded_port", guest: 4000, host: 4000

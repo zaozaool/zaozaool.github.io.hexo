@@ -1,6 +1,6 @@
 title: 深入浅出Node.js - 异步I/O(3.2-3.4)
 date: 2015-08-11 13:21:28
-categories:
+categories: [后端]
 tags:  [Node.js, 深入浅出Node.js]
 ---
 
