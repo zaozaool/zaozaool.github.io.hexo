@@ -432,7 +432,8 @@
                     "path": "",
                     "className": [
                         "tab12",
-                        "focus"
+                        "focus",
+                        "running"
                     ],
                     "document": {
                         "changed": false,
@@ -440,8 +441,8 @@
                             "timestamp": 1460686149931
                         },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Stopped",
-                        "tooltip": "source/scripts/githubcommit.sh - Stopped",
+                        "title": "source/scripts/githubcommit.sh - Running",
+                        "tooltip": "source/scripts/githubcommit.sh - Running",
                         "output": {
                             "id": "output242280",
                             "width": 1473,
@@ -451,6 +452,26 @@
                                 "command": "source/scripts/githubcommit.sh",
                                 "debug": true,
                                 "name": ""
+                            },
+                            "running": {
+                                "pid": 4340,
+                                "name": "output242280",
+                                "running": 2,
+                                "runner": [
+                                    {
+                                        "cmd": [
+                                            "bash",
+                                            "-i",
+                                            "-l",
+                                            "$file",
+                                            "$args"
+                                        ],
+                                        "selector": "^.*\\.(sh)$",
+                                        "caption": "Shell script",
+                                        "$builtin": true
+                                    }
+                                ],
+                                "debug": false
                             }
                         }
                     },
@@ -539,13 +560,11 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 110,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
-                "/",
-                "/source",
-                "/source/_posts"
+                "/"
             ]
         }
     },
@@ -722,7 +741,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/_posts/Bookmarks.md"
+            "/source"
         ]
     }
 }
