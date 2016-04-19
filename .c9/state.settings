@@ -21,9 +21,7 @@
             "meta": {
                 "accessList": [
                     "tab12",
-                    "tab3",
                     "tab134",
-                    "searchResults",
                     "tab1"
                 ]
             },
@@ -42,8 +40,8 @@
                             "timestamp": 1460468217004
                         },
                         "filter": true,
-                        "title": "bash - \"vagrant@precise32: ~/repo/zaozaool.github.io.hexo\"",
-                        "tooltip": "bash - \"vagrant@precise32: ~/repo/zaozaool.github.io.hexo\"",
+                        "title": "bash - \"precise32\"",
+                        "tooltip": "bash - \"precise32\"",
                         "terminal": {
                             "id": "devel_914",
                             "cwd": "",
@@ -62,30 +60,14 @@
                         "tab1"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1441863755460
+                        },
                         "filter": true,
                         "title": "Immediate (Javascript (browser))",
                         "tooltip": "Immediate (Javascript (browser))",
                         "immediate": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 2,
-                                    "column": 0
-                                },
-                                "end": {
-                                    "row": 2,
-                                    "column": 0
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": 0,
                             "type": "jsbrowser",
                             "history": [
                                 "new Date().getTimezoneOffset()",
@@ -439,44 +421,9 @@
                                 "console.log(\"xx\")"
                             ],
                             "pos": 0
-                        },
-                        "hash": "bc37e9908b413249fe666f189265c03143e4d841",
-                        "meta": {
-                            "timestamp": 1441863755460
-                        },
-                        "changed": false
-                    },
-                    "editorType": "immediate",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab3",
-                    "path": "",
-                    "className": [
-                        "tab3"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1460420825924
-                        },
-                        "filter": true,
-                        "title": "source/scripts/statistic.sh - Stopped",
-                        "tooltip": "source/scripts/statistic.sh - Stopped",
-                        "output": {
-                            "id": "output803380",
-                            "width": 1473,
-                            "height": 390,
-                            "config": {
-                                "runner": "Shell script",
-                                "command": "source/scripts/statistic.sh",
-                                "debug": true,
-                                "name": ""
-                            }
                         }
                     },
-                    "editorType": "output",
+                    "editorType": "immediate",
                     "active": false
                 },
                 {
@@ -485,8 +432,7 @@
                     "path": "",
                     "className": [
                         "tab12",
-                        "focus",
-                        "running"
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -494,8 +440,8 @@
                             "timestamp": 1460686149931
                         },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Running",
-                        "tooltip": "source/scripts/githubcommit.sh - Running",
+                        "title": "source/scripts/githubcommit.sh - Idle",
+                        "tooltip": "source/scripts/githubcommit.sh - Idle",
                         "output": {
                             "id": "output242280",
                             "width": 1473,
@@ -505,55 +451,11 @@
                                 "command": "source/scripts/githubcommit.sh",
                                 "debug": true,
                                 "name": ""
-                            },
-                            "running": {
-                                "pid": 16941,
-                                "name": "output242280",
-                                "running": 2,
-                                "runner": [
-                                    {
-                                        "cmd": [
-                                            "bash",
-                                            "-i",
-                                            "-l",
-                                            "$file",
-                                            "$args"
-                                        ],
-                                        "selector": "^.*\\.(sh)$",
-                                        "caption": "Shell script",
-                                        "$builtin": true
-                                    }
-                                ],
-                                "debug": false
                             }
                         }
                     },
                     "editorType": "output",
                     "active": true
-                },
-                {
-                    "type": "tab",
-                    "name": "searchResults",
-                    "path": "/.c9/searchresults",
-                    "className": [
-                        "searchResults",
-                        "changed"
-                    ],
-                    "document": {
-                        "changed": true,
-                        "meta": {
-                            "searchResults": true,
-                            "ignoreSave": true,
-                            "newfile": true,
-                            "timestamp": 1460686040055
-                        },
-                        "filter": true,
-                        "title": "Search Results",
-                        "tooltip": "/.c9/searchresults",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -576,18 +478,18 @@
     "ext": {
         "counters": {
             "@ace": 3,
-            "@acestatus": 3,
-            "@divider": 7,
-            "@document": 21,
+            "@acestatus": 2,
+            "@divider": 4,
+            "@document": 12,
             "@form": 5,
             "@immediate": 1,
-            "@menu": 7,
-            "@menuitem": 27,
+            "@menu": 5,
+            "@menuitem": 13,
             "@pane": 3,
             "@preferences": 1,
-            "@session": 20,
-            "@tab": 14,
-            "@undoManager": 21
+            "@session": 12,
+            "@tab": 8,
+            "@undoManager": 12
         }
     },
     "findinfiles": {
@@ -605,7 +507,7 @@
     "panecycle": {
         "json()": [
             "tab12",
-            "tab11"
+            "tab0"
         ]
     },
     "panels": {
@@ -637,14 +539,12 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 110,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
                 "/",
                 "/source",
-                "/source/scripts",
-                "/source/about",
                 "/source/_posts"
             ]
         }
@@ -655,6 +555,7 @@
     "search-history": {
         "replace": {
             "json()": [
+                "table0101",
                 "_json._minMonth",
                 "_json._maxMonth",
                 "_json._monthArr",
@@ -701,6 +602,8 @@
         },
         "search": {
             "json()": [
+                "registry.npm.taobao.org 是从 registry.npmjs.org 进行全量同步的",
+                "___table",
                 "selected",
                 "select",
                 "xAxis",
@@ -782,51 +685,29 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/source/scripts/githubcommit.sh",
+            "focus": "tab12",
             "meta": {
                 "accessList": [
-                    "tab11",
-                    "tab9"
+                    "tab0"
                 ]
             },
             "name": "pane2",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab9",
-                    "path": "/source/scripts/statistic.sh",
+                    "name": "tab0",
+                    "path": "/source/_posts/npm国内镜像介绍.md",
                     "className": [
-                        "tab9"
+                        "tab0"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1460635386659
+                            "timestamp": 1461041070056
                         },
                         "filter": true,
-                        "title": "statistic.sh",
-                        "tooltip": "/source/scripts/statistic.sh",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab11",
-                    "path": "/source/scripts/githubcommit.sh",
-                    "className": [
-                        "tab11",
-                        "focus"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1460686477136
-                        },
-                        "filter": true,
-                        "title": "githubcommit.sh",
-                        "tooltip": "/source/scripts/githubcommit.sh",
+                        "title": "npm国内镜像介绍.md",
+                        "tooltip": "/source/_posts/npm国内镜像介绍.md",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -840,7 +721,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/scripts/githubcommit.sh"
+            "/source/_posts/数据可视化中图表的适用场合及注意点.md"
         ]
     }
 }

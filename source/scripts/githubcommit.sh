@@ -13,9 +13,8 @@ git push -u origin master
 hexo clean
 hexo generate
 
-#统计并生成图形报表
-cd $hexo_root/source/scripts/
-bash statistic.sh
+#统计图形报表使用的数据
+bash $hexo_root/source/scripts/statistic.sh
 
 #发布
 hexo deploy
