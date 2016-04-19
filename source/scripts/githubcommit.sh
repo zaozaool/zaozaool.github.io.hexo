@@ -9,12 +9,12 @@ git add *
 git commit -am "commit"
 git push -u origin master
 
-#生成静态html
 hexo clean
 
 #统计图形报表使用的数据
 bash $hexo_root/source/scripts/statistic.sh
 
-#发布
+#生成静态html
 hexo generate
+#发布
 hexo deploy

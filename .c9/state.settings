@@ -432,8 +432,7 @@
                     "path": "",
                     "className": [
                         "tab12",
-                        "focus",
-                        "running"
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -441,8 +440,8 @@
                             "timestamp": 1460686149931
                         },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Running",
-                        "tooltip": "source/scripts/githubcommit.sh - Running",
+                        "title": "source/scripts/githubcommit.sh - Stopped",
+                        "tooltip": "source/scripts/githubcommit.sh - Stopped",
                         "output": {
                             "id": "output242280",
                             "width": 1473,
@@ -452,26 +451,6 @@
                                 "command": "source/scripts/githubcommit.sh",
                                 "debug": true,
                                 "name": ""
-                            },
-                            "running": {
-                                "pid": 3994,
-                                "name": "output242280",
-                                "running": 2,
-                                "runner": [
-                                    {
-                                        "cmd": [
-                                            "bash",
-                                            "-i",
-                                            "-l",
-                                            "$file",
-                                            "$args"
-                                        ],
-                                        "selector": "^.*\\.(sh)$",
-                                        "caption": "Shell script",
-                                        "$builtin": true
-                                    }
-                                ],
-                                "debug": false
                             }
                         }
                     },
@@ -501,16 +480,16 @@
             "@ace": 3,
             "@acestatus": 2,
             "@divider": 4,
-            "@document": 19,
+            "@document": 27,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 3,
             "@preferences": 1,
-            "@session": 19,
-            "@tab": 16,
-            "@undoManager": 19
+            "@session": 27,
+            "@tab": 24,
+            "@undoManager": 27
         }
     },
     "findinfiles": {
@@ -528,7 +507,7 @@
     "panecycle": {
         "json()": [
             "tab12",
-            "tab14"
+            "tab22"
         ]
     },
     "panels": {
@@ -560,15 +539,13 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
+        "@scrollpos": 110,
         "@showfs": true,
         "expanded": {
             "json()": [
                 "/",
                 "/source",
-                "/public",
-                "/public/json_data",
-                "/source/json_data"
+                "/source/_posts"
             ]
         }
     },
@@ -712,26 +689,26 @@
             "focus": "tab12",
             "meta": {
                 "accessList": [
-                    "tab14"
+                    "tab22"
                 ]
             },
             "name": "pane2",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab14",
-                    "path": "/source/scripts/githubcommit.sh",
+                    "name": "tab22",
+                    "path": "/source/_posts/学习资源汇总.md",
                     "className": [
-                        "tab14"
+                        "tab22"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1461041560652
+                            "timestamp": 1461043675099
                         },
                         "filter": true,
-                        "title": "githubcommit.sh",
-                        "tooltip": "/source/scripts/githubcommit.sh",
+                        "title": "学习资源汇总.md",
+                        "tooltip": "/source/_posts/学习资源汇总.md",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -745,7 +722,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/scripts"
+            "/source/_posts/Bookmarks.md"
         ]
     }
 }
