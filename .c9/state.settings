@@ -432,7 +432,8 @@
                     "path": "",
                     "className": [
                         "tab12",
-                        "focus"
+                        "focus",
+                        "running"
                     ],
                     "document": {
                         "changed": false,
@@ -440,8 +441,8 @@
                             "timestamp": 1460686149931
                         },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Idle",
-                        "tooltip": "source/scripts/githubcommit.sh - Idle",
+                        "title": "source/scripts/githubcommit.sh - Running",
+                        "tooltip": "source/scripts/githubcommit.sh - Running",
                         "output": {
                             "id": "output242280",
                             "width": 1473,
@@ -451,6 +452,26 @@
                                 "command": "source/scripts/githubcommit.sh",
                                 "debug": true,
                                 "name": ""
+                            },
+                            "running": {
+                                "pid": 3994,
+                                "name": "output242280",
+                                "running": 2,
+                                "runner": [
+                                    {
+                                        "cmd": [
+                                            "bash",
+                                            "-i",
+                                            "-l",
+                                            "$file",
+                                            "$args"
+                                        ],
+                                        "selector": "^.*\\.(sh)$",
+                                        "caption": "Shell script",
+                                        "$builtin": true
+                                    }
+                                ],
+                                "debug": false
                             }
                         }
                     },
@@ -480,16 +501,16 @@
             "@ace": 3,
             "@acestatus": 2,
             "@divider": 4,
-            "@document": 12,
+            "@document": 19,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 3,
             "@preferences": 1,
-            "@session": 12,
-            "@tab": 8,
-            "@undoManager": 12
+            "@session": 19,
+            "@tab": 16,
+            "@undoManager": 19
         }
     },
     "findinfiles": {
@@ -507,7 +528,7 @@
     "panecycle": {
         "json()": [
             "tab12",
-            "tab0"
+            "tab14"
         ]
     },
     "panels": {
@@ -545,7 +566,9 @@
             "json()": [
                 "/",
                 "/source",
-                "/source/_posts"
+                "/public",
+                "/public/json_data",
+                "/source/json_data"
             ]
         }
     },
@@ -602,6 +625,7 @@
         },
         "search": {
             "json()": [
+                "npm",
                 "registry.npm.taobao.org 是从 registry.npmjs.org 进行全量同步的",
                 "___table",
                 "selected",
@@ -688,26 +712,26 @@
             "focus": "tab12",
             "meta": {
                 "accessList": [
-                    "tab0"
+                    "tab14"
                 ]
             },
             "name": "pane2",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab0",
-                    "path": "/source/_posts/npm国内镜像介绍.md",
+                    "name": "tab14",
+                    "path": "/source/scripts/githubcommit.sh",
                     "className": [
-                        "tab0"
+                        "tab14"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1461041070056
+                            "timestamp": 1461041560652
                         },
                         "filter": true,
-                        "title": "npm国内镜像介绍.md",
-                        "tooltip": "/source/_posts/npm国内镜像介绍.md",
+                        "title": "githubcommit.sh",
+                        "tooltip": "/source/scripts/githubcommit.sh",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -721,7 +745,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/_posts/数据可视化中图表的适用场合及注意点.md"
+            "/source/scripts"
         ]
     }
 }

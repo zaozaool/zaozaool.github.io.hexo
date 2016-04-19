@@ -11,10 +11,10 @@ git push -u origin master
 
 #生成静态html
 hexo clean
-hexo generate
 
 #统计图形报表使用的数据
 bash $hexo_root/source/scripts/statistic.sh
 
 #发布
+hexo generate
 hexo deploy
