@@ -15,7 +15,7 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 416,
+        "@height": 251,
         "@maximized": false,
         "json()": {
             "meta": {
@@ -432,8 +432,7 @@
                     "path": "",
                     "className": [
                         "tab12",
-                        "focus",
-                        "running"
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -441,37 +440,17 @@
                             "timestamp": 1460686149931
                         },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Running",
-                        "tooltip": "source/scripts/githubcommit.sh - Running",
+                        "title": "source/scripts/githubcommit.sh - Idle",
+                        "tooltip": "source/scripts/githubcommit.sh - Idle",
                         "output": {
                             "id": "output242280",
                             "width": 1473,
-                            "height": 390,
+                            "height": 225,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
                                 "debug": true,
                                 "name": ""
-                            },
-                            "running": {
-                                "pid": 4340,
-                                "name": "output242280",
-                                "running": 2,
-                                "runner": [
-                                    {
-                                        "cmd": [
-                                            "bash",
-                                            "-i",
-                                            "-l",
-                                            "$file",
-                                            "$args"
-                                        ],
-                                        "selector": "^.*\\.(sh)$",
-                                        "caption": "Shell script",
-                                        "$builtin": true
-                                    }
-                                ],
-                                "debug": false
                             }
                         }
                     },
@@ -498,19 +477,19 @@
     },
     "ext": {
         "counters": {
-            "@ace": 3,
-            "@acestatus": 2,
+            "@ace": 2,
+            "@acestatus": 1,
             "@divider": 4,
-            "@document": 27,
+            "@document": 8,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 3,
             "@preferences": 1,
-            "@session": 27,
-            "@tab": 24,
-            "@undoManager": 27
+            "@session": 8,
+            "@tab": 5,
+            "@undoManager": 8
         }
     },
     "findinfiles": {
@@ -527,8 +506,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab12",
-            "tab22"
+            "tab12"
         ]
     },
     "panels": {
@@ -560,11 +538,13 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
+        "@scrollpos": 170,
         "@showfs": true,
         "expanded": {
             "json()": [
-                "/"
+                "/",
+                "/source",
+                "/source/_posts"
             ]
         }
     },
@@ -621,6 +601,7 @@
         },
         "search": {
             "json()": [
+                "zao",
                 "npm",
                 "registry.npm.taobao.org 是从 registry.npmjs.org 进行全量同步的",
                 "___table",
@@ -707,33 +688,10 @@
         "json()": {
             "focus": "tab12",
             "meta": {
-                "accessList": [
-                    "tab22"
-                ]
+                "accessList": []
             },
             "name": "pane2",
-            "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab22",
-                    "path": "/source/_posts/学习资源汇总.md",
-                    "className": [
-                        "tab22"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1461043675099
-                        },
-                        "filter": true,
-                        "title": "学习资源汇总.md",
-                        "tooltip": "/source/_posts/学习资源汇总.md",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                }
-            ],
+            "nodes": [],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -741,7 +699,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source"
+            "/source/_posts/常用工具.md"
         ]
     }
 }
