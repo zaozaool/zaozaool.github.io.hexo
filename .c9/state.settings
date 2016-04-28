@@ -20,9 +20,10 @@
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab12",
                     "tab134",
-                    "tab1"
+                    "tab14",
+                    "tab1",
+                    "tab12"
                 ]
             },
             "name": "pane1",
@@ -60,14 +61,30 @@
                         "tab1"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1441863755460
-                        },
                         "filter": true,
                         "title": "Immediate (Javascript (browser))",
                         "tooltip": "Immediate (Javascript (browser))",
                         "immediate": {
+                            "folds": [],
+                            "scrolltop": 0,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 2,
+                                    "column": 0
+                                },
+                                "end": {
+                                    "row": 2,
+                                    "column": 0
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": 0,
                             "type": "jsbrowser",
                             "history": [
                                 "new Date().getTimezoneOffset()",
@@ -421,7 +438,12 @@
                                 "console.log(\"xx\")"
                             ],
                             "pos": 0
-                        }
+                        },
+                        "hash": "bc37e9908b413249fe666f189265c03143e4d841",
+                        "meta": {
+                            "timestamp": 1441863755460
+                        },
+                        "changed": false
                     },
                     "editorType": "immediate",
                     "active": false
@@ -431,26 +453,77 @@
                     "name": "tab12",
                     "path": "",
                     "className": [
-                        "tab12",
-                        "focus"
+                        "tab12"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1460686149931
-                        },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Idle",
-                        "tooltip": "source/scripts/githubcommit.sh - Idle",
+                        "title": "source/scripts/githubcommit.sh - Stopped",
+                        "tooltip": "source/scripts/githubcommit.sh - Stopped",
                         "output": {
                             "id": "output242280",
-                            "width": 1473,
-                            "height": 225,
+                            "width": 0,
+                            "height": 0,
+                            "scrollTop": 2678,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
                                 "debug": true,
                                 "name": ""
+                            }
+                        },
+                        "hash": "67452301efcdab8998badcfe10325476c3d2e1f0",
+                        "meta": {
+                            "timestamp": 1460686149931
+                        },
+                        "changed": false
+                    },
+                    "editorType": "output",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab14",
+                    "path": "",
+                    "className": [
+                        "tab14",
+                        "running"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1461829858461
+                        },
+                        "filter": true,
+                        "title": "source/scripts/githubcommit.sh - Running",
+                        "tooltip": "source/scripts/githubcommit.sh - Running",
+                        "output": {
+                            "id": "output173940",
+                            "width": 1473,
+                            "height": 225,
+                            "config": {
+                                "runner": "Shell script",
+                                "command": "source/scripts/githubcommit.sh",
+                                "debug": true
+                            },
+                            "running": {
+                                "pid": 8242,
+                                "name": "output173940",
+                                "running": 2,
+                                "runner": [
+                                    {
+                                        "cmd": [
+                                            "bash",
+                                            "-i",
+                                            "-l",
+                                            "$file",
+                                            "$args"
+                                        ],
+                                        "selector": "^.*\\.(sh)$",
+                                        "caption": "Shell script",
+                                        "$builtin": true
+                                    }
+                                ],
+                                "debug": true
                             }
                         }
                     },
@@ -477,19 +550,19 @@
     },
     "ext": {
         "counters": {
-            "@ace": 2,
+            "@ace": 1,
             "@acestatus": 1,
             "@divider": 4,
-            "@document": 8,
+            "@document": 18,
             "@form": 5,
             "@immediate": 1,
-            "@menu": 5,
-            "@menuitem": 13,
+            "@menu": 6,
+            "@menuitem": 16,
             "@pane": 3,
             "@preferences": 1,
-            "@session": 8,
-            "@tab": 5,
-            "@undoManager": 8
+            "@session": 16,
+            "@tab": 15,
+            "@undoManager": 18
         }
     },
     "findinfiles": {
@@ -506,7 +579,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab12"
+            "tab13",
+            "tab14"
         ]
     },
     "panels": {
@@ -538,13 +612,13 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 170,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
                 "/",
-                "/source",
-                "/source/_posts"
+                "/source/scripts",
+                "/source"
             ]
         }
     },
@@ -601,6 +675,9 @@
         },
         "search": {
             "json()": [
+                "清查看",
+                "'Git'",
+                "Gi",
                 "zao",
                 "npm",
                 "registry.npm.taobao.org 是从 registry.npmjs.org 进行全量同步的",
@@ -686,12 +763,78 @@
     },
     "tabs": {
         "json()": {
-            "focus": "tab12",
+            "focus": "/source/scripts/githubcommit.sh",
             "meta": {
-                "accessList": []
+                "accessList": [
+                    "tab13",
+                    "tab11",
+                    "tab8"
+                ]
             },
             "name": "pane2",
-            "nodes": [],
+            "nodes": [
+                {
+                    "type": "tab",
+                    "name": "tab8",
+                    "path": "/source/_posts/Drools宏对象的常用方法.md",
+                    "className": [
+                        "tab8"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1461730218681
+                        },
+                        "filter": true,
+                        "title": "Drools宏对象的常用方法.md",
+                        "tooltip": "/source/_posts/Drools宏对象的常用方法.md",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab11",
+                    "path": "/source/_posts/Drools之使用注意点.md",
+                    "className": [
+                        "tab11"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1461829821557
+                        },
+                        "filter": true,
+                        "title": "Drools之使用注意点.md",
+                        "tooltip": "/source/_posts/Drools之使用注意点.md",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab13",
+                    "path": "/source/scripts/githubcommit.sh",
+                    "className": [
+                        "tab13",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1461041742815
+                        },
+                        "filter": true,
+                        "title": "githubcommit.sh",
+                        "tooltip": "/source/scripts/githubcommit.sh",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
+                }
+            ],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -699,7 +842,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/_posts/常用工具.md"
+            "/source/scripts/githubcommit.sh"
         ]
     }
 }
