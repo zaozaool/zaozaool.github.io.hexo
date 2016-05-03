@@ -432,7 +432,8 @@
                     "path": "",
                     "className": [
                         "tab3",
-                        "focus"
+                        "focus",
+                        "running"
                     ],
                     "document": {
                         "changed": false,
@@ -440,8 +441,8 @@
                             "timestamp": 1462273115697
                         },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Stopped",
-                        "tooltip": "source/scripts/githubcommit.sh - Stopped",
+                        "title": "source/scripts/githubcommit.sh - Running",
+                        "tooltip": "source/scripts/githubcommit.sh - Running",
                         "output": {
                             "id": "output775300",
                             "width": 1473,
@@ -451,6 +452,26 @@
                                 "command": "source/scripts/githubcommit.sh",
                                 "debug": true,
                                 "name": ""
+                            },
+                            "running": {
+                                "pid": 2256,
+                                "name": "output775300",
+                                "running": 2,
+                                "runner": [
+                                    {
+                                        "cmd": [
+                                            "bash",
+                                            "-i",
+                                            "-l",
+                                            "$file",
+                                            "$args"
+                                        ],
+                                        "selector": "^.*\\.(sh)$",
+                                        "caption": "Shell script",
+                                        "$builtin": true
+                                    }
+                                ],
+                                "debug": false
                             }
                         }
                     },
@@ -480,7 +501,7 @@
             "@ace": 2,
             "@acestatus": 1,
             "@divider": 4,
-            "@document": 8,
+            "@document": 10,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
@@ -488,9 +509,9 @@
             "@pane": 1,
             "@preferences": 1,
             "@preview": 1,
-            "@session": 8,
-            "@tab": 4,
-            "@undoManager": 8
+            "@session": 10,
+            "@tab": 6,
+            "@undoManager": 10
         }
     },
     "findinfiles": {
@@ -508,7 +529,7 @@
     "panecycle": {
         "json()": [
             "tab3",
-            "tab2"
+            "tab4"
         ]
     },
     "panels": {
@@ -540,13 +561,14 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
+        "@scrollpos": 50,
         "@showfs": true,
         "expanded": {
             "json()": [
                 "/",
                 "/source/scripts",
-                "/source"
+                "/source",
+                "/source/_posts"
             ]
         }
     },
@@ -694,6 +716,7 @@
             "focus": "tab3",
             "meta": {
                 "accessList": [
+                    "tab4",
                     "tab2",
                     "tab0"
                 ]
@@ -738,6 +761,26 @@
                         "ace": {}
                     },
                     "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab4",
+                    "path": "/source/_posts/Groovy-Grails入门.md",
+                    "className": [
+                        "tab4"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1462273508233
+                        },
+                        "filter": true,
+                        "title": "Groovy-Grails入门.md",
+                        "tooltip": "/source/_posts/Groovy-Grails入门.md",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
                     "active": true
                 }
             ],
@@ -748,7 +791,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/scripts/githubcommit.sh"
+            "/source/_posts/Drools之使用注意点.md"
         ]
     }
 }
