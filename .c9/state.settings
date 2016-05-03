@@ -15,16 +15,14 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 251,
+        "@height": 340,
         "@maximized": false,
         "json()": {
             "meta": {
                 "accessList": [
                     "tab3",
                     "tab134",
-                    "tab1",
-                    "tab12",
-                    "tab14"
+                    "tab1"
                 ]
             },
             "name": "pane1",
@@ -62,30 +60,14 @@
                         "tab1"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1441863755460
+                        },
                         "filter": true,
                         "title": "Immediate (Javascript (browser))",
                         "tooltip": "Immediate (Javascript (browser))",
                         "immediate": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 2,
-                                    "column": 0
-                                },
-                                "end": {
-                                    "row": 2,
-                                    "column": 0
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": 0,
                             "type": "jsbrowser",
                             "history": [
                                 "new Date().getTimezoneOffset()",
@@ -439,77 +421,9 @@
                                 "console.log(\"xx\")"
                             ],
                             "pos": 0
-                        },
-                        "hash": "bc37e9908b413249fe666f189265c03143e4d841",
-                        "meta": {
-                            "timestamp": 1441863755460
-                        },
-                        "changed": false
+                        }
                     },
                     "editorType": "immediate",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab12",
-                    "path": "",
-                    "className": [
-                        "tab12"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Stopped",
-                        "tooltip": "source/scripts/githubcommit.sh - Stopped",
-                        "output": {
-                            "id": "output242280",
-                            "width": 0,
-                            "height": 0,
-                            "scrollTop": 2678,
-                            "config": {
-                                "runner": "Shell script",
-                                "command": "source/scripts/githubcommit.sh",
-                                "debug": true,
-                                "name": ""
-                            }
-                        },
-                        "hash": "67452301efcdab8998badcfe10325476c3d2e1f0",
-                        "meta": {
-                            "timestamp": 1460686149931
-                        },
-                        "changed": false
-                    },
-                    "editorType": "output",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab14",
-                    "path": "",
-                    "className": [
-                        "tab14"
-                    ],
-                    "document": {
-                        "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Stopped",
-                        "tooltip": "source/scripts/githubcommit.sh - Stopped",
-                        "output": {
-                            "id": "output173940",
-                            "width": 0,
-                            "height": 0,
-                            "scrollTop": 2828,
-                            "config": {
-                                "runner": "Shell script",
-                                "command": "source/scripts/githubcommit.sh",
-                                "debug": true
-                            }
-                        },
-                        "hash": "67452301efcdab8998badcfe10325476c3d2e1f0",
-                        "meta": {
-                            "timestamp": 1461829858461
-                        },
-                        "changed": false
-                    },
-                    "editorType": "output",
                     "active": false
                 },
                 {
@@ -518,8 +432,7 @@
                     "path": "",
                     "className": [
                         "tab3",
-                        "focus",
-                        "running"
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -527,36 +440,17 @@
                             "timestamp": 1462273115697
                         },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Running",
-                        "tooltip": "source/scripts/githubcommit.sh - Running",
+                        "title": "source/scripts/githubcommit.sh - Stopped",
+                        "tooltip": "source/scripts/githubcommit.sh - Stopped",
                         "output": {
                             "id": "output775300",
                             "width": 1473,
-                            "height": 225,
+                            "height": 314,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
-                                "debug": true
-                            },
-                            "running": {
-                                "pid": 1581,
-                                "name": "output775300",
-                                "running": 2,
-                                "runner": [
-                                    {
-                                        "cmd": [
-                                            "bash",
-                                            "-i",
-                                            "-l",
-                                            "$file",
-                                            "$args"
-                                        ],
-                                        "selector": "^.*\\.(sh)$",
-                                        "caption": "Shell script",
-                                        "$builtin": true
-                                    }
-                                ],
-                                "debug": true
+                                "debug": true,
+                                "name": ""
                             }
                         }
                     },
@@ -583,7 +477,7 @@
     },
     "ext": {
         "counters": {
-            "@ace": 1,
+            "@ace": 2,
             "@acestatus": 1,
             "@divider": 4,
             "@document": 8,
@@ -594,7 +488,7 @@
             "@pane": 1,
             "@preferences": 1,
             "@preview": 1,
-            "@session": 5,
+            "@session": 8,
             "@tab": 4,
             "@undoManager": 8
         }
@@ -836,7 +730,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1462273111167
+                            "timestamp": 1462273225439
                         },
                         "filter": true,
                         "title": "githubcommit.sh",
