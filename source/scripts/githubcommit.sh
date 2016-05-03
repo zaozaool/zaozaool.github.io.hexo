@@ -5,7 +5,7 @@ hexo_root=/home/vagrant/repo/zaozaool.github.io.hexo
 cd $hexo_root
 
 #提交源码
-git add *
+git add -A
 git commit -am "commit"
 git push -u origin master
 

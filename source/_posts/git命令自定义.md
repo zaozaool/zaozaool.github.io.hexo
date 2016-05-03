@@ -1,0 +1,157 @@
+title: git命令自定义
+date: 2016-04-21 03:31:02
+categories: [其他]
+tags: [Git]
+---
+
+更新文件：
+```shell
+vim ~/.gitconfig
+```
+<!--more-->
+
+```shell
+[user]# {{{
+        name = zaozaool
+        email = mr_jooe@126.com
+
+[core]
+    excludesfile = ~/.gitignore
+    attributesfile = ~/.gitattributes
+    quotepath = false
+[format]
+    headers = ""
+    subjectprefix = ""
+[diff]
+    tool = vimdiff
+[diff "jp"]
+    textconv=nkf -w
+[diff "msword"] # http://progit.org/book/zh/ch7-2.html
+    textconv = antiword -w0
+[diff "msexcel"]
+    textconv = xlhtml -fw -asc -te -xp:0-10 -xc:0-100
+[difftool "normal"] # http://goo.gl/c8Xok
+    cmd = diff $LOCAL $REMOTE
+[push]
+    default = current
+[gui]
+    fontdiff = -family \"Andale Mono\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+# }}}
+
+[tig] # {{{
+    show-refs = yes
+    show-rev-graph = yes
+    line-graphics = no
+    commit-encoding = "UTF-8"
+    author-width = 16
+    tab-size = 4
+[tig "color"]
+    default = default default
+    date = green default
+    author = default default
+    cursor = white blue
+    title-blur = black white
+    title-focus = black white bold
+[tig "bind"]
+    generic = i view-close
+    main = i view-main
+    main = q view-main
+    main = s view-status
+    main = space enter
+    diff = , previous
+    diff = . next
+    stage = , previous
+    stage = . next
+    status = space enter
+# }}}
+
+[color] #{{{
+    status = auto
+    diff = auto
+    branch = auto
+    interactive = auto
+[color "diff"]
+    frag = magenta
+#}}}
+
+[branch "master"] # {{{
+    remote = origin
+    merge = refs/heads/master
+# }}}
+
+[merge] # {{{
+    tool = persistent
+[mergetool "persistent"]
+    # ref Brian Phillips @http://stackoverflow.com/questions/585844/merging-with-git-mergetool
+    cmd = "vim -d \"$PWD/$MERGED\" \
+        +\":split $PWD/$REMOTE\" +\":set buftype=nowrite\" \
+        +\":vertical diffsplit $PWD/$LOCAL\" +\":set buftype=nowrite\" \
+        +\":vertical diffsplit $PWD/$BASE\" +\":set buftype=nowrite\" \
+        +\":wincmd j\" \
+        +\":nmap <ESC>1 :diffget BASE<CR>:diffupdate<CR>\" \
+        +\":nmap <ESC>2 :diffget LOCAL<CR>:diffupdate<CR>\" \
+        +\":nmap <ESC>3 :diffget REMOTE<CR>:diffupdate<CR>\" "
+#}}}
+
+[alias] # {{{
+    ci  = commit
+    cm  = commit --amend
+    co  = checkout
+    cd  = checkout -b
+    cp  = cherry-pick --no-commit # һommit     
+    coo = reset HEAD -- #  local repos 
+
+    br  = branch
+    bmv = branch -m
+    bMv = branch -M
+    brm = branch -d
+    brM = branch -D
+    brr = branch -r
+
+    di  = diff --ignore-submodules=dirty --no-prefix -p --stat # show difference between working tree and the index
+    dc  = diff --ignore-submodules=dirty --no-prefix -p --stat --cached # show difference between index and local repos, what would be committed with "git commit"
+    da  = diff --ignore-submodules=dirty --no-prefix -p --stat HEAD # show difference between working tree and local repos, what would be committed with "git commit -a"
+    df  = diff --ignore-submodules=dirty --no-prefix --stat=200,78 # show different files between working tree and the index
+    dt  = difftool -y
+    do  = difftool -y -t normal
+    dp  = !sh -c 'git diff HEAD "$0" | git apply --whitespace=nowarn --index -' # fast apply the patch against "$0" commit or branch
+
+    fp  = format-patch -s
+
+    ll  = log --pretty=format:'%C(blue)%h%Creset %cn %m %s %C(green)%C(dim)%cr%Creset %C(bold)%d%Creset' --branches --graph --since='2 weeks ago'
+    ls  = log --pretty=format:'%C(blue)%h%Creset %cn %m %s %C(green)%C(dim)%ci%Creset %C(bold)%d%Creset' --all --graph
+
+    ms  = merge --squash
+    mf  = merge --no-ff # generate a merge commit even if the merge resolved as a fast-forward
+    mt  = mergetool
+
+    # filter-branch
+    # http://progit.org/book/zh/ch6-4.html
+    nc = filter-branch -f --tree-filter
+
+    st  = status -s --ignore-submodules=dirty
+
+    sma = submodule add
+    smi = submodule init
+    smu = submodule update
+    sms = submodule status
+    smy = submodule sync
+
+    zc  = stash save
+    zl  = stash list
+    zo  = stash pop
+    zd  = stash drop
+
+    dci = svn dcommit
+    dco = svn clone -r HEAD
+    dca = svn clone
+    dup = svn rebase
+    dll = svn log --oneline --limit=20
+    dls = svn log
+# }}}
+
+#[http]
+#       proxy = http://10.167.251.83:8080
+
+# vim: set foldmethod=marker:
+```

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>提交统计</title>
+    <!-- 引入 echarts.js -->
+    <script src="http://echarts.baidu.com/dist/echarts.min.js"></script>
+    <script src="http://echarts.baidu.com/asset/theme/dark.js"></script>
+    
+    <!-- json数据 -->
+    <script src="http://localhost:4000/json_data/data.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style=" width: 800px; height: 600px; cursor: default;"></div>
+    <script type="text/javascript">
+    (function(){
+        var _json = {};
+        var _catArr = [];
+        var i = 0;
+        var now = new Date();
+        while (i < _data['size']) {
+            var d = _data['date'][i];
+            var t = _data['tag'][i];
+            var c = _data['category'][i];
+            i++;
+            if (d == '_end') {
+                continue;
+            }
+            d = new Date(d);
+            if (d > now) {
+                continue;
+            }
+            var month = 0;
+            if (d.getMonth() < 9) {
+                month = parseInt(d.getFullYear() + "0" + (d.getMonth() + 1));
+            } else {
+                month = parseInt(d.getFullYear() + "" + (d.getMonth() + 1));
+            }
+            
+            if (!_json._monthArr) {
+                _json._monthArr = [];
+            }
+            if (_json._monthArr.indexOf(month) < 0) {
+                _json._monthArr.push(month);
+            }
+            
+            //取得开始和结束月份
+            if (!_json._maxMonth || _json._maxMonth < month) {
+                _json._maxMonth = month;
+            }
+            if (!_json._minMonth || _json._minMonth > month) {
+                _json._minMonth = month;
+            }
+
+            //统计每个分类->月份->标签的次数
+            
+            var tagArr = t.split(",");
+            var catArr = c.split(",");
+            for (var tag in tagArr) {
+                //删除左右两端的空格
+　　            tag = tagArr[tag].replace(/(^\s*)|(\s*$)/g, "");
+　　            if (!_json._tagArr) {
+                    _json._tagArr = [];
+                }
+                if (_json._tagArr.indexOf(tag) < 0) {
+                    _json._tagArr.push(tag);
+                }
+　　            
+　　            for (var cat in catArr) {
+　　                //删除左右两端的空格
+　　                cat = catArr[cat].replace(/(^\s*)|(\s*$)/g, "");
+　　                if (!_json._catArr) {
+                        _json._catArr = [];
+                    }
+                    if (_json._catArr.indexOf(cat) < 0) {
+                        _json._catArr.push(cat);
+                    }
+                    
+                    if (!_json[cat]) {
+                        _json[cat] = {};
+                    }
+                    
+                    if (!_json[cat][month]) {
+                        _json[cat][month] = {};
+                    }
+                    
+                    if (!_json[cat][month][tag]) {
+                        _json[cat][month][tag] = 1;
+                    } else {
+                        _json[cat][month][tag]++;
+                    }
+　　            }
+            }
+        }
+        
+        //给时间数组排序
+        _json._monthArr.sort();
+        _json._catArr.sort();
+        _json._tagArr.sort();
+        
+    
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        //var myChart = echarts.init(document.getElementById('main'), 'dark');
+
+        // 指定图表的配置项和数据
+        var dataMap = {};
+        var totalMax = 0;
+        function dataFormatter(obj) {
+            //var pList = ['Java', '工具', 'Linux', 'SCM', '可视化', 'Node.js', '备忘', 'ERP', 'SAP', 'JavaScript', '项目', 'Git', 'ABAP', 'Drools'];
+            //var pList = _json._tagArr;
+            var temp;
+            var returnObj = {};
+            for (var month in _json._monthArr) {
+                var max = 0;
+                var sum = 0;
+                month = _json._monthArr[month];
+                temp = obj[month];
+            
+                for (var i in _json._tagArr) {
+                    var tag = _json._tagArr[i];
+                    if (!temp) {
+                        temp = {};
+                    }
+                    if (!temp[tag]) {
+                        temp[tag] = 0;
+                    }
+                    max = Math.max(max, temp[tag]);
+                    totalMax = Math.max(totalMax, max);
+                    sum += temp[tag];
+                    
+                    if (!returnObj[month]) {
+                        returnObj[month] = [];    
+                    }
+                    returnObj[month][i] = {
+                        name : tag,
+                        value : temp[tag]
+                    }
+                }
+                returnObj[month + 'max'] = Math.floor(max / 1) * 1;
+                returnObj[month + 'sum'] = sum;
+            }
+            totalMax = Math.ceil(totalMax / 10) * 10;
+            return returnObj;
+        }
+        
+
+        var series = [];
+        for (var cat in _json._catArr) {
+            cat = _json._catArr[cat];
+            dataMap["dataFront" + cat] = dataFormatter(_json[cat]);
+            series.push({name:cat, type:"bar"});
+        }
+        series.push({
+            name: '文章数占比',
+            type: 'pie',
+            center: ['75%', '30%'],
+            radius: '25%'
+        });
+        
+        var options = [];
+        for (var month in _json._monthArr) {
+            month = _json._monthArr[month];
+            var tempSeries1 = [];
+            var tempSeries2 = [];
+            for (var cat in _json._catArr) {
+                cat = _json._catArr[cat];
+                tempSeries1.push({data: dataMap["dataFront" + cat][month]});
+                tempSeries2.push({name: cat, value: dataMap["dataFront" + cat][month + "sum"]});
+            }
+            
+            tempSeries1.push({data: tempSeries2});
+            
+            options.push({
+                title: {text: month + '发表文章个数'},
+                series: tempSeries1
+            });
+        }
+        
+        
+        var xAxisData = [];
+        var l = Math.ceil(_json._tagArr.length / 10);
+        for (var i = 0; i < _json._tagArr.length; i++) {
+            var line = '';
+            for (var j = 0; j < (i % l); j++) {
+               line += '\n'; 
+            }
+            xAxisData.push(line + _json._tagArr[i]);
+        }
+        
+        
+        var option = {
+            baseOption: {
+                timeline: {
+                    // y: 0,
+                    axisType: 'category',
+                    // realtime: false,
+                    // loop: false,
+                    autoPlay: true,
+                    // currentIndex: 2,
+                    playInterval: 1000,
+                    // controlStyle: {
+                    //     position: 'left'
+                    // },
+                    data: _json._monthArr,
+                    label: {
+                        formatter : function(s) {
+                            return s;
+                        }
+                    }
+                },
+                title: {
+                    subtext: '数据来自博客文章统计'
+                },
+                tooltip: {},
+                legend: {
+                    x: 'right',
+                    data: _json._catArr,
+                    selected: {}
+                },
+                calculable : true,
+                grid: {
+                    top: 80,
+                    bottom: 100
+                },
+                xAxis: [
+                    {
+                        'type':'category',
+                        'axisLabel':{'interval':0},
+                        'data':xAxisData,
+                        splitLine: {show: false}
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value',
+                        name: '文章数',
+                        // max: 53500
+                        max: totalMax
+                    }
+                ],
+                series: series
+            },
+            options: options
+        };
+        
+        //alert(JSON.stringify(option));  
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        
+    })()
+    </script>
+</body>
+</html>
