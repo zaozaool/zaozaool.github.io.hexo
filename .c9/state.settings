@@ -1,70 +1,51 @@
 {
-    "ace": {
-        "search": {
-            "@backwards": "false",
-            "@highlightmatches": "true",
-            "@matchcase": "false",
-            "@preservecase": "false",
-            "@regex": "false",
-            "@wholeword": "false",
-            "@wraparound": "true"
-        }
-    },
-    "breakpoints": {
-        "json()": []
-    },
-    "commandPanel": {
-        "@value": ""
-    },
     "console": {
         "@expanded": true,
-        "@height": 340,
-        "@maximized": false,
+        "@height": "153",
+        "@maximized": "false",
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab134",
-                    "tab1",
-                    "tab3"
+                    "tab0",
+                    "tab3",
+                    "tab1"
                 ]
             },
             "name": "pane1",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab134",
+                    "name": "tab0",
                     "path": "",
                     "className": [
-                        "tab134"
+                        "tab0"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1460468217004
+                            "timestamp": 1463034926174
                         },
                         "filter": true,
-                        "title": "bash - \"precise32\"",
-                        "tooltip": "bash - \"precise32\"",
+                        "title": "bash - \"vagrant@precise32: ~/repo/Habit\"",
+                        "tooltip": "bash - \"vagrant@precise32: ~/repo/Habit\"",
                         "terminal": {
-                            "id": "devel_914",
+                            "id": "devel_844",
                             "cwd": "",
-                            "width": 1473,
-                            "height": 314
+                            "width": 0,
+                            "height": 0
                         }
                     },
                     "editorType": "terminal",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
                     "name": "tab1",
                     "path": "",
-                    "className": [
-                        "tab1"
-                    ],
+                    "className": [],
                     "document": {
                         "filter": true,
-                        "title": "Immediate (Javascript (browser))",
+                        "title": "Immediate",
                         "tooltip": "Immediate (Javascript (browser))",
                         "immediate": {
                             "folds": [],
@@ -455,32 +436,49 @@
                     "name": "tab3",
                     "path": "",
                     "className": [
-                        "tab3"
+                        "tab3",
+                        "running"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1463036338433
+                        },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Idle",
-                        "tooltip": "source/scripts/githubcommit.sh - Idle",
+                        "title": "source/scripts/githubcommit.sh - Running",
+                        "tooltip": "source/scripts/githubcommit.sh - Running",
                         "output": {
-                            "id": "output775300",
-                            "width": 0,
-                            "height": 0,
-                            "scrollTop": -1,
+                            "id": "output792790",
+                            "width": 1609,
+                            "height": 127,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
-                                "debug": true,
-                                "name": ""
+                                "toolbar": true
+                            },
+                            "running": {
+                                "pid": 4612,
+                                "name": "output792790",
+                                "running": 2,
+                                "runner": [
+                                    {
+                                        "cmd": [
+                                            "bash",
+                                            "-i",
+                                            "-l",
+                                            "$file",
+                                            "$args"
+                                        ],
+                                        "selector": "^.*\\.(sh)$",
+                                        "caption": "Shell script",
+                                        "$builtin": true
+                                    }
+                                ]
                             }
-                        },
-                        "hash": "67452301efcdab8998badcfe10325476c3d2e1f0",
-                        "meta": {
-                            "timestamp": 1462273115697
-                        },
-                        "changed": false
+                        }
                     },
                     "editorType": "output",
-                    "active": false
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -497,30 +495,24 @@
         "@mount": 0,
         "@plugin-manager": 1,
         "@plugins": 0,
-        "@python_worker": 0,
         "@sdk": 0,
         "@test": 0
     },
     "ext": {
         "counters": {
             "@ace": 1,
-            "@ace.repl": 1,
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 4,
-            "@document": 6,
+            "@document": 4,
             "@form": 5,
-            "@immediate": 1,
-            "@menu": 8,
-            "@menuitem": 19,
-            "@pane": 1,
-            "@postmessage": 1,
-            "@preferences": 1,
-            "@preview": 1,
-            "@session": 4,
-            "@tab": 5,
+            "@menu": 5,
+            "@menuitem": 13,
+            "@pane": 2,
+            "@session": 3,
+            "@tab": 4,
             "@tree": 2,
-            "@undoManager": 6
+            "@undoManager": 4
         }
     },
     "findinfiles": {
@@ -528,9 +520,6 @@
         "@matchcase": "false",
         "@regex": "false",
         "@wholeword": "false"
-    },
-    "installer": {
-        "json()": {}
     },
     "menus": {
         "@minimized": "false"
@@ -540,14 +529,13 @@
     },
     "panecycle": {
         "json()": [
-            "tab0",
-            "tab134"
+            "tab2",
+            "tab3"
         ]
     },
     "panels": {
         "@active-left": "tree",
-        "@active-right": "none",
-        "@width-left": 375,
+        "@width-left": 239,
         "commands.panel": {
             "@enabled": "true",
             "@name": "commands.panel"
@@ -574,181 +562,39 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
-                "/",
-                "/source/scripts",
-                "/source"
-            ]
-        }
-    },
-    "recentfiles": {
-        "json()": []
-    },
-    "search-history": {
-        "replace": {
-            "json()": [
-                "table0101",
-                "_json._minMonth",
-                "_json._maxMonth",
-                "_json._monthArr",
-                "_json.monthArr",
-                ":{",
-                "$index:'_end'",
-                "$index:'end'",
-                "$json_data_path",
-                "../histogram.js",
-                "四维",
-                "th",
-                "2011sum",
-                "2010sum",
-                "2009sum",
-                "2008sum",
-                "2007sum",
-                "2006sum",
-                "2005sum",
-                "2004sum",
-                "2003sum",
-                "发表文章个数",
-                "技术达到一个高度",
-                "其他",
-                "dataOther",
-                "dataMiddleware",
-                "dataBackEnd",
-                "dataFrontEnd",
-                "发表文章个数",
-                "dataVisual",
-                "dataSCM",
-                "dataLinux",
-                "dataTool",
-                "dataJava",
-                "[4,2,3,4,6],",
-                "Java",
-                "dataJava",
-                "dataByDay",
-                "dataByMonth",
-                "dataByYear",
-                "$str",
-                "dataByDate",
-                "<"
-            ]
-        },
-        "search": {
-            "json()": [
-                "清查看",
-                "'Git'",
-                "Gi",
-                "zao",
-                "npm",
-                "registry.npm.taobao.org 是从 registry.npmjs.org 进行全量同步的",
-                "___table",
-                "selected",
-                "select",
-                "xAxis",
-                "cat",
-                "tot",
-                "20",
-                "selected",
-                "value",
-                "totalM",
-                "pList[month]",
-                "options: ",
-                "options: [",
-                "_json._monthArr",
-                "totalMax = Math.ceil(totalMax / 10) * 10;",
-                "math.ce",
-                "math.fl",
-                " totalMax = Math.ceil(totalMax / 10) * 10;",
-                "obj[month + 'max'] = Math.floor(",
-                "max = Math.max(max, temp[tag]);",
-                "_json.minMonth",
-                "_json.maxMonth",
-                "_json.monthArr",
-                "monthArr",
-                "_monthArr",
-                "={",
-                "$index:'end'",
-                "end:0",
-                "tagJson",
-                "$json_data",
-                "../",
-                "\"../histogram.js\"",
-                "http://echarts.baidu.com/examples.html#chart-type-pie",
-                "思维",
-                "td",
-                "前端,后端",
-                "其他",
-                "5",
-                "getFull",
-                "'JavaScript', ",
-                "-01-01",
-                "2002sum",
-                "{name: '其他', value: dataMap.dataOther",
-                "radius",
-                "45",
-                "'其他': false",
-                "文章数占比",
-                "50050",
-                "dataGDP",
-                "GDP达到一个高度",
-                "第一产业",
-                "dataGDP",
-                "全国宏观经济指标",
-                "dataEstate",
-                "dataTI",
-                "dataSI",
-                "dataPI",
-                "dataGDP",
-                "[],",
-                "GDP",
-                "dataGDP",
-                "canvas",
-                "random",
-                "dataByYear",
-                "dataByDate",
-                "\"$str\"",
-                "data",
-                "$str",
-                "< ",
-                "touch"
-            ]
-        },
-        "searchfiles": {
-            "json()": [
-                "localhost",
-                "categories",
-                "前端, 后端"
+                "/"
             ]
         }
     },
     "tabs": {
         "json()": {
-            "focus": "/source/_posts/Bookmarks.md",
+            "focus": "/source/scripts/githubcommit.sh",
             "meta": {
                 "accessList": [
-                    "tab0"
+                    "tab2"
                 ]
             },
-            "name": "pane2",
+            "name": "pane0",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab0",
-                    "path": "/source/_posts/Bookmarks.md",
+                    "name": "tab2",
+                    "path": "/source/scripts/githubcommit.sh",
                     "className": [
-                        "tab0",
+                        "tab2",
                         "focus"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1463034302278
+                            "timestamp": 1462273225601
                         },
                         "filter": true,
-                        "title": "Bookmarks.md",
-                        "tooltip": "/source/_posts/Bookmarks.md",
+                        "title": "githubcommit.sh",
+                        "tooltip": "/source/scripts/githubcommit.sh",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -762,7 +608,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/scripts/githubcommit.sh"
+            "/"
         ]
     }
 }
