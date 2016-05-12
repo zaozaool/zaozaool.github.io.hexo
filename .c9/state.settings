@@ -13,6 +13,9 @@
     "breakpoints": {
         "json()": []
     },
+    "commandPanel": {
+        "@value": "delete"
+    },
     "console": {
         "@expanded": true,
         "@height": 340,
@@ -20,8 +23,8 @@
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab3",
                     "tab134",
+                    "tab3",
                     "tab1"
                 ]
             },
@@ -45,12 +48,12 @@
                         "terminal": {
                             "id": "devel_914",
                             "cwd": "",
-                            "width": 0,
-                            "height": 0
+                            "width": 1473,
+                            "height": 314
                         }
                     },
                     "editorType": "terminal",
-                    "active": false
+                    "active": true
                 },
                 {
                     "type": "tab",
@@ -431,9 +434,7 @@
                     "name": "tab3",
                     "path": "",
                     "className": [
-                        "tab3",
-                        "focus",
-                        "running"
+                        "tab3"
                     ],
                     "document": {
                         "changed": false,
@@ -441,42 +442,22 @@
                             "timestamp": 1462273115697
                         },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Running",
-                        "tooltip": "source/scripts/githubcommit.sh - Running",
+                        "title": "source/scripts/githubcommit.sh - Idle",
+                        "tooltip": "source/scripts/githubcommit.sh - Idle",
                         "output": {
                             "id": "output775300",
-                            "width": 1473,
-                            "height": 314,
+                            "width": 0,
+                            "height": 0,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
                                 "debug": true,
                                 "name": ""
-                            },
-                            "running": {
-                                "pid": 2256,
-                                "name": "output775300",
-                                "running": 2,
-                                "runner": [
-                                    {
-                                        "cmd": [
-                                            "bash",
-                                            "-i",
-                                            "-l",
-                                            "$file",
-                                            "$args"
-                                        ],
-                                        "selector": "^.*\\.(sh)$",
-                                        "caption": "Shell script",
-                                        "$builtin": true
-                                    }
-                                ],
-                                "debug": false
                             }
                         }
                     },
                     "editorType": "output",
-                    "active": true
+                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -489,6 +470,7 @@
         "@autosave": 0,
         "@flat-dark": 0,
         "@git": 1,
+        "@go_completion": 0,
         "@mount": 0,
         "@plugin-manager": 1,
         "@plugins": 0,
@@ -499,19 +481,22 @@
     "ext": {
         "counters": {
             "@ace": 2,
+            "@ace.repl": 1,
             "@acestatus": 1,
-            "@divider": 4,
-            "@document": 10,
+            "@datagrid": 1,
+            "@divider": 6,
+            "@document": 14,
             "@form": 5,
             "@immediate": 1,
-            "@menu": 5,
-            "@menuitem": 13,
+            "@menu": 10,
+            "@menuitem": 23,
             "@pane": 1,
             "@preferences": 1,
             "@preview": 1,
-            "@session": 10,
-            "@tab": 6,
-            "@undoManager": 10
+            "@session": 14,
+            "@tab": 12,
+            "@tree": 2,
+            "@undoManager": 14
         }
     },
     "findinfiles": {
@@ -519,6 +504,9 @@
         "@matchcase": "false",
         "@regex": "false",
         "@wholeword": "false"
+    },
+    "installer": {
+        "json()": {}
     },
     "menus": {
         "@minimized": "false"
@@ -528,12 +516,13 @@
     },
     "panecycle": {
         "json()": [
-            "tab3",
-            "tab4"
+            "tab10",
+            "tab134"
         ]
     },
     "panels": {
         "@active-left": "tree",
+        "@active-right": "none",
         "@width-left": 375,
         "commands.panel": {
             "@enabled": "true",
@@ -561,7 +550,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 50,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -713,74 +702,35 @@
     },
     "tabs": {
         "json()": {
-            "focus": "tab3",
+            "focus": "tab10",
             "meta": {
                 "accessList": [
-                    "tab4",
-                    "tab2",
-                    "tab0"
+                    "tab10"
                 ]
             },
             "name": "pane2",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab0",
-                    "path": "/source/_posts/Bookmarks.md",
+                    "name": "tab10",
+                    "path": "",
                     "className": [
-                        "tab0"
+                        "tab10",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1462273025807
+                            "timestamp": 1463026257073
                         },
                         "filter": true,
-                        "title": "Bookmarks.md",
-                        "tooltip": "/source/_posts/Bookmarks.md",
-                        "ace": {}
+                        "title": "Compare Linux常用命令.md",
+                        "diffview": {
+                            "oldPath": "PREVIOUS:source/_posts/Linux常用命令.md",
+                            "newPath": "MODIFIED:source/_posts/Linux常用命令.md"
+                        }
                     },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab2",
-                    "path": "/source/scripts/githubcommit.sh",
-                    "className": [
-                        "tab2"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1462273225439
-                        },
-                        "filter": true,
-                        "title": "githubcommit.sh",
-                        "tooltip": "/source/scripts/githubcommit.sh",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab4",
-                    "path": "/source/_posts/Groovy-Grails入门.md",
-                    "className": [
-                        "tab4"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1462273508233
-                        },
-                        "filter": true,
-                        "title": "Groovy-Grails入门.md",
-                        "tooltip": "/source/_posts/Groovy-Grails入门.md",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
+                    "editorType": "diffview",
                     "active": true
                 }
             ],
@@ -791,7 +741,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/_posts/Drools之使用注意点.md"
+            "/source/_posts/ABAP基础之结构与内表.md"
         ]
     }
 }

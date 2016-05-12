@@ -21,3 +21,5 @@ tags: [备忘, Linux]
 8.`ls -lR|grep "^-"|wc -l`,统计文件夹下文件的个数，包括子文件夹里的
 
 9. `sudo chown -R vagrant:vagrant ~/repO/`,改变拥有者和群组
+
+10. `cat scm_visit.log | grep -e "E00" > /tmp/log.log`, 分析日志并导出
