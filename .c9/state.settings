@@ -1,13 +1,13 @@
 {
     "console": {
         "@expanded": true,
-        "@height": "153",
+        "@height": 312,
         "@maximized": "false",
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab0",
                     "tab3",
+                    "tab0",
                     "tab1"
                 ]
             },
@@ -26,8 +26,8 @@
                             "timestamp": 1463034926174
                         },
                         "filter": true,
-                        "title": "bash - \"vagrant@precise32: ~/repo/Habit\"",
-                        "tooltip": "bash - \"vagrant@precise32: ~/repo/Habit\"",
+                        "title": "bash - \"vagrant@precise32: ~/repo/zaozaool.github.io.hexo\"",
+                        "tooltip": "bash - \"vagrant@precise32: ~/repo/zaozaool.github.io.hexo\"",
                         "terminal": {
                             "id": "devel_844",
                             "cwd": "",
@@ -42,10 +42,12 @@
                     "type": "tab",
                     "name": "tab1",
                     "path": "",
-                    "className": [],
+                    "className": [
+                        "tab1"
+                    ],
                     "document": {
                         "filter": true,
-                        "title": "Immediate",
+                        "title": "Immediate (Javascript (browser))",
                         "tooltip": "Immediate (Javascript (browser))",
                         "immediate": {
                             "folds": [],
@@ -437,7 +439,7 @@
                     "path": "",
                     "className": [
                         "tab3",
-                        "running"
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -445,35 +447,17 @@
                             "timestamp": 1463036338433
                         },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Running",
-                        "tooltip": "source/scripts/githubcommit.sh - Running",
+                        "title": "source/scripts/githubcommit.sh - Idle",
+                        "tooltip": "source/scripts/githubcommit.sh - Idle",
                         "output": {
                             "id": "output792790",
                             "width": 1609,
-                            "height": 127,
+                            "height": 286,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
-                                "toolbar": true
-                            },
-                            "running": {
-                                "pid": 4612,
-                                "name": "output792790",
-                                "running": 2,
-                                "runner": [
-                                    {
-                                        "cmd": [
-                                            "bash",
-                                            "-i",
-                                            "-l",
-                                            "$file",
-                                            "$args"
-                                        ],
-                                        "selector": "^.*\\.(sh)$",
-                                        "caption": "Shell script",
-                                        "$builtin": true
-                                    }
-                                ]
+                                "toolbar": true,
+                                "name": ""
                             }
                         }
                     },
@@ -502,17 +486,21 @@
         "counters": {
             "@ace": 1,
             "@acestatus": 1,
-            "@datagrid": 1,
+            "@datagrid": 2,
             "@divider": 4,
-            "@document": 4,
+            "@document": 10,
             "@form": 5,
-            "@menu": 5,
-            "@menuitem": 13,
-            "@pane": 2,
-            "@session": 3,
-            "@tab": 4,
+            "@immediate": 1,
+            "@menu": 7,
+            "@menuitem": 19,
+            "@pane": 6,
+            "@postmessage": 3,
+            "@preferences": 1,
+            "@preview": 4,
+            "@session": 9,
+            "@tab": 10,
             "@tree": 2,
-            "@undoManager": 4
+            "@undoManager": 10
         }
     },
     "findinfiles": {
@@ -520,6 +508,16 @@
         "@matchcase": "false",
         "@regex": "false",
         "@wholeword": "false"
+    },
+    "gotoline": {
+        "json()": [
+            "12",
+            "2",
+            "3"
+        ]
+    },
+    "installer": {
+        "json()": {}
     },
     "menus": {
         "@minimized": "false"
@@ -529,12 +527,13 @@
     },
     "panecycle": {
         "json()": [
-            "tab2",
-            "tab3"
+            "tab3",
+            "tab9"
         ]
     },
     "panels": {
         "@active-left": "tree",
+        "@active-right": "none",
         "@width-left": 239,
         "commands.panel": {
             "@enabled": "true",
@@ -562,39 +561,65 @@
         }
     },
     "projecttree": {
+        "@scrollpos": 170,
         "@showfs": true,
         "expanded": {
             "json()": [
-                "/"
+                "/",
+                "/source",
+                "/source/_posts"
             ]
         }
     },
+    "recentfiles": {
+        "json()": []
+    },
     "tabs": {
         "json()": {
-            "focus": "/source/scripts/githubcommit.sh",
+            "focus": "tab3",
             "meta": {
                 "accessList": [
-                    "tab2"
+                    "tab9",
+                    "tab8"
                 ]
             },
             "name": "pane0",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab2",
-                    "path": "/source/scripts/githubcommit.sh",
+                    "name": "tab8",
+                    "path": "/source/_posts/使用Maven模板创建项目.md",
                     "className": [
-                        "tab2",
-                        "focus"
+                        "tab8"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1462273225601
+                            "timestamp": 1465199835794
                         },
                         "filter": true,
-                        "title": "githubcommit.sh",
-                        "tooltip": "/source/scripts/githubcommit.sh",
+                        "title": "使用Maven模板创建项目.md",
+                        "tooltip": "/source/_posts/使用Maven模板创建项目.md",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab9",
+                    "path": "/source/_posts/Bookmarks.md",
+                    "className": [
+                        "tab9"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1465284700439
+                        },
+                        "filter": true,
+                        "title": "Bookmarks.md",
+                        "tooltip": "/source/_posts/Bookmarks.md",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -608,7 +633,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/"
+            "/source/_posts/GenScript-规则引擎项目.md"
         ]
     }
 }
