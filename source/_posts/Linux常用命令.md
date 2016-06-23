@@ -23,3 +23,5 @@ tags: [备忘, Linux]
 9. `sudo chown -R vagrant:vagrant ~/repO/`,改变拥有者和群组
 
 10. `cat scm_visit.log | grep -e "E00" > /tmp/log.log`, 分析日志并导出
+
+11. vim替换文本：`:%s/AA/BB/gc`，即将`AA`替换为`BB`

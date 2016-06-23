@@ -26,8 +26,8 @@
                             "timestamp": 1463034926174
                         },
                         "filter": true,
-                        "title": "bash - \"vagrant@precise32: ~/repo/zaozaool.github.io.hexo\"",
-                        "tooltip": "bash - \"vagrant@precise32: ~/repo/zaozaool.github.io.hexo\"",
+                        "title": "bash - \"precise32\"",
+                        "tooltip": "bash - \"precise32\"",
                         "terminal": {
                             "id": "devel_844",
                             "cwd": "",
@@ -439,6 +439,7 @@
                     "path": "",
                     "className": [
                         "tab3",
+                        "running",
                         "focus"
                     ],
                     "document": {
@@ -447,8 +448,8 @@
                             "timestamp": 1463036338433
                         },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Idle",
-                        "tooltip": "source/scripts/githubcommit.sh - Idle",
+                        "title": "source/scripts/githubcommit.sh - Running",
+                        "tooltip": "source/scripts/githubcommit.sh - Running",
                         "output": {
                             "id": "output792790",
                             "width": 1609,
@@ -458,6 +459,25 @@
                                 "command": "source/scripts/githubcommit.sh",
                                 "toolbar": true,
                                 "name": ""
+                            },
+                            "running": {
+                                "pid": 3832,
+                                "name": "output792790",
+                                "running": 2,
+                                "runner": [
+                                    {
+                                        "cmd": [
+                                            "bash",
+                                            "-i",
+                                            "-l",
+                                            "$file",
+                                            "$args"
+                                        ],
+                                        "selector": "^.*\\.(sh)$",
+                                        "caption": "Shell script",
+                                        "$builtin": true
+                                    }
+                                ]
                             }
                         }
                     },
@@ -487,20 +507,20 @@
             "@ace": 1,
             "@acestatus": 1,
             "@datagrid": 2,
-            "@divider": 4,
-            "@document": 10,
+            "@divider": 7,
+            "@document": 5,
             "@form": 5,
             "@immediate": 1,
             "@menu": 7,
-            "@menuitem": 19,
+            "@menuitem": 27,
             "@pane": 6,
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 9,
-            "@tab": 10,
+            "@session": 4,
+            "@tab": 5,
             "@tree": 2,
-            "@undoManager": 10
+            "@undoManager": 5
         }
     },
     "findinfiles": {
@@ -527,8 +547,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab3",
-            "tab9"
+            "tab3"
         ]
     },
     "panels": {
@@ -561,7 +580,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 170,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -578,54 +597,10 @@
         "json()": {
             "focus": "tab3",
             "meta": {
-                "accessList": [
-                    "tab9",
-                    "tab8"
-                ]
+                "accessList": []
             },
             "name": "pane0",
-            "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab8",
-                    "path": "/source/_posts/使用Maven模板创建项目.md",
-                    "className": [
-                        "tab8"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1465199835794
-                        },
-                        "filter": true,
-                        "title": "使用Maven模板创建项目.md",
-                        "tooltip": "/source/_posts/使用Maven模板创建项目.md",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab9",
-                    "path": "/source/_posts/Bookmarks.md",
-                    "className": [
-                        "tab9"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1465284700439
-                        },
-                        "filter": true,
-                        "title": "Bookmarks.md",
-                        "tooltip": "/source/_posts/Bookmarks.md",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                }
-            ],
+            "nodes": [],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -633,7 +608,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/_posts/GenScript-规则引擎项目.md"
+            "/source/_posts/JavaScript学习笔记之-面向对象编程-封装.md"
         ]
     }
 }
