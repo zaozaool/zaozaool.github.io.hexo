@@ -6,9 +6,9 @@
         "json()": {
             "meta": {
                 "accessList": [
+                    "tab3",
                     "tab0",
-                    "tab1",
-                    "tab3"
+                    "tab1"
                 ]
             },
             "name": "pane1",
@@ -18,8 +18,7 @@
                     "name": "tab0",
                     "path": "",
                     "className": [
-                        "tab0",
-                        "focus"
+                        "tab0"
                     ],
                     "document": {
                         "changed": false,
@@ -32,12 +31,12 @@
                         "terminal": {
                             "id": "devel_844",
                             "cwd": "",
-                            "width": 1609,
-                            "height": 288
+                            "width": 0,
+                            "height": 0
                         }
                     },
                     "editorType": "terminal",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -419,7 +418,8 @@
                     "path": "",
                     "className": [
                         "tab3",
-                        "running"
+                        "running",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -431,8 +431,8 @@
                         "tooltip": "source/scripts/githubcommit.sh - Running",
                         "output": {
                             "id": "output792790",
-                            "width": 0,
-                            "height": 0,
+                            "width": 1609,
+                            "height": 288,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
@@ -461,7 +461,7 @@
                         }
                     },
                     "editorType": "output",
-                    "active": false
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -526,8 +526,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab7",
-            "tab1"
+            "tab3",
+            "tab7"
         ]
     },
     "panels": {
@@ -575,7 +575,7 @@
     },
     "tabs": {
         "json()": {
-            "focus": "tab0",
+            "focus": "tab3",
             "meta": {
                 "accessList": [
                     "tab7",
