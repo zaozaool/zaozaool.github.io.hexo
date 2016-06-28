@@ -450,7 +450,8 @@
                     "path": "",
                     "className": [
                         "tab3",
-                        "running"
+                        "running",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -557,8 +558,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab5",
-            "tab3"
+            "tab3",
+            "tab5"
         ]
     },
     "panels": {
