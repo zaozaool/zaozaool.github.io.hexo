@@ -1,6 +1,6 @@
 #!/bin/bash
 
-hexo_root=/home/vagrant/repo/zaozaool.github.io.hexo
+hexo_root=/home/scm/repositories/zaozaool.github.io.hexo
 cd $hexo_root
 
 #统计并生成图形报表
