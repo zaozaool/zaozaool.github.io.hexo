@@ -18,7 +18,6 @@
             "meta": {
                 "accessList": [
                     "tab3",
-                    "searchResults",
                     "tab0",
                     "tab1"
                 ]
@@ -58,14 +57,30 @@
                         "tab1"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1441863755460
-                        },
                         "filter": true,
                         "title": "Immediate (Javascript (browser))",
                         "tooltip": "Immediate (Javascript (browser))",
                         "immediate": {
+                            "folds": [],
+                            "scrolltop": 0,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 2,
+                                    "column": 0
+                                },
+                                "end": {
+                                    "row": 2,
+                                    "column": 0
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": 0,
                             "type": "jsbrowser",
                             "history": [
                                 "new Date().getTimezoneOffset()",
@@ -419,7 +434,12 @@
                                 "console.log(\"xx\")"
                             ],
                             "pos": 0
-                        }
+                        },
+                        "hash": "bc37e9908b413249fe666f189265c03143e4d841",
+                        "meta": {
+                            "timestamp": 1441863755460
+                        },
+                        "changed": false
                     },
                     "editorType": "immediate",
                     "active": false
@@ -430,7 +450,8 @@
                     "path": "",
                     "className": [
                         "tab3",
-                        "focus"
+                        "focus",
+                        "connecting"
                     ],
                     "document": {
                         "changed": false,
@@ -454,30 +475,6 @@
                     },
                     "editorType": "output",
                     "active": true
-                },
-                {
-                    "type": "tab",
-                    "name": "searchResults",
-                    "path": "/.c9/searchresults",
-                    "className": [
-                        "searchResults",
-                        "changed"
-                    ],
-                    "document": {
-                        "changed": true,
-                        "meta": {
-                            "searchResults": true,
-                            "ignoreSave": true,
-                            "newfile": true,
-                            "timestamp": 1467111393765
-                        },
-                        "filter": true,
-                        "title": "Search Results",
-                        "tooltip": "/.c9/searchresults",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -499,11 +496,12 @@
     },
     "ext": {
         "counters": {
-            "@ace": 3,
-            "@acestatus": 2,
+            "@ace": 1,
+            "@ace.repl": 1,
+            "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 4,
-            "@document": 18,
+            "@document": 5,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
@@ -512,10 +510,10 @@
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 18,
-            "@tab": 16,
+            "@session": 4,
+            "@tab": 5,
             "@tree": 2,
-            "@undoManager": 18,
+            "@undoManager": 5,
             "@welcome": 1
         }
     },
@@ -537,14 +535,15 @@
         "json()": {}
     },
     "menus": {
-        "@minimized": true
+        "@minimized": false
     },
     "nak": {
         "@installed": true
     },
     "panecycle": {
         "json()": [
-            "tab3"
+            "tab3",
+            "tab2"
         ]
     },
     "panels": {
@@ -583,7 +582,10 @@
             "json()": [
                 "/themes/freemind",
                 "/themes/landscape",
-                "/"
+                "/node_modules/hexo/lib/hexo",
+                "/",
+                "/source",
+                "/source/_posts"
             ]
         }
     },
@@ -621,10 +623,33 @@
         "json()": {
             "focus": "tab3",
             "meta": {
-                "accessList": []
+                "accessList": [
+                    "tab2"
+                ]
             },
             "name": "pane0",
-            "nodes": [],
+            "nodes": [
+                {
+                    "type": "tab",
+                    "name": "tab2",
+                    "path": "/source/_posts/Mysql递归查询.md",
+                    "className": [
+                        "tab2"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1467344290206
+                        },
+                        "filter": true,
+                        "title": "Mysql递归查询.md",
+                        "tooltip": "/source/_posts/Mysql递归查询.md",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
+                }
+            ],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -632,7 +657,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/"
+            "/source/_posts/Groovy-Grails入门.md"
         ]
     }
 }
