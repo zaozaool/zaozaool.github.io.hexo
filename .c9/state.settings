@@ -451,7 +451,7 @@
                     "className": [
                         "tab3",
                         "focus",
-                        "connecting"
+                        "running"
                     ],
                     "document": {
                         "changed": false,
@@ -459,8 +459,8 @@
                             "timestamp": 1467099071360
                         },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Idle",
-                        "tooltip": "source/scripts/githubcommit.sh - Idle",
+                        "title": "source/scripts/githubcommit.sh - Running",
+                        "tooltip": "source/scripts/githubcommit.sh - Running",
                         "output": {
                             "id": "output792790",
                             "width": 1556,
@@ -470,6 +470,25 @@
                                 "command": "source/scripts/githubcommit.sh",
                                 "toolbar": true,
                                 "name": ""
+                            },
+                            "running": {
+                                "pid": 18263,
+                                "name": "output792790",
+                                "running": 2,
+                                "runner": [
+                                    {
+                                        "cmd": [
+                                            "bash",
+                                            "-i",
+                                            "-l",
+                                            "$file",
+                                            "$args"
+                                        ],
+                                        "selector": "^.*\\.(sh)$",
+                                        "caption": "Shell script",
+                                        "$builtin": true
+                                    }
+                                ]
                             }
                         }
                     },
@@ -501,7 +520,7 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 4,
-            "@document": 5,
+            "@document": 7,
             "@form": 5,
             "@immediate": 1,
             "@menu": 5,
@@ -510,10 +529,10 @@
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 4,
-            "@tab": 5,
+            "@session": 6,
+            "@tab": 7,
             "@tree": 2,
-            "@undoManager": 5,
+            "@undoManager": 7,
             "@welcome": 1
         }
     },
@@ -543,7 +562,7 @@
     "panecycle": {
         "json()": [
             "tab3",
-            "tab2"
+            "tab6"
         ]
     },
     "panels": {
@@ -583,9 +602,7 @@
                 "/themes/freemind",
                 "/themes/landscape",
                 "/node_modules/hexo/lib/hexo",
-                "/",
-                "/source",
-                "/source/_posts"
+                "/"
             ]
         }
     },
@@ -621,29 +638,51 @@
     },
     "tabs": {
         "json()": {
-            "focus": "tab3",
+            "focus": "/_config.yml",
             "meta": {
                 "accessList": [
-                    "tab2"
+                    "tab6",
+                    "tab5"
                 ]
             },
             "name": "pane0",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab2",
-                    "path": "/source/_posts/Mysql递归查询.md",
+                    "name": "tab5",
+                    "path": "/source/scripts/githubcommit.sh",
                     "className": [
-                        "tab2"
+                        "tab5"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1467344290206
+                            "timestamp": 1467111494982
                         },
                         "filter": true,
-                        "title": "Mysql递归查询.md",
-                        "tooltip": "/source/_posts/Mysql递归查询.md",
+                        "title": "githubcommit.sh",
+                        "tooltip": "/source/scripts/githubcommit.sh",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab6",
+                    "path": "/_config.yml",
+                    "className": [
+                        "tab6",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1467344475655
+                        },
+                        "filter": true,
+                        "title": "_config.yml",
+                        "tooltip": "/_config.yml",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -657,7 +696,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/_posts/Groovy-Grails入门.md"
+            "/_config.yml"
         ]
     }
 }
