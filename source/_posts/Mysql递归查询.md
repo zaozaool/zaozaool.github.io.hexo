@@ -89,6 +89,7 @@ INSERT INTO `t_areainfo` VALUES ('64', '0', 'xx省19', '1', '0');
 
 ```mysql
 --查询传入areaId及其以下所有子节点
+
 DROP FUNCTION IF EXISTS queryChildrenAreaInfo;
 CREATE FUNCTION `queryChildrenAreaInfo` (areaId INT)
 RETURNS VARCHAR(4000)
@@ -105,8 +106,11 @@ SELECT group_concat(id) INTO sTempChd FROM t_areainfo where FIND_IN_SET(parentId
 END WHILE;
 return sTemp;
 END;
- 
+```
+
+```mysql
 --调用方式
+
 select queryChildrenAreaInfo(1);
 select * from t_areainfo where FIND_IN_SET(id, queryChildrenAreaInfo(1));
 ```
