@@ -450,7 +450,7 @@
                                 "name": ""
                             },
                             "running": {
-                                "pid": 32294,
+                                "pid": 32646,
                                 "name": "output792790",
                                 "running": 2,
                                 "runner": [
@@ -580,8 +580,7 @@
                 "/",
                 "/source",
                 "/source/New Folder",
-                "/source/tld",
-                "/source/pic"
+                "/source/tld"
             ]
         }
     },
@@ -617,42 +616,21 @@
     },
     "tabs": {
         "json()": {
-            "focus": "tab3",
+            "focus": "/source/_posts/Jmesa使用总结-自定义Toolbar.md",
             "meta": {
                 "accessList": [
-                    "tab6",
-                    "tab9",
-                    "tab2"
+                    "tab6"
                 ]
             },
             "name": "pane0",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab2",
-                    "path": "/source/_posts/Maven多模块中关于final-static常量的一个坑.md",
-                    "className": [
-                        "tab2"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1467894862779
-                        },
-                        "filter": true,
-                        "title": "Maven多模块中关于final-static常量的一个坑.md",
-                        "tooltip": "/source/_posts/Maven多模块中关于final-static常量的一个坑.md",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
                     "name": "tab6",
                     "path": "/source/_posts/Jmesa使用总结-自定义Toolbar.md",
                     "className": [
-                        "tab6"
+                        "tab6",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -666,26 +644,6 @@
                     },
                     "editorType": "ace",
                     "active": true
-                },
-                {
-                    "type": "tab",
-                    "name": "tab9",
-                    "path": "/source/_posts/深入浅出Node-js-脑图.md",
-                    "className": [
-                        "tab9"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1467098252094
-                        },
-                        "filter": true,
-                        "title": "深入浅出Node-js-脑图.md",
-                        "tooltip": "/source/_posts/深入浅出Node-js-脑图.md",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -695,7 +653,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/pic/jmesaЧ��.PNG"
+            "/source/pic"
         ]
     }
 }
