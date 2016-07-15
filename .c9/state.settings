@@ -18,9 +18,9 @@
             "meta": {
                 "accessList": [
                     "tab3",
+                    "searchResults",
                     "tab0",
-                    "tab1",
-                    "searchResults"
+                    "tab1"
                 ]
             },
             "name": "pane1",
@@ -438,8 +438,8 @@
                             "timestamp": 1467099071360
                         },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Idle",
-                        "tooltip": "source/scripts/githubcommit.sh - Idle",
+                        "title": "source/scripts/githubcommit.sh - Stopped",
+                        "tooltip": "source/scripts/githubcommit.sh - Stopped",
                         "output": {
                             "id": "output792790",
                             "width": 1249,
@@ -465,46 +465,16 @@
                     ],
                     "document": {
                         "changed": true,
-                        "filter": true,
-                        "title": "Search Results",
-                        "tooltip": "/.c9/searchresults",
-                        "ace": {
-                            "folds": [],
-                            "customSyntax": "c9search",
-                            "scrolltop": 831,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 73,
-                                    "column": 0
-                                },
-                                "end": {
-                                    "row": 73,
-                                    "column": 0
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "tabSize": 4,
-                                "useSoftTabs": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": {
-                                "row": 58,
-                                "state": [
-                                    "start",
-                                    {}
-                                ],
-                                "mode": "ace/mode/c9search"
-                            }
-                        },
                         "meta": {
                             "searchResults": true,
                             "ignoreSave": true,
                             "newfile": true,
                             "timestamp": 1468372091954
-                        }
+                        },
+                        "filter": true,
+                        "title": "searchresults",
+                        "tooltip": "/.c9/searchresults",
+                        "ace": {}
                     },
                     "editorType": "ace",
                     "active": false
@@ -529,24 +499,24 @@
     },
     "ext": {
         "counters": {
-            "@ace": 2,
+            "@ace": 3,
             "@ace.repl": 1,
-            "@acestatus": 1,
+            "@acestatus": 2,
             "@datagrid": 1,
             "@divider": 4,
-            "@document": 12,
+            "@document": 16,
             "@form": 5,
             "@immediate": 1,
-            "@menu": 8,
-            "@menuitem": 22,
+            "@menu": 12,
+            "@menuitem": 34,
             "@pane": 6,
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 11,
-            "@tab": 10,
+            "@session": 16,
+            "@tab": 14,
             "@tree": 2,
-            "@undoManager": 12,
+            "@undoManager": 16,
             "@welcome": 1
         }
     },
@@ -575,7 +545,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab3"
+            "searchResults"
         ]
     },
     "panels": {
@@ -608,14 +578,12 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 79,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
                 "/",
-                "/source",
-                "/source/_drafts",
-                "/source/_posts"
+                "/source"
             ]
         }
     },
@@ -666,7 +634,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/_drafts/JavaScript学习笔记之-标准全局对象-常量属性.md"
+            "/source/tags"
         ]
     }
 }
