@@ -17,10 +17,10 @@
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab0",
                     "tab3",
-                    "searchResults",
-                    "tab1"
+                    "tab0",
+                    "tab1",
+                    "searchResults"
                 ]
             },
             "name": "pane1",
@@ -30,8 +30,7 @@
                     "name": "tab0",
                     "path": "",
                     "className": [
-                        "tab0",
-                        "focus"
+                        "tab0"
                     ],
                     "document": {
                         "changed": false,
@@ -39,17 +38,17 @@
                             "timestamp": 1467099071356
                         },
                         "filter": true,
-                        "title": "hexo - \"nj-jiangsz1-de\"",
-                        "tooltip": "hexo - \"nj-jiangsz1-de\"",
+                        "title": "bash - \"nj-jiangsz1-de\"",
+                        "tooltip": "bash - \"nj-jiangsz1-de\"",
                         "terminal": {
                             "id": "devel_844",
                             "cwd": "",
-                            "width": 1556,
-                            "height": 283
+                            "width": 0,
+                            "height": 0
                         }
                     },
                     "editorType": "terminal",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -59,30 +58,14 @@
                         "tab1"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1441863755460
+                        },
                         "filter": true,
                         "title": "Immediate (Javascript (browser))",
                         "tooltip": "Immediate (Javascript (browser))",
                         "immediate": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 2,
-                                    "column": 0
-                                },
-                                "end": {
-                                    "row": 2,
-                                    "column": 0
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": 0,
                             "type": "jsbrowser",
                             "history": [
                                 "new Date().getTimezoneOffset()",
@@ -436,12 +419,7 @@
                                 "console.log(\"xx\")"
                             ],
                             "pos": 0
-                        },
-                        "hash": "bc37e9908b413249fe666f189265c03143e4d841",
-                        "meta": {
-                            "timestamp": 1441863755460
-                        },
-                        "changed": false
+                        }
                     },
                     "editorType": "immediate",
                     "active": false
@@ -451,7 +429,8 @@
                     "name": "tab3",
                     "path": "",
                     "className": [
-                        "tab3"
+                        "tab3",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -459,12 +438,12 @@
                             "timestamp": 1467099071360
                         },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Stopped",
-                        "tooltip": "source/scripts/githubcommit.sh - Stopped",
+                        "title": "source/scripts/githubcommit.sh - Idle",
+                        "tooltip": "source/scripts/githubcommit.sh - Idle",
                         "output": {
                             "id": "output792790",
-                            "width": 0,
-                            "height": 0,
+                            "width": 1249,
+                            "height": 283,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
@@ -474,7 +453,7 @@
                         }
                     },
                     "editorType": "output",
-                    "active": false
+                    "active": true
                 },
                 {
                     "type": "tab",
@@ -486,16 +465,46 @@
                     ],
                     "document": {
                         "changed": true,
+                        "filter": true,
+                        "title": "Search Results",
+                        "tooltip": "/.c9/searchresults",
+                        "ace": {
+                            "folds": [],
+                            "customSyntax": "c9search",
+                            "scrolltop": 831,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 73,
+                                    "column": 0
+                                },
+                                "end": {
+                                    "row": 73,
+                                    "column": 0
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "tabSize": 4,
+                                "useSoftTabs": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": {
+                                "row": 58,
+                                "state": [
+                                    "start",
+                                    {}
+                                ],
+                                "mode": "ace/mode/c9search"
+                            }
+                        },
                         "meta": {
                             "searchResults": true,
                             "ignoreSave": true,
                             "newfile": true,
                             "timestamp": 1468372091954
-                        },
-                        "filter": true,
-                        "title": "Search Results",
-                        "tooltip": "/.c9/searchresults",
-                        "ace": {}
+                        }
                     },
                     "editorType": "ace",
                     "active": false
@@ -522,22 +531,22 @@
         "counters": {
             "@ace": 2,
             "@ace.repl": 1,
-            "@acestatus": 2,
+            "@acestatus": 1,
             "@datagrid": 1,
-            "@divider": 7,
-            "@document": 13,
+            "@divider": 4,
+            "@document": 12,
             "@form": 5,
             "@immediate": 1,
-            "@menu": 9,
-            "@menuitem": 33,
+            "@menu": 8,
+            "@menuitem": 22,
             "@pane": 6,
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 12,
-            "@tab": 8,
+            "@session": 11,
+            "@tab": 10,
             "@tree": 2,
-            "@undoManager": 13,
+            "@undoManager": 12,
             "@welcome": 1
         }
     },
@@ -566,14 +575,13 @@
     },
     "panecycle": {
         "json()": [
-            "tab0",
-            "tab12"
+            "tab3"
         ]
     },
     "panels": {
         "@active-left": "tree",
         "@active-right": "none",
-        "@width-left": 292,
+        "@width-left": 599,
         "commands.panel": {
             "@enabled": "true",
             "@name": "commands.panel"
@@ -600,14 +608,14 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 718,
+        "@scrollpos": 79,
         "@showfs": true,
         "expanded": {
             "json()": [
                 "/",
                 "/source",
-                "/source/_posts",
-                "/source/_drafts"
+                "/source/_drafts",
+                "/source/_posts"
             ]
         }
     },
@@ -626,6 +634,7 @@
         },
         "search": {
             "json()": [
+                "品牌、",
                 "zaozaool",
                 "package",
                 "[root@redhat~]#",
@@ -644,57 +653,12 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/source/_posts/微信企业号.md",
+            "focus": "tab3",
             "meta": {
-                "accessList": [
-                    "tab12",
-                    "tab11"
-                ]
+                "accessList": []
             },
             "name": "pane0",
-            "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab11",
-                    "path": "/source/_drafts/Todo-List.md",
-                    "className": [
-                        "tab11"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1468299823261
-                        },
-                        "filter": true,
-                        "title": "Todo-List.md",
-                        "tooltip": "/source/_drafts/Todo-List.md",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab12",
-                    "path": "/source/_posts/微信企业号.md",
-                    "className": [
-                        "tab12",
-                        "focus"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1468389550309
-                        },
-                        "filter": true,
-                        "title": "微信企业号.md",
-                        "tooltip": "/source/_posts/微信企业号.md",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                }
-            ],
+            "nodes": [],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -702,7 +666,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/_posts/常用工具.md"
+            "/source/_drafts/JavaScript学习笔记之-标准全局对象-常量属性.md"
         ]
     }
 }
