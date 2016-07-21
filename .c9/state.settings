@@ -429,7 +429,7 @@
                     "path": "",
                     "className": [
                         "tab3",
-                        "focus"
+                        "running"
                     ],
                     "document": {
                         "changed": false,
@@ -437,8 +437,8 @@
                             "timestamp": 1467099071360
                         },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Idle",
-                        "tooltip": "source/scripts/githubcommit.sh - Idle",
+                        "title": "source/scripts/githubcommit.sh - Running",
+                        "tooltip": "source/scripts/githubcommit.sh - Running",
                         "output": {
                             "id": "output792790",
                             "width": 1520,
@@ -448,6 +448,25 @@
                                 "command": "source/scripts/githubcommit.sh",
                                 "toolbar": true,
                                 "name": ""
+                            },
+                            "running": {
+                                "pid": 31962,
+                                "name": "output792790",
+                                "running": 2,
+                                "runner": [
+                                    {
+                                        "cmd": [
+                                            "bash",
+                                            "-i",
+                                            "-l",
+                                            "$file",
+                                            "$args"
+                                        ],
+                                        "selector": "^.*\\.(sh)$",
+                                        "caption": "Shell script",
+                                        "$builtin": true
+                                    }
+                                ]
                             }
                         }
                     },
@@ -521,8 +540,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab3",
-            "tab2"
+            "tab3"
         ]
     },
     "panels": {
@@ -599,35 +617,12 @@
     },
     "tabs": {
         "json()": {
-            "focus": "tab3",
+            "focus": null,
             "meta": {
-                "accessList": [
-                    "tab2"
-                ]
+                "accessList": []
             },
             "name": "pane0",
-            "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab2",
-                    "path": "/source/_posts/Drools之Workbench-Data存储位置.md",
-                    "className": [
-                        "tab2"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1469099209166
-                        },
-                        "filter": true,
-                        "title": "Drools之Workbench-Data存储位置.md",
-                        "tooltip": "/source/_posts/Drools之Workbench-Data存储位置.md",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                }
-            ],
+            "nodes": [],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
