@@ -8,6 +8,10 @@ tags: [Git]
 ```shell
 vim ~/.gitconfig
 ```
+Windows在用户目录下：
+```shell
+C:/Users/administrator/.gitconfig
+```
 <!--more-->
 
 ```shell
