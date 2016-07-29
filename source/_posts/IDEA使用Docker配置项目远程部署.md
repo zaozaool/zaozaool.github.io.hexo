@@ -15,8 +15,10 @@ DOCKER_OPTS="-H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375"
 ```shell
 docker run tomcat
 ```
-<!-- more -->
-3. IDEA安装Docker插件，需重启后生效
+
+3. IDEA安装Docker插件,需重启后生效
+<!--more-->
+![配置](http://zaozaool.github.io/pic/IDEA-plugin-docker.png)
 
 4. 在项目目录下创建docker-dir目录，并创建Dockerfile文件，其内容为：
 ```shell

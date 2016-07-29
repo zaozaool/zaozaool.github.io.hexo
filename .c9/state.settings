@@ -18,8 +18,8 @@
             "meta": {
                 "accessList": [
                     "tab3",
-                    "tab1",
-                    "tab0"
+                    "tab0",
+                    "tab1"
                 ]
             },
             "name": "pane1",
@@ -450,7 +450,7 @@
                                 "name": ""
                             },
                             "running": {
-                                "pid": 14297,
+                                "pid": 21197,
                                 "name": "output792790",
                                 "running": 2,
                                 "runner": [
@@ -502,8 +502,8 @@
             "@form": 5,
             "@imgeditor": 1,
             "@immediate": 1,
-            "@menu": 5,
-            "@menuitem": 13,
+            "@menu": 6,
+            "@menuitem": 16,
             "@pane": 6,
             "@postmessage": 3,
             "@preferences": 1,
@@ -579,7 +579,8 @@
         "expanded": {
             "json()": [
                 "/",
-                "/source"
+                "/source",
+                "/source/pic"
             ]
         }
     },
@@ -636,7 +637,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1469799397282
+                            "timestamp": 1469801610072
                         },
                         "filter": true,
                         "title": "IDEA使用Docker配置项目远程部署.md",
@@ -654,7 +655,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/pic"
+            "/source/pic/IDEA-plugin-docker.png"
         ]
     }
 }
