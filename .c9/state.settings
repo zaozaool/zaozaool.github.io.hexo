@@ -18,8 +18,8 @@
             "meta": {
                 "accessList": [
                     "tab3",
-                    "tab0",
-                    "tab1"
+                    "tab1",
+                    "tab0"
                 ]
             },
             "name": "pane1",
@@ -57,30 +57,14 @@
                         "tab1"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1441863755460
+                        },
                         "filter": true,
                         "title": "Immediate (Javascript (browser))",
                         "tooltip": "Immediate (Javascript (browser))",
                         "immediate": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 2,
-                                    "column": 0
-                                },
-                                "end": {
-                                    "row": 2,
-                                    "column": 0
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": 0,
                             "type": "jsbrowser",
                             "history": [
                                 "new Date().getTimezoneOffset()",
@@ -434,12 +418,7 @@
                                 "console.log(\"xx\")"
                             ],
                             "pos": 0
-                        },
-                        "hash": "bc37e9908b413249fe666f189265c03143e4d841",
-                        "meta": {
-                            "timestamp": 1441863755460
-                        },
-                        "changed": false
+                        }
                     },
                     "editorType": "immediate",
                     "active": false
@@ -450,8 +429,7 @@
                     "path": "",
                     "className": [
                         "tab3",
-                        "running",
-                        "focus"
+                        "connecting"
                     ],
                     "document": {
                         "changed": false,
@@ -459,8 +437,8 @@
                             "timestamp": 1467099071360
                         },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Running",
-                        "tooltip": "source/scripts/githubcommit.sh - Running",
+                        "title": "source/scripts/githubcommit.sh - Idle",
+                        "tooltip": "source/scripts/githubcommit.sh - Idle",
                         "output": {
                             "id": "output792790",
                             "width": 1520,
@@ -472,9 +450,8 @@
                                 "name": ""
                             },
                             "running": {
-                                "pid": 13993,
                                 "name": "output792790",
-                                "running": 2,
+                                "running": 1,
                                 "runner": [
                                     {
                                         "cmd": [
@@ -515,12 +492,12 @@
     },
     "ext": {
         "counters": {
-            "@ace": 1,
+            "@ace": 2,
             "@ace.repl": 1,
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 4,
-            "@document": 5,
+            "@document": 15,
             "@form": 5,
             "@imgeditor": 1,
             "@immediate": 1,
@@ -530,10 +507,10 @@
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 4,
-            "@tab": 3,
+            "@session": 15,
+            "@tab": 15,
             "@tree": 2,
-            "@undoManager": 5,
+            "@undoManager": 15,
             "@welcome": 1
         }
     },
@@ -562,7 +539,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab3"
+            "tab10",
+            "tab1"
         ]
     },
     "panels": {
@@ -595,13 +573,12 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 350,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
                 "/",
-                "/source",
-                "/source/_posts"
+                "/source"
             ]
         }
     },
@@ -642,10 +619,33 @@
         "json()": {
             "focus": "tab3",
             "meta": {
-                "accessList": []
+                "accessList": [
+                    "tab10"
+                ]
             },
             "name": "pane0",
-            "nodes": [],
+            "nodes": [
+                {
+                    "type": "tab",
+                    "name": "tab10",
+                    "path": "/source/_posts/IDEA使用Docker配置项目远程部署.md",
+                    "className": [
+                        "tab10"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1469799397282
+                        },
+                        "filter": true,
+                        "title": "IDEA使用Docker配置项目远程部署.md",
+                        "tooltip": "/source/_posts/IDEA使用Docker配置项目远程部署.md",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
+                }
+            ],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -653,7 +653,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/"
+            "/source/pic"
         ]
     }
 }
