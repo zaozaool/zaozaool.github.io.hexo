@@ -429,7 +429,7 @@
                     "path": "",
                     "className": [
                         "tab3",
-                        "connecting"
+                        "running"
                     ],
                     "document": {
                         "changed": false,
@@ -437,8 +437,8 @@
                             "timestamp": 1467099071360
                         },
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Idle",
-                        "tooltip": "source/scripts/githubcommit.sh - Idle",
+                        "title": "source/scripts/githubcommit.sh - Running",
+                        "tooltip": "source/scripts/githubcommit.sh - Running",
                         "output": {
                             "id": "output792790",
                             "width": 1520,
@@ -450,8 +450,9 @@
                                 "name": ""
                             },
                             "running": {
+                                "pid": 14297,
                                 "name": "output792790",
-                                "running": 1,
+                                "running": 2,
                                 "runner": [
                                     {
                                         "cmd": [
@@ -540,7 +541,7 @@
     "panecycle": {
         "json()": [
             "tab10",
-            "tab1"
+            "tab3"
         ]
     },
     "panels": {
