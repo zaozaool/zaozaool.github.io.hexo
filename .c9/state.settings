@@ -450,7 +450,7 @@
                                 "name": ""
                             },
                             "running": {
-                                "pid": 21197,
+                                "pid": 4363,
                                 "name": "output792790",
                                 "running": 2,
                                 "runner": [
@@ -498,20 +498,20 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 4,
-            "@document": 15,
+            "@document": 5,
             "@form": 5,
             "@imgeditor": 1,
             "@immediate": 1,
-            "@menu": 6,
-            "@menuitem": 16,
+            "@menu": 5,
+            "@menuitem": 13,
             "@pane": 6,
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 15,
-            "@tab": 15,
+            "@session": 5,
+            "@tab": 3,
             "@tree": 2,
-            "@undoManager": 15,
+            "@undoManager": 5,
             "@welcome": 1
         }
     },
@@ -540,7 +540,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab10",
+            "tab2",
             "tab3"
         ]
     },
@@ -579,8 +579,7 @@
         "expanded": {
             "json()": [
                 "/",
-                "/source",
-                "/source/pic"
+                "/source"
             ]
         }
     },
@@ -622,26 +621,26 @@
             "focus": "tab3",
             "meta": {
                 "accessList": [
-                    "tab10"
+                    "tab2"
                 ]
             },
             "name": "pane0",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab10",
-                    "path": "/source/_posts/IDEA使用Docker配置项目远程部署.md",
+                    "name": "tab2",
+                    "path": "/source/_posts/git命令自定义.md",
                     "className": [
-                        "tab10"
+                        "tab2"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1469801610072
+                            "timestamp": 1470056609032
                         },
                         "filter": true,
-                        "title": "IDEA使用Docker配置项目远程部署.md",
-                        "tooltip": "/source/_posts/IDEA使用Docker配置项目远程部署.md",
+                        "title": "git命令自定义.md",
+                        "tooltip": "/source/_posts/git命令自定义.md",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -655,7 +654,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/pic/IDEA-plugin-docker.png"
+            "/source/json_data"
         ]
     }
 }
