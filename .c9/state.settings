@@ -35,8 +35,8 @@
                         "changed": false,
                         "meta": {},
                         "filter": true,
-                        "title": "bash - \"ubuntu@ip-172-31-8-126: ~/repositories\"",
-                        "tooltip": "bash - \"ubuntu@ip-172-31-8-126: ~/repositories\"",
+                        "title": "bash - \"ubuntu@ip-172-31-8-126: ~\"",
+                        "tooltip": "bash - \"ubuntu@ip-172-31-8-126: ~\"",
                         "terminal": {
                             "id": "devel_844",
                             "cwd": "",
@@ -433,8 +433,8 @@
                         "changed": false,
                         "meta": {},
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Idle",
-                        "tooltip": "source/scripts/githubcommit.sh - Idle",
+                        "title": "source/scripts/githubcommit.sh - Stopped",
+                        "tooltip": "source/scripts/githubcommit.sh - Stopped",
                         "output": {
                             "id": "output792790",
                             "width": 1520,
@@ -475,7 +475,7 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 5,
-            "@document": 7,
+            "@document": 8,
             "@form": 6,
             "@imgeditor": 1,
             "@immediate": 1,
@@ -485,10 +485,10 @@
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 7,
-            "@tab": 5,
+            "@session": 8,
+            "@tab": 6,
             "@tree": 2,
-            "@undoManager": 7,
+            "@undoManager": 8,
             "@welcome": 1
         }
     },
@@ -520,7 +520,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab3"
+            "tab3",
+            "tab5"
         ]
     },
     "panels": {
@@ -600,10 +601,33 @@
         "json()": {
             "focus": "tab3",
             "meta": {
-                "accessList": []
+                "accessList": [
+                    "tab5"
+                ]
             },
             "name": "pane0",
-            "nodes": [],
+            "nodes": [
+                {
+                    "type": "tab",
+                    "name": "tab5",
+                    "path": "/source/scripts/githubcommit.sh",
+                    "className": [
+                        "tab5"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1470135378294
+                        },
+                        "filter": true,
+                        "title": "githubcommit.sh",
+                        "tooltip": "/source/scripts/githubcommit.sh",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
+                }
+            ],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
