@@ -1,6 +1,6 @@
 #!/bin/bash
 
-hexo_root=/home/scm/repositories/zaozaool.github.io.hexo
+hexo_root=~/repositories/zaozaool.github.io.hexo
 cd $hexo_root
 
 index=0
