@@ -12,13 +12,13 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 313,
+        "@height": 354,
         "@maximized": "false",
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab0",
                     "tab3",
+                    "tab0",
                     "tab1"
                 ]
             },
@@ -35,8 +35,8 @@
                         "changed": false,
                         "meta": {},
                         "filter": true,
-                        "title": "bash - \"ubuntu@ip-172-31-8-126: ~\"",
-                        "tooltip": "bash - \"ubuntu@ip-172-31-8-126: ~\"",
+                        "title": "bash - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
+                        "tooltip": "bash - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
                         "terminal": {
                             "id": "devel_844",
                             "cwd": "",
@@ -55,14 +55,30 @@
                         "tab1"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1441863755460
-                        },
                         "filter": true,
                         "title": "Immediate (Javascript (browser))",
                         "tooltip": "Immediate (Javascript (browser))",
                         "immediate": {
+                            "folds": [],
+                            "scrolltop": 0,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 2,
+                                    "column": 0
+                                },
+                                "end": {
+                                    "row": 2,
+                                    "column": 0
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": 0,
                             "type": "jsbrowser",
                             "history": [
                                 "new Date().getTimezoneOffset()",
@@ -416,7 +432,12 @@
                                 "console.log(\"xx\")"
                             ],
                             "pos": 0
-                        }
+                        },
+                        "hash": "bc37e9908b413249fe666f189265c03143e4d841",
+                        "meta": {
+                            "timestamp": 1441863755460
+                        },
+                        "changed": false
                     },
                     "editorType": "immediate",
                     "active": false
@@ -433,12 +454,12 @@
                         "changed": false,
                         "meta": {},
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Stopped",
-                        "tooltip": "source/scripts/githubcommit.sh - Stopped",
+                        "title": "source/scripts/githubcommit.sh - Idle",
+                        "tooltip": "source/scripts/githubcommit.sh - Idle",
                         "output": {
                             "id": "output792790",
                             "width": 1520,
-                            "height": 287,
+                            "height": 328,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
@@ -474,21 +495,21 @@
             "@ace.repl": 1,
             "@acestatus": 1,
             "@datagrid": 1,
-            "@divider": 5,
-            "@document": 10,
-            "@form": 6,
+            "@divider": 1,
+            "@document": 3,
+            "@form": 5,
             "@imgeditor": 1,
             "@immediate": 1,
-            "@menu": 8,
-            "@menuitem": 20,
+            "@menu": 3,
+            "@menuitem": 6,
             "@pane": 6,
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 10,
+            "@session": 2,
             "@tab": 8,
             "@tree": 2,
-            "@undoManager": 10,
+            "@undoManager": 3,
             "@welcome": 1
         }
     },
@@ -520,8 +541,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab7",
-            "tab0"
+            "tab3"
         ]
     },
     "panels": {
@@ -559,8 +579,7 @@
         "expanded": {
             "json()": [
                 "/",
-                "/source",
-                "/source/scripts"
+                "/source"
             ]
         }
     },
@@ -602,77 +621,10 @@
         "json()": {
             "focus": "tab3",
             "meta": {
-                "accessList": [
-                    "tab7",
-                    "tab5",
-                    "tab6"
-                ]
+                "accessList": []
             },
             "name": "pane0",
-            "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab5",
-                    "path": "/source/scripts/githubcommit.sh",
-                    "className": [
-                        "tab5"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1470135378294
-                        },
-                        "filter": true,
-                        "title": "githubcommit.sh",
-                        "tooltip": "/source/scripts/githubcommit.sh",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab6",
-                    "path": "/source/scripts/statistic.sh",
-                    "className": [
-                        "tab6"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1470135664017
-                        },
-                        "filter": true,
-                        "title": "statistic.sh",
-                        "tooltip": "/source/scripts/statistic.sh",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab7",
-                    "path": "/Untitled1",
-                    "className": [
-                        "changed",
-                        "tab7"
-                    ],
-                    "document": {
-                        "changed": true,
-                        "meta": {
-                            "newfile": true,
-                            "timestamp": 1470135710812
-                        },
-                        "filter": true,
-                        "title": "Untitled1",
-                        "tooltip": "/Untitled1",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                }
-            ],
+            "nodes": [],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -680,7 +632,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/scripts/statistic.sh"
+            "/source/scripts"
         ]
     }
 }
