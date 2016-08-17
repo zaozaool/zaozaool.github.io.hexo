@@ -26,17 +26,30 @@ docker run tomcat
 
 FROM tomcat
 
-#Drools规则引擎使用，跟该主题无关
 RUN mkdir /root/.m2
 WORKDIR /root/.m2
-RUN wget http://10.168.2.64/scripts/settings.xml
+RUN wget  http://10.168.2.64/scripts/settings.xml
 
-#Debug端口映射
+WORKDIR /usr/sbin
+RUN wget http://10.168.2.64/soft/html2pdf
+RUN chmod 755 html2pdf
+
+RUN apt-get update
+RUN apt-get -y install ghostscript
 ENV CATALINA_OPTS  "-agentlib:jdwp=transport=dt_socket,address=0.0.0.0:18787,suspend=n,server=y"
 EXPOSE 18787
 
-#部署war
+RUN apt-get -y install ssh
+RUN sed -i  /Port/s/22/2022/ /etc/ssh/sshd_config
+RUN sed -i /PermitRootLogin/s/without-password/yes/ /etc/ssh/sshd_config
+EXPOSE 2022
+RUN sed -i /exit/d /etc/rc.local
+RUN echo "root:root" | chpasswd
+
+RUN sed -i /^PRGDIR/a'service ssh restart' /usr/local/tomcat/bin/catalina.sh
+
 ADD SCM-usorder.war /usr/local/tomcat/webapps/
+
 ```
 
 5. Settings > Build,Execution,Deployment > Clouds下增加docker，如图：
