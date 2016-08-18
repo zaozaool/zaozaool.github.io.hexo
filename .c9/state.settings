@@ -12,14 +12,14 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 311,
+        "@height": 151,
         "@maximized": "false",
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab0",
                     "tab1",
-                    "tab3"
+                    "tab3",
+                    "tab0"
                 ]
             },
             "name": "pane1",
@@ -32,53 +32,40 @@
                         "tab0"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {},
                         "filter": true,
                         "title": "bash - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
                         "tooltip": "bash - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
                         "terminal": {
                             "id": "devel_844",
                             "cwd": "",
-                            "width": 966,
-                            "height": 285
-                        }
+                            "width": 0,
+                            "height": 0,
+                            "scrollTop": 5061
+                        },
+                        "hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+                        "meta": {},
+                        "changed": false
                     },
                     "editorType": "terminal",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
                     "name": "tab1",
                     "path": "",
                     "className": [
-                        "tab1"
+                        "tab1",
+                        "focus"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1441863755460
+                        },
                         "filter": true,
                         "title": "Immediate (Javascript (browser))",
                         "tooltip": "Immediate (Javascript (browser))",
                         "immediate": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 2,
-                                    "column": 0
-                                },
-                                "end": {
-                                    "row": 2,
-                                    "column": 0
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": 0,
                             "type": "jsbrowser",
                             "history": [
                                 "new Date().getTimezoneOffset()",
@@ -432,15 +419,10 @@
                                 "console.log(\"xx\")"
                             ],
                             "pos": 0
-                        },
-                        "hash": "bc37e9908b413249fe666f189265c03143e4d841",
-                        "meta": {
-                            "timestamp": 1441863755460
-                        },
-                        "changed": false
+                        }
                     },
                     "editorType": "immediate",
-                    "active": false
+                    "active": true
                 },
                 {
                     "type": "tab",
@@ -450,6 +432,8 @@
                         "tab3"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {},
                         "filter": true,
                         "title": "source/scripts/githubcommit.sh - Idle",
                         "tooltip": "source/scripts/githubcommit.sh - Idle",
@@ -457,17 +441,13 @@
                             "id": "output792790",
                             "width": 0,
                             "height": 0,
-                            "scrollTop": 3368,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
                                 "toolbar": true,
                                 "name": ""
                             }
-                        },
-                        "hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
-                        "meta": {},
-                        "changed": false
+                        }
                     },
                     "editorType": "output",
                     "active": false
@@ -492,12 +472,12 @@
     },
     "ext": {
         "counters": {
-            "@ace": 1,
+            "@ace": 2,
             "@ace.repl": 1,
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 4,
-            "@document": 6,
+            "@document": 4,
             "@form": 5,
             "@imgeditor": 1,
             "@immediate": 1,
@@ -507,10 +487,10 @@
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 4,
+            "@session": 3,
             "@tab": 3,
             "@tree": 2,
-            "@undoManager": 6,
+            "@undoManager": 4,
             "@welcome": 1
         }
     },
@@ -542,8 +522,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab2",
-            "tab0"
+            "tab1",
+            "tab2"
         ]
     },
     "panels": {
@@ -580,10 +560,7 @@
         "@showfs": true,
         "expanded": {
             "json()": [
-                "/",
-                "/source",
-                "/source/_posts",
-                "/source/_drafts"
+                "/"
             ]
         }
     },
@@ -602,6 +579,7 @@
         },
         "search": {
             "json()": [
+                " %C(bold)%d%Creset",
                 "scm",
                 "http://0.0.0.0:4000/",
                 "品牌、",
@@ -623,7 +601,7 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/source/_drafts/Drools之决策表.md",
+            "focus": "/source/_posts/git命令自定义.md",
             "meta": {
                 "accessList": [
                     "tab2"
@@ -634,19 +612,17 @@
                 {
                     "type": "tab",
                     "name": "tab2",
-                    "path": "/source/_drafts/Drools之决策表.md",
+                    "path": "/source/_posts/git命令自定义.md",
                     "className": [
                         "tab2",
                         "focus"
                     ],
                     "document": {
                         "changed": false,
-                        "meta": {
-                            "timestamp": 1470134254742
-                        },
+                        "meta": {},
                         "filter": true,
-                        "title": "Drools之决策表.md",
-                        "tooltip": "/source/_drafts/Drools之决策表.md",
+                        "title": "git命令自定义.md",
+                        "tooltip": "/source/_posts/git命令自定义.md",
                         "ace": {}
                     },
                     "editorType": "ace",
@@ -660,7 +636,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/_drafts/Drools之决策表.md"
+            "/source"
         ]
     }
 }

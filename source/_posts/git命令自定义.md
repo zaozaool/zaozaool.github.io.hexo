@@ -122,8 +122,8 @@ C:/Users/user/.gitconfig
 
     fp  = format-patch -s
 
-    ll  = log --pretty=format:'%C(blue)%h%Creset %cn %m %s %C(green)%C(dim)%cr%Creset %C(bold)%d%Creset' --branches --graph --since='2 weeks ago'
-    ls  = log --pretty=format:'%C(blue)%h%Creset %cn %m %s %C(green)%C(dim)%ci%Creset %C(bold)%d%Creset' --all --graph
+    ll  = log --pretty=format:'%C(blue)%h%Creset %cn %m %C(bold)%C(red)%d%Creset %s %C(green)%C(dim)%cr%Creset' --branches --graph --since='2 weeks ago'
+    ls  = log --pretty=format:'%C(blue)%h%Creset %cn %m %C(bold)%C(red)%d%Creset %s %C(green)%C(dim)%ci%Creset' --all --graph
 
     ms  = merge --squash
     mf  = merge --no-ff # generate a merge commit even if the merge resolved as a fast-forward
