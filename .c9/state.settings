@@ -17,8 +17,8 @@
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab0",
                     "tab3",
+                    "tab0",
                     "tab1",
                     "searchResults"
                 ]
@@ -30,24 +30,23 @@
                     "name": "tab0",
                     "path": "",
                     "className": [
-                        "tab0",
-                        "focus"
+                        "tab0"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {},
                         "filter": true,
-                        "title": "hexo - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
-                        "tooltip": "hexo - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
+                        "title": "bash - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
+                        "tooltip": "bash - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
                         "terminal": {
                             "id": "devel_844",
                             "cwd": "",
-                            "width": 1520,
-                            "height": 276
+                            "width": 0,
+                            "height": 0
                         }
                     },
                     "editorType": "terminal",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -449,7 +448,8 @@
                     "name": "tab3",
                     "path": "",
                     "className": [
-                        "tab3"
+                        "tab3",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -459,8 +459,8 @@
                         "tooltip": "source/scripts/githubcommit.sh - Stopped",
                         "output": {
                             "id": "output792790",
-                            "width": 0,
-                            "height": 0,
+                            "width": 1520,
+                            "height": 276,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
@@ -470,7 +470,7 @@
                         }
                     },
                     "editorType": "output",
-                    "active": false
+                    "active": true
                 },
                 {
                     "type": "tab",
@@ -589,7 +589,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab0",
+            "tab3",
             "tab4"
         ]
     },
@@ -674,7 +674,7 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/source/_posts/Chrome推荐插件.md",
+            "focus": "tab3",
             "meta": {
                 "accessList": [
                     "tab4"
@@ -687,14 +687,12 @@
                     "name": "tab4",
                     "path": "/source/_posts/Chrome推荐插件.md",
                     "className": [
-                        "tab4",
-                        "focus",
-                        "changed"
+                        "tab4"
                     ],
                     "document": {
-                        "changed": true,
+                        "changed": false,
                         "meta": {
-                            "timestamp": 1472007994561
+                            "timestamp": 1472008058676
                         },
                         "filter": true,
                         "title": "Chrome推荐插件.md",

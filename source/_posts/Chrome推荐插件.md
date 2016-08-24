@@ -23,6 +23,7 @@ tags: [Chrome]
 - JetBrains IDE Support: 结合WebStorm&IDEA调试js
 - Appspector: 检测web网站使用的js和中间件技术
 <!-- more -->
+- Clear Cache: 一键清除浏览器缓存
 - amCoffee: CoffeeScript的Chrome Console
 - Chrome Apps & Extensions Developer Tool
 - Cog - System Info Viewer
