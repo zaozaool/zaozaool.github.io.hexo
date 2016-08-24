@@ -448,8 +448,7 @@
                     "name": "tab3",
                     "path": "",
                     "className": [
-                        "tab3",
-                        "focus"
+                        "tab3"
                     ],
                     "document": {
                         "changed": false,
@@ -544,7 +543,7 @@
             "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 4,
-            "@document": 11,
+            "@document": 12,
             "@form": 5,
             "@imgeditor": 1,
             "@immediate": 1,
@@ -554,10 +553,10 @@
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 9,
-            "@tab": 9,
+            "@session": 10,
+            "@tab": 10,
             "@tree": 2,
-            "@undoManager": 11,
+            "@undoManager": 12,
             "@welcome": 1
         }
     },
@@ -589,8 +588,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab3",
-            "tab7"
+            "tab9",
+            "tab3"
         ]
     },
     "panels": {
@@ -674,9 +673,10 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/source/_posts/Zed-Keymap.md",
+            "focus": "/source/_posts/vimium-keymap.md",
             "meta": {
                 "accessList": [
+                    "tab9",
                     "tab7",
                     "tab8"
                 ]
@@ -688,13 +688,12 @@
                     "name": "tab7",
                     "path": "/source/_posts/Zed-Keymap.md",
                     "className": [
-                        "tab7",
-                        "focus"
+                        "tab7"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1472019920895
+                            "timestamp": 1472020428304
                         },
                         "filter": true,
                         "title": "Zed-Keymap.md",
@@ -702,7 +701,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -723,6 +722,27 @@
                     },
                     "editorType": "ace",
                     "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab9",
+                    "path": "/source/_posts/vimium-keymap.md",
+                    "className": [
+                        "tab9",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1472005035594
+                        },
+                        "filter": true,
+                        "title": "vimium-keymap.md",
+                        "tooltip": "/source/_posts/vimium-keymap.md",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
                 }
             ],
             "skin": "editor_tab",
@@ -732,7 +752,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/_posts/Zed-Keymap.md"
+            "/source/_posts/vimium-keymap.md"
         ]
     }
 }
