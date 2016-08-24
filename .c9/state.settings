@@ -18,6 +18,7 @@
             "meta": {
                 "accessList": [
                     "tab3",
+                    "searchResults",
                     "tab0",
                     "tab1"
                 ]
@@ -449,6 +450,30 @@
                     },
                     "editorType": "output",
                     "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "searchResults",
+                    "path": "/.c9/searchresults",
+                    "className": [
+                        "searchResults",
+                        "changed"
+                    ],
+                    "document": {
+                        "changed": true,
+                        "meta": {
+                            "searchResults": true,
+                            "ignoreSave": true,
+                            "newfile": true,
+                            "timestamp": 1472001881602
+                        },
+                        "filter": true,
+                        "title": "Search Results",
+                        "tooltip": "/.c9/searchresults",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -470,12 +495,12 @@
     },
     "ext": {
         "counters": {
-            "@ace": 2,
+            "@ace": 3,
             "@ace.repl": 1,
-            "@acestatus": 1,
+            "@acestatus": 2,
             "@datagrid": 1,
             "@divider": 4,
-            "@document": 12,
+            "@document": 17,
             "@form": 5,
             "@imgeditor": 1,
             "@immediate": 1,
@@ -485,10 +510,10 @@
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 12,
-            "@tab": 11,
+            "@session": 17,
+            "@tab": 15,
             "@tree": 2,
-            "@undoManager": 12,
+            "@undoManager": 17,
             "@welcome": 1
         }
     },
@@ -520,8 +545,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab3",
-            "tab10"
+            "searchResults"
         ]
     },
     "panels": {
@@ -554,7 +578,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
+        "@scrollpos": 410,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -579,6 +603,8 @@
         },
         "search": {
             "json()": [
+                "Chrome",
+                "chrome",
                 " %C(bold)%d%Creset",
                 "scm",
                 "http://0.0.0.0:4000/",
@@ -593,6 +619,7 @@
         },
         "searchfiles": {
             "json()": [
+                "chrome",
                 "zaozaool.github.io",
                 "vagrant",
                 "zaozaool"
@@ -603,33 +630,10 @@
         "json()": {
             "focus": "tab3",
             "meta": {
-                "accessList": [
-                    "tab10"
-                ]
+                "accessList": []
             },
             "name": "pane0",
-            "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab10",
-                    "path": "/source/_posts/Java常用工具.md",
-                    "className": [
-                        "tab10"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1471947823656
-                        },
-                        "filter": true,
-                        "title": "Java常用工具.md",
-                        "tooltip": "/source/_posts/Java常用工具.md",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                }
-            ],
+            "nodes": [],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -637,7 +641,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/_posts/Java相关工具.md"
+            "/source/_posts/深入浅出Node-js-脑图.md"
         ]
     }
 }
