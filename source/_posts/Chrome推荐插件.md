@@ -5,6 +5,7 @@ tags: [Chrome]
 ---
 
 - vimium: 抛弃鼠标操作浏览器的最佳插件
+- cVim: 比vimium更强大，功能更全面的vim插件
 - crxMouse: 鼠标手势
 - Ghostery: 了解谁在跟踪您的网页浏览操作
 - IE Tab: 在标签页中以IE内核显示网页

@@ -622,13 +622,11 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 341,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
-                "/",
-                "/source",
-                "/source/_posts"
+                "/"
             ]
         }
     },
@@ -673,7 +671,7 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/source/_posts/vimium-keymap.md",
+            "focus": "/source/_posts/Chrome推荐插件.md",
             "meta": {
                 "accessList": [
                     "tab9",
@@ -708,7 +706,8 @@
                     "name": "tab8",
                     "path": "/source/_posts/Chrome推荐插件.md",
                     "className": [
-                        "tab8"
+                        "tab8",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -721,20 +720,19 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": false
+                    "active": true
                 },
                 {
                     "type": "tab",
                     "name": "tab9",
                     "path": "/source/_posts/vimium-keymap.md",
                     "className": [
-                        "tab9",
-                        "focus"
+                        "tab9"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1472005035594
+                            "timestamp": 1472020475958
                         },
                         "filter": true,
                         "title": "vimium-keymap.md",
@@ -742,7 +740,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -752,7 +750,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/_posts/vimium-keymap.md"
+            "/"
         ]
     }
 }
