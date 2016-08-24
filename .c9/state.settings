@@ -17,10 +17,10 @@
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab3",
                     "tab0",
-                    "searchResults",
-                    "tab1"
+                    "tab3",
+                    "tab1",
+                    "searchResults"
                 ]
             },
             "name": "pane1",
@@ -30,23 +30,24 @@
                     "name": "tab0",
                     "path": "",
                     "className": [
-                        "tab0"
+                        "tab0",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {},
                         "filter": true,
-                        "title": "bash - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
-                        "tooltip": "bash - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
+                        "title": "hexo - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
+                        "tooltip": "hexo - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
                         "terminal": {
                             "id": "devel_844",
                             "cwd": "",
-                            "width": 0,
-                            "height": 0
+                            "width": 1520,
+                            "height": 276
                         }
                     },
                     "editorType": "terminal",
-                    "active": false
+                    "active": true
                 },
                 {
                     "type": "tab",
@@ -56,14 +57,30 @@
                         "tab1"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1441863755460
-                        },
                         "filter": true,
                         "title": "Immediate (Javascript (browser))",
                         "tooltip": "Immediate (Javascript (browser))",
                         "immediate": {
+                            "folds": [],
+                            "scrolltop": 0,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 2,
+                                    "column": 0
+                                },
+                                "end": {
+                                    "row": 2,
+                                    "column": 0
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": 0,
                             "type": "jsbrowser",
                             "history": [
                                 "new Date().getTimezoneOffset()",
@@ -417,7 +434,12 @@
                                 "console.log(\"xx\")"
                             ],
                             "pos": 0
-                        }
+                        },
+                        "hash": "bc37e9908b413249fe666f189265c03143e4d841",
+                        "meta": {
+                            "timestamp": 1441863755460
+                        },
+                        "changed": false
                     },
                     "editorType": "immediate",
                     "active": false
@@ -427,19 +449,18 @@
                     "name": "tab3",
                     "path": "",
                     "className": [
-                        "tab3",
-                        "focus"
+                        "tab3"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {},
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Stopped",
-                        "tooltip": "source/scripts/githubcommit.sh - Stopped",
+                        "title": "source/scripts/githubcommit.sh - Idle",
+                        "tooltip": "source/scripts/githubcommit.sh - Idle",
                         "output": {
                             "id": "output792790",
-                            "width": 1520,
-                            "height": 276,
+                            "width": 0,
+                            "height": 0,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
@@ -449,7 +470,7 @@
                         }
                     },
                     "editorType": "output",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -461,16 +482,39 @@
                     ],
                     "document": {
                         "changed": true,
+                        "filter": true,
+                        "title": "Search Results",
+                        "tooltip": "/.c9/searchresults",
+                        "ace": {
+                            "folds": [],
+                            "customSyntax": "c9search",
+                            "scrolltop": 0,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 15,
+                                    "column": 81
+                                },
+                                "end": {
+                                    "row": 15,
+                                    "column": 81
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "tabSize": 4,
+                                "useSoftTabs": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": 0
+                        },
                         "meta": {
                             "searchResults": true,
                             "ignoreSave": true,
                             "newfile": true,
                             "timestamp": 1472001881602
-                        },
-                        "filter": true,
-                        "title": "Search Results",
-                        "tooltip": "/.c9/searchresults",
-                        "ace": {}
+                        }
                     },
                     "editorType": "ace",
                     "active": false
@@ -495,25 +539,25 @@
     },
     "ext": {
         "counters": {
-            "@ace": 3,
+            "@ace": 1,
             "@ace.repl": 1,
-            "@acestatus": 2,
+            "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 4,
-            "@document": 18,
+            "@document": 6,
             "@form": 5,
             "@imgeditor": 1,
             "@immediate": 1,
-            "@menu": 5,
-            "@menuitem": 13,
+            "@menu": 6,
+            "@menuitem": 16,
             "@pane": 6,
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 18,
-            "@tab": 16,
+            "@session": 4,
+            "@tab": 3,
             "@tree": 2,
-            "@undoManager": 18,
+            "@undoManager": 6,
             "@welcome": 1
         }
     },
@@ -545,8 +589,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab3",
-            "tab15"
+            "tab0",
+            "tab2"
         ]
     },
     "panels": {
@@ -579,7 +623,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 410,
+        "@scrollpos": 350,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -604,6 +648,7 @@
         },
         "search": {
             "json()": [
+                "pList",
                 "Chrome",
                 "chrome",
                 " %C(bold)%d%Creset",
@@ -629,26 +674,26 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/source/_posts/vimium-keymap.md",
+            "focus": "tab0",
             "meta": {
                 "accessList": [
-                    "tab15"
+                    "tab2"
                 ]
             },
             "name": "pane0",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab15",
+                    "name": "tab2",
                     "path": "/source/_posts/vimium-keymap.md",
                     "className": [
-                        "tab15",
-                        "focus"
+                        "tab2",
+                        "changed"
                     ],
                     "document": {
-                        "changed": false,
+                        "changed": true,
                         "meta": {
-                            "timestamp": 1472002001435
+                            "timestamp": 1472004080885
                         },
                         "filter": true,
                         "title": "vimium-keymap.md",
