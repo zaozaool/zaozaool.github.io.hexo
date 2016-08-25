@@ -17,9 +17,9 @@
         "json()": {
             "meta": {
                 "accessList": [
+                    "tab5",
                     "tab3",
                     "searchResults",
-                    "tab5",
                     "tab1"
                 ]
             },
@@ -30,7 +30,8 @@
                     "name": "tab5",
                     "path": "",
                     "className": [
-                        "tab5"
+                        "tab5",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -43,12 +44,12 @@
                         "terminal": {
                             "id": "devel_738",
                             "cwd": "",
-                            "width": 0,
-                            "height": 0
+                            "width": 1520,
+                            "height": 276
                         }
                     },
                     "editorType": "terminal",
-                    "active": false
+                    "active": true
                 },
                 {
                     "type": "tab",
@@ -450,20 +451,18 @@
                     "name": "tab3",
                     "path": "",
                     "className": [
-                        "tab3",
-                        "focus",
-                        "connecting"
+                        "tab3"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {},
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Idle",
-                        "tooltip": "source/scripts/githubcommit.sh - Idle",
+                        "title": "source/scripts/githubcommit.sh - Stopped",
+                        "tooltip": "source/scripts/githubcommit.sh - Stopped",
                         "output": {
                             "id": "output792790",
-                            "width": 1520,
-                            "height": 276,
+                            "width": 0,
+                            "height": 0,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
@@ -473,7 +472,7 @@
                         }
                     },
                     "editorType": "output",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -569,8 +568,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab2",
-            "searchResults"
+            "tab5",
+            "tab2"
         ]
     },
     "panels": {
@@ -609,8 +608,9 @@
             "json()": [
                 "/",
                 "/source/ZZGoogle/javascripts",
+                "/source/New Folder",
                 "/source",
-                "/source/New Folder"
+                "/source/doc"
             ]
         }
     },
@@ -655,7 +655,7 @@
     },
     "tabs": {
         "json()": {
-            "focus": "tab3",
+            "focus": "tab5",
             "meta": {
                 "accessList": [
                     "tab2",
