@@ -13,5 +13,4 @@ tags:
 7、fork alsotang's alsohosts
 8、json个人简历
 9、google translator for github
-10、ZZGoogle [HOLD]
-#11、微信企业号 [HIGHEST]
+#10、微信企业号 [HIGHEST]
