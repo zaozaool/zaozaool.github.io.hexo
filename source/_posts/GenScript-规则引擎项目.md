@@ -12,6 +12,7 @@ Drools/Kie Workbench
 主要对运费、用户积分点数使用了该类型
 
 
-
 ###Decision Table
 主要对服务价格、周期计算使用了该类型
+
+[搭建文档](http://zaozaool.github.io/doc/Drools6 Workbench搭建与调测.docx)
