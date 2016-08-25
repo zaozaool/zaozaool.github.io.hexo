@@ -4,4 +4,10 @@ categories: [后端]
 tags: [项目, Maven]
 ---
 
-#Developing
+#使用技术
+Maven多模块
+
+#编译脚本(最关键的一句)
+```shell
+mvn clean package -P ${env} -pl ${ProjectName} -am;
+```
