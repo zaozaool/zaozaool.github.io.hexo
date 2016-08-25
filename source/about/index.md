@@ -18,7 +18,7 @@ date: 2015-07-16 06:16:58
     "ZTE IPTV",
     "GenScript SCM项目",
     "GenScript SAP项目",
-    "GenScript 报表可视化项目",
+    "GenScript SCM解耦及模块化项目",
     "GenScript 规则引擎项目"
   ],
   "Toys" {
