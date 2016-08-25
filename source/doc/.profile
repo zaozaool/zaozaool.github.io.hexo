@@ -1,10 +1,3 @@
-title: Profile
-date: 2016-08-23 11:03:30
-categories: [后端]
-tags: [Linux]
----
-
-```shell
 LANG=C
 JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/
 PATH=$PATH:$JAVA_HOME/bin
@@ -88,4 +81,3 @@ function copyscm()
 
         echo "copyscm finished."
 }
-```
