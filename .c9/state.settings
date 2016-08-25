@@ -20,8 +20,8 @@
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab3",
                     "tab5",
+                    "tab3",
                     "searchResults",
                     "tab1"
                 ]
@@ -41,17 +41,17 @@
                             "timestamp": 1472092031529
                         },
                         "filter": true,
-                        "title": "bash - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
-                        "tooltip": "bash - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
+                        "title": "hexo - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
+                        "tooltip": "hexo - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
                         "terminal": {
                             "id": "devel_738",
                             "cwd": "",
-                            "width": 0,
-                            "height": 0
+                            "width": 1520,
+                            "height": 276
                         }
                     },
                     "editorType": "terminal",
-                    "active": false
+                    "active": true
                 },
                 {
                     "type": "tab",
@@ -453,8 +453,7 @@
                     "name": "tab3",
                     "path": "",
                     "className": [
-                        "tab3",
-                        "focus"
+                        "tab3"
                     ],
                     "document": {
                         "changed": false,
@@ -464,8 +463,8 @@
                         "tooltip": "source/scripts/githubcommit.sh - Stopped",
                         "output": {
                             "id": "output792790",
-                            "width": 1520,
-                            "height": 276,
+                            "width": 0,
+                            "height": 0,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
@@ -475,7 +474,7 @@
                         }
                     },
                     "editorType": "output",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -525,20 +524,20 @@
             "@acestatus": 2,
             "@datagrid": 1,
             "@divider": 4,
-            "@document": 21,
+            "@document": 22,
             "@form": 5,
             "@imgeditor": 1,
             "@immediate": 1,
-            "@menu": 7,
-            "@menuitem": 19,
+            "@menu": 8,
+            "@menuitem": 22,
             "@pane": 6,
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 20,
-            "@tab": 18,
+            "@session": 21,
+            "@tab": 19,
             "@tree": 2,
-            "@undoManager": 21,
+            "@undoManager": 22,
             "@welcome": 1
         }
     },
@@ -570,8 +569,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab3",
-            "tab15"
+            "tab5"
         ]
     },
     "panels": {
@@ -604,7 +602,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
+        "@scrollpos": 678,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -612,7 +610,8 @@
                 "/source/ZZGoogle/javascripts",
                 "/source",
                 "/source/ZZGoogle",
-                "/source/_drafts"
+                "/source/_drafts",
+                "/source/_posts"
             ]
         }
     },
@@ -757,52 +756,13 @@
                 },
                 "editorType": "ace",
                 "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab7",
-                "path": "/source/tags/index.html",
-                "className": [
-                    "tab7"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1470134254770
-                    },
-                    "filter": true,
-                    "title": "index.html",
-                    "tooltip": "/source/tags/index.html",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab6",
-                "path": "/source/tags/index.html",
-                "className": [
-                    "tab6"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1470134254770
-                    },
-                    "filter": true,
-                    "title": "index.html",
-                    "tooltip": "/source/tags/index.html",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
             }
         ]
     },
     "search-history": {
         "replace": {
             "json()": [
+                "- ",
                 "模块",
                 "vagrant@precise32:~$",
                 "~",
@@ -812,6 +772,7 @@
         },
         "search": {
             "json()": [
+                "    - ",
                 "GenScript",
                 "pList",
                 "Chrome",
@@ -841,12 +802,9 @@
     },
     "tabs": {
         "json()": {
-            "focus": "tab3",
+            "focus": "/source/_posts/JQuery源码分析笔记.md",
             "meta": {
-                "accessList": [
-                    "tab15",
-                    "tab17"
-                ]
+                "accessList": []
             },
             "name": "pane0",
             "nodes": [
@@ -855,12 +813,13 @@
                     "name": "tab15",
                     "path": "/source/_posts/JQuery源码分析笔记.md",
                     "className": [
-                        "tab15"
+                        "tab15",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1472104715158
+                            "timestamp": 1472105027630
                         },
                         "filter": true,
                         "title": "JQuery源码分析笔记.md",
@@ -869,26 +828,6 @@
                     },
                     "editorType": "ace",
                     "active": true
-                },
-                {
-                    "type": "tab",
-                    "name": "tab17",
-                    "path": "/source/_drafts/微信企业号-MILESTONE.md",
-                    "className": [
-                        "tab17"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1470134254742
-                        },
-                        "filter": true,
-                        "title": "微信企业号-MILESTONE.md",
-                        "tooltip": "/source/_drafts/微信企业号-MILESTONE.md",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -898,7 +837,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/_drafts/微信企业号-MILESTONE.md"
+            "/source/_posts/jQuery中的循环技巧.md"
         ]
     }
 }
