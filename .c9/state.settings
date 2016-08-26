@@ -20,8 +20,8 @@
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab5",
                     "tab3",
+                    "tab5",
                     "searchResults",
                     "tab1"
                 ]
@@ -41,17 +41,17 @@
                             "timestamp": 1472092031529
                         },
                         "filter": true,
-                        "title": "hexo - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
-                        "tooltip": "hexo - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
+                        "title": "bash - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
+                        "tooltip": "bash - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
                         "terminal": {
                             "id": "devel_738",
                             "cwd": "",
-                            "width": 1520,
-                            "height": 276
+                            "width": 0,
+                            "height": 0
                         }
                     },
                     "editorType": "terminal",
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "tab",
@@ -463,8 +463,8 @@
                         "tooltip": "source/scripts/githubcommit.sh - Stopped",
                         "output": {
                             "id": "output792790",
-                            "width": 0,
-                            "height": 0,
+                            "width": 1520,
+                            "height": 276,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
@@ -474,7 +474,7 @@
                         }
                     },
                     "editorType": "output",
-                    "active": false
+                    "active": true
                 },
                 {
                     "type": "tab",
@@ -524,7 +524,7 @@
             "@acestatus": 2,
             "@datagrid": 1,
             "@divider": 4,
-            "@document": 22,
+            "@document": 25,
             "@form": 5,
             "@imgeditor": 1,
             "@immediate": 1,
@@ -534,10 +534,10 @@
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 21,
-            "@tab": 19,
+            "@session": 24,
+            "@tab": 22,
             "@tree": 2,
-            "@undoManager": 22,
+            "@undoManager": 25,
             "@welcome": 1
         }
     },
@@ -569,7 +569,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab5"
+            "tab3",
+            "tab20"
         ]
     },
     "panels": {
@@ -716,46 +717,6 @@
                 },
                 "editorType": "ace",
                 "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab10",
-                "path": "/source/_drafts/Todo-List.md",
-                "className": [
-                    "tab10"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1472096624196
-                    },
-                    "filter": true,
-                    "title": "Todo-List.md",
-                    "tooltip": "/source/_drafts/Todo-List.md",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
-            },
-            {
-                "type": "tab",
-                "name": "tab8",
-                "path": "/source/categories/index.html",
-                "className": [
-                    "tab8"
-                ],
-                "document": {
-                    "changed": false,
-                    "meta": {
-                        "timestamp": 1470134254746
-                    },
-                    "filter": true,
-                    "title": "index.html",
-                    "tooltip": "/source/categories/index.html",
-                    "ace": {}
-                },
-                "editorType": "ace",
-                "active": false
             }
         ]
     },
@@ -802,32 +763,55 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/source/_posts/JQuery源码分析笔记.md",
+            "focus": "/source/_posts/Linux-whereis-which-locate-find.md",
             "meta": {
-                "accessList": []
+                "accessList": [
+                    "tab19",
+                    "tab20"
+                ]
             },
             "name": "pane0",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab15",
-                    "path": "/source/_posts/JQuery源码分析笔记.md",
+                    "name": "tab19",
+                    "path": "/source/_posts/Linux-whereis-which-locate-find.md",
                     "className": [
-                        "tab15",
+                        "tab19",
                         "focus"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1472105027630
+                            "timestamp": 1472175029858
                         },
                         "filter": true,
-                        "title": "JQuery源码分析笔记.md",
-                        "tooltip": "/source/_posts/JQuery源码分析笔记.md",
+                        "title": "Linux-whereis-which-locate-find.md",
+                        "tooltip": "/source/_posts/Linux-whereis-which-locate-find.md",
                         "ace": {}
                     },
                     "editorType": "ace",
                     "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab20",
+                    "path": "/source/_posts/Ubuntu-LAMP环境搭建.md",
+                    "className": [
+                        "tab20"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1472175070388
+                        },
+                        "filter": true,
+                        "title": "Ubuntu-LAMP环境搭建.md",
+                        "tooltip": "/source/_posts/Ubuntu-LAMP环境搭建.md",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -837,7 +821,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/_posts/jQuery中的循环技巧.md"
+            "/source/_posts/Groovy-Grails入门.md"
         ]
     }
 }

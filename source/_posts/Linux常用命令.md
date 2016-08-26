@@ -1,7 +1,7 @@
 title: Linux常用命令
 date: 2015-08-07 04:51:44
 categories: [其他]
-tags: [备忘, Linux]
+tags: [Linux]
 ---
 
 1.`uname -a`,可显示电脑以及操作系统的相关信息。

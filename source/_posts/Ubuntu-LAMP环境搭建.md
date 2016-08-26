@@ -1,7 +1,7 @@
 title: Ubuntu LAMP环境搭建
 date: 2016-07-22 21:31:28
 categories: [其他]
-tags: [备忘, Linux]
+tags: [Linux]
 ---
 
 1.  更新源

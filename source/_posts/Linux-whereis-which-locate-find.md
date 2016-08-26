@@ -1,7 +1,7 @@
 title: Linux whereis/which/locate/find
 date: 2016-06-28 06:12:06
 categories: [其他]
-tags: [备忘, Linux]
+tags: [Linux]
 ---
 
 #which       
