@@ -1,7 +1,7 @@
 title: jQuery源码分析笔记
 date: 2016-08-25 05:35:39
 categories: [前端]
-tags: [JavaScript, jQuery]
+tags: [jQuery]
 ---
 
 - js自调用匿名函数的两种写法：

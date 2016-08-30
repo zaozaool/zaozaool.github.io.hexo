@@ -1,7 +1,7 @@
 title: jQuery中的循环技巧
 date: 2016-08-25 06:03:26
 categories: [前端]
-tags: [JavaScript, jQuery]
+tags: [jQuery]
 ---
 
 
