@@ -432,8 +432,7 @@
                     "name": "tab3",
                     "path": "",
                     "className": [
-                        "tab3",
-                        "focus"
+                        "tab3"
                     ],
                     "document": {
                         "changed": false,
@@ -574,8 +573,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab3",
-            "tab2"
+            "tab2",
+            "tab3"
         ]
     },
     "panels": {
@@ -612,9 +611,7 @@
         "@showfs": true,
         "expanded": {
             "json()": [
-                "/",
-                "/source",
-                "/source/pic"
+                "/"
             ]
         }
     },
@@ -721,7 +718,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/pic/gitbook-clound.jpg"
+            "/source"
         ]
     }
 }

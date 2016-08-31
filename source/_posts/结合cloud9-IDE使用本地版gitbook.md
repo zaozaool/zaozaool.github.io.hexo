@@ -25,13 +25,13 @@ npm install -g gitbook-cli
 <!-- more -->
 4.  创建文档主目录并运行
 ```shell
-mkdir book
-cd book
+mkdir doc
+cd doc
 gitbook init
 nohup node ~/c9sdk/server.js -p 8182 -l 0.0.0.0 -a : -w ~/doc > doc.out 2>&1 &
 ```
 
-5.  查看或build book
+5.  查看或build doc
 ```shell
 gitbook serve
 gitbook build
