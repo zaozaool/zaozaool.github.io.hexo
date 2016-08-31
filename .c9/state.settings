@@ -608,13 +608,13 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 230,
+        "@scrollpos": -10,
         "@showfs": true,
         "expanded": {
             "json()": [
                 "/",
                 "/source",
-                "/source/_posts"
+                "/source/pic"
             ]
         }
     },
@@ -721,7 +721,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/_posts/IDEA使用Docker配置项目远程部署.md"
+            "/source/pic/gitbook-clound.jpg"
         ]
     }
 }
