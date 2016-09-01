@@ -40,3 +40,5 @@ gitbook build
 ![效果](http://zaozaool.github.io/pic/gitbook-clound.jpg)
 
 [gitbook setup](https://github.com/GitbookIO/gitbook/blob/master/docs/setup.md)
+[gitbook插件](http://zhaoda.net/2015/11/09/gitbook-plugins/)
+[gitbook插件库](https://plugins.gitbook.com/)

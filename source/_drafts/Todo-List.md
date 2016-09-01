@@ -14,3 +14,4 @@ tags:
 8、json个人简历
 9、google translator for github
 #10、微信企业号 [HIGHEST]
+11、收集好文章到自己的系统，根据关键词、分类、日期、标题、内容等快速检索
