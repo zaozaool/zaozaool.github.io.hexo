@@ -30,7 +30,7 @@ for file in $(ls $hexo_root/source/_posts); do
             d=${d%*]} #去掉后面的]
             tagJson=$tagJson""$index":'"$d"',"
         
-        #标签
+        #分类
         elif [ "${str}x" = "categx" ]; then
             #标签字符串
             d=${line#*:} #获取所有tag
