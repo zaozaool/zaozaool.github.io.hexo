@@ -21,30 +21,29 @@
             "meta": {
                 "accessList": [
                     "tab3",
-                    "tab5",
-                    "tab1",
-                    "searchResults"
+                    "tab0",
+                    "tab1"
                 ]
             },
             "name": "pane1",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab5",
+                    "name": "tab0",
                     "path": "",
                     "className": [
-                        "tab5"
+                        "tab0"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1472092031529
+                            "timestamp": 1473732851095
                         },
                         "filter": true,
                         "title": "bash - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
                         "tooltip": "bash - \"ubuntu@ip-172-31-8-126: ~/repositories/zaozaool.github.io.hexo\"",
                         "terminal": {
-                            "id": "devel_738",
+                            "id": "devel_63",
                             "cwd": "",
                             "width": 0,
                             "height": 0
@@ -439,8 +438,8 @@
                         "changed": false,
                         "meta": {},
                         "filter": true,
-                        "title": "source/scripts/githubcommit.sh - Stopped",
-                        "tooltip": "source/scripts/githubcommit.sh - Stopped",
+                        "title": "source/scripts/githubcommit.sh - Idle",
+                        "tooltip": "source/scripts/githubcommit.sh - Idle",
                         "output": {
                             "id": "output792790",
                             "width": 1520,
@@ -455,30 +454,6 @@
                     },
                     "editorType": "output",
                     "active": true
-                },
-                {
-                    "type": "tab",
-                    "name": "searchResults",
-                    "path": "/.c9/searchresults",
-                    "className": [
-                        "searchResults",
-                        "changed"
-                    ],
-                    "document": {
-                        "changed": true,
-                        "meta": {
-                            "searchResults": true,
-                            "ignoreSave": true,
-                            "newfile": true,
-                            "timestamp": 1472692750942
-                        },
-                        "filter": true,
-                        "title": "searchresults",
-                        "tooltip": "/.c9/searchresults",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -489,36 +464,36 @@
     "experiments": {
         "@@enabled": true,
         "@autosave": 0,
-        "@flat-dark": 0,
+        "@flat-dark": false,
         "@git": 1,
-        "@go_completion": 0,
+        "@go_completion": false,
         "@mount": 0,
         "@plugin-manager": 1,
         "@plugins": 0,
         "@sdk": 0,
-        "@test": 0
+        "@test": false
     },
     "ext": {
         "counters": {
-            "@ace": 3,
+            "@ace": 2,
             "@ace.repl": 1,
-            "@acestatus": 2,
+            "@acestatus": 1,
             "@datagrid": 1,
             "@divider": 4,
-            "@document": 16,
+            "@document": 8,
             "@form": 5,
             "@imgeditor": 1,
             "@immediate": 1,
-            "@menu": 7,
-            "@menuitem": 19,
+            "@menu": 6,
+            "@menuitem": 16,
             "@pane": 6,
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 16,
-            "@tab": 15,
+            "@session": 8,
+            "@tab": 6,
             "@tree": 2,
-            "@undoManager": 16,
+            "@undoManager": 8,
             "@welcome": 1
         }
     },
@@ -551,7 +526,7 @@
     "panecycle": {
         "json()": [
             "tab3",
-            "tab12"
+            "tab2"
         ]
     },
     "panels": {
@@ -584,15 +559,15 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 818,
+        "@scrollpos": 1198,
         "@showfs": true,
         "expanded": {
             "json()": [
                 "/",
                 "/source",
-                "/source/scripts",
-                "/source/json_data",
-                "/source/_posts"
+                "/source/_posts",
+                "/source/pic",
+                "/source/scripts"
             ]
         }
     },
@@ -647,93 +622,30 @@
             "focus": "tab3",
             "meta": {
                 "accessList": [
-                    "tab12",
-                    "tab13",
-                    "tab14",
-                    "tab11"
+                    "tab2"
                 ]
             },
             "name": "pane0",
             "nodes": [
                 {
                     "type": "tab",
-                    "name": "tab11",
-                    "path": "/source/json_data/data.js",
+                    "name": "tab2",
+                    "path": "/source/_posts/程序猿必备技能之Read-Search-Ask.md",
                     "className": [
-                        "tab11"
+                        "tab2"
                     ],
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1473651431254
+                            "timestamp": 1473733347127
                         },
                         "filter": true,
-                        "title": "data.js",
-                        "tooltip": "/source/json_data/data.js",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab12",
-                    "path": "/source/_posts/发布统计.md",
-                    "className": [
-                        "tab12"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1473651632023
-                        },
-                        "filter": true,
-                        "title": "发布统计.md",
-                        "tooltip": "/source/_posts/发布统计.md",
+                        "title": "程序猿必备技能之Read-Search-Ask.md",
+                        "tooltip": "/source/_posts/程序猿必备技能之Read-Search-Ask.md",
                         "ace": {}
                     },
                     "editorType": "ace",
                     "active": true
-                },
-                {
-                    "type": "tab",
-                    "name": "tab13",
-                    "path": "/source/scripts/statistic.sh",
-                    "className": [
-                        "tab13"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1473651565785
-                        },
-                        "filter": true,
-                        "title": "statistic.sh",
-                        "tooltip": "/source/scripts/statistic.sh",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab14",
-                    "path": "/source/scripts/githubcommit.sh",
-                    "className": [
-                        "tab14"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1470135378294
-                        },
-                        "filter": true,
-                        "title": "githubcommit.sh",
-                        "tooltip": "/source/scripts/githubcommit.sh",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
                 }
             ],
             "skin": "editor_tab",
