@@ -36,4 +36,4 @@ tags: [Chrome]
 - shift+/：打开Vimium帮助
 - ?：打开Vimium帮助
 
-![keymap](http://zaozaool.github.io/pic/vimium-keymap.jpg)
+![keymap](https://zaozaool.github.io/pic/vimium-keymap.jpg)

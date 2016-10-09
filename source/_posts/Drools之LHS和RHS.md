@@ -34,7 +34,7 @@ matches和not matches是用来对某个Fact的字段与标准的Java正则表达
 
 
 更多RHS的相关知识请参考一下几篇文章：
-[Drools宏对象的常用方法](http://zaozaool.github.io/2016/04/25/Drools宏对象的常用方法/)
+[Drools宏对象的常用方法](https://zaozaool.github.io/2016/04/25/Drools宏对象的常用方法/)
 
 #Drools文件中的package和Java文件中package的区别
 规则文件当中的package和Java语言当中的package有相似之处，也有不同之处。在Java 当中package的作用是用来对功能相似或相关的文件放在同一个package下进行管理，这种package管理既有物理上Java文件位置的管理也有逻辑上的文件位置的管理，在Java当中这种通过package管理文件要求在文件位置在逻辑上与物理上要保持一致；在Drools的规则文件当中package对于规则文件中规则的管理只限于逻辑上的管理，而不管其在物理上的位置如何，这点是规则与Java文件的package的区别。

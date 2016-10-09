@@ -1,0 +1,312 @@
+//=================================================================================
+//US Order系统的Packaging Charge计算规则文件，US规则同时在US和JP应用
+//规划的规则文件执行优先级salience值范围：US(151~200)->JP(100~150)->CN(51~100)->Common(0~50)
+//create by:duanjunwei
+//date:06/20 2016
+//=================================================================================
+
+package rules.quoteorder.shippingfee.packagingfee;
+
+import com.genscript.gsscm.rules.quoteorder.fact.PackageFact;
+import com.genscript.gsscm.rules.quoteorder.fact.QuoteOrderItemFact;
+import java.math.BigDecimal;
+import java.util.Map;  
+import java.util.Map.Entry;  
+
+dialect  "mvel"
+
+global org.slf4j.Logger logger;
+
+rule "Free for billableWeight is 0 or the zone is null" 
+    //billableWeight为0的话，可发货的实物重量为0，则Shipping Fee为0
+    salience 200
+    lock-on-active true  
+    when
+        $p : PackageFact( billableWeight == null || billableWeight == 0 || zone == null || zone == "")
+    then
+        $p.baseCustomerCharge = 0.0;
+        $p.baseHandlingFee = 0.0;
+        
+        logger.info("Rule: Free for billableWeight is 0 or the zone is null, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+                     
+        drools.halt();
+end
+
+rule "Ship temperature is 25 & including service and product catalog" 
+    //发货温度为25度，且Quote Order中即包含服务，又包含目录产品,即item type既有SERVICE又有PRODUCT
+    //包裹的Handling Fee为15元
+    salience 199
+    lock-on-active true  
+    when
+        $p  : PackageFact( shipTemperature == 25.0,
+                           itemTypeList contains "PRODUCT",
+                           itemTypeList contains "SERVICE")
+    then
+        $p.baseHandlingFee += 15.0;
+        $p.baseRegularHandlingFee = $p.baseHandlingFee;
+        
+        $p.baseCustomerCharge += 15.0;
+        
+        logger.info("Rule: Ship temperature is 25 & including service and product catalog, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+end
+
+
+rule "Ship temperature is 25, either all products or all services, Tube Bottle and Kit Box" 
+    //发货温度为25度，且Quote Order的Item List中只有产品，或者只有服务
+    //打包类型为Tube，Bottle，Kit Box时，Handling fee加5元
+    //打包类型为以上3者的其他类型时，Handling Fee加10元
+    salience 198
+    lock-on-active true  
+    when
+        $p  : PackageFact( shipTemperature == 25.0,
+                           (packageType == "Tube" || packageType == "Bottle" || packageType matches "Kit Box.*"),
+                           (itemTypeList not contains "PRODUCT" || itemTypeList not contains "SERVICE") )
+    then        
+        $p.baseHandlingFee += 5.0;
+        
+        $p.baseRegularHandlingFee = $p.baseHandlingFee;
+        $p.baseCustomerCharge += 5.0;
+        
+        logger.info("Rule: Ship temperature is 25, either all products or all services, Tube Bottle and Kit Box, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+        
+end
+
+
+rule "Ship temperature is 25, either all products or all services, not Tube Bottle or Kit Box" 
+    //发货温度为25度，且Quote Order的Item List中只有产品，或者只有服务
+    //打包类型为Tube，Bottle，Kit Box时，Handling fee加5元
+    //打包类型为以上3者的其他类型时，Handling Fee加10元
+    salience 197
+    lock-on-active true  
+    when
+        $p  : PackageFact( shipTemperature == 25.0,
+                           (packageType != "Tube" && packageType != "Bottle" && packageType not matches "Kit Box.*"),
+                           (itemTypeList not contains "PRODUCT" || itemTypeList not contains "SERVICE") )
+    then        
+        $p.baseHandlingFee += 10.0;
+
+        $p.baseRegularHandlingFee = $p.baseHandlingFee;
+        $p.baseCustomerCharge += 10.0;
+        
+        logger.info("Rule: Ship temperature is 25, either all products or all services, not Tube Bottle or Kit Box, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+end
+
+rule "Ship temperature is 4.0 and country is US" 
+    //发货温度为4度，且用户的国家是US，handling fee加10元
+    salience 196
+    lock-on-active true  
+    when
+        $p  : PackageFact( shipTemperature == 4.0,
+                           country == "US")      
+    then        
+        $p.baseHandlingFee += 10.0;
+        $p.baseRegularHandlingFee = $p.baseHandlingFee;
+        
+        $p.baseCustomerCharge += 10.0;
+                
+        logger.info("Rule: Ship temperature is 4.0 and country is US, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+end
+
+rule "Ship temperature is 4.0 and country is not US" 
+    //发货温度为4度，且用户的国家不是US，handling fee加15元
+    salience 195
+    lock-on-active true  
+    when
+        $p  : PackageFact( shipTemperature == 4.0,
+                           country != "US" )
+    then        
+        $p.baseHandlingFee += 15.0;
+        
+        $p.baseRegularHandlingFee = $p.baseHandlingFee;
+        
+        $p.baseCustomerCharge += 15.0;
+                
+        logger.info("Rule: Ship temperature is 4.0 and country is not US, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+end
+
+rule "Ship temperature is -20.0,-80.0,-196.0 and country is US" 
+    //发货温度为-20度,-80度，-196度，且用户的国家是US，handling fee加15元
+    salience 194
+    lock-on-active true  
+    when
+        $p  : PackageFact( country == "US", 
+                           (shipTemperature == -20.0 || shipTemperature == -80.0 ||
+                            shipTemperature == -196.0 ) )
+        
+    then
+        $p.baseHandlingFee += 15.0;
+        
+        $p.baseRegularHandlingFee = $p.baseHandlingFee;
+        
+        $p.baseCustomerCharge += 15.0;
+
+        logger.info("Rule: Ship temperature is -20.0,-80.0,-196.0 and country is US, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+end
+
+
+rule "Ship temperature is -20.0,-80.0,-196.0 and country is not US" 
+    //发货温度为-20度,-80度，-196度，且用户的国家不是US，handling fee加25元
+    salience 193
+    lock-on-active true  
+    when
+        $p  : PackageFact( country != "US" ,
+                           (shipTemperature == -20.0 || shipTemperature == -80.0 ||
+                             shipTemperature == -196.0) )
+    then         
+        $p.baseHandlingFee += 25.0;        
+        $p.baseRegularHandlingFee = $p.baseHandlingFee;
+        
+        $p.baseCustomerCharge += 25.0;
+                
+        logger.info("Rule: Ship temperature is -20.0,-80.0,-196.0 and country is not US, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+end
+
+
+rule "Special handling fee rule for package, bigger than 2500" 
+    //将某一类(按Item type)的Item累加其价格，当某一类总价大于等于2500元时，Handling fee加10元
+    dialect "java"
+    salience 192
+    lock-on-active true  
+    when
+        $p  : PackageFact(itemDescPriceMap != null,
+                          $itemDescPriceMap : itemDescPriceMap)
+    then
+        //遍历Map，如果大于2500$，则加10$
+        for( Object obj : $itemDescPriceMap.values() ){
+            BigDecimal dp = (BigDecimal)obj;
+            if ( dp.doubleValue() >= 2500.0 ){
+                $p.setBaseEeiHandlingFee( $p.getBaseEeiHandlingFee() + 10.0 );        
+                $p.setBaseHandlingFee($p.getBaseHandlingFee() + $p.getBaseEeiHandlingFee());
+        
+                $p.setBaseRegularHandlingFee($p.getBaseHandlingFee());
+        
+                $p.setBaseCustomerCharge($p.getBaseCustomerCharge() + 10.0);
+                
+                logger.info("Rule: Special handling fee rule for package, , bigger than 2500, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                        $p.getQuoteOrderNo(), $p.getPackageId(), $p.getBaseCustomerCharge(), $p.getBaseHandlingFee());
+                
+                break;
+            }
+        }
+       
+end
+
+rule "Ship method is USPS for US customers, shipMethod is 19"
+    //非Fedex发货的包裹，且订单客户是美国用户，如果订单的shipping fee未冻结，且shipping account为空
+    //shipmethod为19 USPS International Express Mail_Envelope (RT) only时：shipping fee固定为62.0$
+    //shipmethod为20 USPS Domestic Priority Mail Express_Envelope (RT) only时，shipping fee固定为35.0$
+    salience 191
+    lock-on-active true
+    
+    when
+        $p  : PackageFact( custLocation == "US",
+                          shipMethod == 19,
+                          shippingFeeFreezed != true,
+                          shippingAccount == null || shippingAccount == "")
+    
+    then
+        //USPS International Express Mail_Envelope (RT)
+        $p.baseCustomerCharge = 62.0;
+       
+        logger.info("Rule: Ship method is USPS for US customers, shipMethod is 19, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+ end
+ 
+ 
+ rule "Ship method is USPS for US customers, shipMethod is 20"
+    //非Fedex发货的包裹，且订单客户是美国用户，如果订单的shipping fee未冻结，且shipping account为空
+    //shipmethod为19 USPS International Express Mail_Envelope (RT) only时：shipping fee固定为62.0$
+    //shipmethod为20 USPS Domestic Priority Mail Express_Envelope (RT) only时，shipping fee固定为35.0$
+    salience 190
+    lock-on-active true
+    
+    when
+        $p  : PackageFact( custLocation == "US",
+                          shipMethod == 20,
+                          shippingFeeFreezed != true,
+                          shippingAccount == null || shippingAccount == "")
+    
+    then
+        //USPS Domestic Priority Mail Express_Envelope (RT) only
+        $p.baseCustomerCharge = 35.0;
+        
+        logger.info("Rule: Ship method is USPS for US customers, shipMethod is 20, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+ end
+
+rule "Add package base charge to shipping fee, multiply 1.4"
+    //获取ShipRate，根据重量范围获取fedex Price,如果isMultiply2 为true，则fedex price乘以1.4，加到customer charge中
+    salience 189
+    lock-on-active true
+    
+    when
+         $p  : PackageFact(quoteOrderItemList.size > 0)
+    then
+
+        $p.baseCustomerCharge += $p.fedexPrice * 1.4;
+              
+        logger.info("Rule: Add package base charge to shipping fee, multiply 1.4, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+ end
+ 
+
+ rule "Ship method is 100: FedEx Domestic Priority Alert"
+    //发货方式为100：FedEx Domestic Priority Alert，ShippingFee加40$
+    salience 187
+    lock-on-active true
+    
+    when
+        $p  : PackageFact(shipMethod == 100 )
+    then
+        $p.baseCustomerCharge += 40.0;
+        
+        logger.info("Rule: Ship method is 100: FedEx Domestic Priority Alert, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+ end
+ 
+ rule "Ship method is 101: Fedex international priority Alert Plus service"
+    //发货方式为101：Fedex international priority Alert Plus service，加70$
+    salience 186
+    lock-on-active true
+    
+    when
+        $p  : PackageFact(shipMethod == 101 )
+    then
+        $p.baseCustomerCharge += 70.0;
+        
+        logger.info("Rule: Ship method is 101: Fedex international priority Alert Plus service, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+    
+ end
+ 
+ 
+ rule "The ship to country is JP, but the cust location is not JP"
+    //客户的Location不是日本，但发货地是日本的，baseCustomerCharge单独计算：
+    //按发货温度，大于20度，1500日元,否则是3000日元
+    salience 185
+    lock-on-active true
+    
+    when
+        $p  : PackageFact(custLocation != "JP",
+                          country == "JP")
+    then
+        if ($p.shipTemperature >= 20){
+            $p.baseCustomerCharge = 1500;
+        }else{
+            $p.baseCustomerCharge = 3000;
+        }
+        
+        $p.baseCustomerCharge = $p.baseCustomerCharge / $p.usdToJPRate;
+        
+        logger.info("Rule: The ship to country is JP, but the cust location is not JP, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+ end
+ 

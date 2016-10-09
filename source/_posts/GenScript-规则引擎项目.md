@@ -15,4 +15,4 @@ Drools/Kie Workbench
 ###Decision Table
 主要对服务价格、周期计算使用了该类型
 
-[搭建文档](http://zaozaool.github.io/doc/Drools6 Workbench搭建与调测.docx)
+[搭建文档](https://zaozaool.github.io/doc/Drools6 Workbench搭建与调测.docx)

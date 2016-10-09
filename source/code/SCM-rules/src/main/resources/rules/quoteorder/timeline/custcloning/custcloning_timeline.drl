@@ -1,0 +1,127 @@
+//=================================================================================
+//Cust Cloning的生产周期规则,部分Pkg Service的规则也写在这里，会采用Cust Cloning规则计算
+//create by:duanjunwei
+//date:09/06 2016
+//=================================================================================
+
+package rules.quoteorder.timeline.custcloning;
+
+import com.genscript.gsscm.rules.quoteorder.fact.items.CustCloningFact;
+
+dialect  "mvel"
+
+global org.slf4j.Logger logger;
+
+rule "Leadtime as the default item timeline for Cust Cloning Service" 
+    //leadtime默认为生产周期,排除SC1597，SC1622，SC1625，SC1692
+    salience 100
+    lock-on-active true  
+    when
+        $f : CustCloningFact( catalogNo not memberOf ["SC1597","SC1692","SC1622","SC1625"] )
+    then
+        $f.timeline = $f.leadTime;
+        
+        logger.info("Rule: Leadtime as the default item timeline for Cust Cloning Service, quote/order item:{}-{}, leadTime:{}, the result:timeline={}",
+                     $f.quoteOrderNo, $f.quoteOrderItemId, $f.leadTime, $f.timeline);
+end
+
+rule "Cust Cloning Service Timeline rule for SC1597" 
+    //SC1597的timeline默认为是5天
+    salience 99
+    lock-on-active true  
+    when
+        $f : CustCloningFact( catalogNo  == "SC1597" )
+    then
+        $f.timeline = 5;
+        
+        logger.info("Rule: Cust Cloning Service Timeline rule for SC1597, quote/order item:{}-{}, the result:timeline={}",
+                     $f.quoteOrderNo, $f.quoteOrderItemId, $f.timeline);
+end
+
+
+rule "Cust Cloning Service Timeline rule for SC1692" 
+    //SC1692的timeline，根据序列长度，低于10000为7天，其他为空，非标服务
+    salience 98
+    lock-on-active true  
+    when
+        $f : CustCloningFact( catalogNo  == "SC1692", seqLength < 10000 )
+    then
+        $f.timeline = 7;
+        
+        logger.info("Rule: Cust Cloning Service Timeline rule for SC1692, quote/order item:{}-{}, the result:timeline={}",
+                     $f.quoteOrderNo, $f.quoteOrderItemId, $f.timeline);
+end
+
+rule "Cust Cloning Service Timeline rule for SC1622/SC1625, seqLength is [0,1000]" 
+    //SC1622的timeline，根据序列长度，[0，1000]为9天，[1000,10000]在9天的基础增加天数
+    //"SC1318-2","SC1257-2","SC1482-2","SC1810-2","SC1503-2","SC1709-2"为Pkg Service，和SC1625的规则相同
+    salience 97
+    lock-on-active true  
+    when
+        $f : CustCloningFact( catalogNo  memberOf ["SC1622","SC1625","SC1318-2","SC1257-2","SC1482-2","SC1810-2","SC1503-2","SC1709-2"], 
+                              seqLength > 0, seqLength <= 1000 )
+    then
+        $f.timeline = 9;
+        
+        logger.info("Rule: Cust Cloning Service Timeline rule for SC1622/SC1625, seqLength is [0,1000], quote/order item:{}-{}, the result:timeline={}",
+                     $f.quoteOrderNo, $f.quoteOrderItemId, $f.timeline);
+end
+
+
+rule "Cust Cloning Service Timeline rule for SC1622/SC1625, seqLength is [1000,10000]" 
+    //SC1622的timeline，根据序列长度，[0，1000]为9天，[1000,10000]在9天的基础增加天数
+    //"SC1318-2","SC1257-2","SC1482-2","SC1810-2","SC1503-2","SC1709-2"为Pkg Service，和SC1625的规则相同
+    salience 97
+    lock-on-active true  
+    dialect  "java"
+    when
+        $f : CustCloningFact( catalogNo  memberOf ["SC1622","SC1625","SC1318-2","SC1257-2","SC1482-2","SC1810-2","SC1503-2","SC1709-2"], 
+                              seqLength > 1000, seqLength <= 10000 )
+    then
+        int moreDays = Double.valueOf(Math.ceil(($f.getSeqLength().intValue() - 1000) / 1000.0)).intValue() * 3;
+        $f.setTimeline( 9 + moreDays );
+        
+        logger.info("Rule: Cust Cloning Service Timeline rule for SC1622/SC1625, seqLength is [1000,10000], quote/order item:{}-{}, the result:timeline={}",
+                     $f.getQuoteOrderNo(), $f.getQuoteOrderItemId(), $f.getTimeline());
+end
+
+
+rule "Cust Cloning Service Timeline rule with Parent Item schedule days"
+    //timeline不为空时，查看父Item的schdule days，并添加到本Item的ScheduleDays中
+    salience 90
+    lock-on-active true
+    
+    when
+        $f : CustCloningFact( timeline != null, 
+                              parentItemId != null, parentItemId != "",
+                              parentItemScheduleDays != null )
+                              
+    then
+        $f.scheduleDays = $f.timeline + $f.parentItemScheduleDays;
+        
+        logger.info("Rule: Cust Cloning Service Timeline rule with Parent Item schedule days, quote/order item:{}-{}, parent item schedule days:{}, the result:timeline={}",
+                     $f.quoteOrderNo, $f.quoteOrderItemId, $f.parentItemScheduleDays, $f.timeline );
+end
+
+
+rule "Pkg Service timeline rule using Cust Cloning Servcie timeline rule"
+    salience 50
+    lock-on-active true
+    dialect  "java"
+    
+    when
+        $f : CustCloningFact( timeline != null, 
+                              catalogNo == "SC1503-2" || catalogNo == "SC1709-2" )
+                              
+    then
+        $f.setTimeline($f.getTimeline() + 7);
+        
+        if ($f.getCatalogNo().endsWith("SC1709-2") && "Antibody".equals($f.getPkgTargetType())) {
+            // SC1709-2需要做特殊处理， Antibody时倍2
+            $f.setTimeline($f.getTimeline() * 2);
+        }
+        
+        logger.info("Rule: Pkg Service timeline rule using Cust Cloning Servcie timeline rule, quote/order item:{}-{}, the result:timeline={}",
+                     $f.getQuoteOrderNo(), $f.getQuoteOrderItemId(), $f.getTimeline() );
+
+end

@@ -1,0 +1,51 @@
+//=================================================================================
+//Peptide Library 的生产周期规则
+//create by:duanjunwei
+//date:08/25 2016
+//=================================================================================
+package rules.quoteorder.timeline.peptide;
+
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import java.util.Date;
+
+import com.genscript.gsscm.rules.quoteorder.fact.items.PeptideFact;
+
+dialect  "mvel"
+
+global org.slf4j.Logger logger;
+
+rule "Peptide Library Timeline, ParentId is empty for Catalog SC1177" 
+    //SC1177的特殊规则，当ParentId为空时,timeline为0，设置为非标准
+    salience 150
+    lock-on-active true  
+    when
+        $p : PeptideFact(catalogNo == "SC1177", 
+                         parentItemId == null || parentItemId == "",
+                         sequence == null || sequence == "")
+    then
+        $p.timeline = 0;
+        $p.scheduleDays = 0;
+        $p.nonStandardFlag = 1; //非标准
+        
+        logger.info("Rule: Peptide Library Timeline, ParentId is empty for Catalog SC1177, quote/order item:{}-{}, the result:scheduleDays={}",
+                     $p.quoteOrderNo, $p.quoteOrderItemId, $p.scheduleDays);
+end
+
+
+rule "Peptide Library Timeline for Catalog SC1695, SC1696" 
+    //SC1695时，生产周期为0，设置为非标准
+    salience 149
+    lock-on-active true  
+    when
+        $p : PeptideFact(catalogNo == "SC1695" || catalongNo == "SC1696" )
+    then
+        $p.timeline = 0;
+        $p.scheduleDays = 0;
+        $p.nonStandardFlag = 1; //非标准
+        $p.targetDate = new Date();
+        
+        logger.info("Rule: Peptide Library Timeline for Catalog SC1695, SC1696, quote/order item:{}-{}, the result:scheduleDays={}",
+                     $p.quoteOrderNo, $p.quoteOrderItemId, $p.scheduleDays);    
+end
+

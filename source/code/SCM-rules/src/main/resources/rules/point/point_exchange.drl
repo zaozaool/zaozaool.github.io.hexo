@@ -1,0 +1,124 @@
+/**
+ * 积分兑换规则
+ * @Autor duanjunwei 
+ * @Created at 06/03 2016
+ */
+package com.genscript.gsscm.rules.point.res;
+import com.genscript.gsscm.rules.point.fact.PointFact;
+
+dialect  "mvel"
+
+rule "pint amount for reward" 
+    //积分兑换规则
+    salience 100
+    lock-on-active true  
+    when
+        $p : PointFact( actionType == "reward", 
+                        exchangeUnitPoints != null && exchangeUnitPoints > 0,
+                        exchangeQuantity != null && exchangeQuantity > 0 )
+    then
+        $p.points = -($p.exchangeUnitPoints * $p.exchangeQuantity);
+        
+        
+        System.out.println("pint amount for reward:" + $p.points);
+end
+
+rule "exchange comments rule of COUPON" 
+    //Comment of Coupon
+    salience 99
+    lock-on-active true  
+    when
+        $p : PointFact( actionType == "reward", 
+                        redeemType == "COUPON",
+                        exchangeRewardName matches ".*(?i)Coupon.*" )
+    then
+        $p.comments = "VIP Coupons";
+end
+
+rule "exchange comments rule of AMAZON" 
+    //Comment of Amazon
+    salience 98
+    lock-on-active true  
+    when
+        $p : PointFact( actionType == "reward", 
+                        redeemType == "AMAZON",
+                        exchangeRewardName matches ".*(?i)Amazon.*" )
+    then
+        $p.comments = "AMAZON";
+end
+
+rule "exchange comments rule of LP10008" 
+    //Comment of LP10008
+    salience 97
+    lock-on-active true  
+    when
+        $p : PointFact( actionType == "reward", 
+                        redeemType == "REWARD",
+                        exchangeRewardNo == "LP10008")
+    then
+        $p.comments = "Starbucks $10 Gift Card";
+end
+
+rule "exchange comments rule of LP10002" 
+    //Comment of LP10002
+    salience 96
+    lock-on-active true  
+    when
+        $p : PointFact( actionType == "reward", 
+                        redeemType == "REWARD",
+                        exchangeRewardNo == "LP10002")
+    then
+        $p.comments = "Half-zip Long Sleeve Wind Shirt";
+end
+
+rule "exchange comments rule of LP10003" 
+    //Comment of LP10003
+    salience 95
+    lock-on-active true  
+    when
+        $p : PointFact( actionType == "reward", 
+                        redeemType == "REWARD",
+                        exchangeRewardNo == "LP10003")
+    then
+        $p.comments = "Bluetooth Speaker";
+end
+
+rule "exchange comments rule of LP10004" 
+    //Comment of LP10004
+    salience 94
+    lock-on-active true  
+    when
+        $p : PointFact( actionType == "reward", 
+                        redeemType == "REWARD",
+                        exchangeRewardNo == "LP10004")
+    then
+        $p.comments = "Long Sleeve Fleece Jacket";
+end
+
+rule "exchange comments rule of LP10005" 
+    //Comment of LP10005
+    salience 93
+    lock-on-active true  
+    when
+        $p : PointFact( actionType == "reward", 
+                        redeemType == "REWARD",
+                        exchangeRewardNo == "LP10005")
+    then
+        $p.comments = "Wireless Presenter with Laser Pointer";
+end
+
+
+rule "exchange comments rule of LP10007" 
+    //Comment of LP10007
+    salience 92
+    lock-on-active true  
+    when
+        $p : PointFact( actionType == "reward", 
+                        redeemType == "REWARD",
+                        exchangeRewardNo == "LP10007")
+    then
+        $p.comments = "Long Sleeve T-Shirt";
+end
+
+
+

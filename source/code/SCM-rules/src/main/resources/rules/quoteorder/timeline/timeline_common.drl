@@ -1,0 +1,39 @@
+package rules.quoteorder.timeline;
+
+import com.genscript.gsscm.rules.quoteorder.fact.ItemDetailFact;
+import java.util.Date;
+import java.util.Calendar;
+
+dialect  "java"
+
+global org.slf4j.Logger logger;
+
+function Date dayAfterNow(int days){
+    Calendar calendar = Calendar.getInstance();
+    
+    calendar.setTime(new Date());
+    calendar.add(Calendar.DATE, days); // 增加x天
+    
+    return calendar.getTime();
+}
+
+rule "Calc Non-Standard and Target Schedule Date for all service" 
+    //Non-Standard的计算规则，如果timeline计算出来了就为false，否则为true
+    salience -100
+    
+    when
+        $a : ItemDetailFact( )
+    then
+        if ($a.getTimeline() == null){
+            $a.setNonStandardFlag(1);
+        }else{
+            $a.setNonStandardFlag(0);
+            if ( $a.getScheduleDays() != null ){
+                $a.setTargetDate(dayAfterNow($a.getScheduleDays()));
+            }
+        }
+        
+        logger.info("Rule: Calc Non-Standard for all service, quote/order:{}-{}, timeline:{},scheduleDays:{}, the result:NonStandardFlag={}",
+                     $a.getQuoteOrderNo(),$a.getItemNo(), $a.getTimeline(), $a.getScheduleDays(), $a.getNonStandardFlag());
+end
+

@@ -1,0 +1,179 @@
+//=================================================================================
+//Peptide的生产周期规则
+// 注：1) SC1208 Peptide Synthesis, SC1208F Fast Peptide Synthesis不适用该规则
+//    2)由于Peptide Library也使用了Peptide的模型来计算，所以这里针对Peptide的计算规则里面要剔除掉所有的Peptide Library规则，避免影响
+//      后续新增Peptide Library类型的Catalog，也需要在这个规则里面剔除。
+//create by:duanjunwei
+//date:08/24 2016
+//=================================================================================
+package rules.quoteorder.timeline.peptide;
+
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+import com.genscript.gsscm.rules.quoteorder.fact.items.PeptideFact;
+
+dialect  "mvel"
+
+global org.slf4j.Logger logger;
+
+rule "Peptide Timeline with Sequence Length" 
+    //从多肽的序列长度计算timeline周期, 不同的长度区间其生产周期不同,排除掉Peptide Library的几个Catalog No
+    salience 100
+    lock-on-active true  
+    when
+        $p : PeptideFact(catalogNo not memberOf ["SC1208","SC1208F","SC1177","SC1487","SC1695","SC1696"] )
+    then
+        if ($p.seqLength < 10) {
+            $p.timeline = 8;
+        } else if ($p.seqLength < 20) {
+            $p.timeline = 11;
+        } else if ($p.seqLength < 30) {
+            $p.timeline = 14;
+        } else if ($p.seqLength < 40) {
+            $p.timeline = 20;
+        } else if ($p.seqLength < 50) {
+            $p.timeline = 25;
+        } else if ($p.seqLength < 60) {
+            $p.timeline = 30;
+        } else if ($p.seqLength < 100) {
+            $p.timeline = 60;
+        } else {
+            $p.timeline = 90;
+        }
+        
+        logger.info("Rule: Timeline with Sequence Length, quote/order item:{}-{}, Seq Length:{}, the result:timeline={}",
+                     $p.quoteOrderNo, $p.quoteOrderItemId, $p.seqLength, $p.timeline);
+end
+
+
+rule "Peptide Timeline with Sequence which matches {pTHR}, {pSER}, {pTYR}" 
+    //从多肽的序列包含的特殊片段（氨基酸）{pTHR}, {pSER}, {pTYR}来调整生产周期timeline
+    //包含1个特殊片段 增加5天，2个特殊片段加12天，3个以上特殊片段则加18天
+    salience 99
+    lock-on-active true 
+    
+    dialect  "java" 
+    
+    when
+        $p : PeptideFact( catalogNo not memberOf ["SC1208","SC1208F","SC1177","SC1487","SC1695","SC1696"]  )
+    then
+        Pattern pattern = Pattern.compile("\\{pTHR\\}|\\{pSER\\}|\\{pTYR\\}", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher( $p.getSequence() );
+        
+        //特殊序列片段匹配命中次数
+        int count = 0;
+        while (matcher.find()) {
+            count++;
+        }
+        
+        //当前的timeline值，考虑null情况
+        int curTimeline = $p.getTimeline() == null ? 0 : $p.getTimeline();
+        
+        if (count == 1) {
+            $p.setTimeline(curTimeline + 5);
+        } else if (count == 2) {
+            $p.setTimeline(curTimeline + 12);
+        } else if (count >= 3) {
+            $p.setTimeline(curTimeline + 18);
+        }
+        
+        logger.info("Rule: Peptide Timeline with Sequence which matches {pTHR}, {pSER}, {pTYR}, quote/order item:{}-{}, the result:timeline={}",
+                     $p.getQuoteOrderNo(), $p.getQuoteOrderItemId(), $p.getTimeline());
+end
+
+
+rule "Peptide Timeline with Modifications" 
+    //修饰规则，根据不同的修饰匹配，添加对应的生产周期
+    salience 98
+    lock-on-active true 
+    
+    dialect  "java" 
+    
+    when
+        $p : PeptideFact(catalogNo not memberOf ["SC1208","SC1208F","SC1177","SC1487","SC1695","SC1696"],
+                         modifications != null && modifications.size > 0)
+    then
+        Pattern pattern1 = Pattern.compile("FITC-Ahx \\(N-Terminal\\)", Pattern.CASE_INSENSITIVE);
+        Pattern pattern2 = Pattern.compile("p-Nitroanilide|AMC \\(C-Terminal\\)|Alcohol \\(C-Terminal\\)", Pattern.CASE_INSENSITIVE);
+        Pattern pattern3 = Pattern.compile("BSA Conjugation|KLH Conjugation|BSA \\(-NH2 of N terminal\\)|BSA \\(-COOH of C terminal\\)|KLH \\(-NH2 of N terminal\\)|KLH \\(-COOH of C terminal\\)", Pattern.CASE_INSENSITIVE);
+        Pattern pattern4 = Pattern.compile("Head to tail Cyclic|Aldehyde \\(C-Terminal\\)|Ester \\(OEt\\) \\(C-Terminal\\)|Ester \\(OMe\\) \\(C-Terminal\\)", Pattern.CASE_INSENSITIVE);
+        
+        //当前的timeline值，考虑null情况
+        int curTimeline = $p.getTimeline() == null ? 0 : $p.getTimeline();
+        
+        //循环遍历修饰列表，并进行匹配
+        for ( String mod : $p.getModifications() ) {
+            if (pattern1.matcher(mod).matches()) {
+                //加2天
+                $p.setTimeline(curTimeline + 2);
+            } else if (pattern2.matcher(mod).matches()) {
+                //加7天
+                $p.setTimeline(curTimeline + 7);
+            } else if (pattern3.matcher(mod).matches()) {
+                if ($p.getQuantity() > 30) {
+                    //数量大于30，加9天
+                    $p.setTimeline(curTimeline + 9);
+                } else {
+                    $p.setTimeline(curTimeline + 7);
+                }
+            } else if (pattern4.matcher(mod).matches()) {
+                //加14天
+                $p.setTimeline(curTimeline + 14);
+            }
+        }
+        
+        logger.info("Rule: Peptide Timeline with Modifications, quote/order item:{}-{}, the result:timeline={}",
+                     $p.getQuoteOrderNo(), $p.getQuoteOrderItemId(), $p.getTimeline() );
+end
+
+
+rule "Peptide Timeline with disulfide Bridge" 
+    //disulfide Bridge，二硫键规则，根据匹配的二硫键个数增加生产周期
+    //有1个则加5天，2个加12天，3个以上加30天
+    salience 97
+    lock-on-active true 
+    
+    dialect  "java" 
+    
+    when
+        $p : PeptideFact(catalogNo not memberOf ["SC1208","SC1208F","SC1177","SC1487","SC1695","SC1696"],
+                         disulfideBridge != null && disulfideBridge != "" )
+    then
+        Pattern pattern = Pattern.compile("\\d-\\d", Pattern.CASE_INSENSITIVE);
+        Matcher maBridge = pattern.matcher($p.getDisulfideBridge());
+        
+        int bridge_count = 0;
+        while (maBridge.find()) {
+            bridge_count++;
+        }
+        
+        //当前的timeline值，考虑null情况
+        int curTimeline = $p.getTimeline() == null ? 0 : $p.getTimeline();
+        
+        if (bridge_count == 1) {
+            $p.setTimeline(curTimeline + 5);
+        } else if (bridge_count == 2) {
+            $p.setTimeline(curTimeline + 12);
+        } else if (bridge_count >= 3) {
+            $p.setTimeline(curTimeline + 30);
+        }
+        
+        logger.info("Rule: Peptide Timeline with disulfide Bridge, quote/order item:{}-{}, the result:timeline={}",
+                     $p.getQuoteOrderNo(), $p.getQuoteOrderItemId(), $p.getTimeline());
+end
+
+
+rule "Calc schedule Days by timeline"
+    salience 10
+    lock-on-active true 
+    
+    when
+        $p : PeptideFact(catalogNo not memberOf ["SC1208","SC1208F","SC1177","SC1487","SC1695","SC1696"] )
+    then
+        $p.scheduleDays = $p.timeline;
+        
+        logger.info("Rule: Calc schedule Days by timeline, quote/order item:{}-{}, the result:timeline={}, schedule days={}",
+                     $p.quoteOrderNo, $p.quoteOrderItemId, $p.timeline, $p.scheduleDays);
+end
+

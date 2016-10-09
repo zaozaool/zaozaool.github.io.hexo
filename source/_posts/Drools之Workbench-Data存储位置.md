@@ -10,4 +10,4 @@ $WORKING_DIRECTORY/.niogit
 ```
 
 可以被[指定位置](http://docs.jboss.org/drools/release/6.4.0.Final/drools-docs/html_single/index.html#wb.workbenchData)
-![Drools Workbench Data](http://zaozaool.github.io/pic/drools-workbeach-data.png)
+![Drools Workbench Data](https://zaozaool.github.io/pic/drools-workbeach-data.png)

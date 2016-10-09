@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:kie="http://drools.org/schema/kie-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	    http://www.springframework.org/schema/tx 
+	    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+	    http://www.springframework.org/schema/jee 
+	    http://www.springframework.org/schema/jee/spring-jee-3.0.xsd 
+	    http://www.springframework.org/schema/context 
+	    http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+	    http://www.springframework.org/schema/aop 
+	    http://www.springframework.org/schema/aop/spring-aop-2.0.xsd 
+	    http://www.springframework.org/schema/task 
+	    http://www.springframework.org/schema/task/spring-task.xsd 
+	    http://drools.org/schema/kie-spring http://drools.org/schema/kie-spring.xsd" >
+
+
+	<!--  <kie:kmodule id="drools-kmodule">	
+		<kie:kbase name="shippingfee_kbase" packages="rules.quoteorder.shippingfee.total">
+			<kie:ksession name="shippingfee_ksession" scope="prototype" />
+		</kie:kbase>		
+		    
+		<kie:kbase name="packagingfee_kbase" packages="rules.quoteorder.shippingfee.packagingfee">
+			<kie:ksession name="packagingfee_ksession" scope="prototype"/>
+		</kie:kbase>
+	 </kie:kmodule>
+	 -->
+	
+	<!-- Quote Order Rule Project, 2 hours interval update. -->
+	<kie:import releaseId-ref="quoteorder-releaseId" enableScanner="true" scannerInterval="7200000"/>	
+	<kie:releaseId id="quoteorder-releaseId" groupId="com.genscript.gsscm.quoteorder"
+         artifactId="quoteorder" version="LATEST"/>
+	
+	<!-- Point Rule Project, 2 hours interval update. -->
+	<kie:import releaseId-ref="point-releaseId" enableScanner="true" scannerInterval="7200000"/>	
+	<kie:releaseId id="point-releaseId" groupId="com.genscript.gsscm.point"
+         artifactId="point" version="LATEST"/>
+
+	
+    <bean id="kiePostProcessor"
+		class="org.kie.spring.annotations.KModuleAnnotationPostProcessor" /> 
+
+</beans>

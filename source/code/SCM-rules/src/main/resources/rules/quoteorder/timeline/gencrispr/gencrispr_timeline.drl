@@ -1,0 +1,39 @@
+package rules.quoteorder.timeline.gencrispr;
+
+import com.genscript.gsscm.rules.quoteorder.fact.items.GenCrisprFact;
+
+dialect  "mvel"
+
+global org.slf4j.Logger logger;
+
+rule "Default 9 days timeline rule for Gen Crispr Service"
+    //gen crispr默认是9天生产
+    salience 50
+    lock-on-active true
+    
+    when
+        $f : GenCrisprFact()
+                              
+    then
+        $f.scheduleDays = 9;
+        
+        logger.info("Rule: Default timeline rule for Gen Crispr Service, quote/order item:{}-{}, the result:scheduleDays={}",
+                     $f.quoteOrderNo, $f.quoteOrderItemId, $f.scheduleDays );
+
+end
+
+rule "5 days timeline rule for Gen Crispr Service SC1805"
+    //gen crispr默认是9天生产
+    salience 49
+    lock-on-active true
+    
+    when
+        $f : GenCrisprFact(catalogNo == "SC1805")
+                              
+    then
+        $f.scheduleDays = 5;
+        
+        logger.info("Rule: 5 days timeline rule for Gen Crispr Service SC1805, quote/order item:{}-{}, the result:scheduleDays={}",
+                     $f.quoteOrderNo, $f.quoteOrderItemId, $f.scheduleDays );
+
+end

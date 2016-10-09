@@ -1,0 +1,237 @@
+package rules.quoteorder.shippingfee.total;
+
+import com.genscript.gsscm.rules.quoteorder.fact.QuoteOrderFact;
+import com.genscript.gsscm.rules.quoteorder.fact.PackageFact;
+import java.math.BigDecimal;
+
+dialect  "mvel"
+
+global org.slf4j.Logger logger;
+
+
+//循环计算每个Package的Handling Fee,根据Packge的Customer Charge进行计算Base Handling Fee
+rule "Caculate Base Handling Fee from Each Package"
+    salience 101
+    lock-on-active true
+    no-loop true
+    
+    //循环获取包裹里面的每个Package的baseCustomerCharge，并累加    
+    when
+        $f : QuoteOrderFact($packageList : packageList)
+        $p : PackageFact() from $packageList
+    then
+        $f.baseHandlingFee += $p.baseHandlingFee;
+        $f.baseCustomerCharge += $p.baseCustomerCharge;
+        
+        logger.info("Rule: Caculate Base Handling Fee from Each Package, quote/order:{}, the result: baseHandlingFee={};baseCustomerCharge={}",
+                    $f.quoteOrderNo, $f.baseHandlingFee, $f.baseCustomerCharge );
+end
+
+
+//运费基本计算规则：根据规则101号计算的Handling FeePackge包裹的重量等参数进行计算shipping fee
+rule "Base Package Customer Charge and Handling Fee as Shipping Fee"
+    salience 100
+    lock-on-active true
+    no-loop true
+    
+    when 
+        $f : QuoteOrderFact()
+    then
+        $f.shipAmt = $f.baseCustomerCharge * $f.exchRate;         
+        $f.baseShipAmt = $f.baseCustomerCharge;
+        $f.transferredSH = $f.baseShipAmt * 0.75 / $f.usdToBaseCurrencyRate; 
+
+        $f.shipAmtChanged = "N";             
+        
+        logger.info("Rule: Base Package Customer Charge and Handling Fee as Shipping Fee, the fact: {}", $f);
+        
+        drools.update($f); 
+end
+
+//Promotion规则：优惠方式为Percent
+rule "Promotion is Percent"
+    salience 99
+    lock-on-active true
+    
+    when
+        $f : QuoteOrderFact(prmtShDiscType == "percent",
+                            prmtShDiscount != null,
+                            $tmp_baseShipAmt : baseShipAmt,
+                            $prmtShDiscount : prmtShDiscount)
+    then
+        $tmp_baseShipAmt = $tmp_baseShipAmt * (1 - $prmtShDiscount / 100);
+        
+        $f.baseShipAmt = $tmp_baseShipAmt;
+        $f.shipAmt = $tmp_baseShipAmt * $f.exchRate;
+        
+        $f.transferredSH = $f.baseShipAmt * 0.75 / $f.usdToBaseCurrencyRate; 
+        
+        $f.shipAmtChanged = "N";
+
+        logger.info("Rule: Promotion is Percent, quote/order:{}, the result: baseShipAmt={};shipAmt={};transferredSH={};shipAmtChanged={}",
+                    $f.quoteOrderNo, $f.baseShipAmt, $f.shipAmt, $f.transferredSH, $f.shipAmtChanged );
+end
+
+
+//Promotion规则：优惠方式为Amount
+rule "Promotion is Amount"
+    salience 98
+    lock-on-active true
+    
+    when
+         $f : QuoteOrderFact(prmtShDiscType == "amount",
+                             prmtShDiscount != null,
+                             $tmp_baseShipAmt : baseShipAmt,
+                             $prmtShDiscount : prmtShDiscount)
+    then
+        $tmp_baseShipAmt = $tmp_baseShipAmt - $prmtShDiscount;
+        if ( $tmp_baseShipAmt < 0.0 ){
+            $tmp_baseShipAmt = 0.0;
+        }
+
+        $f.baseShipAmt = $tmp_baseShipAmt;
+        $f.shipAmt = $tmp_baseShipAmt * $f.exchRate;
+        
+        $f.transferredSH = $f.baseShipAmt * 0.75 / $f.usdToBaseCurrencyRate; 
+        
+        $f.shipAmtChanged = "N";
+        logger.info("Rule: Promotion is Amount, quote/order:{}, the result: baseShipAmt={};shipAmt={};transferredSH={};shipAmtChanged={}",
+                    $f.quoteOrderNo, $f.baseShipAmt, $f.shipAmt, $f.transferredSH, $f.shipAmtChanged );
+end
+
+
+//Promotion规则：优惠方式为payAmount
+rule "Promotion is payAmount"
+    salience 97
+    lock-on-active true
+    
+    when
+        $f : QuoteOrderFact(prmtShDiscType == "payAmount",
+                            prmtShDiscount != null,
+                            $tmp_baseShipAmt : baseShipAmt,
+                            $prmtShDiscount : prmtShDiscount) 
+    then
+        $tmp_baseShipAmt = $prmtShDiscount;
+
+        $f.baseShipAmt = $tmp_baseShipAmt;
+        $f.shipAmt = $tmp_baseShipAmt * $f.exchRate;
+        
+        $f.transferredSH = $f.baseShipAmt * 0.75 / $f.usdToBaseCurrencyRate; 
+        $f.shipAmtChanged = "N";
+        
+        logger.info("Rule: Promotion is payAmount, quote/order:{}, the result: baseShipAmt={};shipAmt={};transferredSH={};shipAmtChanged={}",
+                    $f.quoteOrderNo, $f.baseShipAmt, $f.shipAmt, $f.transferredSH, $f.shipAmtChanged );
+end
+
+
+//发货方式为USPS International规则
+rule "Ship Method is USPS International"
+    //Ship method值为19时，代表是USPS International，Shipping Fee固定为62美金
+    //触发条件增加shipping fee未冻结
+    salience 96
+    lock-on-active true
+    
+    when
+        $f : QuoteOrderFact(shipMethod != null && shipMethod == 19,
+                            shippingFeeFreezed != true )        
+    then
+        $f.baseShipAmt = 62.0 * $f.usdToBaseCurrencyRate;
+        $f.shipAmt = $f.baseShipAmt * $f.exchRate;
+        $f.transferredSH = $f.baseShipAmt * 0.75 / $f.usdToBaseCurrencyRate; 
+        
+        $f.shipAmtChanged = "Y";
+        
+        logger.info("Rule: Ship Method is USPS International, quote/order:{}, the result: baseShipAmt={};shipAmt={};transferredSH={};shipAmtChanged={}",
+                    $f.quoteOrderNo, $f.baseShipAmt, $f.shipAmt, $f.transferredSH, $f.shipAmtChanged );
+end
+
+
+//发货方式为USPS Domestic规则
+rule "Ship Method is USPS Domestic"
+    //Ship method值为20时，代表是USPS Domestic，Shipping Fee固定为35美金
+    //触发条件增加shipping fee未冻结
+    salience 95
+    lock-on-active true
+    
+    when
+        $f : QuoteOrderFact(shipMethod != null &&  shipMethod == 20,
+                            shippingFeeFreezed != true )        
+    then
+        $f.baseShipAmt = 35.0 * $f.usdToBaseCurrencyRate;
+        $f.shipAmt = $f.baseShipAmt * $f.exchRate;
+        $f.transferredSH = $f.baseShipAmt * 0.75 / $f.usdToBaseCurrencyRate; 
+        
+        $f.shipAmtChanged = "Y";
+        
+        logger.info("Rule: Ship Method is USPS Domestic, quote/order:{}, the result: baseShipAmt={};shipAmt={};transferredSH={};shipAmtChanged={}",
+                    $f.quoteOrderNo, $f.baseShipAmt, $f.shipAmt, $f.transferredSH, $f.shipAmtChanged );
+end
+
+rule "Special Handling Fee Rule"
+    //Special Handling Fee规则，TAM设置；shipmethod为19和20时，即USPS类型时，不加Special Handling fee
+    //当Customized Cost不为空时，不需要计算Special Handling Fee 
+    //该规则可重复触发  
+    salience 94
+    
+    dialect  "java"
+    
+    when
+        $f : QuoteOrderFact(shipMethod != 19 && shipMethod != 20,
+                            (customizedCost == null || customizedCost == ""),
+                            specialHandling != null && specialHandling != "0",
+                            $tmp_baseShipAmt : baseShipAmt)
+    then        
+        $tmp_baseShipAmt += (new BigDecimal($f.getSpecialHandling()).doubleValue());
+
+        $f.setBaseShipAmt($tmp_baseShipAmt);
+        $f.setShipAmt($tmp_baseShipAmt * $f.getExchRate());
+        $f.setTransferredSH( $f.getBaseShipAmt() * 0.75 / $f.getUsdToBaseCurrencyRate()); 
+        
+        logger.info("Rule: Special Handling Fee Rule, quote/order:{}, the result: baseShipAmt={};shipAmt={};transferredSH={};shipAmtChanged={}",
+                    $f.getQuoteOrderNo(), $f.getBaseShipAmt(), $f.getShipAmt(), $f.getTransferredSH(), $f.getShipAmtChanged() );
+end
+ 
+//Customer Shipping Account
+rule "Customer Shipping Account"
+    //对于有Shipping Account的Quote/Order，则拿package的HandlingFee作为shippingFee
+    //该规则可以重复触发
+    salience 93
+    
+    when
+        $f : QuoteOrderFact(shippingAccount != null && shippingAccount != "" ,
+                            baseHandlingFee != null &&  baseHandlingFee > 0,
+                            $baseHandlingFee :  baseHandlingFee)
+    then
+        $f.baseShipAmt = $baseHandlingFee;
+        $f.shipAmt = $f.baseShipAmt * $f.exchRate;
+        $f.transferredSH = $f.baseShipAmt * 0.75 / $f.usdToBaseCurrencyRate; 
+        
+        $f.shipAmtChanged = "N";
+        logger.info("Rule: Customer Shipping Account, quote/order:{}, the result: baseShipAmt={};shipAmt={};transferredSH={};shipAmtChanged={}",
+                    $f.quoteOrderNo, $f.baseShipAmt, $f.shipAmt, $f.transferredSH, $f.shipAmtChanged );
+end
+
+ 
+
+//手工填写的定制运费
+rule "Customized Cost"
+    //如果Customized Cost字段不为空，且值大于0，则运费直接取该值计算
+    salience 92
+    lock-on-active true
+    
+    when
+        $f : QuoteOrderFact(customizedCost != null && customizedCost >= 0)
+    then
+        $f.shipAmt = $f.customizedCost;         
+        $f.baseShipAmt = $f.shipAmt / $f.exchRate;
+        $f.transferredSH = $f.baseShipAmt * 0.75 / $f.usdToBaseCurrencyRate; 
+
+        $f.shipAmtChanged = "Y";
+        
+        logger.info("Rule: Customized Cost, quote/order:{}, the result: baseShipAmt={};shipAmt={};transferredSH={};shipAmtChanged={}",
+                    $f.quoteOrderNo, $f.baseShipAmt, $f.shipAmt, $f.transferredSH, $f.shipAmtChanged );
+end 
+
+
+
+

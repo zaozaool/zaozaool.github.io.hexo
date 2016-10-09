@@ -1,0 +1,43 @@
+package rules.quoteorder.timeline.plasmid;
+
+import com.genscript.gsscm.rules.quoteorder.fact.items.PlasmidPreparationFact;
+
+dialect  "mvel"
+
+global org.slf4j.Logger logger;
+
+rule "Parent Item is null for Plasmid Preparation Step Service"
+    //clsId为81时，如果没有父Item，那么就是非标准服务，timeline设置为null
+    salience 99
+    lock-on-active true
+    
+    when
+        $f : PlasmidPreparationFact( clsId == 81,
+                                     parentItemCatalogNo == null || parentItemCatalogNo == "")
+                              
+    then
+        $f.timeline = null;
+        $f.nonStandardFlag = 1;
+        
+        logger.info("Rule: Parent Item is null for Plasmid Preparation Step Service, quote/order item:{}-{}, the result:timeline={}",
+                     $f.quoteOrderNo, $f.quoteOrderItemId, $f.timeline );
+        drools.halt();
+end
+
+
+rule "Plasmid Preparation Service Timeline rule with adding Parent Item schedule days"
+    //timeline不为空时，查看父Item的schdule days，并添加到本Item的ScheduleDays中
+    salience -1
+    lock-on-active true
+    
+    when
+        $f : PlasmidPreparationFact( timeline != null, 
+                              parentItemId != null, parentItemId != "",
+                              parentItemScheduleDays != null )
+                              
+    then
+        $f.scheduleDays = $f.timeline + $f.parentItemScheduleDays;
+        
+        logger.info("Rule: Plasmid Preparation Service Timeline rule with adding Parent Item schedule days, quote/order item:{}-{}, parent item schedule days:{}, the result:timeline={}",
+                     $f.quoteOrderNo, $f.quoteOrderItemId, $f.parentItemScheduleDays, $f.timeline );
+end

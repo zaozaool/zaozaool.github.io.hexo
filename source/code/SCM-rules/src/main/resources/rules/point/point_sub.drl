@@ -1,0 +1,24 @@
+/**
+ * 减点规则，比如订单退款
+ * @Autor duanjunwei 
+ * @Created at 06/03 2016
+ */
+package com.genscript.gsscm.rules.point.res;
+import com.genscript.gsscm.rules.point.fact.PointFact;
+
+dialect  "mvel"
+
+rule "refund an order" 
+    //订单退款减点
+    salience 200
+    lock-on-active true  
+    when
+        $p : PointFact( actionType == "refund", 
+                        amount != null && amount > 0 )
+    then
+        $p.points = -(int)$p.amount;
+        $p.comments  = "Withdrawing points from order";
+        
+        
+        System.out.println("refund an order: " + $p.points);
+end

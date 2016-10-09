@@ -1,0 +1,85 @@
+//=================================================================================
+//公共的Packaging Charge计算规则文件，这里保存三套订单系统都共用的计算规则
+//规划的规则文件执行优先级salience值范围：US(151~200)->JP(100~150)->CN(51~100)->Common(0~50)
+//create by:duanjunwei
+//date:06/29 2016
+//=================================================================================
+package rules.quoteorder.shippingfee.packagingfee;
+
+import com.genscript.gsscm.rules.quoteorder.fact.PackageFact;
+import com.genscript.gsscm.rules.quoteorder.fact.QuoteOrderItemFact;
+
+dialect  "mvel"
+
+global org.slf4j.Logger logger;
+
+rule "Free for internal quote and order"
+    //内单的Shipping Fee为0
+    salience 50
+    lock-on-active true  
+    when
+        $p : PackageFact( isInternal == true )
+    then
+        $p.baseCustomerCharge = 0.0;
+        $p.baseHandlingFee = 0.0;
+        
+        logger.info("Rule: Free for internal quote and order, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+end
+
+
+rule "Shipping fee mul factor rule 1, ship method is DHL or UPS"
+    //ShippingFee乘以系数规则：
+    //1. ShippingFeeMul系统默认为1
+    //2. 取Package里面的第一个Item，如果这个Item的shipmethodId为DHL或者UPS，则shippingFeeMul系数为1.9
+    //3. 如果Custlocation为JP，且不包含产品item，则shippingFeeMul系统为1，包含产品的话，规则同1
+    salience 48
+    lock-on-active true 
+    
+    when 
+        $p : PackageFact(shipCarrier == "DHL" || shipCarrier == "UPS")
+    then 
+        $p.shippingFeeMul = 1.9;
+        
+        logger.info("Rule:Shipping fee mul factor rule 1, ship method is DHL or UPS, shippingFeeMul={}", $p.shippingFeeMul);
+end
+
+
+rule "Shipping fee mul factor rule 2, contains PRODUCT"
+    //ShippingFee乘以系数规则：
+    //1. ShippingFeeMul系统默认为1
+    //2. 取Package里面的第一个Item，如果这个Item的shipmethodId为DHL或者UPS，则shippingFeeMul系数为1.9
+    //3. 如果Custlocation为JP，且不包含产品item，则shippingFeeMul系统为1，包含产品的话，规则同1
+    salience 47
+    lock-on-active true 
+    
+    when 
+        $p : PackageFact(custLocation == "JP")
+        QuoteOrderItemFact(type contains "PRODUCT" || clsId == 63) from $p.quoteOrderItemList
+    then 
+        $p.shippingFeeMul = 1.0;
+        
+        logger.info("Rule:Shipping fee mul factor rule 2, contains PRODUCT, shippingFeeMul={}" , $p.shippingFeeMul);
+end
+
+
+rule "Packaging shipping calculation executing rule"
+    //计算Package的Shipping Fee，将各种输出值都计算出来，salience设置为10，较后执行
+    salience -1
+    lock-on-active true 
+    
+    when 
+        $p : PackageFact()
+    then 
+        $p.baseCustomerCharge = $p.baseCustomerCharge * $p.shippingFeeMul;
+        $p.customerCharge = $p.baseCustomerCharge * $p.exchRate;
+        
+        $p.handlingFee = $p.baseHandlingFee * $p.exchRate;
+        $p.eeiHandlingFee = $p.baseEeiHandlingFee * $p.exchRate;
+        
+        $p.regularHandlingFee = $p.baseRegularHandlingFee * $p.exchRate;
+        
+        $p.baseCharge = $p.customerCharge - $p.handlingFee;
+        
+        logger.info("Rule: Packaging shipping calculation executing rule, the packaging fact:{}", $p);   
+end

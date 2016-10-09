@@ -11,7 +11,7 @@ tags: [JavaScript, 算法]
 **Chrome: 普通写法:1550-1700 ms，尾调用写法:0-2 ms**
 **IE9: 普通写法:46000+ ms，尾调用写法:0-2 ms**
 
-以上只是在我自己电脑上的3种浏览器测试的结果，但是可以看出其巨大的差异，所以多函数嵌套调用以及递归时，尽可能的使用尾调用。[测试地址](http://zaozaool.github.io/test-fibonacci.html)
+以上只是在我自己电脑上的3种浏览器测试的结果，但是可以看出其巨大的差异，所以多函数嵌套调用以及递归时，尽可能的使用尾调用。[测试地址](https://zaozaool.github.io/test-fibonacci.html)
 <!--more-->
 
 普通写法（非尾调用）：

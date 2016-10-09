@@ -1,0 +1,24 @@
+package rules.quoteorder.timeline.mutalibs;
+
+import com.genscript.gsscm.rules.quoteorder.fact.items.MutaLibFact;
+
+dialect  "mvel"
+
+global org.slf4j.Logger logger;
+
+
+rule "Timeline rule for Muta library Service, 7 days" 
+    //默认是7天
+    salience 100
+    
+    when
+        $f : MutaLibFact( )
+    then
+        $f.timeline = 7;
+        $f.scheduleDays = 7;
+        $f.nonStandardFlag = 0;
+        
+        logger.info("Rule: Timeline rule for Muta library Service, 7 days, quote/order:{}-{}, timeline:{}, the result:NonStandardFlag={}",
+                     $f.quoteOrderNo, $f.itemNo, $f.timeline, $f.nonStandardFlag );
+end
+

@@ -11,7 +11,7 @@ date: 2015-07-16 06:16:58
   "GitHub": {
     "Username": "zaozaool",
     "Home page": "http://www.github.com/zaozaool",
-    "Notebook": "http://zaozaool.github.io/"
+    "Notebook": "https://zaozaool.github.io/"
   },
   "Experience": [
     "ZTE联通音乐平台",

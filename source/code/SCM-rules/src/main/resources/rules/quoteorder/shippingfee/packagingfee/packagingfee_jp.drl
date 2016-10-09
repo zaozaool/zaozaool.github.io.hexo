@@ -1,0 +1,263 @@
+//=================================================================================
+//JP Order系统的Packaging Charge计算规则文件，Cust Location为JP的执行该规则
+//规划的规则文件执行优先级salience值范围：US(151~200)->JP(100~150)->CN(51~100)->Common(0~50)
+//create by:duanjunwei
+//date:06/22 2016
+//=================================================================================
+
+package rules.quoteorder.shippingfee.packagingfee;
+
+import com.genscript.gsscm.rules.quoteorder.fact.PackageFact;
+import com.genscript.gsscm.rules.quoteorder.fact.QuoteOrderItemFact;
+
+dialect  "mvel"
+
+global org.slf4j.Logger logger;
+
+
+rule "Handling fee is 0 for Cust location is JP" 
+    //Cust Location 为JP时Handling Fee为0
+    salience 150
+    lock-on-active true  
+    when
+        $p  : PackageFact( custLocation == "JP" )
+    then
+        $p.baseHandlingFee = 0.0;
+               
+        logger.info("Rule: Handling fee is 0 for Cust location is JP, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+end
+
+
+rule "JP shipping fee: Item list is empty" 
+    //日本地区的用户，如果Item List为空，则Shipping Fee为0
+    salience 149
+    lock-on-active true  
+    when
+        $p : PackageFact( custLocation == "JP",
+                          (quoteOrderItemList == null || quoteOrderItemList.size <1) )
+    then
+        $p.baseCustomerCharge = 0.0;
+        
+        logger.info("Rule: JP shipping fee: Item list is empty, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+        
+        drools.halt();//不再执行其他规则
+end
+
+
+rule "JP shipping fee: customized fro special customer" 
+    //日本地区的用户，如果有客户设置的定制Shipping fee，则Shipping Fee为客户定制的数值
+    salience 148
+    lock-on-active true  
+    when
+        $p : PackageFact( custLocation == "JP",
+                          customizedShippingFee != null )
+    then
+        $p.baseCustomerCharge = $p.customizedShippingFee;
+        
+        logger.info("Rule: JP shipping fee: customized fro special customer, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+        
+        drools.halt();//不再执行其他规则
+end
+
+rule "JP shipping fee:js shippingfee group 1 for normal gene,clone,mutation,oligo,peptide"
+    //当Item的Cls Id为1...89时，为js shipping fee group 1，总量totalQty<=30,则Shippingfee为2600
+    //totalQty>30，shipping fee为5200
+    salience 147
+    lock-on-active true
+    
+    when
+        $p : PackageFact( custLocation == "JP" ,
+                          $totalQty : totalQty) //totalQty为包裹里面的Item总Qty之和
+        $qo: QuoteOrderItemFact(clsId memberOf  [1,3,4,5,6,7,8,9,10,29,30,31,34,38,39,40,41,42,43,46,47,
+                                                  48,52,53,64,71,72,74,75,76,77,79,80,81,82,84,85,89]) 
+                  from $p.quoteOrderItemList
+    then
+        if ( $totalQty <= 30 && $p.jpBiggestShippingFee < 2600.0){
+            $p.jpBiggestShippingFee =  2600.0;
+        }
+        
+        if ($totalQty > 30 && $p.jpBiggestShippingFee < 5200.0){
+            $p.jpBiggestShippingFee =  5200.0;
+        }
+        
+        logger.info("Rule:JP shipping fee:js shippingfee group 1 for normal gene,clone,mutation,oligo,peptide, jpBiggestShippingFee={}", $p.jpBiggestShippingFee);
+end
+
+rule "JP shipping fee:js shippingfee group 2 for fast gene"
+    //Fast gene的Shipping fee，按订单总量totalQty <=30为 6600，大于则是9200
+    salience 146
+    lock-on-active true
+    
+    when
+        $p : PackageFact( custLocation == "JP" ,
+                          $totalQty : totalQty) //totalQty为包裹里面的Item总Qty之和
+        $qo: QuoteOrderItemFact( clsId memberOf  [44, 45, 65] ) 
+                  from $p.quoteOrderItemList
+    then
+        if ( $totalQty <= 30 && $p.jpBiggestShippingFee < 6600.0){
+            $p.jpBiggestShippingFee =  6600.0;
+        }
+        
+        if ($totalQty > 30 && $p.jpBiggestShippingFee < 9200.0){
+            $p.jpBiggestShippingFee =  9200.0;
+        }
+        
+        logger.info("Rule:JP shipping fee:js shippingfee group 2 for fast gene, jpBiggestShippingFee={}", $p.jpBiggestShippingFee);
+end
+
+rule "JP shipping fee:js shippingfee group 3 for polyclonal antibody"
+    salience 145
+    lock-on-active true
+    
+    when
+        $p : PackageFact( custLocation == "JP", jpBiggestShippingFee < 10000.0 ) 
+        $qo: QuoteOrderItemFact( clsId memberOf  [11, 28, 36, 49, 54, 73, 78] ) 
+                  from $p.quoteOrderItemList
+    then
+        $p.jpBiggestShippingFee =  10000.0;
+        
+        logger.info("Rule:JP shipping fee:js shippingfee group 3 for polyclonal antibody, jpBiggestShippingFee={}", $p.jpBiggestShippingFee);
+        
+end
+ 
+rule "JP shipping fee:js shippingfee group 4 for monoclone antibody, cell line"
+    salience 144
+    lock-on-active true
+    
+    when
+        $p : PackageFact( custLocation == "JP" , jpBiggestShippingFee < 150000.0) 
+        $qo: QuoteOrderItemFact( clsId memberOf  [12] ) 
+                  from $p.quoteOrderItemList
+    then
+        $p.jpBiggestShippingFee =  150000.0;
+        
+        logger.info("Rule:JP shipping fee:js shippingfee group 4 for monoclone antibody, cell line, jpBiggestShippingFee={}", $p.jpBiggestShippingFee);
+end 
+
+
+rule "JP shipping fee:js shippingfee group 5 for protein"
+    salience 143
+    lock-on-active true
+    
+     when
+        $p : PackageFact( custLocation == "JP", jpBiggestShippingFee < 10000.0 ) 
+        $qo: QuoteOrderItemFact( clsId memberOf  [2 , 13, 14, 15, 50, 51, 55, 56, 67, 68, 69, 70, 87, 90] ) 
+                  from $p.quoteOrderItemList
+    then
+        $p.jpBiggestShippingFee =  10000.0;
+        
+        logger.info("Rule:JP shipping fee:js shippingfee group 5 for protein, jpBiggestShippingFee={}", $p.jpBiggestShippingFee);
+        
+end 
+
+rule "JP shipping fee:js shippingfee group 6 for only devlivery doucuments"
+    //针对只交付文档的，没有Shipping fee的计算规则。
+    salience 142
+    lock-on-active true
+    
+    when
+        $p : PackageFact( custLocation == "JP" ) 
+        $qo: QuoteOrderItemFact( clsId memberOf  [-1, 16, 17, 18, 19, 32, 33, 35, 37, 57, 58, 59, 60, 61, 62, 86, 88, 91] ) 
+                  from $p.quoteOrderItemList
+    then
+        //No Business Rule here.
+        logger.info("JP shipping fee:js shippingfee group 6 for only devlivery doucuments, but no rule to be executed. Please contact the administrator to check.");
+end 
+
+
+rule "JP shipping fee:JP_SC1691 Fast Cloning"
+    //由于JP_SC1691（Fast Cloning）常用于fast
+    //gene合成。而带有克隆的fastgene，以克隆类型计算邮费。所以，将JP_SC1691的邮寄费用改成和快速基因（JP_SC1619）一致。
+    //Item<=30, shipping fee=6600 Item>30, shipping fee=9200
+    salience 141
+    lock-on-active true
+    
+    when
+        $p : PackageFact( custLocation == "JP",
+                          $totalQty : totalQty) //totalQty为包裹里面的Item总Qty之和
+        $qo: QuoteOrderItemFact(catalogNo matches ".*SC1691") from $p.quoteOrderItemList
+    then
+        //如果总包裹的Qty低于30个，且当前已经计算出来的biggest shipping fee低于6600的话，Shipping fee设置为6600
+        if ( $totalQty <= 30 && $p.jpBiggestShippingFee < 6600.0){
+            $p.jpBiggestShippingFee = 6600.0;
+        }
+        
+        //如果包裹的Qty大于30个，且当前计算出来的biggest Shipping fee低于9200的话，Shipping fee设置为9200
+        if ($totalQty > 30 && $p.jpBiggestShippingFee < 9200.0){
+            $p.jpBiggestShippingFee = 9200.0;
+        }
+        
+        logger.info("Rule:JP shipping fee:JP_SC1691 Fast Cloning, jpBiggestShippingFee={}", $p.jpBiggestShippingFee);
+end 
+
+rule "JP shipping fee:JP_SC1652 and SC1663"
+    //Catalog No为SC1652或者SC1663时， biggestShippingFee设置为150000
+    salience 140
+    lock-on-active true
+    
+    when
+        $p : PackageFact( custLocation == "JP")
+        $qo: QuoteOrderItemFact(catalogNo matches ".*SC1652" ||
+                                catalogNo matches ".*SC1663") from $p.quoteOrderItemList
+    then
+        if ( $p.jpBiggestShippingFee < 150000.0){
+            $p.jpBiggestShippingFee = 150000.0;
+        }
+        
+        logger.info("Rule:JP shipping fee:JP_SC1652 and SC1663, jpBiggestShippingFee={}", $p.jpBiggestShippingFee);
+end
+
+rule "JP shipping fee:JP_SC1410, SC1411 and SC1574" 
+    //Catalog No为SC1410, SC1411 and SC1574时， biggestShippingFee设置为10000
+    salience 139
+    lock-on-active true
+    
+    when
+        $p : PackageFact( custLocation == "JP" )
+        $qo: QuoteOrderItemFact(catalogNo matches ".*SC1410" ||
+                                catalogNo matches ".*SC1411" ||
+                                catalogNo matches ".*SC1574") from $p.quoteOrderItemList
+    then
+        if ( $p.jpBiggestShippingFee < 10000.0){
+            $p.jpBiggestShippingFee = 10000.0;
+        }
+        
+        logger.info("Rule:JP shipping fee:JP_SC1410, SC1411 and SC1574, jpBiggestShippingFee={}", $p.jpBiggestShippingFee);
+end
+
+rule "JP shipping fee: contains product items"
+    //订单包含产品的逻辑规则：Item中有Product类型的，或者cls Id为63（Customized Product）
+    //订单包含产品时，先获取US Shipping Fee的计算结果（此处要求US Shipping Fee规则执行顺序优先于JP）
+    //将US Shipping Fee乘以120（固定汇率）与jpBiggestShippingFee进行比较，取其大者作为本次订单计算的Shipping fee结果
+    //这条规则中的baseCustomerCharge值是通过US 规则计算来的，默认会先执行US的规则计算CustomerCharge
+    salience 138
+    lock-on-active true
+    
+    when
+        $p : PackageFact( custLocation == "JP",
+                          baseCustomerCharge * 120 > jpBiggestShippingFee)
+        QuoteOrderItemFact(type contains "PRODUCT" || clsId == 63) from $p.quoteOrderItemList    
+    then
+        $p.jpBiggestShippingFee = $p.baseCustomerCharge * 120;
+        logger.info("Rule:JP shipping fee:contains product items, jpBiggestShippingFee={}", $p.jpBiggestShippingFee);
+end
+
+
+rule "JP shipping fee: jpBiggestShippingFee as shipping fee"
+    //将JP 的biggest shipping fee作为最终的Shipping fee
+    salience 120
+    lock-on-active true
+    
+    when
+        $p : PackageFact( custLocation == "JP" )  
+    then
+        $p.serviceHandlingFee = 0.0;
+        $p.baseCustomerCharge = $p.jpBiggestShippingFee;
+        
+        logger.info("Rule: JP shipping fee: jpBiggestShippingFee as shipping fee, quote/order:{}, packageId:{}, the result:baseCustomerCharge={};baseHandlingFee={}",
+                     $p.quoteOrderNo, $p.packageId, $p.baseCustomerCharge, $p.baseHandlingFee);
+end
+

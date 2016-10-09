@@ -15,13 +15,14 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 302,
-        "@maximized": "false",
+        "@height": 382,
+        "@maximized": false,
         "json()": {
             "meta": {
                 "accessList": [
                     "tab3",
                     "tab0",
+                    "searchResults",
                     "tab1"
                 ]
             },
@@ -463,36 +464,42 @@
                         "tooltip": "source/scripts/githubcommit.sh - Idle",
                         "output": {
                             "id": "output792790",
-                            "width": 1520,
-                            "height": 276,
+                            "width": 966,
+                            "height": 356,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
                                 "toolbar": true,
                                 "name": ""
-                            },
-                            "running": {
-                                "name": "output792790",
-                                "running": 1,
-                                "runner": [
-                                    {
-                                        "cmd": [
-                                            "bash",
-                                            "-i",
-                                            "-l",
-                                            "$file",
-                                            "$args"
-                                        ],
-                                        "selector": "^.*\\.(sh)$",
-                                        "caption": "Shell script",
-                                        "$builtin": true
-                                    }
-                                ]
                             }
                         }
                     },
                     "editorType": "output",
                     "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "searchResults",
+                    "path": "/.c9/searchresults",
+                    "className": [
+                        "searchResults",
+                        "changed"
+                    ],
+                    "document": {
+                        "changed": true,
+                        "meta": {
+                            "searchResults": true,
+                            "ignoreSave": true,
+                            "newfile": true,
+                            "timestamp": 1476022604521
+                        },
+                        "filter": true,
+                        "title": "Search Results",
+                        "tooltip": "/.c9/searchresults",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -514,12 +521,12 @@
     },
     "ext": {
         "counters": {
-            "@ace": 1,
+            "@ace": 2,
             "@ace.repl": 1,
-            "@acestatus": 1,
+            "@acestatus": 2,
             "@datagrid": 1,
             "@divider": 4,
-            "@document": 4,
+            "@document": 6,
             "@form": 5,
             "@imgeditor": 1,
             "@immediate": 1,
@@ -529,10 +536,10 @@
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 4,
-            "@session": 3,
-            "@tab": 3,
+            "@session": 5,
+            "@tab": 5,
             "@tree": 2,
-            "@undoManager": 4,
+            "@undoManager": 6,
             "@welcome": 1
         }
     },
@@ -565,7 +572,7 @@
     "panecycle": {
         "json()": [
             "tab3",
-            "tab2"
+            "tab1"
         ]
     },
     "panels": {
@@ -598,13 +605,14 @@
         }
     },
     "projecttree": {
-        "@scrollpos": -10,
+        "@scrollpos": 263,
         "@showfs": true,
         "expanded": {
             "json()": [
                 "/",
                 "/source",
-                "/source/_posts"
+                "/source/code",
+                "/source/code/SCM-rules"
             ]
         }
     },
@@ -644,6 +652,8 @@
         },
         "searchfiles": {
             "json()": [
+                "http://zaozaool.g",
+                "zaozaool.github.io",
                 "ζζ",
                 "GenScript",
                 "ZZGoogle",
@@ -658,33 +668,10 @@
         "json()": {
             "focus": "tab3",
             "meta": {
-                "accessList": [
-                    "tab2"
-                ]
+                "accessList": []
             },
             "name": "pane0",
-            "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab2",
-                    "path": "/source/_posts/Bookmarks.md",
-                    "className": [
-                        "tab2"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1474333379096
-                        },
-                        "filter": true,
-                        "title": "Bookmarks.md",
-                        "tooltip": "/source/_posts/Bookmarks.md",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                }
-            ],
+            "nodes": [],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
@@ -692,7 +679,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/source/_posts/Bookmarks.md"
+            "/_config.yml"
         ]
     }
 }

@@ -1,0 +1,41 @@
+//=================================================================================
+//Antibody的生产周期规则
+//create by:duanjunwei
+//date:08/18 2016
+//=================================================================================
+
+package rules.quoteorder.timeline.antibody;
+
+import com.genscript.gsscm.rules.quoteorder.fact.items.AntibodyFact;
+
+dialect  "mvel"
+
+global org.slf4j.Logger logger;
+
+rule "Leadtime as the default item timeline for Antibody service" 
+    //leadtime默认为生产周期
+    salience 100
+    lock-on-active true  
+    when
+        $a : AntibodyFact( )
+    then
+        $a.timeline = $a.leadTime;
+        
+        logger.info("Rule: Leadtime as the default item timeline for Antibody service, quote/order item:{}-{}, leadTime:{}, the result:timeline={}",
+                     $a.quoteOrderNo, $a.quoteOrderItemId, $a.leadTime, $a.timeline);
+end
+
+rule "Parent item timeline as the item timeline for Antibody service" 
+    //SC1195，SC1665，SC1198这三个服务的生产周期取其父Item的生产周期
+    salience 99
+    lock-on-active true  
+    when
+        $a : AntibodyFact( catalogNo matches ".*SC1195" || catalogNo matches ".*SC1665" || catalogNo matches ".*SC1198" )
+    then
+        $a.timeline = $a.parentItemTimeline;
+        
+        logger.info("Rule: Parent item timeline as the item timeline for Antibody service, quote/order item:{}-{}, parentItemTimeline:{}, the result:timeline={}",
+                     $a.quoteOrderNo, $a.quoteOrderItemId, $a.parentItemTimeline, $a.timeline);
+end
+
+

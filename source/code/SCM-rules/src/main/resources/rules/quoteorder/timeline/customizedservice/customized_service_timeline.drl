@@ -1,0 +1,44 @@
+package rules.quoteorder.timeline.customizedservice;
+
+import com.genscript.gsscm.rules.quoteorder.fact.items.CustomizedServiceFact;
+
+dialect  "mvel"
+
+global org.slf4j.Logger logger;
+
+rule "Customized Service timeline rule for SC1704" 
+    //SC1704取其父Item的生产周期,如果父Item生产周期为null，则取本Item的Catalog定义的lead time
+    salience 100
+    
+    when
+        $f : CustomizedServiceFact( catalogNo == "SC1704",
+                                    parentItemId != null && parentItemId != "")
+    then
+        if ($f.parentItemScheduleDays != null ){
+            $f.scheduleDays = $f.parentItemScheduleDays;
+            $f.timeline = $f.parentItemScheduleDays;
+        } else {
+            $f.scheduleDays = $f.leadTime;
+            $f.timeline = $f.leadTime;
+        }
+        
+        logger.info("Rule: Customized Service timeline rule for SC1704, quote/order:{}-{}, timeline:{},scheduleDays:{}",
+                     $f.quoteOrderNo,$f.itemNo, $f.timeline, $f.scheduleDays);
+end
+
+
+rule "Customized Service timeline rule: Lead Time as the timeline" 
+    //
+    salience 99
+    
+    when
+        $f : CustomizedServiceFact( catalogNo != "SC1704")
+    then
+        $f.scheduleDays = $f.leadTime;
+        $f.timeline = $f.leadTime;
+        
+        logger.info("Rule: Customized Service timeline rule: Lead Time as the timeline, quote/order:{}-{}, timeline:{},scheduleDays:{}",
+                     $f.quoteOrderNo, $f.itemNo, $f.timeline, $f.scheduleDays);
+end
+
+
