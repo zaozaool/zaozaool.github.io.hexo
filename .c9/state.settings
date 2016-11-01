@@ -15,14 +15,14 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 382,
+        "@height": 255,
         "@maximized": false,
         "json()": {
             "meta": {
                 "accessList": [
                     "tab3",
-                    "tab0",
                     "searchResults",
+                    "tab0",
                     "tab1"
                 ]
             },
@@ -465,7 +465,7 @@
                         "output": {
                             "id": "output792790",
                             "width": 966,
-                            "height": 356,
+                            "height": 229,
                             "config": {
                                 "runner": "Shell script",
                                 "command": "source/scripts/githubcommit.sh",
@@ -494,7 +494,7 @@
                             "timestamp": 1476022604521
                         },
                         "filter": true,
-                        "title": "Search Results",
+                        "title": "searchresults",
                         "tooltip": "/.c9/searchresults",
                         "ace": {}
                     },
@@ -526,7 +526,7 @@
             "@acestatus": 2,
             "@datagrid": 1,
             "@divider": 4,
-            "@document": 6,
+            "@document": 7,
             "@form": 5,
             "@imgeditor": 1,
             "@immediate": 1,
@@ -535,11 +535,11 @@
             "@pane": 6,
             "@postmessage": 3,
             "@preferences": 1,
-            "@preview": 4,
-            "@session": 5,
-            "@tab": 5,
+            "@preview": 1,
+            "@session": 6,
+            "@tab": 6,
             "@tree": 2,
-            "@undoManager": 6,
+            "@undoManager": 7,
             "@welcome": 1
         }
     },
@@ -571,7 +571,7 @@
     },
     "panecycle": {
         "json()": [
-            "tab3",
+            "searchResults",
             "tab1"
         ]
     },
@@ -605,14 +605,14 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 263,
+        "@scrollpos": 457,
         "@showfs": true,
         "expanded": {
             "json()": [
                 "/",
                 "/source",
-                "/source/code",
-                "/source/code/SCM-rules"
+                "/source/_posts",
+                "/source/scripts"
             ]
         }
     },
@@ -632,6 +632,12 @@
         },
         "search": {
             "json()": [
+                "profiles.active",
+                "cp",
+                "mv",
+                "mvmv",
+                "m'v",
+                "g",
                 "maxMonth",
                 "    - ",
                 "GenScript",
@@ -679,7 +685,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/_config.yml"
+            "/source/scripts/githubcommit.sh"
         ]
     }
 }

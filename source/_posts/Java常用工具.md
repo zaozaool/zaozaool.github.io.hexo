@@ -8,6 +8,10 @@ tags: [Java]
 - Checkstyle
 - PMD
 - JProfiler
-- JMeter
 - VisualVM
+- JMeter
 - Cobertura
+- Javancss
+- JRebel
+- Metrics
+- JDepend
