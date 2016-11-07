@@ -530,14 +530,14 @@
             "@form": 5,
             "@imgeditor": 1,
             "@immediate": 1,
-            "@menu": 5,
-            "@menuitem": 13,
+            "@menu": 6,
+            "@menuitem": 16,
             "@pane": 6,
             "@postmessage": 3,
             "@preferences": 1,
             "@preview": 1,
             "@session": 6,
-            "@tab": 6,
+            "@tab": 5,
             "@tree": 2,
             "@undoManager": 7,
             "@welcome": 1
@@ -571,8 +571,7 @@
     },
     "panecycle": {
         "json()": [
-            "searchResults",
-            "tab1"
+            "tab3"
         ]
     },
     "panels": {
@@ -605,7 +604,7 @@
         }
     },
     "projecttree": {
-        "@scrollpos": 457,
+        "@scrollpos": 1377,
         "@showfs": true,
         "expanded": {
             "json()": [
@@ -632,6 +631,7 @@
         },
         "search": {
             "json()": [
+                "GenS",
                 "profiles.active",
                 "cp",
                 "mv",
