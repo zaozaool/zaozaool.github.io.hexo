@@ -1,4 +1,4 @@
-title: Solr获取document的score和自定义排序
+title: Solr获取document的score及组合排序
 date: 2016-11-07 05:46:21
 categories: [后端]
 tags: [Solr]
