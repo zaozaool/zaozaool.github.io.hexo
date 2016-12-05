@@ -14,3 +14,20 @@ Solr默认是按照score排序的，如果有下面需求，需要先按照某�
 ```
 sort=字段名 ASC,score DESC 
 ```
+
+#删除索引
+```
+<delete><id>1</id></delete>
+<commit/>
+```
+或
+```
+<delete><query>id:1</query></delete>
+<commit/>
+```
+
+#清空索引
+```
+<delete><query>*:*</query></delete>
+<commit/>
+```
